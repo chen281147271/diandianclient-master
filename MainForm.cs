@@ -21,7 +21,7 @@ namespace DianDianClient
             comboBoxEx1.SelectedIndex = 0;
             foreach (DevExpress.Skins.SkinContainer skin in DevExpress.Skins.SkinManager.Default.Skins)
                 comboBoxEdit1.Properties.Items.Add(skin.SkinName);
-
+            this.WindowState = FormWindowState.Maximized;
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
