@@ -19,6 +19,13 @@ namespace DianDianClient
                 eStyle.Office2010Silver, eStyle.Office2010Black, eStyle.VisualStudio2010Blue, eStyle.VisualStudio2012Light, 
                 eStyle.VisualStudio2012Dark, eStyle.Office2007Blue, eStyle.Office2007Silver, eStyle.Office2007Black});
             comboBoxEx1.SelectedIndex = 0;
+            foreach (DevExpress.Skins.SkinContainer skin in DevExpress.Skins.SkinManager.Default.Skins)
+                comboBoxEdit1.Properties.Items.Add(skin.SkinName);
+
+        }
+        private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            defaultLookAndFeel1.LookAndFeel.SkinName = comboBoxEdit1.EditValue.ToString();
         }
 
         private void switchButton1_ValueChanged(object sender, EventArgs e)
