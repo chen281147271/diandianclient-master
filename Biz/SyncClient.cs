@@ -1,5 +1,5 @@
 ﻿using DianDianClient.Models;
-using DianDianClient.utils;
+using DianDianClient.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;

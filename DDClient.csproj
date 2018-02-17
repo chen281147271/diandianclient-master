@@ -78,37 +78,36 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\DevExpress 17.2\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.BonusSkins.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.BonusSkins.v17.2.dll</HintPath>
+    <Reference Include="DevExpress.BonusSkins.v17.2">
+      <HintPath>DevExpress 17.2\DevExpress.BonusSkins.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.Data.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.Data.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.Printing.v17.2.Core.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.Printing.v17.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.Utils.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.Utils.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.XtraEditors.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.XtraEditors.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.XtraGrid.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.XtraGrid.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.XtraLayout.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.XtraLayout.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevExpress.XtraPrinting.v17.2.dll</HintPath>
+      <HintPath>DevExpress 17.2\DevExpress.XtraPrinting.v17.2.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -117,6 +116,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.6.9.11\lib\net40\MySql.Data.dll</HintPath>
@@ -172,6 +174,402 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_account.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_adjunct.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_agent.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_agent_edit.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_agent_qrcode.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_agent_qrcode_num.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_clear_zyhfw.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_statistics.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_tixian.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bc_shop.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bc_shop_account.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cf_detail.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cf_main.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cf_meal.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cf_member.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\comment_keyword.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_actives.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_agent_balancetype.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_bank_code.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_bind_cards.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_book_orders.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_book_order_items.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_card_charges.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_card_tongji.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_card_userecord.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_chargecar_rule.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_coupons.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_false_data.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_item_isgood.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_meal_tips.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_member_shopcord.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_mem_card.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_mem_coupons.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_msg_imgurl.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_offline_error.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_order_refund.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_pay_channels.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_pay_orders.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_platform_log.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_qrcode_printaudit.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_qrpay_balance.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_rate_actives.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shopaddr_change.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_account.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_apply_loan.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_chain.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_paysetting.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_payway.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_sendmsg.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_service_msg.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_signusers.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_weixin.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_windows.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_wmcode.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_wxpay.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_sign_accounts.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_sign_meals.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_sys_consts.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_table_floor.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_tuijian.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_user_sendmsg.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_window_item.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_withdraw_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_wx_memcard.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_zyhfw_false.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\elm_shop_refreshtoken.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\income_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\interaction_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_category.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_category_map.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_comment.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_recomment.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_set.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_standard.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\member.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\member_notice.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\member_role.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\menu.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mt_shop_state.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mt_shop_token.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pay_bill.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\post.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\post_power.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\power.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\print_info.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\print_main.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\qr_code.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\qr_code_batch.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\redpacket_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\redpacket_rules.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\remark_tag.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\remote_request.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role_power.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_car.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_income_clean.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_income_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_info_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_item_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_oper_log.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shop_serial.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_crude.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_depot.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_depotin.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_depotin_info.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_depotout.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_depotout_info.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_genre.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_lossorspill.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_stock.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_common_ctype.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_common_type.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_menu.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_oper_log.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_role.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\table_member.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\table_pos.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\turn_user_record.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_document.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_dd_count_mid.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_dd_member_shopcord.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_dd_pocket_users.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_dd_shop_users.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_dd_shop_users_count.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_openuser.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MyControl\FoodManagement\EditDetailControl.cs">
       <SubType>UserControl</SubType>
@@ -230,7 +628,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils.cs" />
-    <Compile Include="utils\RestClient.cs" />
+    <Compile Include="Utils\RestClient.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -277,6 +675,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="app.manifest" />
+    <EntityDeploy Include="Models\DDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DDModel.edmx.diagram">
+      <DependentUpon>DDModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -311,9 +716,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\sort.png" />
     <None Include="Resources\offshelf.png" />
@@ -324,6 +727,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DDModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DDModel.edmx</DependentUpon>
+      <LastGenOutput>DDModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DDModel.edmx</DependentUpon>
+      <LastGenOutput>DDModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
