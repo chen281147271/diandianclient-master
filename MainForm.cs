@@ -4,8 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using DianDianClient.Biz;
+using DianDianClient.Models;
 
 namespace DianDianClient
 {
@@ -14,6 +17,16 @@ namespace DianDianClient
         public MainForm()
         {
             InitializeComponent();
+
+            SyncClient client = new SyncClient();
+            //创建后台同步的线程
+            Thread syncThread = new Thread(new ThreadStart(client.SyncMethod));
+            syncThread.Start();
+            BizBillController bbc = new BizBillController();
+            Thread billThread = new Thread(new ThreadStart(bbc.RemoteGetBillList));
+            billThread.Start();
+
+            //var tmp = bbc.GetTablePosList();
 
             comboBoxEx1.Items.AddRange(new object[] { eStyle.Office2013, eStyle.OfficeMobile2014, eStyle.Office2010Blue,
                 eStyle.Office2010Silver, eStyle.Office2010Black, eStyle.VisualStudio2010Blue, eStyle.VisualStudio2012Light, 
