@@ -12,7 +12,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Data.Filtering;
-namespace DianDianClient.MyControl
+namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class EditMenu : UserControl
     {
@@ -266,7 +266,7 @@ namespace DianDianClient.MyControl
         /// <param name="FoodId">菜品ID</param>
         private void ContextBtnEdit_Click(string FoodId)
         {
-            EditDetailForm editDetailForm = new EditDetailForm(FoodId);
+            MyForm.FoodManagement.EditDetailForm editDetailForm = new MyForm.FoodManagement.EditDetailForm(FoodId);
             editDetailForm.StartPosition = FormStartPosition.CenterScreen;
             int yHeight = SystemInformation.PrimaryMonitorSize.Height;
             editDetailForm.Height = yHeight;
@@ -290,7 +290,7 @@ namespace DianDianClient.MyControl
         /// </summary>
         private void ContextBtnLeftEdit_Click(string GroupID)
         {
-            EditGroupForm editGroupForm = new EditGroupForm(GroupID);
+            MyForm.FoodManagement.EditGroupForm editGroupForm = new MyForm.FoodManagement.EditGroupForm(GroupID);
             editGroupForm.StartPosition = FormStartPosition.CenterScreen;
             editGroupForm.ShowDialog();
         }

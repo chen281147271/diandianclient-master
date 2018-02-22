@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DianDianClient.MyControl
+namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class MgncPager : UserControl
     {

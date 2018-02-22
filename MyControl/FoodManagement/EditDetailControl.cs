@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 
-namespace DianDianClient.MyControl
+namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class EditDetail :UserControl 
     {
@@ -205,7 +205,7 @@ namespace DianDianClient.MyControl
         private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
         {
             //strSelected是返回值
-            MaterialSettingForm form4 = new MaterialSettingForm();
+            MyForm.FoodManagement.MaterialSettingForm form4 = new MyForm.FoodManagement.MaterialSettingForm();
             form4.StartPosition = FormStartPosition.CenterScreen;
             form4.ShowDialog();
             this.gridView1.SetRowCellValue(rowHandle_MaterialSetting, "Value", form4.strSelected);

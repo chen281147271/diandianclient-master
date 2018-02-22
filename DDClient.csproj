@@ -601,11 +601,59 @@
     <Compile Include="MyControl\FoodManagement\MgncPagerControl.Designer.cs">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\SelectedDetailsControl.cs">
+    <Compile Include="MyControl\TableSettlement\BtnSaleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\SelectedDetailsControl.Designer.cs">
+    <Compile Include="MyControl\TableSettlement\BtnSaleControl.Designer.cs">
+      <DependentUpon>BtnSaleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\PayBillControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\PayBillControl.Designer.cs">
+      <DependentUpon>PayBillControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\QianDanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\QianDanControl.Designer.cs">
+      <DependentUpon>QianDanControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\SaleControlcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\SaleControlcs.Designer.cs">
+      <DependentUpon>SaleControlcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\SelectedDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\SelectedDetailsControl.Designer.cs">
       <DependentUpon>SelectedDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\ServiceChargeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\ServiceChargeControl.Designer.cs">
+      <DependentUpon>ServiceChargeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TableSettlementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TableSettlementControl.Designer.cs">
+      <DependentUpon>TableSettlementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TuiCaiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TuiCaiControl.Designer.cs">
+      <DependentUpon>TuiCaiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TuiCaiGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TableSettlement\TuiCaiGridControl.Designer.cs">
+      <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyForm\FoodManagement\EditDetailForm.cs">
       <SubType>Form</SubType>
@@ -624,6 +672,30 @@
     </Compile>
     <Compile Include="MyForm\FoodManagement\MaterialSettingForm.Designer.cs">
       <DependentUpon>MaterialSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\PayBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\PayBillForm.Designer.cs">
+      <DependentUpon>PayBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\SaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\SaleForm.Designer.cs">
+      <DependentUpon>SaleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\TuiCaiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\TuiCaiForm.Designer.cs">
+      <DependentUpon>TuiCaiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\TuiCaiGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\TableSettlement\TuiCaiGrid.Designer.cs">
+      <DependentUpon>TuiCaiGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -648,8 +720,32 @@
     <EmbeddedResource Include="MyControl\FoodManagement\MgncPagerControl.resx">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyControl\SelectedDetailsControl.resx">
+    <EmbeddedResource Include="MyControl\TableSettlement\BtnSaleControl.resx">
+      <DependentUpon>BtnSaleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\PayBillControl.resx">
+      <DependentUpon>PayBillControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\QianDanControl.resx">
+      <DependentUpon>QianDanControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\SaleControlcs.resx">
+      <DependentUpon>SaleControlcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\SelectedDetailsControl.resx">
       <DependentUpon>SelectedDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\ServiceChargeControl.resx">
+      <DependentUpon>ServiceChargeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\TableSettlementControl.resx">
+      <DependentUpon>TableSettlementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\TuiCaiControl.resx">
+      <DependentUpon>TuiCaiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TableSettlement\TuiCaiGridControl.resx">
+      <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FoodManagement\EditDetailForm.resx">
       <DependentUpon>EditDetailForm.cs</DependentUpon>
@@ -659,6 +755,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FoodManagement\MaterialSettingForm.resx">
       <DependentUpon>MaterialSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\TableSettlement\PayBillForm.resx">
+      <DependentUpon>PayBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\TableSettlement\SaleForm.resx">
+      <DependentUpon>SaleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\TableSettlement\TuiCaiForm.resx">
+      <DependentUpon>TuiCaiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\TableSettlement\TuiCaiGrid.resx">
+      <DependentUpon>TuiCaiGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -739,6 +847,10 @@
       <DependentUpon>DDModel.edmx</DependentUpon>
       <LastGenOutput>DDModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\wait.png" />
+    <None Include="Resources\tuicai.png" />
+    <None Include="Resources\sale.png" />
+    <None Include="Resources\finish.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

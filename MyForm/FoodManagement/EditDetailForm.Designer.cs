@@ -1,4 +1,4 @@
-﻿namespace DianDianClient
+﻿namespace DianDianClient.MyForm.FoodManagement
 {
     partial class EditDetailForm
     {
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.editDetail1 = new DianDianClient.MyControl.EditDetail();
+            this.editDetail1 = new DianDianClient.MyControl.FoodManagement.EditDetail();
             this.SuspendLayout();
             // 
             // editDetail1
@@ -49,6 +49,6 @@
 
         #endregion
 
-        private MyControl.EditDetail editDetail1;
+        private MyControl.FoodManagement.EditDetail editDetail1;
     }
 }

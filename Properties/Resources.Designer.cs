@@ -93,6 +93,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap finish {
+            get {
+                object obj = ResourceManager.GetObject("finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap itemedit {
             get {
                 object obj = ResourceManager.GetObject("itemedit", resourceCulture);
@@ -106,6 +116,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap offshelf {
             get {
                 object obj = ResourceManager.GetObject("offshelf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap sale {
+            get {
+                object obj = ResourceManager.GetObject("sale", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +156,26 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap sort {
             get {
                 object obj = ResourceManager.GetObject("sort", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap tuicai {
+            get {
+                object obj = ResourceManager.GetObject("tuicai", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap wait {
+            get {
+                object obj = ResourceManager.GetObject("wait", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

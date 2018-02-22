@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
-namespace DianDianClient.MyControl
+namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class EditGroupControl : UserControl
     {
