@@ -1,6 +1,6 @@
-﻿namespace DianDianClient.MyForm.FoodManagement
+﻿namespace DianDianClient.MyForm.TableSettlement
 {
-    partial class EditGroupForm
+    partial class TuiCai
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.editGroupControl1 = new DianDianClient.MyControl.FoodManagement.EditGroupControl();
+            this.TuiCaiControl1 = new DianDianClient.MyControl.TableSettlement.TuiCaiControl();
             this.SuspendLayout();
             // 
-            // editGroupControl1
+            // TuiCaiControl1
             // 
-            this.editGroupControl1.BackColor = System.Drawing.SystemColors.Control;
-            this.editGroupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editGroupControl1.Location = new System.Drawing.Point(0, 0);
-            this.editGroupControl1.Name = "editGroupControl1";
-            this.editGroupControl1.Size = new System.Drawing.Size(814, 590);
-            this.editGroupControl1.TabIndex = 0;
+            this.TuiCaiControl1.BackColor = System.Drawing.Color.White;
+            this.TuiCaiControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TuiCaiControl1.Location = new System.Drawing.Point(0, 0);
+            this.TuiCaiControl1.Name = "TuiCaiControl1";
+            this.TuiCaiControl1.Size = new System.Drawing.Size(734, 317);
+            this.TuiCaiControl1.TabIndex = 0;
             // 
-            // EditGroupForm
+            // TuiCai
             // 
-            this.ClientSize = new System.Drawing.Size(814, 590);
-            this.Controls.Add(this.editGroupControl1);
-            this.Name = "EditGroupForm";
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(734, 317);
+            this.Controls.Add(this.TuiCaiControl1);
+            this.Name = "TuiCai";
+            this.Text = "TuiCai";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MyControl.FoodManagement.EditGroupControl editGroupControl1;
+        public MyControl.TableSettlement.TuiCaiControl TuiCaiControl1;
     }
 }

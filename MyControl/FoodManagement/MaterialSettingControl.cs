@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DianDianClient.MyControl
+namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class MaterialSetting : UserControl
     {

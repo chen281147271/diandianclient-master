@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-namespace DianDianClient
+namespace DianDianClient.MyForm.FoodManagement
 {
     public partial class EditDetailForm : DevExpress.XtraEditors.XtraForm
     {

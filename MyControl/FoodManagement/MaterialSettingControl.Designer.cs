@@ -1,4 +1,4 @@
-﻿namespace DianDianClient.MyControl
+﻿namespace DianDianClient.MyControl.FoodManagement
 {
     partial class MaterialSetting
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mgncPager1 = new DianDianClient.MyControl.MgncPager();
+            this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IsCheck = new DevExpress.XtraGrid.Columns.GridColumn();

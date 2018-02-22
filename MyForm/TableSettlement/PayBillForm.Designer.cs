@@ -1,6 +1,6 @@
-﻿namespace DianDianClient.MyForm.FoodManagement
+﻿namespace DianDianClient.MyForm.TableSettlement
 {
-    partial class MaterialSettingForm
+    partial class PayBillForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialSetting1 = new DianDianClient.MyControl.FoodManagement.MaterialSetting();
+            this.payBillControl1 = new DianDianClient.MyControl.TableSettlement.PayBillControl();
             this.SuspendLayout();
             // 
-            // materialSetting1
+            // payBillControl1
             // 
-            this.materialSetting1.BackColor = System.Drawing.Color.White;
-            this.materialSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialSetting1.Location = new System.Drawing.Point(0, 0);
-            this.materialSetting1.Name = "materialSetting1";
-            this.materialSetting1.Size = new System.Drawing.Size(858, 603);
-            this.materialSetting1.TabIndex = 0;
+            this.payBillControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.payBillControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.payBillControl1.Location = new System.Drawing.Point(0, 0);
+            this.payBillControl1.Name = "payBillControl1";
+            this.payBillControl1.Size = new System.Drawing.Size(832, 561);
+            this.payBillControl1.TabIndex = 0;
             // 
-            // MaterialSettingForm
+            // PayBillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 603);
-            this.Controls.Add(this.materialSetting1);
-            this.DoubleBuffered = true;
-            this.Name = "MaterialSettingForm";
-            this.Text = "Form4";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
+            this.ClientSize = new System.Drawing.Size(832, 561);
+            this.Controls.Add(this.payBillControl1);
+            this.Name = "PayBillForm";
+            this.Text = "PayBillForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MyControl.FoodManagement.MaterialSetting materialSetting1;
+        public MyControl.TableSettlement.PayBillControl payBillControl1;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DianDianClient.MyControl
+﻿namespace DianDianClient.MyControl.FoodManagement
 {
     partial class EditMenu
     {
