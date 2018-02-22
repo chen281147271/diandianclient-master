@@ -170,6 +170,7 @@
     <Compile Include="Biz\BizBusinessAnalysis.cs" />
     <Compile Include="Biz\BIZFoodController.cs" />
     <Compile Include="Biz\BizLoginController.cs" />
+    <Compile Include="Biz\BizMemberCard.cs" />
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\SyncClient.cs" />
     <Compile Include="io_api.cs" />
