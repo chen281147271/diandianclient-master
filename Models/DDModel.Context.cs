@@ -25,7 +25,6 @@ namespace DianDianClient.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<allot_account> allot_account { get; set; }
         public virtual DbSet<allot_adjunct> allot_adjunct { get; set; }
         public virtual DbSet<allot_agent> allot_agent { get; set; }
         public virtual DbSet<allot_agent_qrcode> allot_agent_qrcode { get; set; }
@@ -45,7 +44,6 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_bank_code> dd_bank_code { get; set; }
         public virtual DbSet<dd_bind_cards> dd_bind_cards { get; set; }
         public virtual DbSet<dd_book_order_items> dd_book_order_items { get; set; }
-        public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
         public virtual DbSet<dd_card_charges> dd_card_charges { get; set; }
         public virtual DbSet<dd_card_tongji> dd_card_tongji { get; set; }
         public virtual DbSet<dd_card_userecord> dd_card_userecord { get; set; }
@@ -152,5 +150,12 @@ namespace DianDianClient.Models
         public virtual DbSet<v_dd_pocket_users> v_dd_pocket_users { get; set; }
         public virtual DbSet<v_dd_shop_users> v_dd_shop_users { get; set; }
         public virtual DbSet<v_dd_shop_users_count> v_dd_shop_users_count { get; set; }
+        public virtual DbSet<v_cfdetailitem> v_cfdetailitem { get; set; }
+        public virtual DbSet<v_cfmainmeal> v_cfmainmeal { get; set; }
+        public virtual DbSet<v_cfmainaccount> v_cfmainaccount { get; set; }
+        public virtual DbSet<v_orderitem> v_orderitem { get; set; }
+        public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
+        public virtual DbSet<allot_account_false> allot_account_false { get; set; }
+        public virtual DbSet<allot_account> allot_account { get; set; }
     }
 }

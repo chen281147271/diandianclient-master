@@ -15,7 +15,7 @@ namespace DianDianClient.Models
     public partial class dd_book_orders
     {
         public int bid { get; set; }
-        public Nullable<bool> type { get; set; }
+        public Nullable<sbyte> type { get; set; }
         public string jctime { get; set; }
         public string addtime { get; set; }
         public string comm { get; set; }
@@ -23,7 +23,7 @@ namespace DianDianClient.Models
         public string linkman { get; set; }
         public string linktel { get; set; }
         public string sex { get; set; }
-        public Nullable<bool> status { get; set; }
+        public Nullable<sbyte> status { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<int> userid { get; set; }
         public Nullable<sbyte> usepeoples { get; set; }

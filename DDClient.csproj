@@ -128,6 +128,9 @@
       <HintPath>packages\MySql.Data.Entity.6.9.11\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll</HintPath>
     </Reference>
@@ -164,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biz\BizBillController.cs" />
+    <Compile Include="Biz\BizBusinessAnalysis.cs" />
     <Compile Include="Biz\BIZFoodController.cs" />
     <Compile Include="Biz\BizLoginController.cs" />
     <Compile Include="Biz\BizSPInfoController.cs" />
@@ -176,6 +180,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\allot_account.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\allot_account_false.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\allot_adjunct.cs">
@@ -223,6 +230,7 @@
     <Compile Include="Models\comment_keyword.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommonResponseBean.cs" />
     <Compile Include="Models\DDModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -388,6 +396,7 @@
     <Compile Include="Models\elm_shop_refreshtoken.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetBillResponseBean.cs" />
     <Compile Include="Models\income_record.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -415,6 +424,7 @@
     <Compile Include="Models\item_standard.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginResponseBean.cs" />
     <Compile Include="Models\member.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -457,6 +467,7 @@
     <Compile Include="Models\qr_code_batch.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RecordGroupBean.cs" />
     <Compile Include="Models\redpacket_record.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -541,6 +552,7 @@
     <Compile Include="Models\sys_role.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TableListBean.cs" />
     <Compile Include="Models\table_member.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -551,6 +563,15 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\t_document.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_cfdetailitem.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_cfmainaccount.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_cfmainmeal.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_dd_count_mid.cs">
@@ -566,6 +587,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_dd_shop_users_count.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_orderitem.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\wb_openuser.cs">
@@ -700,6 +724,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils.cs" />
+    <Compile Include="Utils\Md5Helper.cs" />
     <Compile Include="Utils\RestClient.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
