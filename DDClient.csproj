@@ -81,6 +81,7 @@
     <Reference Include="DevExpress.BonusSkins.v17.2">
       <HintPath>DevExpress 17.2\DevExpress.BonusSkins.v17.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DevExpress 17.2\DevExpress.Data.v17.2.dll</HintPath>
@@ -93,6 +94,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DevExpress 17.2\DevExpress.Utils.v17.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.UI, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DevExpress 17.2\DevExpress.XtraEditors.v17.2.dll</HintPath>
@@ -595,6 +600,36 @@
     <Compile Include="Models\wb_openuser.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessAnalysisControl.Designer.cs">
+      <DependentUpon>BusinessAnalysisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessDetailControl.Designer.cs">
+      <DependentUpon>BusinessDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\BusinessDetailsControl.Designer.cs">
+      <DependentUpon>BusinessDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\FoodStatisticsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\FoodStatisticsControl.Designer.cs">
+      <DependentUpon>FoodStatisticsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderListControl.Designer.cs">
+      <DependentUpon>OrderListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\FoodManagement\EditDetailControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -679,6 +714,12 @@
     <Compile Include="MyControl\TableSettlement\TuiCaiGridControl.Designer.cs">
       <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\BusinessDetails\OrderListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\BusinessDetails\OrderListForm.Designer.cs">
+      <DependentUpon>OrderListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\FoodManagement\EditDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -730,6 +771,21 @@
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\BusinessAnalysisControl.resx">
+      <DependentUpon>BusinessAnalysisControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\BusinessDetailControl.resx">
+      <DependentUpon>BusinessDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\BusinessDetailsControl.resx">
+      <DependentUpon>BusinessDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\FoodStatisticsControl.resx">
+      <DependentUpon>FoodStatisticsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\OrderListControl.resx">
+      <DependentUpon>OrderListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\FoodManagement\EditDetailControl.resx">
       <DependentUpon>EditDetailControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -771,6 +827,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\TableSettlement\TuiCaiGridControl.resx">
       <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\BusinessDetails\OrderListForm.resx">
+      <DependentUpon>OrderListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FoodManagement\EditDetailForm.resx">
       <DependentUpon>EditDetailForm.cs</DependentUpon>
