@@ -5,10 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.ComponentModel;
-namespace DianDianClient
+namespace DianDianClient.Utils
 {
     public static class utils
     {
+        public delegate void MyDelegate(string title, string msg, int FormDelayTime);
+        public static event MyDelegate MyEvent;
+        //右下角提示框
+        public static void ShowTip(string title, string msg, int FormDelayTime)
+        {
+            MyEvent(title, msg, FormDelayTime);
+        }
         public static DataTable CopyToDataTable<T>(this IEnumerable<T> array)
         {
             var ret = new DataTable();
@@ -23,5 +30,6 @@ namespace DianDianClient
             }
             return ret;
         }
+
     }
 }

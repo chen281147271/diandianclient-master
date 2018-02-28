@@ -108,11 +108,11 @@ namespace DianDianClient.MyControl.FoodManagement
                     };
             if (singlePage)
             {
-                this.gridControl1.DataSource = utils.CopyToDataTable(q.Skip((curPage - 1) * pageSize).Take(pageSize).ToList());
+                this.gridControl1.DataSource = Utils.utils.CopyToDataTable(q.Skip((curPage - 1) * pageSize).Take(pageSize).ToList());
             }
             else
             {
-                this.gridControl1.DataSource = utils.CopyToDataTable(q.ToList());
+                this.gridControl1.DataSource = Utils.utils.CopyToDataTable(q.ToList());
             }
             this.allcount = q.Count();
         }

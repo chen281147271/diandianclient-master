@@ -42,6 +42,8 @@ namespace DianDianClient
 
             //默认打开桌位
             OpenDefaultTable();
+
+            Utils.utils.MyEvent += ShowTip;
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -146,6 +148,22 @@ namespace DianDianClient
             tableSettlement1.Dock = DockStyle.Fill;
             this.sideNavPanel2.Controls.Add(tableSettlement1);
             splashScreenManager1.CloseWaitForm();
+        }
+        public void ShowTip(string title, string msg, int FormDelayTime)
+        {
+            this.Invoke(new MessageBoxShow(MessageBoxShow_F), new object[] { title, msg, FormDelayTime });
+        }
+        delegate void MessageBoxShow(string title, string msg, int FormDelayTime);
+        void MessageBoxShow_F(string title, string msg, int FormDelayTime)
+        {
+            DevExpress.XtraBars.Alerter.AlertInfo info = new DevExpress.XtraBars.Alerter.AlertInfo(title, msg);
+            //出现的效果方式
+            this.alertControl1.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.MoveHorizontal;
+            //弹出的速度
+            this.alertControl1.FormDisplaySpeed = DevExpress.XtraBars.Alerter.AlertFormDisplaySpeed.Slow;
+            //以毫秒为单位
+            this.alertControl1.AutoFormDelay = FormDelayTime;
+            alertControl1.Show(this, info);
         }
     }
 }
