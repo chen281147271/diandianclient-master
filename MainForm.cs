@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using DevExpress.Utils;
 using DianDianClient.Biz;
 using DianDianClient.Models;
 
@@ -14,6 +15,9 @@ namespace DianDianClient
 {
     public partial class MainForm : OfficeForm
     {
+        //是否第一次打开选项卡
+        bool FoodManagement = false;
+        bool BusinessDetails = false;
         public MainForm()
         {
             InitializeComponent();
@@ -35,6 +39,9 @@ namespace DianDianClient
             foreach (DevExpress.Skins.SkinContainer skin in DevExpress.Skins.SkinManager.Default.Skins)
                 comboBoxEdit1.Properties.Items.Add(skin.SkinName);
             this.WindowState = FormWindowState.Maximized;
+
+            //默认打开桌位
+            OpenDefaultTable();
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -94,6 +101,51 @@ namespace DianDianClient
         private void labelX13_MarkupLinkClick(object sender, MarkupLinkClickEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.devcomponents.com/kb2/?p=1687");
+        }
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
+        private void sideNavItem6_Click(object sender, EventArgs e)
+        {
+            if (!BusinessDetails)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.BusinessDetails.BusinessDetailsControl businessDetailsControl1 = new MyControl.BusinessDetails.BusinessDetailsControl();
+                businessDetailsControl1.Dock = DockStyle.Fill;
+                this.sideNavPanel5.Controls.Add(businessDetailsControl1);
+                BusinessDetails = true;
+                splashScreenManager1.CloseWaitForm();
+            }
+        }
+
+        private void sideNavItem4_Click(object sender, EventArgs e)
+        {
+            if (!FoodManagement)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.FoodManagement.EditMenu editMenu1 = new MyControl.FoodManagement.EditMenu();
+                editMenu1.Dock = DockStyle.Fill;
+                this.sideNavPanel3.Controls.Add(editMenu1);
+                FoodManagement = true;
+                splashScreenManager1.CloseWaitForm();
+            }
+        }
+        private void OpenDefaultTable()
+        {
+            sideNavItem3.Select();
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+            MyControl.TableSettlement.TableSettlement tableSettlement1 = new MyControl.TableSettlement.TableSettlement();
+            tableSettlement1.Dock = DockStyle.Fill;
+            this.sideNavPanel2.Controls.Add(tableSettlement1);
+            splashScreenManager1.CloseWaitForm();
         }
     }
 }

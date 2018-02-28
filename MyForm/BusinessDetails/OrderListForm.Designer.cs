@@ -53,6 +53,6 @@
 
         #endregion
 
-        private MyControl.BusinessDetails.OrderListControl orderListControl1;
+        public MyControl.BusinessDetails.OrderListControl orderListControl1;
     }
 }

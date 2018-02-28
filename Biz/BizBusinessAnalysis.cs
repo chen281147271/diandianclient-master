@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 
 namespace DianDianClient.Biz
 {
@@ -12,7 +14,7 @@ namespace DianDianClient.Biz
         private DianDianEntities db = new DianDianEntities();
 
         //查询营业额
-        decimal QueryTotleTurnover(DateTime sdate, DateTime edate)
+      public decimal QueryTotleTurnover(DateTime sdate, DateTime edate)
         {
             decimal rsl = db.dd_shop_account.Where(p => p.shopkey == Properties.Settings.Default.shopkey
                 && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).Sum(p => p.money).Value;
@@ -20,17 +22,28 @@ namespace DianDianClient.Biz
             return rsl;
         }
         //查询业务笔数
-        int QueryRecordNums(DateTime sdate, DateTime edate)
+        public int QueryRecordNums(DateTime sdate, DateTime edate)
         {
             return db.dd_shop_account.Where(p => p.shopkey == Properties.Settings.Default.shopkey
                 && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).Count();
         }
 
         //按类型分类统计
-        RecordGroupTotleBean QueryRecordGroupByType(DateTime sdate, DateTime edate)
+        public RecordGroupTotleBean QueryRecordGroupByType(DateTime sdate, DateTime edate)
         {
-            List<dd_shop_account> recordList = db.dd_shop_account.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).ToList();
+            //List<dd_shop_account> recordList = db.dd_shop_account.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+            //    && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).ToList();
+
+            //List<dd_shop_account> recordList = db.dd_shop_account.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+            //&& SqlFunctions.DateAdd("dd", 0, p.createdate) <= edate).ToList();
+
+            List<dd_shop_account> recordList = (from a in db.dd_shop_account.ToList()
+                       where a.shopkey==Properties.Settings.Default.shopkey
+                       &&
+                       Convert.ToDateTime(a.createdate) >= sdate
+                       &&
+                       Convert.ToDateTime(a.createdate) <= edate
+                       select a).ToList();
             var rslList = recordList.GroupBy(p => p.type);
             RecordGroupTotleBean rslbean = new RecordGroupTotleBean();
             rslbean.totleCount = recordList.Count();

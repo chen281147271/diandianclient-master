@@ -44,8 +44,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCategoryID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPicture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -191,9 +189,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCategoryID,
-            this.colCategoryName,
-            this.colDescription,
-            this.colPicture});
+            this.colCategoryName});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -211,35 +207,19 @@
             // 
             // colCategoryID
             // 
-            this.colCategoryID.FieldName = "CategoryID";
+            this.colCategoryID.FieldName = "orderno";
             this.colCategoryID.Name = "colCategoryID";
+            this.colCategoryID.Visible = true;
+            this.colCategoryID.VisibleIndex = 1;
             // 
             // colCategoryName
             // 
-            this.colCategoryName.FieldName = "CategoryName";
+            this.colCategoryName.FieldName = "money";
             this.colCategoryName.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colCategoryName.ImageOptions.Image")));
             this.colCategoryName.Name = "colCategoryName";
             this.colCategoryName.Visible = true;
-            this.colCategoryName.VisibleIndex = 1;
+            this.colCategoryName.VisibleIndex = 0;
             this.colCategoryName.Width = 148;
-            // 
-            // colDescription
-            // 
-            this.colDescription.FieldName = "Description";
-            this.colDescription.Name = "colDescription";
-            this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 2;
-            this.colDescription.Width = 297;
-            // 
-            // colPicture
-            // 
-            this.colPicture.ColumnEdit = this.repositoryItemPictureEdit1;
-            this.colPicture.FieldName = "Picture";
-            this.colPicture.Name = "colPicture";
-            this.colPicture.OptionsFilter.AllowFilter = false;
-            this.colPicture.Visible = true;
-            this.colPicture.VisibleIndex = 0;
-            this.colPicture.Width = 190;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -362,7 +342,7 @@
         private System.Windows.Forms.Label Lbl_char1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private MyControl.FoodManagement.MgncPager mgncPager1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        public  DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colProductName;
         private DevExpress.XtraGrid.Columns.GridColumn colQuantityPerUnit;
@@ -376,8 +356,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colCategoryID;
         private DevExpress.XtraGrid.Columns.GridColumn colCategoryName;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn colPicture;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
     }

@@ -16,6 +16,7 @@ namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class EditMenu : UserControl
     {
+        Biz.BIZFoodController bIZFoodController = new Biz.BIZFoodController();
         public EditMenu()
         {
             InitializeComponent();
@@ -143,7 +144,11 @@ namespace DianDianClient.MyControl.FoodManagement
         {
             try
             {
-                // Demo 数据 字段名请不要改变
+                //var a=bIZFoodController.GetFoodList();
+
+
+
+                   // Demo 数据 字段名请不要改变
                 Bitmap bm = Properties.Resources._1;
                 DataTable dt = new DataTable("Menudetail");
                 dt.Columns.Add("FoodName", typeof(String));
@@ -169,7 +174,6 @@ namespace DianDianClient.MyControl.FoodManagement
                     string State = "荤菜";
                     dt.Rows.Add(new object[] { strNumber, bm, strprice, State, i,2 });
                 }
-
                 DataTable temptb = dt;
                 gridControl1.DataSource = temptb.DefaultView;
                 dt.Rows.Add(new object[] { null, null, null, "全部", 1,0 });
