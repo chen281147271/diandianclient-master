@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using DevExpress.Utils;
 using DianDianClient.Biz;
 using DianDianClient.Models;
 
@@ -14,6 +15,9 @@ namespace DianDianClient
 {
     public partial class MainForm : OfficeForm
     {
+        //是否第一次打开选项卡
+        bool FoodManagement = false;
+        bool BusinessDetails = false;
         public MainForm()
         {
             InitializeComponent();
@@ -37,6 +41,11 @@ namespace DianDianClient
             foreach (DevExpress.Skins.SkinContainer skin in DevExpress.Skins.SkinManager.Default.Skins)
                 comboBoxEdit1.Properties.Items.Add(skin.SkinName);
             this.WindowState = FormWindowState.Maximized;
+
+            //默认打开桌位
+            OpenDefaultTable();
+
+            Utils.utils.MyEvent += ShowTip;
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -96,6 +105,67 @@ namespace DianDianClient
         private void labelX13_MarkupLinkClick(object sender, MarkupLinkClickEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.devcomponents.com/kb2/?p=1687");
+        }
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
+        private void sideNavItem6_Click(object sender, EventArgs e)
+        {
+            if (!BusinessDetails)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.BusinessDetails.BusinessDetailsControl businessDetailsControl1 = new MyControl.BusinessDetails.BusinessDetailsControl();
+                businessDetailsControl1.Dock = DockStyle.Fill;
+                this.sideNavPanel5.Controls.Add(businessDetailsControl1);
+                BusinessDetails = true;
+                splashScreenManager1.CloseWaitForm();
+            }
+        }
+
+        private void sideNavItem4_Click(object sender, EventArgs e)
+        {
+            if (!FoodManagement)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.FoodManagement.EditMenu editMenu1 = new MyControl.FoodManagement.EditMenu();
+                editMenu1.Dock = DockStyle.Fill;
+                this.sideNavPanel3.Controls.Add(editMenu1);
+                FoodManagement = true;
+                splashScreenManager1.CloseWaitForm();
+            }
+        }
+        private void OpenDefaultTable()
+        {
+            sideNavItem3.Select();
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+            MyControl.TableSettlement.TableSettlement tableSettlement1 = new MyControl.TableSettlement.TableSettlement();
+            tableSettlement1.Dock = DockStyle.Fill;
+            this.sideNavPanel2.Controls.Add(tableSettlement1);
+            splashScreenManager1.CloseWaitForm();
+        }
+        public void ShowTip(string title, string msg, int FormDelayTime)
+        {
+            this.Invoke(new MessageBoxShow(MessageBoxShow_F), new object[] { title, msg, FormDelayTime });
+        }
+        delegate void MessageBoxShow(string title, string msg, int FormDelayTime);
+        void MessageBoxShow_F(string title, string msg, int FormDelayTime)
+        {
+            DevExpress.XtraBars.Alerter.AlertInfo info = new DevExpress.XtraBars.Alerter.AlertInfo(title, msg);
+            //出现的效果方式
+            this.alertControl1.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.MoveHorizontal;
+            //弹出的速度
+            this.alertControl1.FormDisplaySpeed = DevExpress.XtraBars.Alerter.AlertFormDisplaySpeed.Slow;
+            //以毫秒为单位
+            this.alertControl1.AutoFormDelay = FormDelayTime;
+            alertControl1.Show(this, info);
         }
     }
 }
