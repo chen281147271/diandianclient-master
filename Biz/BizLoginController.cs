@@ -13,6 +13,8 @@ namespace DianDianClient.Biz
         log4net.ILog log = log4net.LogManager.GetLogger("BizLoginController");
         private DianDianEntities db = new DianDianEntities();
         static private string loginUrl = "http://app.diandiancaidan.com/back/pclogin.html";
+        static public int userid = 0;
+        static public string username = "";
 
         //远程登录
         public LoginResponseBean RemoteLogin(int shopcode, String username, String password)

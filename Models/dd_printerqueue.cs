@@ -12,18 +12,14 @@ namespace DianDianClient.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class dd_shop_signusers
+    public partial class dd_printerqueue
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public string telno { get; set; }
-        public Nullable<int> maxusenums { get; set; }
-        public Nullable<decimal> maxprice { get; set; }
-        public string addtime { get; set; }
-        public Nullable<int> signnums { get; set; }
-        public Nullable<decimal> signmoney { get; set; }
-        public string lasttime { get; set; }
-        public Nullable<int> state { get; set; }
-        public Nullable<int> shopkey { get; set; }
+        public string printername { get; set; }
+        public string cfmainkey { get; set; }
+        public string pcontent { get; set; }
+        public Nullable<int> status { get; set; }
+        public Nullable<int> printtype { get; set; }
+        public Nullable<System.DateTime> addtime { get; set; }
     }
 }

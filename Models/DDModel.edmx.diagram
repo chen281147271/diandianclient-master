@@ -50,7 +50,6 @@
         <EntityTypeShape EntityType="diandianModel.dd_shop_payway" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_sendmsg" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_service_msg" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.dd_shop_signusers" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_weixin" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_windows" Width="1.5" PointX="20.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_wmcode" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
@@ -181,6 +180,22 @@
         <EntityTypeShape EntityType="diandianModel.dd_book_orders" Width="1.5" PointX="14.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account_false" Width="1.5" PointX="16.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account" Width="1.5" PointX="18.375" PointY="30.75" />
+        <EntityTypeShape EntityType="diandianModel.v_category_items" Width="1.5" PointX="20.375" PointY="30.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_shop_signusers" Width="1.5" PointX="31.375" PointY="0.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_item_crude" Width="1.5" PointX="31.375" PointY="4.75" />
+        <EntityTypeShape EntityType="diandianModel.v_item_crude" Width="1.5" PointX="31.375" PointY="7.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_adjunct_edit" Width="1.5" PointX="31.375" PointY="12.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_areas" Width="1.5" PointX="31.375" PointY="16.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_printers" Width="1.5" PointX="31.375" PointY="23.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_shop_paycode" Width="1.5" PointX="25.375" PointY="31.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_tuijian_link" Width="1.5" PointX="31.375" PointY="27.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_user" Width="1.5" PointX="31.375" PointY="31.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_zbank_code" Width="1.5" PointX="33.375" PointY="0.75" />
+        <EntityTypeShape EntityType="diandianModel.elm_shop_id" Width="1.5" PointX="33.375" PointY="3.75" />
+        <EntityTypeShape EntityType="diandianModel.shop_edit" Width="1.5" PointX="33.375" PointY="6.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_shop_depot" Width="1.5" PointX="9.375" PointY="33.75" />
+        <EntityTypeShape EntityType="diandianModel.sys_right" Width="1.5" PointX="11.375" PointY="33.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_printerqueue" Width="1.5" PointX="33.375" PointY="20.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

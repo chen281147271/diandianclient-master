@@ -142,6 +142,7 @@
     <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
     </Reference>
@@ -164,6 +165,7 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biz\BizBillController.cs" />
@@ -171,6 +173,8 @@
     <Compile Include="Biz\BIZFoodController.cs" />
     <Compile Include="Biz\BizLoginController.cs" />
     <Compile Include="Biz\BizMemberCard.cs" />
+    <Compile Include="Biz\BizPrinter.cs" />
+    <Compile Include="Biz\BizPromotionActivities.cs" />
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\SyncClient.cs" />
     <Compile Include="io_api.cs" />
@@ -250,7 +254,13 @@
     <Compile Include="Models\dd_actives.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\dd_adjunct_edit.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\dd_agent_balancetype.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_areas.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\dd_bank_code.cs">
@@ -316,6 +326,12 @@
     <Compile Include="Models\dd_platform_log.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\dd_printerqueue.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_printers.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\dd_qrcode_printaudit.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -335,6 +351,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\dd_shop_chain.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_shop_paycode.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\dd_shop_paysetting.cs">
@@ -379,6 +398,12 @@
     <Compile Include="Models\dd_tuijian.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\dd_tuijian_link.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dd_user.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\dd_user_sendmsg.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -391,7 +416,13 @@
     <Compile Include="Models\dd_wx_memcard.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\dd_zbank_code.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\dd_zyhfw_false.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\elm_shop_id.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\elm_shop_refreshtoken.cs">
@@ -493,6 +524,9 @@
     <Compile Include="Models\shop_car.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\shop_edit.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\shop_income_clean.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -532,7 +566,13 @@
     <Compile Include="Models\storage_genre.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\storage_item_crude.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\storage_lossorspill.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\storage_shop_depot.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\storage_stock.cs">
@@ -550,6 +590,9 @@
     <Compile Include="Models\sys_oper_log.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sys_right.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sys_role.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -564,6 +607,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\t_document.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_category_items.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_cfdetailitem.cs">
@@ -588,6 +634,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_dd_shop_users_count.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_item_crude.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_orderitem.cs">
@@ -725,8 +774,25 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils.cs" />
+    <Compile Include="Utils\BeiYangOPOS.cs" />
+    <Compile Include="Utils\CommControl.cs" />
+    <Compile Include="Utils\DeviceIoControl.cs" />
+    <Compile Include="Utils\HardwareEnum.cs" />
+    <Compile Include="Utils\HttpUtil.cs" />
+    <Compile Include="Utils\HttpWebResponseUtility.cs" />
+    <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Utils\LogHelper.cs" />
+    <Compile Include="Utils\LPTControls.cs" />
     <Compile Include="Utils\Md5Helper.cs" />
+    <Compile Include="Utils\MyHttpClient.cs" />
+    <Compile Include="Biz\MyPrintHandler.cs" />
+    <Compile Include="Utils\PrintImpact.cs" />
+    <Compile Include="Utils\PrintUtil.cs" />
     <Compile Include="Utils\RestClient.cs" />
+    <Compile Include="Utils\SysConstant.cs" />
+    <Compile Include="Utils\USB.cs" />
+    <Compile Include="Utils\UsbEnumXML.cs" />
+    <Compile Include="Utils\UsbPrinterResolver.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -873,6 +939,7 @@
       <DependentUpon>DDModel.edmx</DependentUpon>
       <LastGenOutput>DDModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />
     <None Include="Resources\sale.png" />

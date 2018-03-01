@@ -26,7 +26,9 @@ namespace DianDianClient
             Thread billThread = new Thread(new ThreadStart(bbc.RemoteGetBillList));
             billThread.Start();
 
-            //var tmp = bbc.GetTablePosList();
+            BIZFoodController bfc = new BIZFoodController();
+
+            var tmp = bfc.GetFoodList(0);
 
             comboBoxEx1.Items.AddRange(new object[] { eStyle.Office2013, eStyle.OfficeMobile2014, eStyle.Office2010Blue,
                 eStyle.Office2010Silver, eStyle.Office2010Black, eStyle.VisualStudio2010Blue, eStyle.VisualStudio2012Light, 

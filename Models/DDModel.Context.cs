@@ -70,7 +70,6 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_shop_payway> dd_shop_payway { get; set; }
         public virtual DbSet<dd_shop_sendmsg> dd_shop_sendmsg { get; set; }
         public virtual DbSet<dd_shop_service_msg> dd_shop_service_msg { get; set; }
-        public virtual DbSet<dd_shop_signusers> dd_shop_signusers { get; set; }
         public virtual DbSet<dd_shop_weixin> dd_shop_weixin { get; set; }
         public virtual DbSet<dd_shop_windows> dd_shop_windows { get; set; }
         public virtual DbSet<dd_shop_wmcode> dd_shop_wmcode { get; set; }
@@ -157,5 +156,21 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
         public virtual DbSet<allot_account_false> allot_account_false { get; set; }
         public virtual DbSet<allot_account> allot_account { get; set; }
+        public virtual DbSet<v_category_items> v_category_items { get; set; }
+        public virtual DbSet<dd_shop_signusers> dd_shop_signusers { get; set; }
+        public virtual DbSet<storage_item_crude> storage_item_crude { get; set; }
+        public virtual DbSet<v_item_crude> v_item_crude { get; set; }
+        public virtual DbSet<dd_adjunct_edit> dd_adjunct_edit { get; set; }
+        public virtual DbSet<dd_areas> dd_areas { get; set; }
+        public virtual DbSet<dd_printers> dd_printers { get; set; }
+        public virtual DbSet<dd_shop_paycode> dd_shop_paycode { get; set; }
+        public virtual DbSet<dd_tuijian_link> dd_tuijian_link { get; set; }
+        public virtual DbSet<dd_user> dd_user { get; set; }
+        public virtual DbSet<dd_zbank_code> dd_zbank_code { get; set; }
+        public virtual DbSet<elm_shop_id> elm_shop_id { get; set; }
+        public virtual DbSet<shop_edit> shop_edit { get; set; }
+        public virtual DbSet<storage_shop_depot> storage_shop_depot { get; set; }
+        public virtual DbSet<sys_right> sys_right { get; set; }
+        public virtual DbSet<dd_printerqueue> dd_printerqueue { get; set; }
     }
 }
