@@ -140,6 +140,7 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=6.9.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.6.9.11\lib\net40\MySql.Data.dll</HintPath>
       <Private>True</Private>
@@ -829,7 +830,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utils.cs" />
+    <Compile Include="Utils\utils.cs" />
+    <Compile Include="Utils\BeiYangOPOS.cs" />
+    <Compile Include="Utils\CommControl.cs" />
+    <Compile Include="Utils\DeviceIoControl.cs" />
+    <Compile Include="Utils\HardwareEnum.cs" />
+    <Compile Include="Utils\HttpUtil.cs" />
+    <Compile Include="Utils\HttpWebResponseUtility.cs" />
+    <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Utils\LogHelper.cs" />
+    <Compile Include="Utils\LPTControls.cs" />
     <Compile Include="Utils\Md5Helper.cs" />
     <Compile Include="Utils\MyHttpClient.cs" />
     <Compile Include="Biz\MyPrintHandler.cs" />
@@ -844,7 +854,6 @@
     </Compile>
     <Compile Include="Utils\SysConstant.cs" />
     <Compile Include="Utils\USB.cs" />
-    <Compile Include="Utils\UsbEnumXML.cs" />
     <Compile Include="Utils\UsbPrinterResolver.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>

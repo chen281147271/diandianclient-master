@@ -31,11 +31,14 @@ namespace DianDianClient.Biz
         PrintDocument printDocument1;
         BeiYangOPOS opos = new BeiYangOPOS();
         private Object thisLock = new object();
+        private Form form;
+
         private Dictionary<string, object> pcontent = null;
         private Queue<Dictionary<string, object>> printque = new Queue<Dictionary<string, object>>();//打印队列
 
-        public MyPrintHandler(Dictionary<string, object> pcontent) {
+        public MyPrintHandler(Dictionary<string, object> pcontent , Form form) {
             this.pcontent = pcontent;
+            this.form = form;
             printDocument1 = new PrintDocument();
             PrintController printController = new StandardPrintController();
             printDocument1.PrintController = printController;
@@ -163,7 +166,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            
+
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
                             //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
@@ -213,11 +217,11 @@ namespace DianDianClient.Biz
                             }
                             catch (Exception e)
                             {
-                                log.Error("")
+                                log.Error(errormsg);
                             }
 
                         }
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     windowPrintPage(printname, printer);
@@ -227,8 +231,7 @@ namespace DianDianClient.Biz
                 {
                     //printname = printname.Substring(cindex + 4);
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
-                    com.BaudRate = pbites;
+                    com.BaudRate = printer.pbites.Value;
                     com.PortName = printname;
                     com.DataBits = 8;
                     bool b = opos.OpenComPort(ref com);
@@ -241,7 +244,7 @@ namespace DianDianClient.Biz
                             string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置2",
                                             printname);
                             Console.WriteLine(errormsg);
-                            form.showmsg(errormsg);
+                            utils.ShowTip("警告", errormsg, 5000);
                             return;
                         }
                     }
@@ -283,7 +286,7 @@ namespace DianDianClient.Biz
             }
         }
        
-        private void windowPrintPage(string printname, Dictionary<string, object> printer)
+        private void windowPrintPage(string printname, dd_printers printer)
         {
           
           
@@ -299,7 +302,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width =2;
                
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -630,7 +633,7 @@ namespace DianDianClient.Biz
             
 
         }
-        private void windowUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void windowUsbPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -645,7 +648,7 @@ namespace DianDianClient.Biz
 
                 #region 执行指令打印
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -987,7 +990,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void windowLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void windowLptPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -1002,7 +1005,7 @@ namespace DianDianClient.Biz
                 }
                 #region 执行指令打印
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 string kongestr = "";
@@ -1719,7 +1722,7 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                          printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
 
@@ -1784,7 +1787,7 @@ namespace DianDianClient.Biz
                     string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                          printname);
                     Console.WriteLine(errormsg);
-                    form.showmsg(errormsg);
+                    utils.ShowTip("警告", errormsg, 5000);
                     return;
                 }
 
@@ -1909,7 +1912,7 @@ namespace DianDianClient.Biz
                 State = "打印出错...";             
                 string errormsg = "打印出错:" + Ex.Message;
                 Console.WriteLine(errormsg);
-                form.showmsg(errormsg);
+                utils.ShowTip("警告", errormsg, 5000);
                  
             }
         }
@@ -1927,8 +1930,10 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
+                
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -1942,7 +1947,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -1993,7 +1999,7 @@ namespace DianDianClient.Biz
                 {
 
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -2003,7 +2009,7 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                             printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     huadanPrintPage(printname, printer);
@@ -2035,7 +2041,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void huadanPrintPage(string printname, Dictionary<string, object> printer)
+        private void huadanPrintPage(string printname, dd_printers printer)
         {
 
                 if (pcontent != null)
@@ -2045,7 +2051,7 @@ namespace DianDianClient.Biz
                     uint width = 2;
                
                
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -2313,7 +2319,7 @@ namespace DianDianClient.Biz
             
 
         }
-        private void huadanUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void huadanUsbPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -2323,7 +2329,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
 
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -2578,7 +2584,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void huadanLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void huadanLptPrintPage(string printname, dd_printers printer)
         {
           
             if (pcontent != null)
@@ -2588,7 +2594,7 @@ namespace DianDianClient.Biz
                 JObject main = (JObject)pcontent["main"];
                 #region 执行指令打印
                 uint width = 2;
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 string kongestr = "";
@@ -3046,8 +3052,9 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -3063,7 +3070,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置",5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -3112,7 +3120,7 @@ namespace DianDianClient.Biz
                 {
 
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -3122,7 +3130,7 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                             printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     //BeiYangOPOS.POS_QueryStatus
@@ -3156,7 +3164,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void jiedanPrintPage(string printname,Dictionary<string, object> printer)
+        private void jiedanPrintPage(string printname,dd_printers printer)
         {
 
 
@@ -3168,7 +3176,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width = 2;
                
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -3519,7 +3527,7 @@ namespace DianDianClient.Biz
             
 
         }
-        private void jiedanUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void jiedanUsbPrintPage(string printname, dd_printers printer)
         {
             if (pcontent != null)
             {
@@ -3530,7 +3538,7 @@ namespace DianDianClient.Biz
                     //打印失败打印机未连接
                     return;
                 }
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -3850,7 +3858,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void jiedanLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void jiedanLptPrintPage(string printname, dd_printers printer)
         {
             if (pcontent != null)
             {
@@ -3862,7 +3870,7 @@ namespace DianDianClient.Biz
                     //打印失败打印机未连接
                     return;
                 }
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 string kongestr = "";
@@ -4749,8 +4757,10 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -4764,7 +4774,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -4815,7 +4826,7 @@ namespace DianDianClient.Biz
                 {
 
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -4825,7 +4836,8 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                             printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
+                        //form.showmsg(errormsg);
                         return;
                     }
                     bookPrintPage(printname, printer);
@@ -4857,7 +4869,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void bookPrintPage(string printname, Dictionary<string, object> printer)
+        private void bookPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -4867,7 +4879,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
 
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -5049,7 +5061,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void bookUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void bookUsbPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -5059,7 +5071,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
 
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -5225,7 +5237,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void bookLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void bookLptPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -5235,7 +5247,7 @@ namespace DianDianClient.Biz
                 Dictionary<string, object> main = pcontent;
                 #region 执行指令打印
                 uint width = 2;
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 string kongestr = "";
@@ -5554,8 +5566,9 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -5571,7 +5584,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -5620,7 +5634,7 @@ namespace DianDianClient.Biz
                 {
 
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -5630,7 +5644,7 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                             printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     //BeiYangOPOS.POS_QueryStatus
@@ -5796,7 +5810,7 @@ namespace DianDianClient.Biz
             }
 
         }
-        private void yingyePrintPage(string printname, Dictionary<string, object> printer)
+        private void yingyePrintPage(string printname, dd_printers printer)
         {
 
 
@@ -5808,7 +5822,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width = 2;
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -5941,7 +5955,7 @@ namespace DianDianClient.Biz
 
         }
   
-        private void yingyeUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void yingyeUsbPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -5951,7 +5965,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
 
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -6110,7 +6124,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void yingyeLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void yingyeLptPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -6120,7 +6134,7 @@ namespace DianDianClient.Biz
                 Dictionary<string, object> main = pcontent;
                 #region 执行指令打印
                 uint width = 2;
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 string kongestr = "";
@@ -6290,8 +6304,8 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+                BizPrinter dao = new BizPrinter();
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -6307,7 +6321,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -6356,7 +6371,7 @@ namespace DianDianClient.Biz
                 {
 
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -6366,7 +6381,7 @@ namespace DianDianClient.Biz
                         string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置",
                                             printname);
                         Console.WriteLine(errormsg);
-                        form.showmsg(errormsg);
+                        //form.showmsg(errormsg);
                         return;
                     }
                     //BeiYangOPOS.POS_QueryStatus
@@ -6400,7 +6415,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void jiaobanPrintPage(string printname, Dictionary<string, object> printer)
+        private void jiaobanPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -6412,7 +6427,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width = 2;
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -6521,7 +6536,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void jiaobanUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void jiaobanUsbPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -6531,7 +6546,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
 
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -6651,7 +6666,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void jiaobanLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void jiaobanLptPrintPage(string printname, dd_printers printer)
         {
 
             if (pcontent != null)
@@ -6663,7 +6678,7 @@ namespace DianDianClient.Biz
                 uint width = 2;
                    
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -6910,8 +6925,10 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -6926,7 +6943,8 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
+                            //form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
                             return;
                         }
 
@@ -6975,12 +6993,11 @@ namespace DianDianClient.Biz
                             }
                             catch (Exception e)
                             {
-                                BaseDao basedao = new BaseDao();
-                                basedao.updatesql();
+                                log.Error(errormsg);
                             }
 
                         }
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     tuiPrintPage(printname, printer);
@@ -6990,7 +7007,7 @@ namespace DianDianClient.Biz
                 {
                     //printname = printname.Substring(cindex + 4);
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -7003,8 +7020,7 @@ namespace DianDianClient.Biz
                         {
                             string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置2",
                                             printname);
-                            Console.WriteLine(errormsg);
-                            form.showmsg(errormsg);
+                            Console.WriteLine(errormsg); utils.ShowTip("警告", errormsg, 5000);
                             return;
                         }
                     }
@@ -7045,7 +7061,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void tuiUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void tuiUsbPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7054,7 +7070,7 @@ namespace DianDianClient.Biz
                 
                 #region 执行指令打印
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -7169,7 +7185,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void tuiLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void tuiLptPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7183,7 +7199,7 @@ namespace DianDianClient.Biz
                 Dictionary<string, object> main = pcontent;
                  
                 //uint width = 2;
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -7277,7 +7293,7 @@ namespace DianDianClient.Biz
            
         }
 
-        private void tuiPrintPage(string printname, Dictionary<string, object> printer)
+        private void tuiPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7287,7 +7303,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width = 2;
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -7498,8 +7514,9 @@ namespace DianDianClient.Biz
                 int cindex = printname.IndexOf("COM");
                 int uindex = printname.IndexOf("USB\\VID");
                 int lindex = printname.IndexOf("LPT");
-                PrintDao dao = new PrintDao();
-                Dictionary<string, object> printer = dao.getPrint(printname);
+                BizPrinter dao = new BizPrinter();
+
+                dd_printers printer = dao.QueryPrinters(2, printname).FirstOrDefault();
                 if (vindex >= 0)
                 {
                     printname = printname.Substring(vindex + 2);
@@ -7514,7 +7531,7 @@ namespace DianDianClient.Biz
                         if (!b)
                         {
                             Console.WriteLine("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
-                            form.showmsg("初始化'" + printname + "'的打印机参数失败。请检测打印机配置");
+                            utils.ShowTip("警告", "初始化'" + printname + "'的打印机参数失败。请检测打印机配置", 5000);
                             return;
                         }
 
@@ -7563,12 +7580,11 @@ namespace DianDianClient.Biz
                             }
                             catch (Exception e)
                             {
-                                BaseDao basedao = new BaseDao();
-                                basedao.updatesql();
+                                log.Error(errormsg);
                             }
 
                         }
-                        form.showmsg(errormsg);
+                        utils.ShowTip("警告", errormsg, 5000);
                         return;
                     }
                     qtuiPrintPage(printname, printer);
@@ -7578,7 +7594,7 @@ namespace DianDianClient.Biz
                 {
                     //printname = printname.Substring(cindex + 4);
                     SerialPort com = new SerialPort();
-                    int pbites = int.Parse(printer["pbites"].ToString());
+                    int pbites = printer.pbites.Value;
                     com.BaudRate = pbites;
                     com.PortName = printname;
                     com.DataBits = 8;
@@ -7592,7 +7608,7 @@ namespace DianDianClient.Biz
                             string errormsg = string.Format("初始化'{0}'的打印机参数失败。请检测打印机配置2",
                                             printname);
                             Console.WriteLine(errormsg);
-                            form.showmsg(errormsg);
+                            utils.ShowTip("警告", errormsg, 5000);
                             return;
                         }
                     }
@@ -7633,7 +7649,7 @@ namespace DianDianClient.Biz
                 this.printDocument1.Print();
             }
         }
-        private void qtuiUsbPrintPage(string printname, Dictionary<string, object> printer)
+        private void qtuiUsbPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7642,7 +7658,7 @@ namespace DianDianClient.Biz
 
                 #region 执行指令打印
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -7741,7 +7757,7 @@ namespace DianDianClient.Biz
 
 
         }
-        private void qtuiLptPrintPage(string printname, Dictionary<string, object> printer)
+        private void qtuiLptPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7755,7 +7771,7 @@ namespace DianDianClient.Biz
                 Dictionary<string, object> main = pcontent;
 
                 //uint width = 2;
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
@@ -7841,7 +7857,7 @@ namespace DianDianClient.Biz
 
         }
 
-        private void qtuiPrintPage(string printname, Dictionary<string, object> printer)
+        private void qtuiPrintPage(string printname, dd_printers printer)
         {
 
 
@@ -7851,7 +7867,7 @@ namespace DianDianClient.Biz
                 #region 执行指令打印
                 uint width = 2;
 
-                int psize = int.Parse(printer["psize"].ToString());
+                int psize = printer.psize.Value;
                 int pwidth = psize;
                 string linestr = "------------------------------------------------";
                 if (psize == 58)
