@@ -21,7 +21,7 @@ namespace DianDianClient.Models
         public string addtime { get; set; }
         public Nullable<int> status { get; set; }
         public string printname { get; set; }
-        public Nullable<bool> printnum { get; set; }
+        public Nullable<int> printnum { get; set; }
         public Nullable<bool> isdefault { get; set; }
         public Nullable<int> porder { get; set; }
         public Nullable<bool> isyicaiyidan { get; set; }

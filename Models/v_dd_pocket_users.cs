@@ -22,6 +22,6 @@ namespace DianDianClient.Models
         public string icon { get; set; }
         public string tel { get; set; }
         public Nullable<int> cardid { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
     }
 }

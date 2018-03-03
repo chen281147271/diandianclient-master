@@ -16,12 +16,12 @@ namespace DianDianClient.Models
     {
         public int recordid { get; set; }
         public Nullable<int> cardid { get; set; }
-        public string usetime { get; set; }
+        public Nullable<System.DateTime> usetime { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<decimal> consume { get; set; }
         public string cfmealkey { get; set; }
         public Nullable<int> type { get; set; }
-        public string addtime { get; set; }
+        public Nullable<System.DateTime> addtime { get; set; }
         public Nullable<decimal> pconsume { get; set; }
         public Nullable<decimal> smoney { get; set; }
         public Nullable<decimal> gain { get; set; }

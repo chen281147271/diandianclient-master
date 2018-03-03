@@ -3,6 +3,7 @@ using DianDianClient.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 
@@ -19,33 +20,64 @@ namespace DianDianClient.Biz
         //远程登录
         public LoginResponseBean RemoteLogin(int shopcode, String username, String password)
         {
-            string request_param = "shopcode=" + shopcode + "&username=" + username + "&password=" + Md5Helper.Encrypt(password);
-            
-            String resultJson = SyncClient.Login(loginUrl, request_param);
-            LoginResponseBean loginResponse = JsonConvert.DeserializeObject<LoginResponseBean>(resultJson);
-            if(loginResponse.code == 100)
+            try
             {
-                SyncClient.token = loginResponse.token;
-                log.Info("remote login success.");
-            }
-            else
-            {
-                log.Error("remote login error, msg = " + loginResponse.result);
-            }            
+                string request_param = "shopcode=" + shopcode + "&username=" + username + "&password=" + Md5Helper.Encrypt(password);
 
-            return loginResponse;
+                String resultJson = SyncClient.Login(loginUrl, request_param);
+                LoginResponseBean loginResponse = JsonConvert.DeserializeObject<LoginResponseBean>(resultJson);
+                if (loginResponse.code == 100)
+                {
+                    SyncClient.token = loginResponse.token;
+                    log.Info("remote login success.");
+                }
+                else
+                {
+                    log.Error("remote login error, msg = " + loginResponse.result);
+                }
+
+                return loginResponse;
+            }
+            catch (Exception e)
+            {
+                log.Error("RemoteLogin error. msg=" + e.Message);
+                throw;
+            }
         }
 
         //本地登录
-        public String LocalLogin(int shopcode, String username, String password)
+        public int LocalLogin(int shopcode, String username, String password)
         {
             string result = "";
-            List<member> rsl = db.member.Where(t => t.loginName.Equals(username) && t.pwd.Equals(password) && t.shopkey == shopcode).ToList();
+            List<member> rsl = db.member.Where(t => t.loginName.Equals(username) && t.pwd.Equals(password) 
+                && t.shopkey == shopcode && t.enable == 1).ToList();
             if(rsl.Count > 0)
             {
+                dd_user user = db.dd_user.Where(p => p.userid == rsl.First().memberkey).FirstOrDefault();
+                if(user == null)
+                {
+                    //本地登录逻辑
+                    user = new dd_user();
+                    user.userid = rsl.First().memberkey;
+                    user.username = rsl.First().name;
 
+                    db.dd_user.Add(user);
+                }
+                else
+                {
+                    user.userid = rsl.First().memberkey;
+                    user.username = rsl.First().name;
+
+                    db.dd_user.Attach(user);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(user);
+                    stateEntity.SetModifiedProperty("userid");
+                    stateEntity.SetModifiedProperty("username");
+                }
+
+                db.SaveChanges();
+                return 0;
             }
-            return "";
+            return -1;
         }
 
         //修改密码

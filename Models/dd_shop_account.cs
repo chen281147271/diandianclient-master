@@ -16,7 +16,7 @@ namespace DianDianClient.Models
     {
         public int saccountid { get; set; }
         public Nullable<int> shopkey { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
         public string orderno { get; set; }
         public Nullable<decimal> money { get; set; }
         public Nullable<decimal> brokerage { get; set; }
