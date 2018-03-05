@@ -17,9 +17,9 @@ namespace DianDianClient.Models
         public int id { get; set; }
         public string cfmealkey { get; set; }
         public Nullable<decimal> feiyong { get; set; }
-        public string addtime { get; set; }
+        public Nullable<System.DateTime> addtime { get; set; }
         public Nullable<bool> state { get; set; }
-        public string paytime { get; set; }
+        public Nullable<System.DateTime> paytime { get; set; }
         public Nullable<int> shopkey { get; set; }
         public string orderno { get; set; }
     }

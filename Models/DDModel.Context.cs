@@ -46,12 +46,10 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_book_order_items> dd_book_order_items { get; set; }
         public virtual DbSet<dd_card_charges> dd_card_charges { get; set; }
         public virtual DbSet<dd_card_tongji> dd_card_tongji { get; set; }
-        public virtual DbSet<dd_card_userecord> dd_card_userecord { get; set; }
         public virtual DbSet<dd_chargecar_rule> dd_chargecar_rule { get; set; }
         public virtual DbSet<dd_coupons> dd_coupons { get; set; }
         public virtual DbSet<dd_false_data> dd_false_data { get; set; }
         public virtual DbSet<dd_item_isgood> dd_item_isgood { get; set; }
-        public virtual DbSet<dd_meal_tips> dd_meal_tips { get; set; }
         public virtual DbSet<dd_mem_card> dd_mem_card { get; set; }
         public virtual DbSet<dd_mem_coupons> dd_mem_coupons { get; set; }
         public virtual DbSet<dd_member_shopcord> dd_member_shopcord { get; set; }
@@ -64,14 +62,12 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_qrcode_printaudit> dd_qrcode_printaudit { get; set; }
         public virtual DbSet<dd_qrpay_balance> dd_qrpay_balance { get; set; }
         public virtual DbSet<dd_rate_actives> dd_rate_actives { get; set; }
-        public virtual DbSet<dd_shop_account> dd_shop_account { get; set; }
         public virtual DbSet<dd_shop_apply_loan> dd_shop_apply_loan { get; set; }
         public virtual DbSet<dd_shop_paysetting> dd_shop_paysetting { get; set; }
         public virtual DbSet<dd_shop_payway> dd_shop_payway { get; set; }
         public virtual DbSet<dd_shop_sendmsg> dd_shop_sendmsg { get; set; }
         public virtual DbSet<dd_shop_service_msg> dd_shop_service_msg { get; set; }
         public virtual DbSet<dd_shop_weixin> dd_shop_weixin { get; set; }
-        public virtual DbSet<dd_shop_windows> dd_shop_windows { get; set; }
         public virtual DbSet<dd_shop_wmcode> dd_shop_wmcode { get; set; }
         public virtual DbSet<dd_shop_wxpay> dd_shop_wxpay { get; set; }
         public virtual DbSet<dd_shopaddr_change> dd_shopaddr_change { get; set; }
@@ -146,12 +142,10 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_shop_chain> dd_shop_chain { get; set; }
         public virtual DbSet<v_dd_count_mid> v_dd_count_mid { get; set; }
         public virtual DbSet<v_dd_member_shopcord> v_dd_member_shopcord { get; set; }
-        public virtual DbSet<v_dd_pocket_users> v_dd_pocket_users { get; set; }
         public virtual DbSet<v_dd_shop_users> v_dd_shop_users { get; set; }
         public virtual DbSet<v_dd_shop_users_count> v_dd_shop_users_count { get; set; }
         public virtual DbSet<v_cfdetailitem> v_cfdetailitem { get; set; }
         public virtual DbSet<v_cfmainmeal> v_cfmainmeal { get; set; }
-        public virtual DbSet<v_cfmainaccount> v_cfmainaccount { get; set; }
         public virtual DbSet<v_orderitem> v_orderitem { get; set; }
         public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
         public virtual DbSet<allot_account_false> allot_account_false { get; set; }
@@ -172,5 +166,11 @@ namespace DianDianClient.Models
         public virtual DbSet<storage_shop_depot> storage_shop_depot { get; set; }
         public virtual DbSet<sys_right> sys_right { get; set; }
         public virtual DbSet<dd_printerqueue> dd_printerqueue { get; set; }
+        public virtual DbSet<dd_shop_account> dd_shop_account { get; set; }
+        public virtual DbSet<v_cfmainaccount> v_cfmainaccount { get; set; }
+        public virtual DbSet<v_dd_pocket_users> v_dd_pocket_users { get; set; }
+        public virtual DbSet<dd_meal_tips> dd_meal_tips { get; set; }
+        public virtual DbSet<dd_card_userecord> dd_card_userecord { get; set; }
+        public virtual DbSet<dd_shop_windows> dd_shop_windows { get; set; }
     }
 }

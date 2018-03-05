@@ -46,7 +46,7 @@ namespace DianDianClient.Models
         public Nullable<decimal> zexception { get; set; }
         public int saccountid { get; set; }
         public Nullable<int> shopkey { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<decimal> money { get; set; }
         public Nullable<decimal> brokerage { get; set; }
         public Nullable<decimal> rate { get; set; }
@@ -69,5 +69,6 @@ namespace DianDianClient.Models
         public Nullable<bool> issever { get; set; }
         public Nullable<sbyte> cardtype { get; set; }
         public Nullable<int> chaneltype { get; set; }
+        public string payway { get; set; }
     }
 }
