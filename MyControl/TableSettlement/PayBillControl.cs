@@ -327,6 +327,7 @@ namespace DianDianClient.MyControl.TableSettlement
                         simpleButton1.Text = "优惠";
                         simpleButton1.ForeColor = Color.Black;
                     }
+                    MyEvent.TableSettlement.PayBillEvent.SnedDeatil("Saleprice", Saleprice);
                     break;
                 case 2:
                     tableLayoutPanel1.Controls.Remove(tuiCaiGridControl);
@@ -347,7 +348,7 @@ namespace DianDianClient.MyControl.TableSettlement
                         simpleButton3.Text = "服务费";
                         simpleButton3.ForeColor = Color.Black;
                     }
-
+                    MyEvent.TableSettlement.PayBillEvent.SnedDeatil("ServiceCharge", ServiceCharge);
                     break;
                 case 4:
                     tableLayoutPanel1.Controls.Remove(qianDanControl);
@@ -384,6 +385,11 @@ namespace DianDianClient.MyControl.TableSettlement
             Btn_CheckOut.Enabled = true;
             Btn_yuda.Enabled = true;
             ActivityControl = 0;
+        }
+
+        private void Btn_back_Click(object sender, EventArgs e)
+        {
+            MyEvent.TableSettlement.PayBillEvent.Close();
         }
     }
     

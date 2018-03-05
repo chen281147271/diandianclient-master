@@ -666,6 +666,18 @@
     <Compile Include="Models\wb_openuser.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\ActivityManagement\ActivityManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\ActivityManagement\ActivityManageControl.Designer.cs">
+      <DependentUpon>ActivityManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\ActivityManagement\ActivityManageDeatilControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\ActivityManagement\ActivityManageDeatilControl.designer.cs">
+      <DependentUpon>ActivityManageDeatilControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\BusinessDetails\BusinessAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -780,6 +792,13 @@
     <Compile Include="MyControl\TableSettlement\TuiCaiGridControl.Designer.cs">
       <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyEvent\TableSettlement\PayBillEvent.cs" />
+    <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.designer.cs">
+      <DependentUpon>ActivityManageDeatilForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\BusinessDetails\OrderListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -859,6 +878,12 @@
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\ActivityManagement\ActivityManageControl.resx">
+      <DependentUpon>ActivityManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\ActivityManagement\ActivityManageDeatilControl.resx">
+      <DependentUpon>ActivityManageDeatilControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\BusinessDetails\BusinessAnalysisControl.resx">
       <DependentUpon>BusinessAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -915,6 +940,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\TableSettlement\TuiCaiGridControl.resx">
       <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\ActivityManagement\ActivityManageDeatilForm.resx">
+      <DependentUpon>ActivityManageDeatilForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\BusinessDetails\OrderListForm.resx">
       <DependentUpon>OrderListForm.cs</DependentUpon>
@@ -1022,6 +1050,9 @@
       <DependentUpon>DDModel.edmx</DependentUpon>
       <LastGenOutput>DDModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\cancle.png" />
+    <None Include="Resources\detail.png" />
+    <None Include="Resources\minus.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />
