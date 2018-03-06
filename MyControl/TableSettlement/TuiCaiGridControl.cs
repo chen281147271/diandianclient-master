@@ -22,6 +22,9 @@ namespace DianDianClient.MyControl.TableSettlement
         string EatNo;//用餐编号
         public delegate void CloseEvents(int iControl, string resoult);
         public event CloseEvents MyCloseEvents;
+
+        public delegate void CloseFormEvents();
+        public event CloseFormEvents MyCloseFormEvents;
         public TuiCaiGridControl(string  TableNo, string EatNo, DataTable MenuTable)
         {
             this.MenuTable = MenuTable;
@@ -145,12 +148,25 @@ namespace DianDianClient.MyControl.TableSettlement
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            MyCloseEvents(2, "结果");
+            if (MyCloseEvents != null)
+            {
+                MyCloseEvents(2, "结果");
+            }else if (MyCloseFormEvents != null)
+            {
+                MyCloseFormEvents();
+            }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            MyCloseEvents(2, "结果");
+            if (MyCloseEvents != null)
+            {
+                MyCloseEvents(2, "结果");
+            }
+            else if (MyCloseFormEvents != null)
+            {
+                MyCloseFormEvents();
+            }
         }
         void tileView1_ItemClick(object sender, TileViewItemClickEventArgs e)
         {

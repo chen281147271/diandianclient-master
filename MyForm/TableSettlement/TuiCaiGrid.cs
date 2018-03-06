@@ -21,7 +21,13 @@ namespace DianDianClient.MyForm.TableSettlement
             InitializeComponent();
             tuiCaiGridControl = new MyControl.TableSettlement.TuiCaiGridControl(TableNo, EatNo, MenuTable);
             tuiCaiGridControl.Dock = DockStyle.Fill;
+            tuiCaiGridControl.MyCloseFormEvents += CloseEvent;
             this.Controls.Add(tuiCaiGridControl);
+        }
+
+        private void CloseEvent()
+        {
+            this.Close();
         }
     }
 }
