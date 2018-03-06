@@ -19,7 +19,7 @@ namespace DianDianClient.MyControl.BusinessDetails
         DataTable table;//业务笔数统计
         DataTable table_detail;//业务笔数统计
         Point mousepoint = new Point(0, 0);//控件BUG 点一次鼠标触发两次事件 现在通过位置屏蔽误触
-        List<Models.dd_shop_account> dsa;//业务明细
+        List<Models.v_cfmainaccount> dsa;//业务明细
         public BusinessDetailControl()
         {
             InitializeComponent();
@@ -61,7 +61,7 @@ namespace DianDianClient.MyControl.BusinessDetails
                 table.Columns.Add("Color", typeof(Color));
                 table_detail = new DataTable();
                 table_detail = table.Clone();
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < recordGroupBean.Count; i++)
                 {
                     decimal sumMoney = recordGroupBean[i].sumMoney;
                     if (sumMoney >= 0)

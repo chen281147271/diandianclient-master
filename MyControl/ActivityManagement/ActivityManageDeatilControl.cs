@@ -69,7 +69,6 @@ namespace DianDianClient.MyControl.ActivityManagement
                 if (sdate > edate)
                 {
                     Utils.utils.ShowTip("提示", "活动结束时间必须大于开始时间");
-                  //  Utils.utils.ShowMessageBox("需要弹出的信息","标题可以不填默认是提示");
                     return;
                 }
                 string cname = this.Txt_cname.Text;
