@@ -20,7 +20,7 @@ namespace DianDianClient.Models
         public string standard { get; set; }
         public string crudecode { get; set; }
         public string barcode { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<int> genreid { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<sbyte> state { get; set; }

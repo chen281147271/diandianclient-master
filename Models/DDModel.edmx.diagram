@@ -54,7 +54,6 @@
         <EntityTypeShape EntityType="diandianModel.dd_sign_accounts" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_sign_meals" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_sys_consts" Width="1.5" PointX="12.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.dd_table_floor" Width="1.5" PointX="14.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_tuijian" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_user_sendmsg" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_window_item" Width="1.5" PointX="22.75" PointY="7.75" IsExpanded="true" />
@@ -99,15 +98,6 @@
         <EntityTypeShape EntityType="diandianModel.shop_item_record" Width="1.5" PointX="13.5" PointY="53.625" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.shop_oper_log" Width="1.5" PointX="8.25" PointY="64.25" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.shop_serial" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_crude" Width="1.5" PointX="5.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_depot" Width="1.5" PointX="22.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_depotin" Width="1.5" PointX="24.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_depotin_info" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_depotout" Width="1.5" PointX="26.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_depotout_info" Width="1.5" PointX="7.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_genre" Width="1.5" PointX="26.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_lossorspill" Width="1.5" PointX="9.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="26.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.sys_common_ctype" Width="1.5" PointX="14.75" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.sys_common_type" Width="1.5" PointX="26.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.sys_menu" Width="1.5" PointX="16.75" PointY="26.75" IsExpanded="true" />
@@ -176,8 +166,6 @@
         <EntityTypeShape EntityType="diandianModel.allot_account" Width="1.5" PointX="18.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.v_category_items" Width="1.5" PointX="20.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_signusers" Width="1.5" PointX="31.375" PointY="0.75" />
-        <EntityTypeShape EntityType="diandianModel.storage_item_crude" Width="1.5" PointX="31.375" PointY="4.75" />
-        <EntityTypeShape EntityType="diandianModel.v_item_crude" Width="1.5" PointX="31.375" PointY="7.75" />
         <EntityTypeShape EntityType="diandianModel.dd_adjunct_edit" Width="1.5" PointX="31.375" PointY="12.75" />
         <EntityTypeShape EntityType="diandianModel.dd_areas" Width="1.5" PointX="31.375" PointY="16.75" />
         <EntityTypeShape EntityType="diandianModel.dd_printers" Width="1.5" PointX="31.375" PointY="23.75" />
@@ -187,7 +175,6 @@
         <EntityTypeShape EntityType="diandianModel.dd_zbank_code" Width="1.5" PointX="33.375" PointY="0.75" />
         <EntityTypeShape EntityType="diandianModel.elm_shop_id" Width="1.5" PointX="33.375" PointY="3.75" />
         <EntityTypeShape EntityType="diandianModel.shop_edit" Width="1.5" PointX="33.375" PointY="6.75" />
-        <EntityTypeShape EntityType="diandianModel.storage_shop_depot" Width="1.5" PointX="9.375" PointY="33.75" />
         <EntityTypeShape EntityType="diandianModel.sys_right" Width="1.5" PointX="11.375" PointY="33.75" />
         <EntityTypeShape EntityType="diandianModel.dd_printerqueue" Width="1.5" PointX="33.375" PointY="20.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_account" Width="1.5" PointX="33.375" PointY="24.75" />
@@ -196,6 +183,26 @@
         <EntityTypeShape EntityType="diandianModel.dd_meal_tips" Width="1.5" PointX="25.375" PointY="34.75" />
         <EntityTypeShape EntityType="diandianModel.dd_card_userecord" Width="1.5" PointX="35.375" PointY="0.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_windows" Width="1.5" PointX="35.375" PointY="4.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_table_floor" Width="1.5" PointX="35.375" PointY="8.75" />
+        <EntityTypeShape EntityType="diandianModel.v_memberrole" Width="1.5" PointX="35.375" PointY="12.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_emp_floor" Width="1.5" PointX="35.375" PointY="21.75" />
+        <EntityTypeShape EntityType="diandianModel.v_emp_floor" Width="1.5" PointX="35.375" PointY="24.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_crude" Width="1.5" PointX="5.375" PointY="25.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_depot" Width="1.5" PointX="23.375" PointY="25.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_depotin" Width="1.5" PointX="7.375" PointY="26.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_depotin_info" Width="1.5" PointX="35.375" PointY="27.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_depotout" Width="1.5" PointX="35.375" PointY="31.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_depotout_info" Width="1.5" PointX="35.375" PointY="35.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_genre" Width="1.5" PointX="16.375" PointY="36.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_item_crude" Width="1.5" PointX="37.375" PointY="0.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_lossorspill" Width="1.5" PointX="37.375" PointY="3.75" />
+        <EntityTypeShape EntityType="diandianModel.v_depotin_crude" Width="1.5" PointX="37.375" PointY="7.75" />
+        <EntityTypeShape EntityType="diandianModel.v_stock_crude" Width="1.5" PointX="9.375" PointY="37.75" />
+        <EntityTypeShape EntityType="diandianModel.v_storagelossorspill_crude" Width="1.5" PointX="11.375" PointY="37.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_shop_depot" Width="1.5" PointX="37.375" PointY="14.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="37.375" PointY="17.75" />
+        <EntityTypeShape EntityType="diandianModel.v_item_crude" Width="1.5" PointX="37.375" PointY="21.75" />
+        <EntityTypeShape EntityType="diandianModel.v_depotout_crude" Width="1.5" PointX="37.375" PointY="26.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

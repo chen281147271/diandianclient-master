@@ -42,5 +42,17 @@ namespace DianDianClient.Properties {
                 return ((int)(this["shopkey"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("174")]
+        public int depotid {
+            get {
+                return ((int)(this["depotid"]));
+            }
+            set {
+                this["depotid"] = value;
+            }
+        }
     }
 }

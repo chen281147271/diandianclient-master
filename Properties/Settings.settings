@@ -13,5 +13,8 @@
     <Setting Name="shopkey" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">174</Value>
     </Setting>
+    <Setting Name="depotid" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">174</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

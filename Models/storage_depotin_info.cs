@@ -19,9 +19,9 @@ namespace DianDianClient.Models
         public Nullable<int> crudeid { get; set; }
         public Nullable<decimal> cost { get; set; }
         public Nullable<int> num { get; set; }
-        public string productiondate { get; set; }
-        public string validity { get; set; }
-        public string backdate { get; set; }
+        public Nullable<System.DateTime> productiondate { get; set; }
+        public Nullable<System.DateTime> validity { get; set; }
+        public Nullable<System.DateTime> backdate { get; set; }
         public string maker { get; set; }
         public string remarks { get; set; }
         public string supplier { get; set; }
