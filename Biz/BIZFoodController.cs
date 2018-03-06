@@ -28,6 +28,7 @@ namespace DianDianClient.Biz
             }
             catch (Exception e)
             {
+                
                 log.Error("GetFoodList error. msg=" + e.Message);
                 throw;
             }

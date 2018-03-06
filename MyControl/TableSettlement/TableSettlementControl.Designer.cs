@@ -51,9 +51,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 566);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -73,9 +73,9 @@
             this.metroTilePanel1.ForeColor = System.Drawing.Color.Black;
             this.metroTilePanel1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.itemContainer1});
-            this.metroTilePanel1.Location = new System.Drawing.Point(3, 103);
+            this.metroTilePanel1.Location = new System.Drawing.Point(3, 31);
             this.metroTilePanel1.Name = "metroTilePanel1";
-            this.metroTilePanel1.Size = new System.Drawing.Size(710, 380);
+            this.metroTilePanel1.Size = new System.Drawing.Size(710, 503);
             this.metroTilePanel1.TabIndex = 0;
             this.metroTilePanel1.Text = "7";
             // 
@@ -103,7 +103,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(895, 100);
+            this.toolStrip1.Size = new System.Drawing.Size(895, 28);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -113,18 +113,18 @@
             this.tableLayoutPanel1.SetColumnSpan(this.toolStrip2, 2);
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Location = new System.Drawing.Point(0, 486);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 537);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(895, 80);
+            this.toolStrip2.Size = new System.Drawing.Size(895, 29);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
             // selectedDetails1
             // 
             this.selectedDetails1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectedDetails1.Location = new System.Drawing.Point(719, 103);
+            this.selectedDetails1.Location = new System.Drawing.Point(719, 31);
             this.selectedDetails1.Name = "selectedDetails1";
-            this.selectedDetails1.Size = new System.Drawing.Size(173, 380);
+            this.selectedDetails1.Size = new System.Drawing.Size(173, 503);
             this.selectedDetails1.TabIndex = 5;
             // 
             // TableSettlement

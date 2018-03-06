@@ -27,7 +27,7 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void AddActivity(string cname, DateTime sdate, DateTime edate, string istogether, string memtogether, int isonlineok, int ifmoney, int okjian, string extendway, int minmoney)
+        public void AddActivity(string cname, DateTime sdate, DateTime edate, string istogether, string memtogether, int isonlineok, int ifmoney, int okjian, string extendway, decimal minmoney)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void EditActivity(int activityId,string cname, DateTime sdate, DateTime edate, string istogether, string memtogether, int isonlineok, int ifmoney, int okjian, string extendway, int minmoney)
+        public void EditActivity(int activityId,string cname, DateTime sdate, DateTime edate, string istogether, string memtogether, int isonlineok, int ifmoney, int okjian, string extendway, decimal minmoney)
         {
             try
             {

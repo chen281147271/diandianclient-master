@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DianDianClient.Biz;
 using DianDianClient.Models;
 
@@ -18,6 +19,7 @@ namespace DianDianClient
         //是否第一次打开选项卡
         bool FoodManagement = false;
         bool BusinessDetails = false;
+        bool ActivityManagement = false;
         public MainForm()
         {
             InitializeComponent();
@@ -25,14 +27,14 @@ namespace DianDianClient
             SyncClient client = new SyncClient();
             //创建后台同步的线程
             Thread syncThread = new Thread(new ThreadStart(client.SyncMethod));
-            syncThread.Start();
+          //  syncThread.Start();
             BizBillController bbc = new BizBillController();
             Thread billThread = new Thread(new ThreadStart(bbc.RemoteGetBillList));
-            billThread.Start();
+          //  billThread.Start();
 
             BIZFoodController bfc = new BIZFoodController();
 
-            var tmp = bfc.GetFoodList(0);
+          //  var tmp = bfc.GetFoodList(0);
 
             comboBoxEx1.Items.AddRange(new object[] { eStyle.Office2013, eStyle.OfficeMobile2014, eStyle.Office2010Blue,
                 eStyle.Office2010Silver, eStyle.Office2010Black, eStyle.VisualStudio2010Blue, eStyle.VisualStudio2012Light, 
@@ -46,6 +48,7 @@ namespace DianDianClient
             OpenDefaultTable();
 
             Utils.utils.MyEvent += ShowTip;
+            Utils.utils.MessageBoxEvent += ShowMessageBox;
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -158,14 +161,39 @@ namespace DianDianClient
         delegate void MessageBoxShow(string title, string msg, int FormDelayTime);
         void MessageBoxShow_F(string title, string msg, int FormDelayTime)
         {
-            DevExpress.XtraBars.Alerter.AlertInfo info = new DevExpress.XtraBars.Alerter.AlertInfo(title, msg);
-            //出现的效果方式
-            this.alertControl1.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.MoveHorizontal;
-            //弹出的速度
-            this.alertControl1.FormDisplaySpeed = DevExpress.XtraBars.Alerter.AlertFormDisplaySpeed.Slow;
-            //以毫秒为单位
-            this.alertControl1.AutoFormDelay = FormDelayTime;
-            alertControl1.Show(this, info);
+                DevExpress.XtraBars.Alerter.AlertInfo info = new DevExpress.XtraBars.Alerter.AlertInfo(title, msg);
+                //出现的效果方式
+                this.alertControl1.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.MoveHorizontal;
+                //弹出的速度
+                this.alertControl1.FormDisplaySpeed = DevExpress.XtraBars.Alerter.AlertFormDisplaySpeed.Slow;
+                //以毫秒为单位
+                this.alertControl1.AutoFormDelay = FormDelayTime;
+                alertControl1.Show(this, info);
+        }
+
+        public void ShowMessageBox(string msg, string title )
+        {
+            this.Invoke(new MyMessageBoxShow(MyMessageBoxShow_F), new object[] { msg , title });
+        }
+        delegate void MyMessageBoxShow(string msg, string title);
+        void MyMessageBoxShow_F(string msg, string title)
+        {
+            XtraMessageBox.Show(title,msg);
+        }
+
+        private void sideNavItem2_Click(object sender, EventArgs e)
+        {
+            if (!ActivityManagement)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.ActivityManagement.ActivityManageControl activityManage = new MyControl.ActivityManagement.ActivityManageControl();
+                activityManage.Dock = DockStyle.Fill;
+                this.sideNavPanel1.Controls.Add(activityManage);
+                ActivityManagement = true;
+                splashScreenManager1.CloseWaitForm();
+            }
         }
     }
 }

@@ -68,6 +68,7 @@
             this.Btn_yuda = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.Btn_back = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -81,7 +82,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -599,16 +600,17 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.Btn_back, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.Btn_CheckOut, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.Btn_yuda, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(683, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel6.SetRowSpan(this.tableLayoutPanel7, 4);
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(166, 180);
             this.tableLayoutPanel7.TabIndex = 23;
             // 
@@ -621,9 +623,9 @@
             this.Btn_CheckOut.Appearance.Options.UseFont = true;
             this.Btn_CheckOut.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Btn_CheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_CheckOut.Location = new System.Drawing.Point(3, 75);
+            this.Btn_CheckOut.Location = new System.Drawing.Point(3, 57);
             this.Btn_CheckOut.Name = "Btn_CheckOut";
-            this.Btn_CheckOut.Size = new System.Drawing.Size(160, 102);
+            this.Btn_CheckOut.Size = new System.Drawing.Size(160, 75);
             this.Btn_CheckOut.TabIndex = 13;
             this.Btn_CheckOut.Text = "结账";
             // 
@@ -638,7 +640,7 @@
             this.Btn_yuda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_yuda.Location = new System.Drawing.Point(3, 3);
             this.Btn_yuda.Name = "Btn_yuda";
-            this.Btn_yuda.Size = new System.Drawing.Size(160, 66);
+            this.Btn_yuda.Size = new System.Drawing.Size(160, 48);
             this.Btn_yuda.TabIndex = 12;
             this.Btn_yuda.Text = "预打";
             // 
@@ -670,10 +672,26 @@
             this.simpleButton8.TabIndex = 12;
             this.simpleButton8.Text = "90%";
             // 
+            // Btn_back
+            // 
+            this.Btn_back.Appearance.BackColor = System.Drawing.Color.Salmon;
+            this.Btn_back.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_back.Appearance.Options.UseBackColor = true;
+            this.Btn_back.Appearance.Options.UseFont = true;
+            this.Btn_back.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Btn_back.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_back.Location = new System.Drawing.Point(3, 138);
+            this.Btn_back.Name = "Btn_back";
+            this.Btn_back.Size = new System.Drawing.Size(160, 39);
+            this.Btn_back.TabIndex = 14;
+            this.Btn_back.Text = "返回";
+            this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
+            // 
             // PayBillControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PayBillControl";
@@ -736,5 +754,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private DevExpress.XtraEditors.SimpleButton Btn_CheckOut;
         private DevExpress.XtraEditors.SimpleButton Btn_yuda;
+        private DevExpress.XtraEditors.SimpleButton Btn_back;
     }
 }

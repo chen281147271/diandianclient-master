@@ -11,10 +11,17 @@ namespace DianDianClient.Utils
     {
         public delegate void MyDelegate(string title, string msg, int FormDelayTime);
         public static event MyDelegate MyEvent;
+
+        public delegate void MessageBoxDelegate(string msg, string title);
+        public static event  MessageBoxDelegate MessageBoxEvent;
         //右下角提示框
-        public static void ShowTip(string title, string msg, int FormDelayTime)
+        public static void ShowTip(string title, string msg, int FormDelayTime=5000)
         {
             MyEvent(title, msg, FormDelayTime);
+        }
+        public static void ShowMessageBox( string msg, string title="提示")
+        {
+            MessageBoxEvent(msg,title);
         }
         public static DataTable CopyToDataTable<T>(this IEnumerable<T> array)
         {

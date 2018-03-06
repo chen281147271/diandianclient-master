@@ -25,6 +25,9 @@ namespace DianDianClient.MyControl.TableSettlement
             tableLayoutPanel1.GetType().GetProperty("DoubleBuffered",
 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel1,
 true, null);
+
+            MyEvent.TableSettlement.PayBillEvent.PayEvent += PayEvent;
+            MyEvent.TableSettlement.PayBillEvent.CloseEvent += CloseEvent;
         }
         protected
 override CreateParams CreateParams
@@ -243,91 +246,112 @@ override CreateParams CreateParams
                 ti.ForeColor = Color.White;
             }
         }
+        private void PayEvent(string name, decimal value)
+        {
+            if (name == "Saleprice")
+            {
+                this.Saleprice = value;
+            }
+            else if (name == "ServiceCharge")
+            {
+                this.ServiceCharge = value;
+            }
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ItemName", typeof(String));
+            dataTable.Columns.Add("ItemValue", typeof(String));
+            //删除操作
+            if (Saleprice == 0) //优惠
+            {
+                try
+                {
+                    var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == "优惠金额");
+                    selectedDetails1.Grid2DataTable.Rows.Remove(row);
+                    selectedDetails1.gridControl2.Size = new Size(200, selectedDetails1.gridControl2.Size.Height - 36);
+                }
+                catch
+                {
+
+                }
+
+            }
+            if (ServiceCharge == 0)//服务费
+            {
+                try
+                {
+                    var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == "服务费");
+                    selectedDetails1.Grid2DataTable.Rows.Remove(row);
+                    selectedDetails1.gridControl2.Size = new Size(200, selectedDetails1.gridControl2.Size.Height - 36);
+                }
+                catch
+                {
+
+                }
+
+            }
+            //新增操作
+            if (Saleprice > 0)
+            {
+                dataTable.Rows.Add(new object[] { "优惠金额", "-" + Saleprice.ToString() });
+                ichange++;
+            }
+            if (ServiceCharge > 0)
+            {
+                dataTable.Rows.Add(new object[] { "服务费", "+" + ServiceCharge.ToString() });
+                ichange++;
+            }
+            //
+            if (ichange > 0)
+            {
+                //
+                int iHeight = selectedDetails1.gridControl2.Size.Height;
+                //
+                int conut = selectedDetails1.Grid2DataTable.Rows.Count;
+                DataRow dataRow = selectedDetails1.Grid2DataTable.Rows[conut - 1];
+                dataTable.Rows.Add(dataRow.ItemArray);
+                selectedDetails1.Grid2DataTable.Rows.RemoveAt(conut - 1);
+                iHeight -= 36;
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    try
+                    {
+                        string aaa = dr["ItemName"].ToString();
+                        var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == dr["ItemName"].ToString());
+                        if (row != null)
+                        {
+                            row["ItemValue"] = dr.ItemArray[1];
+                        }
+                    }
+                    catch
+                    {
+                        selectedDetails1.Grid2DataTable.Rows.Add(dr.ItemArray);
+                        iHeight += 36;
+                        selectedDetails1.gridControl2.Size = new Size(200, iHeight);
+                    }
+                }
+            }
+
+        }
+        private void CloseEvent()
+        {
+            this.tableLayoutPanel1.Controls.Add(metroTilePanel1,0,1);
+            this.tableLayoutPanel1.Controls.Add(toolStrip2,0,2);
+            this.tableLayoutPanel1.Controls.RemoveAt(2);
+        }
         private void toolStripItem2_Click(object sender, EventArgs e)
         {
             string str = sender.ToString();
             switch (str)
             {
                 case "买单":
-                    MyForm.TableSettlement.PayBillForm payBillForm = new MyForm.TableSettlement.PayBillForm();
-                    payBillForm.StartPosition = FormStartPosition.CenterScreen;
-                    payBillForm.ShowDialog();
-
-                    this.Saleprice = payBillForm.payBillControl1.Saleprice;
-                    this.ServiceCharge = payBillForm.payBillControl1.ServiceCharge;
-                    DataTable dataTable = new DataTable();
-                    dataTable.Columns.Add("ItemName", typeof(String));
-                    dataTable.Columns.Add("ItemValue", typeof(String));
-                    //删除操作
-                    if (Saleprice == 0) //优惠
-                    {
-                        try
-                        {
-                            var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == "优惠金额");
-                            selectedDetails1.Grid2DataTable.Rows.Remove(row);
-                            selectedDetails1.gridControl2.Size = new Size(200, selectedDetails1.gridControl2.Size.Height-36);
-                        }
-                        catch
-                        {
-                            
-                        }
-
-                    }
-                    if (ServiceCharge == 0)//服务费
-                    {
-                        try
-                        {
-                            var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == "服务费");
-                            selectedDetails1.Grid2DataTable.Rows.Remove(row);
-                            selectedDetails1.gridControl2.Size = new Size(200, selectedDetails1.gridControl2.Size.Height - 36);
-                        }
-                        catch
-                        {
-
-                        }
-
-                    }
-                    //新增操作
-                    if (Saleprice > 0)
-                    {
-                        dataTable.Rows.Add(new object[] { "优惠金额", "-" + Saleprice.ToString() });
-                        ichange++;
-                    }
-                    if (ServiceCharge > 0)
-                    {
-                        dataTable.Rows.Add(new object[] { "服务费", "+" + ServiceCharge.ToString() });
-                        ichange++;
-                    }
-                    //
-                    if (ichange > 0)
-                    {
-                        //
-                        int iHeight = selectedDetails1.gridControl2.Size.Height;
-                        //
-                        int conut = selectedDetails1.Grid2DataTable.Rows.Count;
-                        DataRow dataRow = selectedDetails1.Grid2DataTable.Rows[conut - 1];
-                        dataTable.Rows.Add(dataRow.ItemArray);
-                        selectedDetails1.Grid2DataTable.Rows.RemoveAt(conut - 1);
-                        iHeight -= 36;
-                        foreach (DataRow dr in dataTable.Rows)
-                        {
-                            try
-                            {
-                                string aaa = dr["ItemName"].ToString();
-                                var row = selectedDetails1.Grid2DataTable.AsEnumerable().First(r => r.Field<string>("ItemName") == dr["ItemName"].ToString());
-                                if (row != null)
-                                {
-                                    row["ItemValue"] = dr.ItemArray[1];
-                                }
-                            }
-                            catch {
-                                selectedDetails1.Grid2DataTable.Rows.Add(dr.ItemArray);
-                                iHeight += 36;
-                                selectedDetails1.gridControl2.Size = new Size(200, iHeight);
-                            }
-                        }
-                    }
-
+                    //MyForm.TableSettlement.PayBillForm payBillForm = new MyForm.TableSettlement.PayBillForm();
+                    //payBillForm.StartPosition = FormStartPosition.CenterScreen;
+                    //payBillForm.ShowDialog();
+                    MyControl.TableSettlement.PayBillControl payBill = new PayBillControl();
+                    payBill.Dock = DockStyle.Fill;
+                    this.tableLayoutPanel1.Controls.Remove(metroTilePanel1);
+                    this.tableLayoutPanel1.Controls.Remove(toolStrip2);
+                    this.tableLayoutPanel1.Controls.Add(payBill, 0, 1);
+                    
 
                     break;
                 case "退菜":
