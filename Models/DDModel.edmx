@@ -573,6 +573,14 @@
           <Property Name="maxmoney" Type="decimal" Precision="10" Scale="2" />
           <Property Name="maxnum" Type="int" />
         </EntityType>
+        <EntityType Name="dd_emp_floor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="memberkey" Type="int" />
+          <Property Name="floorid" Type="int" />
+        </EntityType>
         <EntityType Name="dd_false_data">
           <Key>
             <PropertyRef Name="id" />
@@ -1066,7 +1074,7 @@
           <Property Name="state" Type="tinyint" />
           <Property Name="isdel" Type="tinyint" />
           <Property Name="shopkey" Type="int" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="orderno" Type="int" />
           <Property Name="ffuwu" Type="decimal" Precision="13" Scale="2" />
         </EntityType>
@@ -1854,7 +1862,7 @@
           <Property Name="standard" Type="varchar" MaxLength="5" />
           <Property Name="crudecode" Type="varchar" MaxLength="10" />
           <Property Name="barcode" Type="varchar" MaxLength="20" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="genreid" Type="int" />
           <Property Name="shopkey" Type="int" />
           <Property Name="state" Type="tinyint" />
@@ -1867,7 +1875,7 @@
           <Property Name="depotname" Type="varchar" MaxLength="20" />
           <Property Name="addr" Type="varchar" MaxLength="50" />
           <Property Name="tel" Type="varchar" MaxLength="20" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="dutyperson" Type="varchar" MaxLength="100" />
           <Property Name="state" Type="tinyint" />
         </EntityType>
@@ -1876,7 +1884,7 @@
             <PropertyRef Name="depotinid" />
           </Key>
           <Property Name="depotinid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="cost" Type="decimal" Precision="13" Scale="0" />
           <Property Name="depotid" Type="int" />
           <Property Name="shopkey" Type="int" />
@@ -1896,9 +1904,9 @@
           <Property Name="crudeid" Type="int" />
           <Property Name="cost" Type="decimal" Precision="13" Scale="2" />
           <Property Name="num" Type="int" />
-          <Property Name="productiondate" Type="varchar" MaxLength="10" />
-          <Property Name="validity" Type="varchar" MaxLength="10" />
-          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validity" Type="date" />
+          <Property Name="backdate" Type="date" />
           <Property Name="maker" Type="varchar" MaxLength="20" />
           <Property Name="remarks" Type="varchar" MaxLength="200" />
           <Property Name="supplier" Type="varchar" MaxLength="50" />
@@ -1908,7 +1916,7 @@
             <PropertyRef Name="depotoutid" />
           </Key>
           <Property Name="depotoutid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="depotid" Type="int" />
           <Property Name="dutyperson" Type="varchar" MaxLength="20" />
           <Property Name="shopkey" Type="int" />
@@ -1935,7 +1943,7 @@
           </Key>
           <Property Name="genreid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="genrename" Type="varchar" MaxLength="10" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="shopkey" Type="int" />
           <Property Name="state" Type="tinyint" />
           <Property Name="orderno" Type="int" />
@@ -1960,7 +1968,7 @@
           <Property Name="num" Type="int" />
           <Property Name="person" Type="varchar" MaxLength="20" />
           <Property Name="reason" Type="varchar" MaxLength="200" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="shopkey" Type="int" />
           <Property Name="depotid" Type="int" />
           <Property Name="type" Type="tinyint" />
@@ -2494,6 +2502,78 @@
           <Property Name="cnt" Type="bigint" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_depotin_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_depotin_crude">
+          <Key>
+            <PropertyRef Name="ininfoid" />
+          </Key>
+          <Property Name="ininfoid" Type="int" Nullable="false" />
+          <Property Name="depotinid" Type="int" />
+          <Property Name="crudeid" Type="int" />
+          <Property Name="cost" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="num" Type="int" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validity" Type="date" />
+          <Property Name="backdate" Type="date" />
+          <Property Name="maker" Type="varchar" MaxLength="20" />
+          <Property Name="remarks" Type="varchar" MaxLength="200" />
+          <Property Name="supplier" Type="varchar" MaxLength="50" />
+          <Property Name="crudename" Type="varchar" MaxLength="20" />
+          <Property Name="unit" Type="varchar" MaxLength="5" />
+          <Property Name="standard" Type="varchar" MaxLength="5" />
+          <Property Name="crudecode" Type="varchar" MaxLength="10" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="genreid" Type="int" />
+          <Property Name="state" Type="tinyint" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="dutyperson" Type="varchar" MaxLength="20" />
+          <Property Name="deliveryman" Type="varchar" MaxLength="20" />
+          <Property Name="deliveryphone" Type="varchar" MaxLength="20" />
+          <Property Name="driver" Type="varchar" MaxLength="20" />
+          <Property Name="platenum" Type="varchar" MaxLength="10" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="depotin_cost" Type="decimal" Precision="13" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_depotout_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_depotout_crude">
+          <Key>
+            <PropertyRef Name="outinfoid" />
+          </Key>
+          <Property Name="depotoutid" Type="int" />
+          <Property Name="crudeid" Type="int" />
+          <Property Name="num" Type="int" />
+          <Property Name="salemoney" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="surplus" Type="int" />
+          <Property Name="crudename" Type="varchar" MaxLength="20" />
+          <Property Name="unit" Type="varchar" MaxLength="5" />
+          <Property Name="standard" Type="varchar" MaxLength="5" />
+          <Property Name="crudecode" Type="varchar" MaxLength="10" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="genreid" Type="int" />
+          <Property Name="state" Type="tinyint" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="dutyperson" Type="varchar" MaxLength="20" />
+          <Property Name="itemkey" Type="int" />
+          <Property Name="depinout_salemoney" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="outinfoid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_emp_floor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_emp_floor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="memberkey" Type="int" />
+          <Property Name="floorid" Type="int" />
+          <Property Name="floorname" Type="varchar" MaxLength="20" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="orderno" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_item_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_item_crude">
           <Key>
@@ -2509,11 +2589,54 @@
           <Property Name="standard" Type="varchar" MaxLength="5" />
           <Property Name="crudecode" Type="varchar" MaxLength="10" />
           <Property Name="barcode" Type="varchar" MaxLength="20" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="genreid" Type="int" />
           <Property Name="shopkey" Type="int" />
           <Property Name="state" Type="tinyint" />
           <Property Name="sid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_memberrole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_memberrole">
+          <Key>
+            <PropertyRef Name="memberkey" />
+            <PropertyRef Name="lat" />
+            <PropertyRef Name="lng" />
+          </Key>
+          <Property Name="memberkey" Type="int" Nullable="false" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="postkey" Type="int" />
+          <Property Name="memberLevel" Type="int" />
+          <Property Name="type" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="64" />
+          <Property Name="loginName" Type="varchar" MaxLength="32" />
+          <Property Name="pwd" Type="varchar" MaxLength="128" />
+          <Property Name="secpwd" Type="varchar" MaxLength="128" />
+          <Property Name="icon" Type="varchar" MaxLength="255" />
+          <Property Name="tel" Type="varchar" MaxLength="32" />
+          <Property Name="email" Type="varchar" MaxLength="32" />
+          <Property Name="score" Type="int" />
+          <Property Name="balance" Type="double" />
+          <Property Name="WebSite1Uid" Type="varchar" MaxLength="128" />
+          <Property Name="WebSite2Uid" Type="varchar" MaxLength="128" />
+          <Property Name="WebSite3Uid" Type="varchar" MaxLength="128" />
+          <Property Name="enable" Type="int" />
+          <Property Name="createDate" Type="datetime" Precision="0" />
+          <Property Name="provinceId" Type="int" />
+          <Property Name="cityId" Type="int" />
+          <Property Name="areaId" Type="int" />
+          <Property Name="code" Type="varchar" MaxLength="32" />
+          <Property Name="parentMemberkey" Type="int" />
+          <Property Name="isDel" Type="int" />
+          <Property Name="token" Type="varchar" MaxLength="64" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="lng" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="agentid" Type="int" />
+          <Property Name="superroleid" Type="bigint" />
+          <Property Name="rolename" Type="varchar" MaxLength="20" />
+          <Property Name="descb" Type="varchar" MaxLength="50" />
+          <Property Name="rtype" Type="varchar" MaxLength="2" />
+          <Property Name="sysroleid" Type="bigint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_orderitem”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -2564,6 +2687,52 @@
           <Property Name="ismust" Type="tinyint" />
           <Property Name="isware" Type="tinyint" />
           <Property Name="item_orderNo" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_stock_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_stock_crude">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="int" Nullable="false" />
+          <Property Name="num" Type="int" />
+          <Property Name="productiondate" Type="varchar" MaxLength="10" />
+          <Property Name="validate" Type="varchar" MaxLength="10" />
+          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="supplier" Type="varchar" MaxLength="50" />
+          <Property Name="crudename" Type="varchar" MaxLength="20" />
+          <Property Name="unit" Type="varchar" MaxLength="5" />
+          <Property Name="standard" Type="varchar" MaxLength="5" />
+          <Property Name="crudecode" Type="varchar" MaxLength="10" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="genreid" Type="int" />
+          <Property Name="state" Type="tinyint" />
+          <Property Name="crudeid" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_storagelossorspill_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_storagelossorspill_crude">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="crudeid" Type="int" />
+          <Property Name="num" Type="int" />
+          <Property Name="person" Type="varchar" MaxLength="20" />
+          <Property Name="reason" Type="varchar" MaxLength="200" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="crudename" Type="varchar" MaxLength="20" />
+          <Property Name="unit" Type="varchar" MaxLength="5" />
+          <Property Name="standard" Type="varchar" MaxLength="5" />
+          <Property Name="crudecode" Type="varchar" MaxLength="10" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="genreid" Type="int" />
+          <Property Name="state" Type="tinyint" />
         </EntityType>
         <Association Name="Fk_IR1">
           <End Role="interaction_record" Type="Self.interaction_record" Multiplicity="0..1" />
@@ -3123,6 +3292,7 @@
           <EntitySet Name="dd_card_userecord" EntityType="Self.dd_card_userecord" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="dd_chargecar_rule" EntityType="Self.dd_chargecar_rule" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="dd_coupons" EntityType="Self.dd_coupons" Schema="diandian" store:Type="Tables" />
+          <EntitySet Name="dd_emp_floor" EntityType="Self.dd_emp_floor" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="dd_false_data" EntityType="Self.dd_false_data" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="dd_item_isgood" EntityType="Self.dd_item_isgood" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="dd_meal_tips" EntityType="Self.dd_meal_tips" Schema="diandian" store:Type="Tables" />
@@ -3548,6 +3718,69 @@ FROM `v_dd_shop_users` AS `v_dd_shop_users`</DefiningQuery>
 `v_dd_shop_users_count`.`cnt`
 FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_depotin_crude" EntityType="Self.v_depotin_crude" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_depotin_crude`.`ininfoid`, 
+`v_depotin_crude`.`depotinid`, 
+`v_depotin_crude`.`crudeid`, 
+`v_depotin_crude`.`cost`, 
+`v_depotin_crude`.`num`, 
+`v_depotin_crude`.`productiondate`, 
+`v_depotin_crude`.`validity`, 
+`v_depotin_crude`.`backdate`, 
+`v_depotin_crude`.`maker`, 
+`v_depotin_crude`.`remarks`, 
+`v_depotin_crude`.`supplier`, 
+`v_depotin_crude`.`crudename`, 
+`v_depotin_crude`.`unit`, 
+`v_depotin_crude`.`standard`, 
+`v_depotin_crude`.`crudecode`, 
+`v_depotin_crude`.`barcode`, 
+`v_depotin_crude`.`genreid`, 
+`v_depotin_crude`.`state`, 
+`v_depotin_crude`.`depotid`, 
+`v_depotin_crude`.`dutyperson`, 
+`v_depotin_crude`.`deliveryman`, 
+`v_depotin_crude`.`deliveryphone`, 
+`v_depotin_crude`.`driver`, 
+`v_depotin_crude`.`platenum`, 
+`v_depotin_crude`.`type`, 
+`v_depotin_crude`.`depotin_cost`
+FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_depotout_crude" EntityType="Self.v_depotout_crude" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_depotout_crude`.`depotoutid`, 
+`v_depotout_crude`.`crudeid`, 
+`v_depotout_crude`.`num`, 
+`v_depotout_crude`.`salemoney`, 
+`v_depotout_crude`.`shopkey`, 
+`v_depotout_crude`.`surplus`, 
+`v_depotout_crude`.`crudename`, 
+`v_depotout_crude`.`unit`, 
+`v_depotout_crude`.`standard`, 
+`v_depotout_crude`.`crudecode`, 
+`v_depotout_crude`.`barcode`, 
+`v_depotout_crude`.`genreid`, 
+`v_depotout_crude`.`state`, 
+`v_depotout_crude`.`depotid`, 
+`v_depotout_crude`.`dutyperson`, 
+`v_depotout_crude`.`itemkey`, 
+`v_depotout_crude`.`depinout_salemoney`, 
+`v_depotout_crude`.`type`, 
+`v_depotout_crude`.`outinfoid`
+FROM `v_depotout_crude` AS `v_depotout_crude`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_emp_floor" EntityType="Self.v_emp_floor" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_emp_floor`.`id`, 
+`v_emp_floor`.`memberkey`, 
+`v_emp_floor`.`floorid`, 
+`v_emp_floor`.`floorname`, 
+`v_emp_floor`.`shopkey`, 
+`v_emp_floor`.`orderno`
+FROM `v_emp_floor` AS `v_emp_floor`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_item_crude" EntityType="Self.v_item_crude" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_item_crude`.`itemkey`, 
@@ -3566,6 +3799,44 @@ FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
 `v_item_crude`.`state`, 
 `v_item_crude`.`sid`
 FROM `v_item_crude` AS `v_item_crude`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_memberrole" EntityType="Self.v_memberrole" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_memberrole`.`memberkey`, 
+`v_memberrole`.`shopkey`, 
+`v_memberrole`.`postkey`, 
+`v_memberrole`.`memberLevel`, 
+`v_memberrole`.`type`, 
+`v_memberrole`.`name`, 
+`v_memberrole`.`loginName`, 
+`v_memberrole`.`pwd`, 
+`v_memberrole`.`secpwd`, 
+`v_memberrole`.`icon`, 
+`v_memberrole`.`tel`, 
+`v_memberrole`.`email`, 
+`v_memberrole`.`score`, 
+`v_memberrole`.`balance`, 
+`v_memberrole`.`WebSite1Uid`, 
+`v_memberrole`.`WebSite2Uid`, 
+`v_memberrole`.`WebSite3Uid`, 
+`v_memberrole`.`enable`, 
+`v_memberrole`.`createDate`, 
+`v_memberrole`.`provinceId`, 
+`v_memberrole`.`cityId`, 
+`v_memberrole`.`areaId`, 
+`v_memberrole`.`code`, 
+`v_memberrole`.`parentMemberkey`, 
+`v_memberrole`.`isDel`, 
+`v_memberrole`.`token`, 
+`v_memberrole`.`lat`, 
+`v_memberrole`.`lng`, 
+`v_memberrole`.`agentid`, 
+`v_memberrole`.`superroleid`, 
+`v_memberrole`.`rolename`, 
+`v_memberrole`.`descb`, 
+`v_memberrole`.`rtype`, 
+`v_memberrole`.`sysroleid`
+FROM `v_memberrole` AS `v_memberrole`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_orderitem" EntityType="Self.v_orderitem" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
@@ -3613,6 +3884,46 @@ FROM `v_item_crude` AS `v_item_crude`</DefiningQuery>
 `v_orderitem`.`isware`, 
 `v_orderitem`.`item_orderNo`
 FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_stock_crude" EntityType="Self.v_stock_crude" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_stock_crude`.`stockid`, 
+`v_stock_crude`.`num`, 
+`v_stock_crude`.`productiondate`, 
+`v_stock_crude`.`validate`, 
+`v_stock_crude`.`backdate`, 
+`v_stock_crude`.`shopkey`, 
+`v_stock_crude`.`depotid`, 
+`v_stock_crude`.`supplier`, 
+`v_stock_crude`.`crudename`, 
+`v_stock_crude`.`unit`, 
+`v_stock_crude`.`standard`, 
+`v_stock_crude`.`crudecode`, 
+`v_stock_crude`.`barcode`, 
+`v_stock_crude`.`genreid`, 
+`v_stock_crude`.`state`, 
+`v_stock_crude`.`crudeid`
+FROM `v_stock_crude` AS `v_stock_crude`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_storagelossorspill_crude" EntityType="Self.v_storagelossorspill_crude" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_storagelossorspill_crude`.`id`, 
+`v_storagelossorspill_crude`.`crudeid`, 
+`v_storagelossorspill_crude`.`num`, 
+`v_storagelossorspill_crude`.`person`, 
+`v_storagelossorspill_crude`.`reason`, 
+`v_storagelossorspill_crude`.`createdate`, 
+`v_storagelossorspill_crude`.`shopkey`, 
+`v_storagelossorspill_crude`.`depotid`, 
+`v_storagelossorspill_crude`.`type`, 
+`v_storagelossorspill_crude`.`crudename`, 
+`v_storagelossorspill_crude`.`unit`, 
+`v_storagelossorspill_crude`.`standard`, 
+`v_storagelossorspill_crude`.`crudecode`, 
+`v_storagelossorspill_crude`.`barcode`, 
+`v_storagelossorspill_crude`.`genreid`, 
+`v_storagelossorspill_crude`.`state`
+FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="Fk_IR1" Association="Self.Fk_IR1">
             <End Role="interaction_record" EntitySet="interaction_record" />
@@ -4567,19 +4878,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <Property Name="minkuaijiet0tshop" Type="Decimal" />
           <Property Name="defaultkuaijiet0" Type="Decimal" />
         </EntityType>
-        <EntityType Name="dd_table_floor">
-          <Key>
-            <PropertyRef Name="floorid" />
-          </Key>
-          <Property Name="floorid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="floorname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="SByte" />
-          <Property Name="isdel" Type="SByte" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="orderno" Type="Int32" />
-          <Property Name="ffuwu" Type="Decimal" />
-        </EntityType>
         <EntityType Name="dd_tuijian">
           <Key>
             <PropertyRef Name="tjid" />
@@ -5313,130 +5611,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <Property Name="shopkey" Type="Int32" />
           <Property Name="serial" Type="Int32" />
           <Property Name="sDate" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="storage_crude">
-          <Key>
-            <PropertyRef Name="crudeid" />
-          </Key>
-          <Property Name="crudeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="genreid" Type="Int32" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="state" Type="SByte" />
-        </EntityType>
-        <EntityType Name="storage_depot">
-          <Key>
-            <PropertyRef Name="depotid" />
-          </Key>
-          <Property Name="depotid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="dutyperson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="SByte" />
-        </EntityType>
-        <EntityType Name="storage_depotin">
-          <Key>
-            <PropertyRef Name="depotinid" />
-          </Key>
-          <Property Name="depotinid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="cost" Type="Decimal" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="deliveryman" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="deliveryphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="driver" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="platenum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="type" Type="SByte" />
-        </EntityType>
-        <EntityType Name="storage_depotin_info">
-          <Key>
-            <PropertyRef Name="ininfoid" />
-          </Key>
-          <Property Name="ininfoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="depotinid" Type="Int32" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="cost" Type="Decimal" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validity" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="maker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="storage_depotout">
-          <Key>
-            <PropertyRef Name="depotoutid" />
-          </Key>
-          <Property Name="depotoutid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="itemkey" Type="Int32" />
-          <Property Name="salemoney" Type="Decimal" />
-          <Property Name="type" Type="SByte" />
-        </EntityType>
-        <EntityType Name="storage_depotout_info">
-          <Key>
-            <PropertyRef Name="outinfoid" />
-          </Key>
-          <Property Name="outinfoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="depotoutid" Type="Int32" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="salemoney" Type="Decimal" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="surplus" Type="Int32" />
-        </EntityType>
-        <EntityType Name="storage_genre">
-          <Key>
-            <PropertyRef Name="genreid" />
-          </Key>
-          <Property Name="genreid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="state" Type="SByte" />
-          <Property Name="orderno" Type="Int32" />
-        </EntityType>
-        <EntityType Name="storage_lossorspill">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="person" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="type" Type="SByte" />
-        </EntityType>
-        <EntityType Name="storage_stock">
-          <Key>
-            <PropertyRef Name="stockid" />
-          </Key>
-          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sys_common_ctype">
           <Key>
@@ -6292,7 +6466,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <EntitySet Name="dd_sign_accounts" EntityType="Self.dd_sign_accounts" />
           <EntitySet Name="dd_sign_meals" EntityType="Self.dd_sign_meals" />
           <EntitySet Name="dd_sys_consts" EntityType="Self.dd_sys_consts" />
-          <EntitySet Name="dd_table_floor" EntityType="Self.dd_table_floor" />
           <EntitySet Name="dd_tuijian" EntityType="Self.dd_tuijian" />
           <EntitySet Name="dd_user_sendmsg" EntityType="Self.dd_user_sendmsg" />
           <EntitySet Name="dd_window_item" EntityType="Self.dd_window_item" />
@@ -6337,15 +6510,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <EntitySet Name="shop_item_record" EntityType="Self.shop_item_record" />
           <EntitySet Name="shop_oper_log" EntityType="Self.shop_oper_log" />
           <EntitySet Name="shop_serial" EntityType="Self.shop_serial" />
-          <EntitySet Name="storage_crude" EntityType="Self.storage_crude" />
-          <EntitySet Name="storage_depot" EntityType="Self.storage_depot" />
-          <EntitySet Name="storage_depotin" EntityType="Self.storage_depotin" />
-          <EntitySet Name="storage_depotin_info" EntityType="Self.storage_depotin_info" />
-          <EntitySet Name="storage_depotout" EntityType="Self.storage_depotout" />
-          <EntitySet Name="storage_depotout_info" EntityType="Self.storage_depotout_info" />
-          <EntitySet Name="storage_genre" EntityType="Self.storage_genre" />
-          <EntitySet Name="storage_lossorspill" EntityType="Self.storage_lossorspill" />
-          <EntitySet Name="storage_stock" EntityType="Self.storage_stock" />
           <EntitySet Name="sys_common_ctype" EntityType="Self.sys_common_ctype" />
           <EntitySet Name="sys_common_type" EntityType="Self.sys_common_type" />
           <EntitySet Name="sys_menu" EntityType="Self.sys_menu" />
@@ -6546,8 +6710,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <EntitySet Name="allot_account" EntityType="diandianModel.allot_account" />
           <EntitySet Name="v_category_items" EntityType="diandianModel.v_category_items" />
           <EntitySet Name="dd_shop_signusers" EntityType="diandianModel.dd_shop_signusers" />
-          <EntitySet Name="storage_item_crude" EntityType="diandianModel.storage_item_crude" />
-          <EntitySet Name="v_item_crude" EntityType="diandianModel.v_item_crude" />
           <EntitySet Name="dd_adjunct_edit" EntityType="diandianModel.dd_adjunct_edit" />
           <EntitySet Name="dd_areas" EntityType="diandianModel.dd_areas" />
           <EntitySet Name="dd_printers" EntityType="diandianModel.dd_printers" />
@@ -6557,7 +6719,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <EntitySet Name="dd_zbank_code" EntityType="diandianModel.dd_zbank_code" />
           <EntitySet Name="elm_shop_id" EntityType="diandianModel.elm_shop_id" />
           <EntitySet Name="shop_edit" EntityType="diandianModel.shop_edit" />
-          <EntitySet Name="storage_shop_depot" EntityType="diandianModel.storage_shop_depot" />
           <EntitySet Name="sys_right" EntityType="diandianModel.sys_right" />
           <EntitySet Name="dd_printerqueue" EntityType="diandianModel.dd_printerqueue" />
           <EntitySet Name="dd_shop_account" EntityType="diandianModel.dd_shop_account" />
@@ -6566,6 +6727,26 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <EntitySet Name="dd_meal_tips" EntityType="diandianModel.dd_meal_tips" />
           <EntitySet Name="dd_card_userecord" EntityType="diandianModel.dd_card_userecord" />
           <EntitySet Name="dd_shop_windows" EntityType="diandianModel.dd_shop_windows" />
+          <EntitySet Name="dd_table_floor" EntityType="diandianModel.dd_table_floor" />
+          <EntitySet Name="v_memberrole" EntityType="diandianModel.v_memberrole" />
+          <EntitySet Name="dd_emp_floor" EntityType="diandianModel.dd_emp_floor" />
+          <EntitySet Name="v_emp_floor" EntityType="diandianModel.v_emp_floor" />
+          <EntitySet Name="storage_crude" EntityType="diandianModel.storage_crude" />
+          <EntitySet Name="storage_depot" EntityType="diandianModel.storage_depot" />
+          <EntitySet Name="storage_depotin" EntityType="diandianModel.storage_depotin" />
+          <EntitySet Name="storage_depotin_info" EntityType="diandianModel.storage_depotin_info" />
+          <EntitySet Name="storage_depotout" EntityType="diandianModel.storage_depotout" />
+          <EntitySet Name="storage_depotout_info" EntityType="diandianModel.storage_depotout_info" />
+          <EntitySet Name="storage_genre" EntityType="diandianModel.storage_genre" />
+          <EntitySet Name="storage_item_crude" EntityType="diandianModel.storage_item_crude" />
+          <EntitySet Name="storage_lossorspill" EntityType="diandianModel.storage_lossorspill" />
+          <EntitySet Name="v_depotin_crude" EntityType="diandianModel.v_depotin_crude" />
+          <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
+          <EntitySet Name="v_storagelossorspill_crude" EntityType="diandianModel.v_storagelossorspill_crude" />
+          <EntitySet Name="storage_shop_depot" EntityType="diandianModel.storage_shop_depot" />
+          <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
+          <EntitySet Name="v_item_crude" EntityType="diandianModel.v_item_crude" />
+          <EntitySet Name="v_depotout_crude" EntityType="diandianModel.v_depotout_crude" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -6882,37 +7063,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <Property Name="state" Type="Int32" />
           <Property Name="shopkey" Type="Int32" />
         </EntityType>
-        <EntityType Name="storage_item_crude">
-          <Key>
-            <PropertyRef Name="sid" />
-          </Key>
-          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="itemkey" Type="Int32" />
-          <Property Name="guigeid" Type="Int32" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="type" Type="SByte" />
-        </EntityType>
-        <EntityType Name="v_item_crude">
-          <Key>
-            <PropertyRef Name="sid" />
-          </Key>
-          <Property Name="itemkey" Type="Int32" />
-          <Property Name="guigeid" Type="Int32" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="type" Type="SByte" />
-          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="createdate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="genreid" Type="Int32" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="state" Type="SByte" />
-          <Property Name="sid" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="dd_adjunct_edit">
           <Key>
             <PropertyRef Name="sid" />
@@ -7076,14 +7226,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <Property Name="isserver" Type="SByte" />
           <Property Name="zbankname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="zbankcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="storage_shop_depot">
-          <Key>
-            <PropertyRef Name="sid" />
-          </Key>
-          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
         </EntityType>
         <EntityType Name="sys_right">
           <Key>
@@ -7263,6 +7405,339 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           <Property Name="porder" Type="Int32" />
           <Property Name="isyicaiyidan" Type="Boolean" />
           <Property Name="isprintexcep" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="dd_table_floor">
+          <Key>
+            <PropertyRef Name="floorid" />
+          </Key>
+          <Property Name="floorid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="floorname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="isdel" Type="SByte" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="orderno" Type="Int32" />
+          <Property Name="ffuwu" Type="Decimal" />
+        </EntityType>
+        <EntityType Name="v_memberrole">
+          <Key>
+            <PropertyRef Name="memberkey" />
+            <PropertyRef Name="lat" />
+            <PropertyRef Name="lng" />
+          </Key>
+          <Property Name="memberkey" Type="Int32" Nullable="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="postkey" Type="Int32" />
+          <Property Name="memberLevel" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="loginName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="secpwd" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="balance" Type="Double" />
+          <Property Name="WebSite1Uid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite2Uid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite3Uid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="enable" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" />
+          <Property Name="provinceId" Type="Int32" />
+          <Property Name="cityId" Type="Int32" />
+          <Property Name="areaId" Type="Int32" />
+          <Property Name="code" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="parentMemberkey" Type="Int32" />
+          <Property Name="isDel" Type="Int32" />
+          <Property Name="token" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" Nullable="false" />
+          <Property Name="lng" Type="Decimal" Nullable="false" />
+          <Property Name="agentid" Type="Int32" />
+          <Property Name="superroleid" Type="Int64" />
+          <Property Name="rolename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="descb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rtype" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="sysroleid" Type="Int64" />
+        </EntityType>
+        <EntityType Name="dd_emp_floor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="memberkey" Type="Int32" />
+          <Property Name="floorid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_emp_floor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="memberkey" Type="Int32" />
+          <Property Name="floorid" Type="Int32" />
+          <Property Name="floorname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="orderno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="storage_crude">
+          <Key>
+            <PropertyRef Name="crudeid" />
+          </Key>
+          <Property Name="crudeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_depot">
+          <Key>
+            <PropertyRef Name="depotid" />
+          </Key>
+          <Property Name="depotid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="dutyperson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_depotin">
+          <Key>
+            <PropertyRef Name="depotinid" />
+          </Key>
+          <Property Name="depotinid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="cost" Type="Decimal" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deliveryman" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deliveryphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="driver" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="platenum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_depotin_info">
+          <Key>
+            <PropertyRef Name="ininfoid" />
+          </Key>
+          <Property Name="ininfoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depotinid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="cost" Type="Decimal" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validity" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="maker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="storage_depotout">
+          <Key>
+            <PropertyRef Name="depotoutid" />
+          </Key>
+          <Property Name="depotoutid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="itemkey" Type="Int32" />
+          <Property Name="salemoney" Type="Decimal" />
+          <Property Name="type" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_depotout_info">
+          <Key>
+            <PropertyRef Name="outinfoid" />
+          </Key>
+          <Property Name="outinfoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depotoutid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="salemoney" Type="Decimal" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="surplus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="storage_genre">
+          <Key>
+            <PropertyRef Name="genreid" />
+          </Key>
+          <Property Name="genreid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="orderno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="storage_item_crude">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemkey" Type="Int32" />
+          <Property Name="guigeid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="type" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_lossorspill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="person" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="type" Type="SByte" />
+        </EntityType>
+        <EntityType Name="v_depotin_crude">
+          <Key>
+            <PropertyRef Name="ininfoid" />
+          </Key>
+          <Property Name="ininfoid" Type="Int32" Nullable="false" />
+          <Property Name="depotinid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="cost" Type="Decimal" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validity" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="maker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deliveryman" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deliveryphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="driver" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="platenum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="SByte" />
+          <Property Name="depotin_cost" Type="Decimal" />
+        </EntityType>
+        <EntityType Name="v_stock_crude">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="crudeid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_storagelossorspill_crude">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="person" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="type" Type="SByte" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+        </EntityType>
+        <EntityType Name="storage_shop_depot">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="storage_stock">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_item_crude">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="itemkey" Type="Int32" />
+          <Property Name="guigeid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="type" Type="SByte" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="sid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_depotout_crude">
+          <Key>
+            <PropertyRef Name="outinfoid" />
+          </Key>
+          <Property Name="depotoutid" Type="Int32" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="salemoney" Type="Decimal" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="surplus" Type="Int32" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="dutyperson" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="itemkey" Type="Int32" />
+          <Property Name="depinout_salemoney" Type="Decimal" />
+          <Property Name="type" Type="SByte" />
+          <Property Name="outinfoid" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -8085,20 +8560,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dd_table_floor">
-            <EntityTypeMapping TypeName="diandianModel.dd_table_floor">
-              <MappingFragment StoreEntitySet="dd_table_floor">
-                <ScalarProperty Name="floorid" ColumnName="floorid" />
-                <ScalarProperty Name="floorname" ColumnName="floorname" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="isdel" ColumnName="isdel" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="orderno" ColumnName="orderno" />
-                <ScalarProperty Name="ffuwu" ColumnName="ffuwu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dd_tuijian">
             <EntityTypeMapping TypeName="diandianModel.dd_tuijian">
               <MappingFragment StoreEntitySet="dd_tuijian">
@@ -8799,139 +9260,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="storage_crude">
-            <EntityTypeMapping TypeName="diandianModel.storage_crude">
-              <MappingFragment StoreEntitySet="storage_crude">
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="crudename" ColumnName="crudename" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="standard" ColumnName="standard" />
-                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
-                <ScalarProperty Name="barcode" ColumnName="barcode" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="genreid" ColumnName="genreid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="state" ColumnName="state" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_depot">
-            <EntityTypeMapping TypeName="diandianModel.storage_depot">
-              <MappingFragment StoreEntitySet="storage_depot">
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="depotname" ColumnName="depotname" />
-                <ScalarProperty Name="addr" ColumnName="addr" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
-                <ScalarProperty Name="state" ColumnName="state" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_depotin">
-            <EntityTypeMapping TypeName="diandianModel.storage_depotin">
-              <MappingFragment StoreEntitySet="storage_depotin">
-                <ScalarProperty Name="depotinid" ColumnName="depotinid" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
-                <ScalarProperty Name="deliveryman" ColumnName="deliveryman" />
-                <ScalarProperty Name="deliveryphone" ColumnName="deliveryphone" />
-                <ScalarProperty Name="driver" ColumnName="driver" />
-                <ScalarProperty Name="platenum" ColumnName="platenum" />
-                <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_depotin_info">
-            <EntityTypeMapping TypeName="diandianModel.storage_depotin_info">
-              <MappingFragment StoreEntitySet="storage_depotin_info">
-                <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
-                <ScalarProperty Name="depotinid" ColumnName="depotinid" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="validity" ColumnName="validity" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="maker" ColumnName="maker" />
-                <ScalarProperty Name="remarks" ColumnName="remarks" />
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_depotout">
-            <EntityTypeMapping TypeName="diandianModel.storage_depotout">
-              <MappingFragment StoreEntitySet="storage_depotout">
-                <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
-                <ScalarProperty Name="salemoney" ColumnName="salemoney" />
-                <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_depotout_info">
-            <EntityTypeMapping TypeName="diandianModel.storage_depotout_info">
-              <MappingFragment StoreEntitySet="storage_depotout_info">
-                <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
-                <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="salemoney" ColumnName="salemoney" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="surplus" ColumnName="surplus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_genre">
-            <EntityTypeMapping TypeName="diandianModel.storage_genre">
-              <MappingFragment StoreEntitySet="storage_genre">
-                <ScalarProperty Name="genreid" ColumnName="genreid" />
-                <ScalarProperty Name="genrename" ColumnName="genrename" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="orderno" ColumnName="orderno" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_lossorspill">
-            <EntityTypeMapping TypeName="diandianModel.storage_lossorspill">
-              <MappingFragment StoreEntitySet="storage_lossorspill">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="person" ColumnName="person" />
-                <ScalarProperty Name="reason" ColumnName="reason" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_stock">
-            <EntityTypeMapping TypeName="diandianModel.storage_stock">
-              <MappingFragment StoreEntitySet="storage_stock">
-                <ScalarProperty Name="stockid" ColumnName="stockid" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="validate" ColumnName="validate" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sys_common_ctype">
             <EntityTypeMapping TypeName="diandianModel.sys_common_ctype">
               <MappingFragment StoreEntitySet="sys_common_ctype">
@@ -9540,39 +9868,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="storage_item_crude">
-            <EntityTypeMapping TypeName="diandianModel.storage_item_crude">
-              <MappingFragment StoreEntitySet="storage_item_crude">
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="guigeid" ColumnName="guigeid" />
-                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
-                <ScalarProperty Name="sid" ColumnName="sid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_item_crude">
-            <EntityTypeMapping TypeName="diandianModel.v_item_crude">
-              <MappingFragment StoreEntitySet="v_item_crude">
-                <ScalarProperty Name="sid" ColumnName="sid" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="genreid" ColumnName="genreid" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="barcode" ColumnName="barcode" />
-                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
-                <ScalarProperty Name="standard" ColumnName="standard" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="crudename" ColumnName="crudename" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="guigeid" ColumnName="guigeid" />
-                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dd_adjunct_edit">
             <EntityTypeMapping TypeName="diandianModel.dd_adjunct_edit">
               <MappingFragment StoreEntitySet="dd_adjunct_edit">
@@ -9743,15 +10038,6 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="shopCode" ColumnName="shopCode" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_shop_depot">
-            <EntityTypeMapping TypeName="diandianModel.storage_shop_depot">
-              <MappingFragment StoreEntitySet="storage_shop_depot">
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="sid" ColumnName="sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9937,6 +10223,357 @@ FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
                 <ScalarProperty Name="windowdesc" ColumnName="windowdesc" />
                 <ScalarProperty Name="windowname" ColumnName="windowname" />
                 <ScalarProperty Name="windowid" ColumnName="windowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dd_table_floor">
+            <EntityTypeMapping TypeName="diandianModel.dd_table_floor">
+              <MappingFragment StoreEntitySet="dd_table_floor">
+                <ScalarProperty Name="ffuwu" ColumnName="ffuwu" />
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="isdel" ColumnName="isdel" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="floorname" ColumnName="floorname" />
+                <ScalarProperty Name="floorid" ColumnName="floorid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_memberrole">
+            <EntityTypeMapping TypeName="diandianModel.v_memberrole">
+              <MappingFragment StoreEntitySet="v_memberrole">
+                <ScalarProperty Name="sysroleid" ColumnName="sysroleid" />
+                <ScalarProperty Name="rtype" ColumnName="rtype" />
+                <ScalarProperty Name="descb" ColumnName="descb" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="superroleid" ColumnName="superroleid" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="parentMemberkey" ColumnName="parentMemberkey" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="cityId" ColumnName="cityId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="enable" ColumnName="enable" />
+                <ScalarProperty Name="WebSite3Uid" ColumnName="WebSite3Uid" />
+                <ScalarProperty Name="WebSite2Uid" ColumnName="WebSite2Uid" />
+                <ScalarProperty Name="WebSite1Uid" ColumnName="WebSite1Uid" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="secpwd" ColumnName="secpwd" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="loginName" ColumnName="loginName" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="memberLevel" ColumnName="memberLevel" />
+                <ScalarProperty Name="postkey" ColumnName="postkey" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="memberkey" ColumnName="memberkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dd_emp_floor">
+            <EntityTypeMapping TypeName="diandianModel.dd_emp_floor">
+              <MappingFragment StoreEntitySet="dd_emp_floor">
+                <ScalarProperty Name="floorid" ColumnName="floorid" />
+                <ScalarProperty Name="memberkey" ColumnName="memberkey" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_emp_floor">
+            <EntityTypeMapping TypeName="diandianModel.v_emp_floor">
+              <MappingFragment StoreEntitySet="v_emp_floor">
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="floorname" ColumnName="floorname" />
+                <ScalarProperty Name="floorid" ColumnName="floorid" />
+                <ScalarProperty Name="memberkey" ColumnName="memberkey" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_crude">
+            <EntityTypeMapping TypeName="diandianModel.storage_crude">
+              <MappingFragment StoreEntitySet="storage_crude">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_depot">
+            <EntityTypeMapping TypeName="diandianModel.storage_depot">
+              <MappingFragment StoreEntitySet="storage_depot">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="depotname" ColumnName="depotname" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_depotin">
+            <EntityTypeMapping TypeName="diandianModel.storage_depotin">
+              <MappingFragment StoreEntitySet="storage_depotin">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="platenum" ColumnName="platenum" />
+                <ScalarProperty Name="driver" ColumnName="driver" />
+                <ScalarProperty Name="deliveryphone" ColumnName="deliveryphone" />
+                <ScalarProperty Name="deliveryman" ColumnName="deliveryman" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="depotinid" ColumnName="depotinid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_depotin_info">
+            <EntityTypeMapping TypeName="diandianModel.storage_depotin_info">
+              <MappingFragment StoreEntitySet="storage_depotin_info">
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="maker" ColumnName="maker" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validity" ColumnName="validity" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="depotinid" ColumnName="depotinid" />
+                <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_depotout">
+            <EntityTypeMapping TypeName="diandianModel.storage_depotout">
+              <MappingFragment StoreEntitySet="storage_depotout">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="salemoney" ColumnName="salemoney" />
+                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_depotout_info">
+            <EntityTypeMapping TypeName="diandianModel.storage_depotout_info">
+              <MappingFragment StoreEntitySet="storage_depotout_info">
+                <ScalarProperty Name="surplus" ColumnName="surplus" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="salemoney" ColumnName="salemoney" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
+                <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_genre">
+            <EntityTypeMapping TypeName="diandianModel.storage_genre">
+              <MappingFragment StoreEntitySet="storage_genre">
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="genrename" ColumnName="genrename" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_item_crude">
+            <EntityTypeMapping TypeName="diandianModel.storage_item_crude">
+              <MappingFragment StoreEntitySet="storage_item_crude">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="guigeid" ColumnName="guigeid" />
+                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_lossorspill">
+            <EntityTypeMapping TypeName="diandianModel.storage_lossorspill">
+              <MappingFragment StoreEntitySet="storage_lossorspill">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="person" ColumnName="person" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_depotin_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_depotin_crude">
+              <MappingFragment StoreEntitySet="v_depotin_crude">
+                <ScalarProperty Name="depotin_cost" ColumnName="depotin_cost" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="platenum" ColumnName="platenum" />
+                <ScalarProperty Name="driver" ColumnName="driver" />
+                <ScalarProperty Name="deliveryphone" ColumnName="deliveryphone" />
+                <ScalarProperty Name="deliveryman" ColumnName="deliveryman" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="maker" ColumnName="maker" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validity" ColumnName="validity" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="depotinid" ColumnName="depotinid" />
+                <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_stock_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_stock_crude">
+              <MappingFragment StoreEntitySet="v_stock_crude">
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_storagelossorspill_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_storagelossorspill_crude">
+              <MappingFragment StoreEntitySet="v_storagelossorspill_crude">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="person" ColumnName="person" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_shop_depot">
+            <EntityTypeMapping TypeName="diandianModel.storage_shop_depot">
+              <MappingFragment StoreEntitySet="storage_shop_depot">
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_stock">
+            <EntityTypeMapping TypeName="diandianModel.storage_stock">
+              <MappingFragment StoreEntitySet="storage_stock">
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_item_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_item_crude">
+              <MappingFragment StoreEntitySet="v_item_crude">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="guigeid" ColumnName="guigeid" />
+                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_depotout_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_depotout_crude">
+              <MappingFragment StoreEntitySet="v_depotout_crude">
+                <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="depinout_salemoney" ColumnName="depinout_salemoney" />
+                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="surplus" ColumnName="surplus" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="salemoney" ColumnName="salemoney" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

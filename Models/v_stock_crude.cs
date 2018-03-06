@@ -12,22 +12,23 @@ namespace DianDianClient.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class v_item_crude
+    public partial class v_stock_crude
     {
-        public Nullable<int> itemkey { get; set; }
-        public Nullable<int> guigeid { get; set; }
-        public Nullable<int> crudeid { get; set; }
+        public int stockid { get; set; }
         public Nullable<int> num { get; set; }
-        public Nullable<sbyte> type { get; set; }
+        public string productiondate { get; set; }
+        public string validate { get; set; }
+        public string backdate { get; set; }
+        public Nullable<int> shopkey { get; set; }
+        public Nullable<int> depotid { get; set; }
+        public string supplier { get; set; }
         public string crudename { get; set; }
         public string unit { get; set; }
         public string standard { get; set; }
         public string crudecode { get; set; }
         public string barcode { get; set; }
-        public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<int> genreid { get; set; }
-        public Nullable<int> shopkey { get; set; }
         public Nullable<sbyte> state { get; set; }
-        public int sid { get; set; }
+        public Nullable<int> crudeid { get; set; }
     }
 }

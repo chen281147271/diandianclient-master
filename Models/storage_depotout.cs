@@ -15,7 +15,7 @@ namespace DianDianClient.Models
     public partial class storage_depotout
     {
         public int depotoutid { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<int> depotid { get; set; }
         public string dutyperson { get; set; }
         public Nullable<int> shopkey { get; set; }

@@ -19,7 +19,7 @@ namespace DianDianClient.Models
         public Nullable<sbyte> state { get; set; }
         public Nullable<sbyte> isdel { get; set; }
         public Nullable<int> shopkey { get; set; }
-        public string createdate { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<int> orderno { get; set; }
         public Nullable<decimal> ffuwu { get; set; }
     }

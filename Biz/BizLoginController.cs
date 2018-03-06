@@ -12,7 +12,7 @@ namespace DianDianClient.Biz
     class BizLoginController
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizLoginController");
-        private DianDianEntities db = new DianDianEntities();
+        //private DianDianEntities db = new DianDianEntities();
         static private string loginUrl = "http://app.diandiancaidan.com/back/pclogin.html";
         static public int userid = 0;
         static public string username = "";
@@ -48,6 +48,7 @@ namespace DianDianClient.Biz
         //本地登录
         public int LocalLogin(int shopcode, String username, String password)
         {
+            DianDianEntities db = new DianDianEntities();
             string result = "";
             List<member> rsl = db.member.Where(t => t.loginName.Equals(username) && t.pwd.Equals(password) 
                 && t.shopkey == shopcode && t.enable == 1).ToList();
@@ -80,10 +81,5 @@ namespace DianDianClient.Biz
             return -1;
         }
 
-        //修改密码
-        public void ChangePwd()
-        {
-
-        }
     }
 }
