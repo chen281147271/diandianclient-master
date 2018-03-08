@@ -1988,9 +1988,9 @@
           <Property Name="stockid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="crudeid" Type="int" />
           <Property Name="num" Type="int" />
-          <Property Name="productiondate" Type="varchar" MaxLength="10" />
-          <Property Name="validate" Type="varchar" MaxLength="10" />
-          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validate" Type="date" />
+          <Property Name="backdate" Type="date" />
           <Property Name="shopkey" Type="int" />
           <Property Name="depotid" Type="int" />
           <Property Name="supplier" Type="varchar" MaxLength="50" />
@@ -2696,9 +2696,9 @@
           </Key>
           <Property Name="stockid" Type="int" Nullable="false" />
           <Property Name="num" Type="int" />
-          <Property Name="productiondate" Type="varchar" MaxLength="10" />
-          <Property Name="validate" Type="varchar" MaxLength="10" />
-          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validate" Type="date" />
+          <Property Name="backdate" Type="date" />
           <Property Name="shopkey" Type="int" />
           <Property Name="depotid" Type="int" />
           <Property Name="supplier" Type="varchar" MaxLength="50" />
@@ -6741,12 +6741,12 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="storage_item_crude" EntityType="diandianModel.storage_item_crude" />
           <EntitySet Name="storage_lossorspill" EntityType="diandianModel.storage_lossorspill" />
           <EntitySet Name="v_depotin_crude" EntityType="diandianModel.v_depotin_crude" />
-          <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
           <EntitySet Name="v_storagelossorspill_crude" EntityType="diandianModel.v_storagelossorspill_crude" />
           <EntitySet Name="storage_shop_depot" EntityType="diandianModel.storage_shop_depot" />
-          <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
           <EntitySet Name="v_item_crude" EntityType="diandianModel.v_item_crude" />
           <EntitySet Name="v_depotout_crude" EntityType="diandianModel.v_depotout_crude" />
+          <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
+          <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -7631,27 +7631,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="type" Type="SByte" />
           <Property Name="depotin_cost" Type="Decimal" />
         </EntityType>
-        <EntityType Name="v_stock_crude">
-          <Key>
-            <PropertyRef Name="stockid" />
-          </Key>
-          <Property Name="stockid" Type="Int32" Nullable="false" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="genreid" Type="Int32" />
-          <Property Name="state" Type="SByte" />
-          <Property Name="crudeid" Type="Int32" />
-        </EntityType>
         <EntityType Name="v_storagelossorspill_crude">
           <Key>
             <PropertyRef Name="id" />
@@ -7680,20 +7659,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="shopkey" Type="Int32" />
           <Property Name="depotid" Type="Int32" />
-        </EntityType>
-        <EntityType Name="storage_stock">
-          <Key>
-            <PropertyRef Name="stockid" />
-          </Key>
-          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="v_item_crude">
           <Key>
@@ -7738,6 +7703,41 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="depinout_salemoney" Type="Decimal" />
           <Property Name="type" Type="SByte" />
           <Property Name="outinfoid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="storage_stock">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validate" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_stock_crude">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validate" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="crudeid" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10463,28 +10463,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_stock_crude">
-            <EntityTypeMapping TypeName="diandianModel.v_stock_crude">
-              <MappingFragment StoreEntitySet="v_stock_crude">
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="genreid" ColumnName="genreid" />
-                <ScalarProperty Name="barcode" ColumnName="barcode" />
-                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
-                <ScalarProperty Name="standard" ColumnName="standard" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="crudename" ColumnName="crudename" />
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="validate" ColumnName="validate" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="stockid" ColumnName="stockid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="v_storagelossorspill_crude">
             <EntityTypeMapping TypeName="diandianModel.v_storagelossorspill_crude">
               <MappingFragment StoreEntitySet="v_storagelossorspill_crude">
@@ -10513,21 +10491,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="depotid" ColumnName="depotid" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="sid" ColumnName="sid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_stock">
-            <EntityTypeMapping TypeName="diandianModel.storage_stock">
-              <MappingFragment StoreEntitySet="storage_stock">
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="validate" ColumnName="validate" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="stockid" ColumnName="stockid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10574,6 +10537,43 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="num" ColumnName="num" />
                 <ScalarProperty Name="crudeid" ColumnName="crudeid" />
                 <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_stock">
+            <EntityTypeMapping TypeName="diandianModel.storage_stock">
+              <MappingFragment StoreEntitySet="storage_stock">
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_stock_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_stock_crude">
+              <MappingFragment StoreEntitySet="v_stock_crude">
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

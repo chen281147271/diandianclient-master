@@ -17,9 +17,9 @@ namespace DianDianClient.Models
         public int stockid { get; set; }
         public Nullable<int> crudeid { get; set; }
         public Nullable<int> num { get; set; }
-        public string productiondate { get; set; }
-        public string validate { get; set; }
-        public string backdate { get; set; }
+        public Nullable<System.DateTime> productiondate { get; set; }
+        public Nullable<System.DateTime> validate { get; set; }
+        public Nullable<System.DateTime> backdate { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<int> depotid { get; set; }
         public string supplier { get; set; }

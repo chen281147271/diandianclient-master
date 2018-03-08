@@ -197,12 +197,12 @@
         <EntityTypeShape EntityType="diandianModel.storage_item_crude" Width="1.5" PointX="37.375" PointY="0.75" />
         <EntityTypeShape EntityType="diandianModel.storage_lossorspill" Width="1.5" PointX="37.375" PointY="3.75" />
         <EntityTypeShape EntityType="diandianModel.v_depotin_crude" Width="1.5" PointX="37.375" PointY="7.75" />
-        <EntityTypeShape EntityType="diandianModel.v_stock_crude" Width="1.5" PointX="9.375" PointY="37.75" />
         <EntityTypeShape EntityType="diandianModel.v_storagelossorspill_crude" Width="1.5" PointX="11.375" PointY="37.75" />
         <EntityTypeShape EntityType="diandianModel.storage_shop_depot" Width="1.5" PointX="37.375" PointY="14.75" />
-        <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="37.375" PointY="17.75" />
         <EntityTypeShape EntityType="diandianModel.v_item_crude" Width="1.5" PointX="37.375" PointY="21.75" />
         <EntityTypeShape EntityType="diandianModel.v_depotout_crude" Width="1.5" PointX="37.375" PointY="26.75" />
+        <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="37.375" PointY="17.75" />
+        <EntityTypeShape EntityType="diandianModel.v_stock_crude" Width="1.5" PointX="37.375" PointY="32.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
