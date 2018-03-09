@@ -216,6 +216,7 @@
             this.dateEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateEdit2.Size = new System.Drawing.Size(181, 20);
             this.dateEdit2.TabIndex = 4;
+            this.dateEdit2.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
             // 
             // flowLayoutPanel2
             // 

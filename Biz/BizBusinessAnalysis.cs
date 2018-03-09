@@ -131,7 +131,7 @@ namespace DianDianClient.Biz
             }
         }
         //按支付方式分类统计
-        RecordGroupTotleBean QueryRecordGroupByPayType(DateTime sdate, DateTime edate)
+        public RecordGroupTotleBean QueryRecordGroupByPayType(DateTime sdate, DateTime edate)
         {
             try
             {

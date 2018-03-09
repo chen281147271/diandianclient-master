@@ -725,11 +725,29 @@
     <Compile Include="MyControl\BusinessDetails\FoodStatisticsControl.Designer.cs">
       <DependentUpon>FoodStatisticsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderDetailControl.Designer.cs">
+      <DependentUpon>OrderDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderDetailDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\OrderDetailDetailControl.Designer.cs">
+      <DependentUpon>OrderDetailDetailControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\BusinessDetails\OrderListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyControl\BusinessDetails\OrderListControl.Designer.cs">
       <DependentUpon>OrderListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\PrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\BusinessDetails\PrintControl.Designer.cs">
+      <DependentUpon>PrintControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\FoodManagement\EditDetailControl.cs">
       <SubType>UserControl</SubType>
@@ -822,6 +840,12 @@
     <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.designer.cs">
       <DependentUpon>ActivityManageDeatilForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\BusinessDetails\OrderDatilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\BusinessDetails\OrderDatilForm.Designer.cs">
+      <DependentUpon>OrderDatilForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\BusinessDetails\OrderListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -870,6 +894,7 @@
     <Compile Include="MyForm\TableSettlement\TuiCaiGrid.Designer.cs">
       <DependentUpon>TuiCaiGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyModels\v_cfmainaccount2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\utils.cs" />
@@ -919,8 +944,17 @@
     <EmbeddedResource Include="MyControl\BusinessDetails\FoodStatisticsControl.resx">
       <DependentUpon>FoodStatisticsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\OrderDetailControl.resx">
+      <DependentUpon>OrderDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\OrderDetailDetailControl.resx">
+      <DependentUpon>OrderDetailDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\BusinessDetails\OrderListControl.resx">
       <DependentUpon>OrderListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\BusinessDetails\PrintControl.resx">
+      <DependentUpon>PrintControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\FoodManagement\EditDetailControl.resx">
       <DependentUpon>EditDetailControl.cs</DependentUpon>
@@ -966,6 +1000,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\ActivityManagement\ActivityManageDeatilForm.resx">
       <DependentUpon>ActivityManageDeatilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\BusinessDetails\OrderDatilForm.resx">
+      <DependentUpon>OrderDatilForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\BusinessDetails\OrderListForm.resx">
       <DependentUpon>OrderListForm.cs</DependentUpon>

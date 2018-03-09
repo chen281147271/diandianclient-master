@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraCharts;
+using DianDianClient.MyModels;
 
 namespace DianDianClient.MyControl.BusinessDetails
 {
     public partial class BusinessDetailControl : UserControl
     {
         Biz.BizBusinessAnalysis bizBusinessAnalysis = new Biz.BizBusinessAnalysis();
+        Biz.BizBillController BillController = new Biz.BizBillController();
         DevExpress.XtraCharts.ChartControl chart_detail = new ChartControl();
         DevExpress.XtraCharts.ChartControl chart_type = new ChartControl();
         DataTable table;//业务笔数统计
-        DataTable table_detail;//业务笔数统计
+        DataTable table_detail_Pay;//支付方式统计
+        DataTable table_detail_Type;//类别统计
         Point mousepoint = new Point(0, 0);//控件BUG 点一次鼠标触发两次事件 现在通过位置屏蔽误触
         List<Models.v_cfmainaccount> dsa;//业务明细
+        DateTime sdate;
+        DateTime edate;
         public BusinessDetailControl()
         {
             InitializeComponent();
@@ -35,6 +40,11 @@ namespace DianDianClient.MyControl.BusinessDetails
             this.PerformLayout();
            // tableLayoutPanel1.Dock = DockStyle.Fill;
         }
+        //class v_cfmainaccount2 : Models.v_cfmainaccount
+        //{  
+        //    public string str_state { get; set; }
+        //    public string str_type { get; set; }
+        //}
         private void IniDate()
         {
            // dateEdit1.Text = "2017 - 02 - 27";
@@ -43,40 +53,87 @@ namespace DianDianClient.MyControl.BusinessDetails
         }
         private void RefreshChart()
         {
-            GetChartData();
+            //顺序不能反
+            table_detail_Type = GetChartData(bizBusinessAnalysis.QueryRecordGroupByType(sdate, edate));
+            table_detail_Pay = GetChartData(bizBusinessAnalysis.QueryRecordGroupByPayType(sdate, edate));
         }
-        private void GetChartData()
+        private DataTable GetChartData(Models.RecordGroupTotleBean recordGroupTotle)//type 1 支付方式 2类型
         {
+            DataTable table_detail=null;
             try
             {
-                DateTime sdate = Convert.ToDateTime(dateEdit1.Text);
-                DateTime edate = Convert.ToDateTime(dateEdit2.Text);
-
-                Models.RecordGroupTotleBean recordGroupTotleBean = bizBusinessAnalysis.QueryRecordGroupByType(sdate, edate);
+                //Models.RecordGroupTotleBean recordGroupTotleBean = bizBusinessAnalysis.QueryRecordGroupByType(sdate, edate);
+                //List<Models.RecordGroupBean> recordGroupBean = recordGroupTotleBean.groupList; 
+                Models.RecordGroupTotleBean recordGroupTotleBean= recordGroupTotle;
                 List<Models.RecordGroupBean> recordGroupBean = recordGroupTotleBean.groupList;
+                string ssumMoney = recordGroupTotle.sumMoney.ToString();
+                string totleCount=recordGroupTotle.totleCount.ToString();
+                this.chartControl1.Series[0].Name ="营业额:"+ ssumMoney + "\r\n 营业笔数:"+totleCount;
                 table = new DataTable("Table1");
                 table.Columns.Add("Name", typeof(String));
                 table.Columns.Add("Value", typeof(Decimal));
                 table.Columns.Add("Count", typeof(Decimal));
                 table.Columns.Add("Color", typeof(Color));
+                table.Columns.Add("DSA", typeof(List<v_cfmainaccount2>));
                 table_detail = new DataTable();
                 table_detail = table.Clone();
+               // table_detail.Columns.Add("DSA",typeof(List<Models.v_cfmainaccount>));
                 for (int i = 0; i < recordGroupBean.Count; i++)
                 {
                     decimal sumMoney = recordGroupBean[i].sumMoney;
                     if (sumMoney >= 0)
                     {
-                        table.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i) });
+                        table.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i),null });
                     }
-                        dsa = recordGroupBean[i].recList;
-                        table_detail.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i) });
+                   // dsa = recordGroupBean[i].recList;
+                    table_detail.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i), translate(recordGroupBean[i].recList) });
                 }
-              //  table.AsEnumerable().Where(p => p.Field<Decimal>("Count") >= 0).ToList();
-              // table= table.AsEnumerable().Where(p=>p.Field<Decimal>("Count")>=0).ToList().CopyToDataTable();
+                //  table.AsEnumerable().Where(p => p.Field<Decimal>("Count") >= 0).ToList();
+                // table= table.AsEnumerable().Where(p=>p.Field<Decimal>("Count")>=0).ToList().CopyToDataTable();
+
+                //if (type == 1)
+                //{
+                //    table_detail_Pay = table_detail;
+                //}
+                //else
+                //{
+                //    table_detail_Type = table_detail;
+                //}
+                return table_detail;
             }
-            catch 
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
+                return table_detail;
             }
+        }
+        private List<v_cfmainaccount2> translate(List<Models.v_cfmainaccount> cfmainaccount)
+        {
+            List<v_cfmainaccount2> list_temp= new List<v_cfmainaccount2>();
+            foreach (Models.v_cfmainaccount item in cfmainaccount)
+            {
+                v_cfmainaccount2 temp=new v_cfmainaccount2();
+                temp.tableNo = item.tableNo;
+                temp.createdate = item.createdate;
+                temp.billNo = item.billNo;
+                temp.payway = item.payway;
+                temp.money = item.money;
+                temp.waiter = item.waiter;
+                temp.youhui = item.youhui;
+                temp.realPay = item.realPay;
+                temp.cfmainkey = item.cfmainkey;
+                if (item.state == 5)
+                {
+                    temp.str_state="异常";
+                }
+                else
+                {
+                    temp.str_state = "正常";
+                }
+                temp.str_type = bizBusinessAnalysis.BillType2Name(item.type);
+                list_temp.Add(temp);
+            }
+            return list_temp;
         }
         private DataTable CreateChartTypeData()
         {
@@ -105,9 +162,9 @@ namespace DianDianClient.MyControl.BusinessDetails
                 chartControl1.Series[0].ArgumentDataMember = "Name";
                 chartControl1.Series[0].ValueDataMembers[0] = "Value";
                 chartControl1.Series[0].ColorDataMember = "Color";
-                IniPie(chart_detail, table_detail, chartControl_MouseClick, "Chameleon");
+                IniPie(chart_detail, table_detail_Pay, chartControl_MouseClick, "Chameleon");
                 this.tableLayoutPanel1.Controls.Add(chart_detail, 0, 1);
-                IniPie(chart_type, CreateChartTypeData(), chartTypeControl_MouseClick, "");
+                IniPie(chart_type, table_detail_Type, chartTypeControl_MouseClick, "");
                 this.tableLayoutPanel1.Controls.Add(chart_type, 0, 2);
             }
             catch { }
@@ -151,6 +208,7 @@ namespace DianDianClient.MyControl.BusinessDetails
                     series.Label = pieSeriesLabel1;
                     series.View = pieSeriesView;
                     series.Name = dr["Name"].ToString();
+                    series.Tag = dr["DSA"];
 
                     DevExpress.XtraCharts.SeriesPoint seriesPoint = new DevExpress.XtraCharts.SeriesPoint(dr["Value"], dr["Count"], 0);
                     seriesPoint.Tag = dr["Name"].ToString();
@@ -187,19 +245,33 @@ namespace DianDianClient.MyControl.BusinessDetails
                 if (hitInfo.SeriesPoint != null)
                 {
                     // MessageBox.Show(hitInfo.SeriesPoint.Tag.ToString());
-                    MyForm.BusinessDetails.OrderListForm orderListForm = new MyForm.BusinessDetails.OrderListForm();
-                    orderListForm.orderListControl1.gridControl1.DataSource = dsa;
-                    orderListForm.StartPosition = FormStartPosition.CenterScreen;
-                    orderListForm.ShowDialog();
+                    //MyForm.BusinessDetails.OrderListForm orderListForm = new MyForm.BusinessDetails.OrderListForm();
+                    //orderListForm.orderListControl1.gridControl1.DataSource = dsa;
+                    //orderListForm.StartPosition = FormStartPosition.CenterScreen;
+                    //orderListForm.ShowDialog();
+                    MyForm.BusinessDetails.OrderDatilForm orderDatil = new MyForm.BusinessDetails.OrderDatilForm(hitInfo.Series.Tag);
+                    orderDatil.StartPosition = FormStartPosition.CenterScreen;
+                    orderDatil.ShowDialog();
                 }
             }
         }
         private void chartTypeControl_MouseClick(object sender, MouseEventArgs e)
         {
-            ChartHitInfo hitInfo = chart_type.CalcHitInfo(e.Location);
-            if (hitInfo.SeriesPoint != null)
+            if (mousepoint != e.Location)
             {
-                MessageBox.Show(hitInfo.SeriesPoint.Tag.ToString());
+                mousepoint = e.Location;
+                ChartHitInfo hitInfo = this.chart_type.CalcHitInfo(e.Location);
+                if (hitInfo.SeriesPoint != null)
+                {
+                    // MessageBox.Show(hitInfo.SeriesPoint.Tag.ToString());
+                    //MyForm.BusinessDetails.OrderListForm orderListForm = new MyForm.BusinessDetails.OrderListForm();
+                    //orderListForm.orderListControl1.gridControl1.DataSource = dsa;
+                    //orderListForm.StartPosition = FormStartPosition.CenterScreen;
+                    //orderListForm.ShowDialog();
+                    MyForm.BusinessDetails.OrderDatilForm orderDatil = new MyForm.BusinessDetails.OrderDatilForm(hitInfo.Series.Tag);
+                    orderDatil.StartPosition = FormStartPosition.CenterScreen;
+                    orderDatil.ShowDialog();
+                }
             }
         }
         private static string ToHexColor(Color color)
@@ -237,6 +309,19 @@ namespace DianDianClient.MyControl.BusinessDetails
         {
             if (dateEdit1.Text.Length > 0 && dateEdit2.Text.Length > 0)
             {
+                sdate = Convert.ToDateTime(dateEdit1.Text);
+                edate = Convert.ToDateTime(dateEdit2.Text);
+                RefreshChart();
+                IniPie();
+            }
+        }
+
+        private void dateEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dateEdit1.Text.Length > 0 && dateEdit2.Text.Length > 0)
+            {
+                sdate = Convert.ToDateTime(dateEdit1.Text);
+                edate = Convert.ToDateTime(dateEdit2.Text);
                 RefreshChart();
                 IniPie();
             }
