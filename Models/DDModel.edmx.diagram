@@ -203,6 +203,7 @@
         <EntityTypeShape EntityType="diandianModel.v_depotout_crude" Width="1.5" PointX="37.375" PointY="26.75" />
         <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="37.375" PointY="17.75" />
         <EntityTypeShape EntityType="diandianModel.v_stock_crude" Width="1.5" PointX="37.375" PointY="32.75" />
+        <EntityTypeShape EntityType="diandianModel.v_shop_depot" Width="1.5" PointX="37.375" PointY="37.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

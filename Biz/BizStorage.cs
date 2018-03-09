@@ -221,7 +221,25 @@ namespace DianDianClient.Biz
         {
             try
             {
+                DianDianEntities db = new DianDianEntities();
+                var stock = db.storage_stock.Where(p => p.crudeid == crudeid && p.validate == validate).FirstOrDefault();
+                if(stock != null)
+                {
+                    stock.validate = changedate;
+                    if(stock.backdate != null)
+                    {
+                        stock.backdate = changedate;
+                    }
 
+                    db.storage_stock.Attach(stock);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(stock);
+                    stateEntity.SetModifiedProperty("genrename");
+                }
+                else
+                {
+                    log.Error("StockModifyValidate error, msg = can not find record");
+                }
+                
             }
             catch (Exception e)
             {
@@ -230,11 +248,16 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryDepotIn()
+        public void QueryDepotIn(string itemname, DateTime validate, DateTime sdate, DateTime edate, string dutyperson, string deliveryman ,string categoryname)
         {
             try
             {
+                DianDianEntities db = new DianDianEntities();
+                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if ()
+                {
 
+                }
             }
             catch (Exception e)
             {
@@ -243,11 +266,12 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryDepotDetail()
+        public void QueryDepotDetail(int depotinid)
         {
             try
             {
-
+                DianDianEntities db = new DianDianEntities();
+                var detailList = db.
             }
             catch (Exception e)
             {

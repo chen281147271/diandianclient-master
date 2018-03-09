@@ -179,5 +179,6 @@ namespace DianDianClient.Models
         public virtual DbSet<v_depotout_crude> v_depotout_crude { get; set; }
         public virtual DbSet<storage_stock> storage_stock { get; set; }
         public virtual DbSet<v_stock_crude> v_stock_crude { get; set; }
+        public virtual DbSet<v_shop_depot> v_shop_depot { get; set; }
     }
 }
