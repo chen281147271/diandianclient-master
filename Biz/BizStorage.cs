@@ -253,7 +253,7 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                //var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!itemname.Equals(""))
                 {
 

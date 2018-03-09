@@ -15,24 +15,30 @@ namespace DianDianClient.Models
 using System;
     using System.Collections.Generic;
     
-public partial class dd_table_floor
+public partial class v_dd_shop_users1
 {
 
-    public int floorid { get; set; }
+    public long cnt { get; set; }
 
-    public string floorname { get; set; }
-
-    public Nullable<sbyte> state { get; set; }
-
-    public Nullable<sbyte> isdel { get; set; }
+    public Nullable<int> userid { get; set; }
 
     public Nullable<int> shopkey { get; set; }
 
     public Nullable<System.DateTime> createdate { get; set; }
 
-    public Nullable<int> orderno { get; set; }
+    public Nullable<decimal> avedate { get; set; }
 
-    public Nullable<decimal> ffuwu { get; set; }
+    public string name { get; set; }
+
+    public Nullable<int> cardid { get; set; }
+
+    public string icon { get; set; }
+
+    public string tel { get; set; }
+
+    public Nullable<decimal> sumrealpay { get; set; }
+
+    public Nullable<decimal> aveprice { get; set; }
 
 }
 

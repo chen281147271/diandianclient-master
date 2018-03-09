@@ -655,10 +655,10 @@
     <Compile Include="Models\v_dd_pocket_users.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\v_dd_shop_users.cs">
+    <Compile Include="Models\v_dd_shop_users1.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\v_dd_shop_users_count.cs">
+    <Compile Include="Models\v_dd_shop_users_count1.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_depotin_crude.cs">
@@ -677,9 +677,6 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_orderitem.cs">
-      <DependentUpon>DDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\v_shop_depot.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_stock_crude.cs">
@@ -745,11 +742,11 @@
     <Compile Include="MyControl\BusinessDetails\OrderListControl.Designer.cs">
       <DependentUpon>OrderListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\BusinessDetails\PrintControl.cs">
+    <Compile Include="MyControl\BusinessDetails\MyPrintControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\BusinessDetails\PrintControl.Designer.cs">
-      <DependentUpon>PrintControl.cs</DependentUpon>
+    <Compile Include="MyControl\BusinessDetails\MyPrintControl.Designer.cs">
+      <DependentUpon>MyPrintControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\FoodManagement\EditDetailControl.cs">
       <SubType>UserControl</SubType>
@@ -854,6 +851,12 @@
     <Compile Include="MyForm\BusinessDetails\OrderListForm.Designer.cs">
       <DependentUpon>OrderListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\BusinessDetails\printForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\BusinessDetails\printForm.Designer.cs">
+      <DependentUpon>printForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\FoodManagement\EditDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -955,8 +958,8 @@
     <EmbeddedResource Include="MyControl\BusinessDetails\OrderListControl.resx">
       <DependentUpon>OrderListControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyControl\BusinessDetails\PrintControl.resx">
-      <DependentUpon>PrintControl.cs</DependentUpon>
+    <EmbeddedResource Include="MyControl\BusinessDetails\MyPrintControl.resx">
+      <DependentUpon>MyPrintControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\FoodManagement\EditDetailControl.resx">
       <DependentUpon>EditDetailControl.cs</DependentUpon>
@@ -1008,6 +1011,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\BusinessDetails\OrderListForm.resx">
       <DependentUpon>OrderListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\BusinessDetails\printForm.resx">
+      <DependentUpon>printForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FoodManagement\EditDetailForm.resx">
       <DependentUpon>EditDetailForm.cs</DependentUpon>

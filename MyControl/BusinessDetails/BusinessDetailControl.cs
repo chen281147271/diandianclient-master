@@ -14,6 +14,7 @@ namespace DianDianClient.MyControl.BusinessDetails
 {
     public partial class BusinessDetailControl : UserControl
     {
+        MyControl.BusinessDetails.MyPrintControl Print = new MyControl.BusinessDetails.MyPrintControl();
         Biz.BizBusinessAnalysis bizBusinessAnalysis = new Biz.BizBusinessAnalysis();
         Biz.BizBillController BillController = new Biz.BizBillController();
         DevExpress.XtraCharts.ChartControl chart_detail = new ChartControl();
@@ -21,8 +22,8 @@ namespace DianDianClient.MyControl.BusinessDetails
         DataTable table;//业务笔数统计
         DataTable table_detail_Pay;//支付方式统计
         DataTable table_detail_Type;//类别统计
+        DataTable table_detail_PayDate;//日期支付统计
         Point mousepoint = new Point(0, 0);//控件BUG 点一次鼠标触发两次事件 现在通过位置屏蔽误触
-        List<Models.v_cfmainaccount> dsa;//业务明细
         DateTime sdate;
         DateTime edate;
         public BusinessDetailControl()
@@ -53,8 +54,17 @@ namespace DianDianClient.MyControl.BusinessDetails
         }
         private void RefreshChart()
         {
+            int i = 0;
             //顺序不能反
             table_detail_Type = GetChartData(bizBusinessAnalysis.QueryRecordGroupByType(sdate, edate));
+            table_detail_PayDate = table.Clone();
+            foreach (Models.RecordGroupTotleBean recordGroupTotle in bizBusinessAnalysis.QueryRecordGroupByDateByPayType(sdate, edate))
+            {
+
+                foreach(DataRow dr in GetChartData(recordGroupTotle).Rows){
+                    table_detail_PayDate.Rows.Add(dr.ItemArray);
+                }
+            }
             table_detail_Pay = GetChartData(bizBusinessAnalysis.QueryRecordGroupByPayType(sdate, edate));
         }
         private DataTable GetChartData(Models.RecordGroupTotleBean recordGroupTotle)//type 1 支付方式 2类型
@@ -62,8 +72,6 @@ namespace DianDianClient.MyControl.BusinessDetails
             DataTable table_detail=null;
             try
             {
-                //Models.RecordGroupTotleBean recordGroupTotleBean = bizBusinessAnalysis.QueryRecordGroupByType(sdate, edate);
-                //List<Models.RecordGroupBean> recordGroupBean = recordGroupTotleBean.groupList; 
                 Models.RecordGroupTotleBean recordGroupTotleBean= recordGroupTotle;
                 List<Models.RecordGroupBean> recordGroupBean = recordGroupTotleBean.groupList;
                 string ssumMoney = recordGroupTotle.sumMoney.ToString();
@@ -75,30 +83,25 @@ namespace DianDianClient.MyControl.BusinessDetails
                 table.Columns.Add("Count", typeof(Decimal));
                 table.Columns.Add("Color", typeof(Color));
                 table.Columns.Add("DSA", typeof(List<v_cfmainaccount2>));
+                table.Columns.Add("createdate", typeof(String));
                 table_detail = new DataTable();
                 table_detail = table.Clone();
-               // table_detail.Columns.Add("DSA",typeof(List<Models.v_cfmainaccount>));
                 for (int i = 0; i < recordGroupBean.Count; i++)
                 {
                     decimal sumMoney = recordGroupBean[i].sumMoney;
                     if (sumMoney >= 0)
                     {
-                        table.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i),null });
+                        table.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i),null,null });
                     }
-                   // dsa = recordGroupBean[i].recList;
-                    table_detail.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i), translate(recordGroupBean[i].recList) });
-                }
-                //  table.AsEnumerable().Where(p => p.Field<Decimal>("Count") >= 0).ToList();
-                // table= table.AsEnumerable().Where(p=>p.Field<Decimal>("Count")>=0).ToList().CopyToDataTable();
+                    string strdate = "";
+                    try
+                    {
+                        strdate = string.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(recordGroupTotle.createdate));
+                    }
+                    catch { }
 
-                //if (type == 1)
-                //{
-                //    table_detail_Pay = table_detail;
-                //}
-                //else
-                //{
-                //    table_detail_Type = table_detail;
-                //}
+                    table_detail.Rows.Add(new object[] { recordGroupBean[i].keyName, sumMoney, recordGroupBean[i].recList.Count, GetPaletteColor(i), translate(recordGroupBean[i].recList), strdate });
+                }
                 return table_detail;
             }
             catch (Exception ex)
@@ -166,6 +169,7 @@ namespace DianDianClient.MyControl.BusinessDetails
                 this.tableLayoutPanel1.Controls.Add(chart_detail, 0, 1);
                 IniPie(chart_type, table_detail_Type, chartTypeControl_MouseClick, "");
                 this.tableLayoutPanel1.Controls.Add(chart_type, 0, 2);
+                Print.gridControl1.DataSource = table_detail_PayDate.DefaultView;
             }
             catch { }
 
@@ -324,6 +328,28 @@ namespace DianDianClient.MyControl.BusinessDetails
                 edate = Convert.ToDateTime(dateEdit2.Text);
                 RefreshChart();
                 IniPie();
+            }
+        }
+
+        private void Btn_Export_Click(object sender, EventArgs e)
+        {
+            //MyForm.BusinessDetails.printForm printForm = new MyForm.BusinessDetails.printForm();
+            //printForm.printControl21.gridControl1.DataSource = table_detail_PayDate;
+            //printForm.Dock = DockStyle.Fill;
+            //printForm.Show();
+            ExportToXls();
+        }
+        public void ExportToXls()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "导出Excel";
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+                Print.gridControl1.ExportToXls(saveFileDialog.FileName, options);
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
