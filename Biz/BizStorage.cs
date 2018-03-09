@@ -254,7 +254,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-                if ()
+                if (!itemname.Equals(""))
                 {
 
                 }
@@ -271,7 +271,7 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var detailList = db.
+                var detailList = db.v_depotin_crude.Where(p => p.depotinid == depotinid);
             }
             catch (Exception e)
             {
