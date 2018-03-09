@@ -12,16 +12,16 @@ namespace DianDianClient.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class storage_stock
+    public partial class v_shop_depot
     {
-        public int stockid { get; set; }
-        public Nullable<int> crudeid { get; set; }
-        public Nullable<int> num { get; set; }
-        public Nullable<System.DateTime> productiondate { get; set; }
-        public Nullable<System.DateTime> validate { get; set; }
-        public Nullable<System.DateTime> backdate { get; set; }
+        public int sid { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<int> depotid { get; set; }
-        public string supplier { get; set; }
+        public string depotname { get; set; }
+        public string addr { get; set; }
+        public string tel { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
+        public string dutyperson { get; set; }
+        public Nullable<sbyte> state { get; set; }
     }
 }

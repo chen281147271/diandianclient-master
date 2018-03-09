@@ -1988,9 +1988,9 @@
           <Property Name="stockid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="crudeid" Type="int" />
           <Property Name="num" Type="int" />
-          <Property Name="productiondate" Type="varchar" MaxLength="10" />
-          <Property Name="validate" Type="varchar" MaxLength="10" />
-          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validate" Type="date" />
+          <Property Name="backdate" Type="date" />
           <Property Name="shopkey" Type="int" />
           <Property Name="depotid" Type="int" />
           <Property Name="supplier" Type="varchar" MaxLength="50" />
@@ -2468,40 +2468,6 @@
           <Property Name="createdate" Type="datetime" Precision="0" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“def.diandian.v_dd_shop_users”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="v_dd_shop_users">
-          <Key>
-            <PropertyRef Name="cnt" />
-          </Key>
-          <Property Name="cnt" Type="bigint" Nullable="false" />
-          <Property Name="userid" Type="int" />
-          <Property Name="shopkey" Type="int" />
-          <Property Name="createdate" Type="datetime" Precision="0" />
-          <Property Name="avedate" Type="decimal" Precision="10" Scale="0" />
-          <Property Name="name" Type="varchar" MaxLength="64" />
-          <Property Name="cardid" Type="int" />
-          <Property Name="icon" Type="varchar" MaxLength="255" />
-          <Property Name="tel" Type="varchar" MaxLength="32" />
-          <Property Name="sumrealpay" Type="decimal" Precision="32" Scale="2" />
-          <Property Name="aveprice" Type="decimal" Precision="32" Scale="2" />
-        </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“def.diandian.v_dd_shop_users_count”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="v_dd_shop_users_count">
-          <Key>
-            <PropertyRef Name="cnt" />
-          </Key>
-          <Property Name="userid" Type="int" />
-          <Property Name="shopkey" Type="int" />
-          <Property Name="createdate" Type="datetime" Precision="0" />
-          <Property Name="avedate" Type="decimal" Precision="10" Scale="0" />
-          <Property Name="name" Type="varchar" MaxLength="64" />
-          <Property Name="icon" Type="varchar" MaxLength="255" />
-          <Property Name="tel" Type="varchar" MaxLength="32" />
-          <Property Name="cardid" Type="int" />
-          <Property Name="cnt" Type="bigint" Nullable="false" />
-        </EntityType>
-        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_depotin_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_depotin_crude">
           <Key>
@@ -2533,6 +2499,11 @@
           <Property Name="platenum" Type="varchar" MaxLength="10" />
           <Property Name="type" Type="tinyint" />
           <Property Name="depotin_cost" Type="decimal" Precision="13" Scale="0" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotname" Type="varchar" MaxLength="20" />
+          <Property Name="addr" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="depot_state" Type="tinyint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_depotout_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -2689,6 +2660,22 @@
           <Property Name="item_orderNo" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_shop_depot”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_shop_depot">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="depotname" Type="varchar" MaxLength="20" />
+          <Property Name="addr" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="dutyperson" Type="varchar" MaxLength="100" />
+          <Property Name="state" Type="tinyint" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_stock_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_stock_crude">
           <Key>
@@ -2696,9 +2683,9 @@
           </Key>
           <Property Name="stockid" Type="int" Nullable="false" />
           <Property Name="num" Type="int" />
-          <Property Name="productiondate" Type="varchar" MaxLength="10" />
-          <Property Name="validate" Type="varchar" MaxLength="10" />
-          <Property Name="backdate" Type="varchar" MaxLength="10" />
+          <Property Name="productiondate" Type="date" />
+          <Property Name="validate" Type="date" />
+          <Property Name="backdate" Type="date" />
           <Property Name="shopkey" Type="int" />
           <Property Name="depotid" Type="int" />
           <Property Name="supplier" Type="varchar" MaxLength="50" />
@@ -2734,7 +2721,19 @@
           <Property Name="genreid" Type="int" />
           <Property Name="state" Type="tinyint" />
         </EntityType>
-        <Association Name="Fk_IR1">
+        <Association Name="cf_detail_ibfk_1">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="itemkey" />
+            </Principal>
+            <Dependent Role="cf_detail">
+              <PropertyRef Name="itemkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cf_detail_ibfk_2">
           <End Role="interaction_record" Type="Self.interaction_record" Multiplicity="0..1" />
           <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2746,7 +2745,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Fk_IR2">
+        <Association Name="cf_detail_ibfk_3">
           <End Role="interaction_record" Type="Self.interaction_record" Multiplicity="0..1" />
           <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2758,175 +2757,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_menu_fk">
-          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
-          <End Role="menu1" Type="Self.menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="menu">
-              <PropertyRef Name="menukey" />
-            </Principal>
-            <Dependent Role="menu1">
-              <PropertyRef Name="parentMenukey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="member" Type="Self.member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="member">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_10">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="member_role" Type="Self.member_role" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="member_role">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_13">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="item_recomment">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_15">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="redpacket_record" Type="Self.redpacket_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="redpacket_record">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_16">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="income_record" Type="Self.income_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="income_record">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_17">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item_recomment">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_18">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="member_notice" Type="Self.member_notice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="member_notice">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_2">
-          <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
-          <End Role="item" Type="Self.item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item_category">
-              <PropertyRef Name="itemcategorykey" />
-            </Principal>
-            <Dependent Role="item">
-              <PropertyRef Name="itemcategorykey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_20">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="post" Type="Self.post" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="post">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_21">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item_category">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_23">
-          <End Role="qr_code_batch" Type="Self.qr_code_batch" Multiplicity="0..1" />
-          <End Role="qr_code" Type="Self.qr_code" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="qr_code_batch">
-              <PropertyRef Name="qrcodebatchkey" />
-            </Principal>
-            <Dependent Role="qr_code">
-              <PropertyRef Name="qrcodebatchkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_24">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="qr_code_batch" Type="Self.qr_code_batch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="qr_code_batch">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_25">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="qr_code" Type="Self.qr_code" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="qr_code">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_26">
+        <Association Name="cf_main_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
           <End Role="cf_main" Type="Self.cf_main" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2938,211 +2769,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_27">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="cf_detail">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_28">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_car">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_29">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_car">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_3">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item" Type="Self.item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_30">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="table_member">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_31">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="table_member">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_32">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="print_main" Type="Self.print_main" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="print_main">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_33">
-          <End Role="print_main" Type="Self.print_main" Multiplicity="0..1" />
-          <End Role="print_info" Type="Self.print_info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="print_main">
-              <PropertyRef Name="printmainkey" />
-            </Principal>
-            <Dependent Role="print_info">
-              <PropertyRef Name="printmainkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_34">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_income_record" Type="Self.shop_income_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_income_record">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_35">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_item_record">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_36">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_item_record">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_37">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="shop_oper_log" Type="Self.shop_oper_log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="shop_oper_log">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_38">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_oper_log" Type="Self.shop_oper_log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_oper_log">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_39">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_info_record" Type="Self.shop_info_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_info_record">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_4">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="table_pos" Type="Self.table_pos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="table_pos">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_40">
-          <End Role="post" Type="Self.post" Multiplicity="0..1" />
-          <End Role="post_power" Type="Self.post_power" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="post">
-              <PropertyRef Name="postkey" />
-            </Principal>
-            <Dependent Role="post_power">
-              <PropertyRef Name="postkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_43">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="cf_member" Type="Self.cf_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="cf_member">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_45">
+        <Association Name="cf_meal_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
           <End Role="cf_meal" Type="Self.cf_meal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3154,31 +2781,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_48">
+        <Association Name="cf_member_ibfk_1">
           <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="pay_bill" Type="Self.pay_bill" Multiplicity="*" />
+          <End Role="cf_member" Type="Self.cf_member" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="member">
               <PropertyRef Name="memberkey" />
             </Principal>
-            <Dependent Role="pay_bill">
+            <Dependent Role="cf_member">
               <PropertyRef Name="memberkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_55">
+        <Association Name="income_record_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="redpacket_record" Type="Self.redpacket_record" Multiplicity="*" />
+          <End Role="income_record" Type="Self.income_record" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shop">
               <PropertyRef Name="shopkey" />
             </Principal>
-            <Dependent Role="redpacket_record">
+            <Dependent Role="income_record">
               <PropertyRef Name="shopkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_56">
+        <Association Name="item_category_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="item_category">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="item_category_map_ibfk_1">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3190,7 +2829,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_57">
+        <Association Name="item_category_map_ibfk_2">
           <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
           <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3202,19 +2841,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_58">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_income_clean" Type="Self.shop_income_clean" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_income_clean">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_6">
+        <Association Name="item_comment_ibfk_1">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="item_comment" Type="Self.item_comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3226,7 +2853,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_7">
+        <Association Name="item_comment_ibfk_2">
           <End Role="member" Type="Self.member" Multiplicity="0..1" />
           <End Role="item_comment" Type="Self.item_comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3238,7 +2865,343 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_sys_log_memberkey">
+        <Association Name="item_ibfk_1">
+          <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item_category">
+              <PropertyRef Name="itemcategorykey" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="itemcategorykey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="item_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="item_recomment_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="item_recomment">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="item_recomment_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="item_recomment">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_notice_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="member_notice" Type="Self.member_notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="member_notice">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="member_role_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="member_role" Type="Self.member_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="member_role">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="menu_ibfk_1">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="menu1" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="menukey" />
+            </Principal>
+            <Dependent Role="menu1">
+              <PropertyRef Name="parentMenukey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pay_bill_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="pay_bill" Type="Self.pay_bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="pay_bill">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="post_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="post_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="post">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="post_power_ibfk_1">
+          <End Role="post" Type="Self.post" Multiplicity="0..1" />
+          <End Role="post_power" Type="Self.post_power" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="post">
+              <PropertyRef Name="postkey" />
+            </Principal>
+            <Dependent Role="post_power">
+              <PropertyRef Name="postkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="print_info_ibfk_1">
+          <End Role="print_main" Type="Self.print_main" Multiplicity="0..1" />
+          <End Role="print_info" Type="Self.print_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="print_main">
+              <PropertyRef Name="printmainkey" />
+            </Principal>
+            <Dependent Role="print_info">
+              <PropertyRef Name="printmainkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="print_main_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="print_main" Type="Self.print_main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="print_main">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qr_code_batch_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="qr_code_batch" Type="Self.qr_code_batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="qr_code_batch">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qr_code_ibfk_1">
+          <End Role="qr_code_batch" Type="Self.qr_code_batch" Multiplicity="0..1" />
+          <End Role="qr_code" Type="Self.qr_code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qr_code_batch">
+              <PropertyRef Name="qrcodebatchkey" />
+            </Principal>
+            <Dependent Role="qr_code">
+              <PropertyRef Name="qrcodebatchkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qr_code_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="qr_code" Type="Self.qr_code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="qr_code">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="redpacket_record_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="redpacket_record" Type="Self.redpacket_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="redpacket_record">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="redpacket_record_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="redpacket_record" Type="Self.redpacket_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="redpacket_record">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_car_ibfk_1">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="itemkey" />
+            </Principal>
+            <Dependent Role="shop_car">
+              <PropertyRef Name="itemkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_car_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_car">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_income_clean_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_income_clean" Type="Self.shop_income_clean" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_income_clean">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_income_record_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_income_record" Type="Self.shop_income_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_income_record">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_info_record_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_info_record" Type="Self.shop_info_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_info_record">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_item_record_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_item_record">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_item_record_ibfk_2">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="itemkey" />
+            </Principal>
+            <Dependent Role="shop_item_record">
+              <PropertyRef Name="itemkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_oper_log_ibfk_1">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="shop_oper_log" Type="Self.shop_oper_log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="shop_oper_log">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="shop_oper_log_ibfk_2">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="shop_oper_log" Type="Self.shop_oper_log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="shop_oper_log">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sys_oper_log_ibfk_1">
           <End Role="member" Type="Self.member" Multiplicity="0..1" />
           <End Role="sys_oper_log" Type="Self.sys_oper_log" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3250,14 +3213,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="postshop_fk">
+        <Association Name="table_member_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="post" Type="Self.post" Multiplicity="*" />
+          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shop">
               <PropertyRef Name="shopkey" />
             </Principal>
-            <Dependent Role="post">
+            <Dependent Role="table_member">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="table_member_ibfk_2">
+          <End Role="member" Type="Self.member" Multiplicity="0..1" />
+          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="memberkey" />
+            </Principal>
+            <Dependent Role="table_member">
+              <PropertyRef Name="memberkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="table_pos_ibfk_1">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="table_pos" Type="Self.table_pos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="table_pos">
               <PropertyRef Name="shopkey" />
             </Dependent>
           </ReferentialConstraint>
@@ -3690,34 +3677,6 @@ FROM `v_dd_member_shopcord` AS `v_dd_member_shopcord`</DefiningQuery>
 `v_dd_pocket_users`.`createdate`
 FROM `v_dd_pocket_users` AS `v_dd_pocket_users`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="v_dd_shop_users" EntityType="Self.v_dd_shop_users" store:Type="Views" store:Schema="diandian">
-            <DefiningQuery>SELECT
-`v_dd_shop_users`.`cnt`, 
-`v_dd_shop_users`.`userid`, 
-`v_dd_shop_users`.`shopkey`, 
-`v_dd_shop_users`.`createdate`, 
-`v_dd_shop_users`.`avedate`, 
-`v_dd_shop_users`.`name`, 
-`v_dd_shop_users`.`cardid`, 
-`v_dd_shop_users`.`icon`, 
-`v_dd_shop_users`.`tel`, 
-`v_dd_shop_users`.`sumrealpay`, 
-`v_dd_shop_users`.`aveprice`
-FROM `v_dd_shop_users` AS `v_dd_shop_users`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="v_dd_shop_users_count" EntityType="Self.v_dd_shop_users_count" store:Type="Views" store:Schema="diandian">
-            <DefiningQuery>SELECT
-`v_dd_shop_users_count`.`userid`, 
-`v_dd_shop_users_count`.`shopkey`, 
-`v_dd_shop_users_count`.`createdate`, 
-`v_dd_shop_users_count`.`avedate`, 
-`v_dd_shop_users_count`.`name`, 
-`v_dd_shop_users_count`.`icon`, 
-`v_dd_shop_users_count`.`tel`, 
-`v_dd_shop_users_count`.`cardid`, 
-`v_dd_shop_users_count`.`cnt`
-FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="v_depotin_crude" EntityType="Self.v_depotin_crude" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_depotin_crude`.`ininfoid`, 
@@ -3745,7 +3704,12 @@ FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
 `v_depotin_crude`.`driver`, 
 `v_depotin_crude`.`platenum`, 
 `v_depotin_crude`.`type`, 
-`v_depotin_crude`.`depotin_cost`
+`v_depotin_crude`.`depotin_cost`, 
+`v_depotin_crude`.`shopkey`, 
+`v_depotin_crude`.`depotname`, 
+`v_depotin_crude`.`addr`, 
+`v_depotin_crude`.`tel`, 
+`v_depotin_crude`.`depot_state`
 FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_depotout_crude" EntityType="Self.v_depotout_crude" store:Type="Views" store:Schema="diandian">
@@ -3885,6 +3849,19 @@ FROM `v_memberrole` AS `v_memberrole`</DefiningQuery>
 `v_orderitem`.`item_orderNo`
 FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_shop_depot" EntityType="Self.v_shop_depot" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_shop_depot`.`sid`, 
+`v_shop_depot`.`shopkey`, 
+`v_shop_depot`.`depotid`, 
+`v_shop_depot`.`depotname`, 
+`v_shop_depot`.`addr`, 
+`v_shop_depot`.`tel`, 
+`v_shop_depot`.`createdate`, 
+`v_shop_depot`.`dutyperson`, 
+`v_shop_depot`.`state`
+FROM `v_shop_depot` AS `v_shop_depot`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_stock_crude" EntityType="Self.v_stock_crude" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_stock_crude`.`stockid`, 
@@ -3925,181 +3902,181 @@ FROM `v_stock_crude` AS `v_stock_crude`</DefiningQuery>
 `v_storagelossorspill_crude`.`state`
 FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="Fk_IR1" Association="Self.Fk_IR1">
-            <End Role="interaction_record" EntitySet="interaction_record" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
-          <AssociationSet Name="Fk_IR2" Association="Self.Fk_IR2">
-            <End Role="interaction_record" EntitySet="interaction_record" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_menu_fk" Association="Self.FK_menu_fk">
-            <End Role="menu" EntitySet="menu" />
-            <End Role="menu1" EntitySet="menu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_1" Association="Self.FK_Reference_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="member" EntitySet="member" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_10" Association="Self.FK_Reference_10">
-            <End Role="member" EntitySet="member" />
-            <End Role="member_role" EntitySet="member_role" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_13" Association="Self.FK_Reference_13">
-            <End Role="member" EntitySet="member" />
-            <End Role="item_recomment" EntitySet="item_recomment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_15" Association="Self.FK_Reference_15">
-            <End Role="member" EntitySet="member" />
-            <End Role="redpacket_record" EntitySet="redpacket_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_16" Association="Self.FK_Reference_16">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="income_record" EntitySet="income_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_17" Association="Self.FK_Reference_17">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item_recomment" EntitySet="item_recomment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_18" Association="Self.FK_Reference_18">
-            <End Role="member" EntitySet="member" />
-            <End Role="member_notice" EntitySet="member_notice" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_2" Association="Self.FK_Reference_2">
-            <End Role="item_category" EntitySet="item_category" />
+          <AssociationSet Name="cf_detail_ibfk_1" Association="Self.cf_detail_ibfk_1">
             <End Role="item" EntitySet="item" />
+            <End Role="cf_detail" EntitySet="cf_detail" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_20" Association="Self.FK_Reference_20">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="post" EntitySet="post" />
+          <AssociationSet Name="cf_detail_ibfk_2" Association="Self.cf_detail_ibfk_2">
+            <End Role="interaction_record" EntitySet="interaction_record" />
+            <End Role="cf_detail" EntitySet="cf_detail" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_21" Association="Self.FK_Reference_21">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item_category" EntitySet="item_category" />
+          <AssociationSet Name="cf_detail_ibfk_3" Association="Self.cf_detail_ibfk_3">
+            <End Role="interaction_record" EntitySet="interaction_record" />
+            <End Role="cf_detail" EntitySet="cf_detail" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_23" Association="Self.FK_Reference_23">
-            <End Role="qr_code_batch" EntitySet="qr_code_batch" />
-            <End Role="qr_code" EntitySet="qr_code" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_24" Association="Self.FK_Reference_24">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="qr_code_batch" EntitySet="qr_code_batch" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_25" Association="Self.FK_Reference_25">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="qr_code" EntitySet="qr_code" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_26" Association="Self.FK_Reference_26">
+          <AssociationSet Name="cf_main_ibfk_1" Association="Self.cf_main_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_main" EntitySet="cf_main" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_27" Association="Self.FK_Reference_27">
-            <End Role="item" EntitySet="item" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_28" Association="Self.FK_Reference_28">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_car" EntitySet="shop_car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_29" Association="Self.FK_Reference_29">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_car" EntitySet="shop_car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_3" Association="Self.FK_Reference_3">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item" EntitySet="item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_30" Association="Self.FK_Reference_30">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="table_member" EntitySet="table_member" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_31" Association="Self.FK_Reference_31">
-            <End Role="member" EntitySet="member" />
-            <End Role="table_member" EntitySet="table_member" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_32" Association="Self.FK_Reference_32">
-            <End Role="member" EntitySet="member" />
-            <End Role="print_main" EntitySet="print_main" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_33" Association="Self.FK_Reference_33">
-            <End Role="print_main" EntitySet="print_main" />
-            <End Role="print_info" EntitySet="print_info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_34" Association="Self.FK_Reference_34">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_income_record" EntitySet="shop_income_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_35" Association="Self.FK_Reference_35">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_item_record" EntitySet="shop_item_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_36" Association="Self.FK_Reference_36">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_item_record" EntitySet="shop_item_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_37" Association="Self.FK_Reference_37">
-            <End Role="member" EntitySet="member" />
-            <End Role="shop_oper_log" EntitySet="shop_oper_log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_38" Association="Self.FK_Reference_38">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_oper_log" EntitySet="shop_oper_log" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_39" Association="Self.FK_Reference_39">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_info_record" EntitySet="shop_info_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_4" Association="Self.FK_Reference_4">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="table_pos" EntitySet="table_pos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_40" Association="Self.FK_Reference_40">
-            <End Role="post" EntitySet="post" />
-            <End Role="post_power" EntitySet="post_power" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_43" Association="Self.FK_Reference_43">
-            <End Role="member" EntitySet="member" />
-            <End Role="cf_member" EntitySet="cf_member" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_45" Association="Self.FK_Reference_45">
+          <AssociationSet Name="cf_meal_ibfk_1" Association="Self.cf_meal_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_meal" EntitySet="cf_meal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_48" Association="Self.FK_Reference_48">
+          <AssociationSet Name="cf_member_ibfk_1" Association="Self.cf_member_ibfk_1">
             <End Role="member" EntitySet="member" />
-            <End Role="pay_bill" EntitySet="pay_bill" />
+            <End Role="cf_member" EntitySet="cf_member" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_55" Association="Self.FK_Reference_55">
+          <AssociationSet Name="income_record_ibfk_1" Association="Self.income_record_ibfk_1">
             <End Role="shop" EntitySet="shop" />
-            <End Role="redpacket_record" EntitySet="redpacket_record" />
+            <End Role="income_record" EntitySet="income_record" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_56" Association="Self.FK_Reference_56">
+          <AssociationSet Name="item_category_ibfk_1" Association="Self.item_category_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="item_category" EntitySet="item_category" />
+          </AssociationSet>
+          <AssociationSet Name="item_category_map_ibfk_1" Association="Self.item_category_map_ibfk_1">
             <End Role="item" EntitySet="item" />
             <End Role="item_category_map" EntitySet="item_category_map" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_57" Association="Self.FK_Reference_57">
+          <AssociationSet Name="item_category_map_ibfk_2" Association="Self.item_category_map_ibfk_2">
             <End Role="item_category" EntitySet="item_category" />
             <End Role="item_category_map" EntitySet="item_category_map" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_58" Association="Self.FK_Reference_58">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_income_clean" EntitySet="shop_income_clean" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_6" Association="Self.FK_Reference_6">
+          <AssociationSet Name="item_comment_ibfk_1" Association="Self.item_comment_ibfk_1">
             <End Role="item" EntitySet="item" />
             <End Role="item_comment" EntitySet="item_comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_7" Association="Self.FK_Reference_7">
+          <AssociationSet Name="item_comment_ibfk_2" Association="Self.item_comment_ibfk_2">
             <End Role="member" EntitySet="member" />
             <End Role="item_comment" EntitySet="item_comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_sys_log_memberkey" Association="Self.FK_Reference_sys_log_memberkey">
+          <AssociationSet Name="item_ibfk_1" Association="Self.item_ibfk_1">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="item_ibfk_2" Association="Self.item_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="item_recomment_ibfk_1" Association="Self.item_recomment_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="item_recomment" EntitySet="item_recomment" />
+          </AssociationSet>
+          <AssociationSet Name="item_recomment_ibfk_2" Association="Self.item_recomment_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="item_recomment" EntitySet="item_recomment" />
+          </AssociationSet>
+          <AssociationSet Name="member_ibfk_1" Association="Self.member_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="member_notice_ibfk_1" Association="Self.member_notice_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="member_notice" EntitySet="member_notice" />
+          </AssociationSet>
+          <AssociationSet Name="member_role_ibfk_1" Association="Self.member_role_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="member_role" EntitySet="member_role" />
+          </AssociationSet>
+          <AssociationSet Name="menu_ibfk_1" Association="Self.menu_ibfk_1">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menu1" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="pay_bill_ibfk_1" Association="Self.pay_bill_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="pay_bill" EntitySet="pay_bill" />
+          </AssociationSet>
+          <AssociationSet Name="post_ibfk_1" Association="Self.post_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="post_ibfk_2" Association="Self.post_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="post" EntitySet="post" />
+          </AssociationSet>
+          <AssociationSet Name="post_power_ibfk_1" Association="Self.post_power_ibfk_1">
+            <End Role="post" EntitySet="post" />
+            <End Role="post_power" EntitySet="post_power" />
+          </AssociationSet>
+          <AssociationSet Name="print_info_ibfk_1" Association="Self.print_info_ibfk_1">
+            <End Role="print_main" EntitySet="print_main" />
+            <End Role="print_info" EntitySet="print_info" />
+          </AssociationSet>
+          <AssociationSet Name="print_main_ibfk_1" Association="Self.print_main_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="print_main" EntitySet="print_main" />
+          </AssociationSet>
+          <AssociationSet Name="qr_code_batch_ibfk_1" Association="Self.qr_code_batch_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="qr_code_batch" EntitySet="qr_code_batch" />
+          </AssociationSet>
+          <AssociationSet Name="qr_code_ibfk_1" Association="Self.qr_code_ibfk_1">
+            <End Role="qr_code_batch" EntitySet="qr_code_batch" />
+            <End Role="qr_code" EntitySet="qr_code" />
+          </AssociationSet>
+          <AssociationSet Name="qr_code_ibfk_2" Association="Self.qr_code_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="qr_code" EntitySet="qr_code" />
+          </AssociationSet>
+          <AssociationSet Name="redpacket_record_ibfk_1" Association="Self.redpacket_record_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="redpacket_record" EntitySet="redpacket_record" />
+          </AssociationSet>
+          <AssociationSet Name="redpacket_record_ibfk_2" Association="Self.redpacket_record_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="redpacket_record" EntitySet="redpacket_record" />
+          </AssociationSet>
+          <AssociationSet Name="shop_car_ibfk_1" Association="Self.shop_car_ibfk_1">
+            <End Role="item" EntitySet="item" />
+            <End Role="shop_car" EntitySet="shop_car" />
+          </AssociationSet>
+          <AssociationSet Name="shop_car_ibfk_2" Association="Self.shop_car_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_car" EntitySet="shop_car" />
+          </AssociationSet>
+          <AssociationSet Name="shop_income_clean_ibfk_1" Association="Self.shop_income_clean_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_income_clean" EntitySet="shop_income_clean" />
+          </AssociationSet>
+          <AssociationSet Name="shop_income_record_ibfk_1" Association="Self.shop_income_record_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_income_record" EntitySet="shop_income_record" />
+          </AssociationSet>
+          <AssociationSet Name="shop_info_record_ibfk_1" Association="Self.shop_info_record_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_info_record" EntitySet="shop_info_record" />
+          </AssociationSet>
+          <AssociationSet Name="shop_item_record_ibfk_1" Association="Self.shop_item_record_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_item_record" EntitySet="shop_item_record" />
+          </AssociationSet>
+          <AssociationSet Name="shop_item_record_ibfk_2" Association="Self.shop_item_record_ibfk_2">
+            <End Role="item" EntitySet="item" />
+            <End Role="shop_item_record" EntitySet="shop_item_record" />
+          </AssociationSet>
+          <AssociationSet Name="shop_oper_log_ibfk_1" Association="Self.shop_oper_log_ibfk_1">
+            <End Role="member" EntitySet="member" />
+            <End Role="shop_oper_log" EntitySet="shop_oper_log" />
+          </AssociationSet>
+          <AssociationSet Name="shop_oper_log_ibfk_2" Association="Self.shop_oper_log_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="shop_oper_log" EntitySet="shop_oper_log" />
+          </AssociationSet>
+          <AssociationSet Name="sys_oper_log_ibfk_1" Association="Self.sys_oper_log_ibfk_1">
             <End Role="member" EntitySet="member" />
             <End Role="sys_oper_log" EntitySet="sys_oper_log" />
           </AssociationSet>
-          <AssociationSet Name="postshop_fk" Association="Self.postshop_fk">
+          <AssociationSet Name="table_member_ibfk_1" Association="Self.table_member_ibfk_1">
             <End Role="shop" EntitySet="shop" />
-            <End Role="post" EntitySet="post" />
+            <End Role="table_member" EntitySet="table_member" />
+          </AssociationSet>
+          <AssociationSet Name="table_member_ibfk_2" Association="Self.table_member_ibfk_2">
+            <End Role="member" EntitySet="member" />
+            <End Role="table_member" EntitySet="table_member" />
+          </AssociationSet>
+          <AssociationSet Name="table_pos_ibfk_1" Association="Self.table_pos_ibfk_1">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="table_pos" EntitySet="table_pos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -6741,12 +6718,13 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="storage_item_crude" EntityType="diandianModel.storage_item_crude" />
           <EntitySet Name="storage_lossorspill" EntityType="diandianModel.storage_lossorspill" />
           <EntitySet Name="v_depotin_crude" EntityType="diandianModel.v_depotin_crude" />
-          <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
           <EntitySet Name="v_storagelossorspill_crude" EntityType="diandianModel.v_storagelossorspill_crude" />
           <EntitySet Name="storage_shop_depot" EntityType="diandianModel.storage_shop_depot" />
-          <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
           <EntitySet Name="v_item_crude" EntityType="diandianModel.v_item_crude" />
           <EntitySet Name="v_depotout_crude" EntityType="diandianModel.v_depotout_crude" />
+          <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
+          <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
+          <EntitySet Name="v_shop_depot" EntityType="diandianModel.v_shop_depot" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -7630,27 +7608,11 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="platenum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="type" Type="SByte" />
           <Property Name="depotin_cost" Type="Decimal" />
-        </EntityType>
-        <EntityType Name="v_stock_crude">
-          <Key>
-            <PropertyRef Name="stockid" />
-          </Key>
-          <Property Name="stockid" Type="Int32" Nullable="false" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="genreid" Type="Int32" />
-          <Property Name="state" Type="SByte" />
-          <Property Name="crudeid" Type="Int32" />
+          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="depot_state" Type="SByte" />
         </EntityType>
         <EntityType Name="v_storagelossorspill_crude">
           <Key>
@@ -7680,20 +7642,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="shopkey" Type="Int32" />
           <Property Name="depotid" Type="Int32" />
-        </EntityType>
-        <EntityType Name="storage_stock">
-          <Key>
-            <PropertyRef Name="stockid" />
-          </Key>
-          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="crudeid" Type="Int32" />
-          <Property Name="num" Type="Int32" />
-          <Property Name="productiondate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="validate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="backdate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="depotid" Type="Int32" />
-          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="v_item_crude">
           <Key>
@@ -7738,6 +7686,55 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="depinout_salemoney" Type="Decimal" />
           <Property Name="type" Type="SByte" />
           <Property Name="outinfoid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="storage_stock">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crudeid" Type="Int32" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validate" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_stock_crude">
+          <Key>
+            <PropertyRef Name="stockid" />
+          </Key>
+          <Property Name="stockid" Type="Int32" Nullable="false" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="productiondate" Type="DateTime" />
+          <Property Name="validate" Type="DateTime" />
+          <Property Name="backdate" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="crudeid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_shop_depot">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="dutyperson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="SByte" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -9514,38 +9511,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_dd_shop_users">
-            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users">
-              <MappingFragment StoreEntitySet="v_dd_shop_users">
-                <ScalarProperty Name="cnt" ColumnName="cnt" />
-                <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="avedate" ColumnName="avedate" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="cardid" ColumnName="cardid" />
-                <ScalarProperty Name="icon" ColumnName="icon" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="sumrealpay" ColumnName="sumrealpay" />
-                <ScalarProperty Name="aveprice" ColumnName="aveprice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_dd_shop_users_count">
-            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users_count">
-              <MappingFragment StoreEntitySet="v_dd_shop_users_count">
-                <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="avedate" ColumnName="avedate" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="icon" ColumnName="icon" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="cardid" ColumnName="cardid" />
-                <ScalarProperty Name="cnt" ColumnName="cnt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="v_cfdetailitem">
             <EntityTypeMapping TypeName="diandianModel.v_cfdetailitem">
               <MappingFragment StoreEntitySet="v_cfdetailitem">
@@ -10434,6 +10399,11 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotin_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotin_crude">
               <MappingFragment StoreEntitySet="v_depotin_crude">
+                <ScalarProperty Name="depot_state" ColumnName="depot_state" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="depotname" ColumnName="depotname" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="depotin_cost" ColumnName="depotin_cost" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="platenum" ColumnName="platenum" />
@@ -10460,28 +10430,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="crudeid" ColumnName="crudeid" />
                 <ScalarProperty Name="depotinid" ColumnName="depotinid" />
                 <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_stock_crude">
-            <EntityTypeMapping TypeName="diandianModel.v_stock_crude">
-              <MappingFragment StoreEntitySet="v_stock_crude">
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="genreid" ColumnName="genreid" />
-                <ScalarProperty Name="barcode" ColumnName="barcode" />
-                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
-                <ScalarProperty Name="standard" ColumnName="standard" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="crudename" ColumnName="crudename" />
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="validate" ColumnName="validate" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="stockid" ColumnName="stockid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10513,21 +10461,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="depotid" ColumnName="depotid" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="sid" ColumnName="sid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storage_stock">
-            <EntityTypeMapping TypeName="diandianModel.storage_stock">
-              <MappingFragment StoreEntitySet="storage_stock">
-                <ScalarProperty Name="supplier" ColumnName="supplier" />
-                <ScalarProperty Name="depotid" ColumnName="depotid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="backdate" ColumnName="backdate" />
-                <ScalarProperty Name="validate" ColumnName="validate" />
-                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
-                <ScalarProperty Name="num" ColumnName="num" />
-                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
-                <ScalarProperty Name="stockid" ColumnName="stockid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10574,6 +10507,58 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="num" ColumnName="num" />
                 <ScalarProperty Name="crudeid" ColumnName="crudeid" />
                 <ScalarProperty Name="depotoutid" ColumnName="depotoutid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storage_stock">
+            <EntityTypeMapping TypeName="diandianModel.storage_stock">
+              <MappingFragment StoreEntitySet="storage_stock">
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_stock_crude">
+            <EntityTypeMapping TypeName="diandianModel.v_stock_crude">
+              <MappingFragment StoreEntitySet="v_stock_crude">
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="backdate" ColumnName="backdate" />
+                <ScalarProperty Name="validate" ColumnName="validate" />
+                <ScalarProperty Name="productiondate" ColumnName="productiondate" />
+                <ScalarProperty Name="num" ColumnName="num" />
+                <ScalarProperty Name="stockid" ColumnName="stockid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_shop_depot">
+            <EntityTypeMapping TypeName="diandianModel.v_shop_depot">
+              <MappingFragment StoreEntitySet="v_shop_depot">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="depotname" ColumnName="depotname" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

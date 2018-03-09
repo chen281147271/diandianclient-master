@@ -40,5 +40,10 @@ namespace DianDianClient.Models
         public string platenum { get; set; }
         public Nullable<sbyte> type { get; set; }
         public Nullable<decimal> depotin_cost { get; set; }
+        public Nullable<int> shopkey { get; set; }
+        public string depotname { get; set; }
+        public string addr { get; set; }
+        public string tel { get; set; }
+        public Nullable<sbyte> depot_state { get; set; }
     }
 }

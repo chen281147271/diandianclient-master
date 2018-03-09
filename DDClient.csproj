@@ -74,9 +74,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=14.0.0.15, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\DevExpress 17.2\DevComponents.DotNetBar2.dll</HintPath>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>DevExpress 17.2\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2">
       <HintPath>DevExpress 17.2\DevExpress.BonusSkins.v17.2.dll</HintPath>
@@ -678,6 +677,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_orderitem.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_shop_depot.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_stock_crude.cs">

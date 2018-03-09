@@ -161,6 +161,44 @@ namespace DianDianClient.Biz
             }
         }
 
+        //按日期支付方式分类统计
+        List<RecordGroupTotleBean> QueryRecordGroupByDateByPayType(DateTime sdate, DateTime edate)
+        {
+            try
+            {
+                List<RecordGroupTotleBean> rslbeanList = new List<RecordGroupTotleBean>();
+                List<v_cfmainaccount> recordList = db.v_cfmainaccount.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && p.createdate >= sdate && p.createdate <= edate).ToList();
+                var rslList = recordList.GroupBy(p => p.createdate.Value.ToString("yyyy-MM-dd"));
+
+                foreach(var rsl in rslList)
+                {
+                    var tmpList = rsl.GroupBy(p => p.paytype);
+                    RecordGroupTotleBean rslbean = new RecordGroupTotleBean();
+                    rslbean.totleCount = rsl.Count();
+                    rslbean.sumMoney = rsl.Sum(p => p.money - p.brokerage).Value;
+                    rslbean.groupList = new List<RecordGroupBean>();
+
+                    foreach (var tmp in tmpList)
+                    {
+                        RecordGroupBean bean = new RecordGroupBean();
+                        bean.keyName = (tmp.FirstOrDefault().payway);
+                        bean.sumMoney = tmp.Sum(p => p.money - p.brokerage).Value;
+                        bean.recList = tmp.ToList();
+                        rslbean.groupList.Add(bean);
+                    }
+                    rslbeanList.Add(rslbean);
+                }           
+
+                return rslbeanList;
+            }
+            catch (Exception e)
+            {
+                log.Error("QueryRecordGroupByPayType error. msg=" + e.Message);
+                throw;
+            }
+        }
+
         public string BillType2Name(string type)
         {
             string name = "";
