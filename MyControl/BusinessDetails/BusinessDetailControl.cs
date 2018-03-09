@@ -255,6 +255,7 @@ namespace DianDianClient.MyControl.BusinessDetails
                     //orderListForm.ShowDialog();
                     MyForm.BusinessDetails.OrderDatilForm orderDatil = new MyForm.BusinessDetails.OrderDatilForm(hitInfo.Series.Tag);
                     orderDatil.StartPosition = FormStartPosition.CenterScreen;
+                    orderDatil.WindowState = FormWindowState.Maximized;
                     orderDatil.ShowDialog();
                 }
             }
@@ -274,6 +275,7 @@ namespace DianDianClient.MyControl.BusinessDetails
                     //orderListForm.ShowDialog();
                     MyForm.BusinessDetails.OrderDatilForm orderDatil = new MyForm.BusinessDetails.OrderDatilForm(hitInfo.Series.Tag);
                     orderDatil.StartPosition = FormStartPosition.CenterScreen;
+                    orderDatil.WindowState = FormWindowState.Maximized;
                     orderDatil.ShowDialog();
                 }
             }

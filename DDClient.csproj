@@ -778,6 +778,36 @@
     <Compile Include="MyControl\FoodManagement\MgncPagerControl.Designer.cs">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderManageControl.Designer.cs">
+      <DependentUpon>OrderManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderProcessingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderProcessingControl.Designer.cs">
+      <DependentUpon>OrderProcessingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderQueryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\OrderQueryControl.Designer.cs">
+      <DependentUpon>OrderQueryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\ReservationOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\ReservationOrderControl.Designer.cs">
+      <DependentUpon>ReservationOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\TradingFlowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\OrderManagement\TradingFlowControl.Designer.cs">
+      <DependentUpon>TradingFlowControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\TableSettlement\BtnSaleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -976,6 +1006,12 @@
     <EmbeddedResource Include="MyControl\FoodManagement\MgncPagerControl.resx">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
+      <DependentUpon>OrderManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\OrderManagement\OrderProcessingControl.resx">
+      <DependentUpon>OrderProcessingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\TableSettlement\BtnSaleControl.resx">
       <DependentUpon>BtnSaleControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1095,7 +1131,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MyForm\OrderManagement\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sort.png" />
     <None Include="Resources\offshelf.png" />
