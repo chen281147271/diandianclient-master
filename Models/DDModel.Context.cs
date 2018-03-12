@@ -35,8 +35,6 @@ namespace DianDianClient.Models
         public virtual DbSet<bc_shop> bc_shop { get; set; }
         public virtual DbSet<bc_shop_account> bc_shop_account { get; set; }
         public virtual DbSet<cf_detail> cf_detail { get; set; }
-        public virtual DbSet<cf_main> cf_main { get; set; }
-        public virtual DbSet<cf_meal> cf_meal { get; set; }
         public virtual DbSet<cf_member> cf_member { get; set; }
         public virtual DbSet<comment_keyword> comment_keyword { get; set; }
         public virtual DbSet<dd_actives> dd_actives { get; set; }
@@ -137,7 +135,6 @@ namespace DianDianClient.Models
         public virtual DbSet<v_cfdetailitem> v_cfdetailitem { get; set; }
         public virtual DbSet<v_cfmainmeal> v_cfmainmeal { get; set; }
         public virtual DbSet<v_orderitem> v_orderitem { get; set; }
-        public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
         public virtual DbSet<allot_account_false> allot_account_false { get; set; }
         public virtual DbSet<allot_account> allot_account { get; set; }
         public virtual DbSet<v_category_items> v_category_items { get; set; }
@@ -180,5 +177,8 @@ namespace DianDianClient.Models
         public virtual DbSet<storage_stock> storage_stock { get; set; }
         public virtual DbSet<v_stock_crude> v_stock_crude { get; set; }
         public virtual DbSet<v_shop_depot> v_shop_depot { get; set; }
+        public virtual DbSet<cf_main> cf_main { get; set; }
+        public virtual DbSet<cf_meal> cf_meal { get; set; }
+        public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
     }
 }

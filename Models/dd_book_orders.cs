@@ -17,7 +17,7 @@ namespace DianDianClient.Models
         public int bid { get; set; }
         public Nullable<sbyte> type { get; set; }
         public string jctime { get; set; }
-        public string addtime { get; set; }
+        public Nullable<System.DateTime> addtime { get; set; }
         public string comm { get; set; }
         public string address { get; set; }
         public string linkman { get; set; }
@@ -34,7 +34,7 @@ namespace DianDianClient.Models
         public string orderno { get; set; }
         public Nullable<int> paytype { get; set; }
         public string payuser { get; set; }
-        public string successtime { get; set; }
+        public Nullable<System.DateTime> successtime { get; set; }
         public Nullable<bool> ist0 { get; set; }
         public string reorderno { get; set; }
         public Nullable<sbyte> origin { get; set; }

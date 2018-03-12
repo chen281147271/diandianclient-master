@@ -15,8 +15,6 @@
         <EntityTypeShape EntityType="diandianModel.bc_shop" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.bc_shop_account" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.cf_detail" Width="1.5" PointX="7.5" PointY="49" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.cf_main" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.cf_meal" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.cf_member" Width="1.5" PointX="5.25" PointY="58.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.comment_keyword" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_actives" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
@@ -117,8 +115,6 @@
         <AssociationConnector Association="diandianModel.Fk_IR1" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.Fk_IR2" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_27" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_26" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_45" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_43" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_16" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_2" ManuallyRouted="false" />
@@ -161,7 +157,6 @@
         <EntityTypeShape EntityType="diandianModel.v_cfdetailitem" Width="1.5" PointX="23.375" PointY="29.75" />
         <EntityTypeShape EntityType="diandianModel.v_cfmainmeal" Width="1.5" PointX="29.375" PointY="28.75" />
         <EntityTypeShape EntityType="diandianModel.v_orderitem" Width="1.5" PointX="7.375" PointY="30.75" />
-        <EntityTypeShape EntityType="diandianModel.dd_book_orders" Width="1.5" PointX="14.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account_false" Width="1.5" PointX="16.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account" Width="1.5" PointX="18.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.v_category_items" Width="1.5" PointX="20.375" PointY="30.75" />
@@ -204,6 +199,11 @@
         <EntityTypeShape EntityType="diandianModel.storage_stock" Width="1.5" PointX="37.375" PointY="17.75" />
         <EntityTypeShape EntityType="diandianModel.v_stock_crude" Width="1.5" PointX="37.375" PointY="32.75" />
         <EntityTypeShape EntityType="diandianModel.v_shop_depot" Width="1.5" PointX="37.375" PointY="37.75" />
+        <EntityTypeShape EntityType="diandianModel.cf_main" Width="1.5" PointX="3.375" PointY="49.875" />
+        <EntityTypeShape EntityType="diandianModel.cf_meal" Width="1.5" PointX="3.375" PointY="57.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_book_orders" Width="1.5" PointX="0.75" PointY="25.75" />
+        <AssociationConnector Association="diandianModel.cf_main_ibfk_1" />
+        <AssociationConnector Association="diandianModel.cf_meal_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

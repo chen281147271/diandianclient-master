@@ -167,7 +167,22 @@ namespace DianDianClient.Biz
         {
             try
             {
+                bool includeItem = false;
                 DianDianEntities db = new DianDianEntities();
+                var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (!itemname.Equals(""))
+                {
+                    itemList = itemList.Where(p => p.itemName.Contains(itemname));
+                    includeItem = true;
+                }
+                if (!categoryname.Equals(""))
+                {
+                    itemList = itemList.Where(p => p.categoryName.Contains(categoryname));
+                    includeItem = true;
+                }
+                var itemcrudeList = itemList.Select(p => p.itemkey).Distinct().ToList();
+                var includeCrudeList = db.v_item_crude.Where(p => itemcrudeList.Contains(p.itemkey)).Select(p =>p.crudeid).ToList();
+                
                 var stockList = db.v_stock_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!crudename.Equals(""))
                 {
@@ -185,7 +200,10 @@ namespace DianDianClient.Biz
                 {
                     stockList = stockList.Where(p => p.validate <= edate);
                 }
-
+                if (includeItem)
+                {
+                    stockList = stockList.Where(p => includeCrudeList.Contains(p.crudeid));
+                }
                 return stockList.ToList();
             }
             catch (Exception e)
@@ -199,6 +217,7 @@ namespace DianDianClient.Biz
         {
             try
             {
+                //DateTime.Now.Date
                 /*
                 DianDianEntities db = new DianDianEntities();
                 storage_genre genre = db.storage_genre.Find(genreId);
@@ -248,16 +267,54 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryDepotIn(string itemname, DateTime validate, DateTime sdate, DateTime edate, string dutyperson, string deliveryman ,string categoryname)
+        public List<v_depotin_crude> QueryDepotIn(string itemname, DateTime validate, DateTime sdate, DateTime edate, string dutyperson, string deliveryman ,string categoryname)
         {
             try
             {
+                bool includeItem = false;
                 DianDianEntities db = new DianDianEntities();
-                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!itemname.Equals(""))
                 {
-
+                    itemList = itemList.Where(p => p.itemName.Contains(itemname));
+                    includeItem = true;
                 }
+                if (!categoryname.Equals(""))
+                {
+                    itemList = itemList.Where(p => p.categoryName.Contains(categoryname));
+                    includeItem = true;
+                }
+                var itemcrudeList = itemList.Select(p => p.itemkey).Distinct().ToList();
+                var includeCrudeList = db.v_item_crude.Where(p => itemcrudeList.Contains(p.itemkey)).Select(p => p.crudeid).ToList();
+
+
+                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (validate != null)
+                {
+                    depotInList = depotInList.Where(p => p.validity <= validate);
+                }
+                if(sdate != null)
+                {
+                    depotInList = depotInList.Where(p => p.productiondate >= sdate);
+                }
+                if (edate != null)
+                {
+                    depotInList = depotInList.Where(p => p.productiondate <= edate);
+                }
+                if (!dutyperson.Equals(""))
+                {
+                    depotInList = depotInList.Where(p => p.dutyperson.Contains(dutyperson));
+                }
+                if (!deliveryman.Equals(""))
+                {
+                    depotInList = depotInList.Where(p => p.deliveryman.Contains(deliveryman));
+                }
+                if (includeItem)
+                {
+                    depotInList = depotInList.Where(p => includeCrudeList.Contains(p.crudeid));
+                }
+
+                return depotInList.ToList();
             }
             catch (Exception e)
             {
@@ -266,12 +323,14 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryDepotDetail(int depotinid)
+        public List<v_depotin_crude> QueryDepotDetail(int depotinid)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
                 var detailList = db.v_depotin_crude.Where(p => p.depotinid == depotinid);
+
+                return detailList.ToList();
             }
             catch (Exception e)
             {
@@ -280,11 +339,48 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryDepotOut()
+        public List<v_depotout_crude> QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
             {
+                bool includeItem = false;
+                DianDianEntities db = new DianDianEntities();
+                var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (!itemname.Equals(""))
+                {
+                    itemList = itemList.Where(p => p.itemName.Contains(itemname));
+                    includeItem = true;
+                }
+                if (!categoryname.Equals(""))
+                {
+                    itemList = itemList.Where(p => p.categoryName.Contains(categoryname));
+                    includeItem = true;
+                }
+                var itemcrudeList = itemList.Select(p => p.itemkey).Distinct().ToList();
+                var includeCrudeList = db.v_item_crude.Where(p => itemcrudeList.Contains(p.itemkey)).Select(p => p.crudeid).ToList();
 
+                var stockList = db.v_depotout_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (!crudename.Equals(""))
+                {
+                    stockList = stockList.Where(p => p.crudename.Contains(crudename));
+                }
+                if (genreid != 0)
+                {
+                    stockList = stockList.Where(p => p.genreid == genreid);
+                }
+                if (sdate != null)
+                {
+                    stockList = stockList.Where(p => p.createdate >= sdate);
+                }
+                if (sdate != null)
+                {
+                    stockList = stockList.Where(p => p.createdate <= edate);
+                }
+                if (includeItem)
+                {
+                    stockList = stockList.Where(p => includeCrudeList.Contains(p.crudeid));
+                }
+                return stockList.ToList();
             }
             catch (Exception e)
             {
@@ -293,11 +389,22 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void AddDepotIn()
+        public void AddDepotIn(decimal cost, string dutyperson, string deliveryman, string deliveryphone, string driver, string platenum)
         {
             try
             {
+                DianDianEntities db = new DianDianEntities();
+                storage_depotin depotin = new storage_depotin();
+                depotin.createdate = DateTime.Now;
+                depotin.cost = cost;
+                depotin.dutyperson = dutyperson;
+                depotin.deliveryman = deliveryman;
+                depotin.deliveryphone = deliveryphone;
+                depotin.driver = driver;
+                depotin.platenum = platenum;
 
+                db.storage_depotin.Add(depotin);
+                db.SaveChanges();
             }
             catch (Exception e)
             {

@@ -33,5 +33,6 @@ namespace DianDianClient.Models
         public Nullable<decimal> depinout_salemoney { get; set; }
         public Nullable<sbyte> type { get; set; }
         public int outinfoid { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
     }
 }
