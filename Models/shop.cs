@@ -20,6 +20,8 @@ using System;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public shop()
         {
+            this.cf_main = new HashSet<cf_main>();
+            this.cf_meal = new HashSet<cf_meal>();
             this.income_record = new HashSet<income_record>();
             this.item = new HashSet<item>();
             this.item_category = new HashSet<item_category>();
@@ -38,8 +40,6 @@ using System;
             this.shop_info_record = new HashSet<shop_info_record>();
             this.table_pos = new HashSet<table_pos>();
             this.shop_income_clean = new HashSet<shop_income_clean>();
-            this.cf_main = new HashSet<cf_main>();
-            this.cf_meal = new HashSet<cf_meal>();
         }
     
         public int shopkey { get; set; }
@@ -124,6 +124,10 @@ using System;
         public string zbankcode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cf_main> cf_main { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<cf_meal> cf_meal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<income_record> income_record { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<item> item { get; set; }
@@ -159,9 +163,5 @@ using System;
         public virtual ICollection<table_pos> table_pos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shop_income_clean> shop_income_clean { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cf_main> cf_main { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cf_meal> cf_meal { get; set; }
     }
 }

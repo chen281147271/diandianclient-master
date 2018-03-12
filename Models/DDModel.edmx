@@ -290,8 +290,8 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="createDate" Type="datetime" Precision="0" />
-          <Property Name="payDate" Type="datetime" Precision="0" />
+          <Property Name="createDate" Type="varchar" MaxLength="20" />
+          <Property Name="payDate" Type="varchar" MaxLength="20" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -300,7 +300,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="datetime" Precision="0" />
+          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -316,7 +316,7 @@
             <PropertyRef Name="cfmealkey" />
           </Key>
           <Property Name="cfmealkey" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="createDate" Type="datetime" Precision="0" />
+          <Property Name="createDate" Type="varchar" MaxLength="20" />
           <Property Name="shopkey" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="isComplete" Type="int" />
@@ -450,7 +450,7 @@
           <Property Name="bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="type" Type="tinyint" />
           <Property Name="jctime" Type="varchar" MaxLength="10" />
-          <Property Name="addtime" Type="datetime" Precision="0" />
+          <Property Name="addtime" Type="varchar" MaxLength="20" />
           <Property Name="comm" Type="varchar" MaxLength="255" />
           <Property Name="address" Type="varchar" MaxLength="255" />
           <Property Name="linkman" Type="varchar" MaxLength="30" />
@@ -467,7 +467,7 @@
           <Property Name="orderno" Type="varchar" MaxLength="30" />
           <Property Name="paytype" Type="int" />
           <Property Name="payuser" Type="varchar" MaxLength="255" />
-          <Property Name="successtime" Type="datetime" Precision="0" />
+          <Property Name="successtime" Type="varchar" MaxLength="20" />
           <Property Name="ist0" Type="bool" />
           <Property Name="reorderno" Type="varchar" MaxLength="30" />
           <Property Name="origin" Type="tinyint" />
@@ -2323,7 +2323,7 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="payDate" Type="datetime" Precision="0" />
+          <Property Name="payDate" Type="varchar" MaxLength="20" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -2332,7 +2332,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="datetime" Precision="0" />
+          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -2388,8 +2388,8 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="main_createDate" Type="datetime" Precision="0" />
-          <Property Name="payDate" Type="datetime" Precision="0" />
+          <Property Name="main_createDate" Type="varchar" MaxLength="20" />
+          <Property Name="payDate" Type="varchar" MaxLength="20" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -2397,7 +2397,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="datetime" Precision="0" />
+          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
           <Property Name="main_isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -2407,7 +2407,7 @@
           <Property Name="exceptionAmountAl" Type="double" />
           <Property Name="serialNo" Type="int" />
           <Property Name="zexception" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="createDate" Type="datetime" Precision="0" />
+          <Property Name="createDate" Type="varchar" MaxLength="20" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isRecomment" Type="int" />
           <Property Name="main_serialNo" Type="varchar" MaxLength="32" />
@@ -2434,7 +2434,7 @@
           <Property Name="num" Type="bigint" Nullable="false" />
           <Property Name="userid" Type="int" />
           <Property Name="shopkey" Type="int" />
-          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="createdate" Type="varchar" MaxLength="20" />
           <Property Name="type" Type="varchar" MaxLength="1" />
         </EntityType>
         <!--生成过程中发现错误:
@@ -2578,7 +2578,6 @@
           <Property Name="depinout_salemoney" Type="decimal" Precision="13" Scale="2" />
           <Property Name="type" Type="tinyint" />
           <Property Name="outinfoid" Type="int" Nullable="false" />
-          <Property Name="createdate" Type="datetime" Precision="0" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_emp_floor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3788,8 +3787,7 @@ FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
 `v_depotout_crude`.`itemkey`, 
 `v_depotout_crude`.`depinout_salemoney`, 
 `v_depotout_crude`.`type`, 
-`v_depotout_crude`.`outinfoid`, 
-`v_depotout_crude`.`createdate`
+`v_depotout_crude`.`outinfoid`
 FROM `v_depotout_crude` AS `v_depotout_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_emp_floor" EntityType="Self.v_emp_floor" store:Type="Views" store:Schema="diandian">
@@ -4321,6 +4319,70 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="interaction_record" Relationship="Self.Fk_IR1" FromRole="cf_detail" ToRole="interaction_record" />
           <NavigationProperty Name="interaction_record1" Relationship="Self.Fk_IR2" FromRole="cf_detail" ToRole="interaction_record" />
           <NavigationProperty Name="item" Relationship="Self.FK_Reference_27" FromRole="cf_detail" ToRole="item" />
+        </EntityType>
+        <EntityType Name="cf_main">
+          <Key>
+            <PropertyRef Name="cfmainkey" />
+          </Key>
+          <Property Name="cfmainkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="billNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="peopleNum" Type="Int32" />
+          <Property Name="scTime" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Double" />
+          <Property Name="realPay" Type="Decimal" />
+          <Property Name="memberkey" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="customRemark" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="createDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="payDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="tableNo" Type="Int32" Nullable="false" />
+          <Property Name="orderNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="payType" Type="Int32" />
+          <Property Name="introduce" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="isConfirm" Type="Int32" />
+          <Property Name="exceptionPlan" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="exceptionRemark" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="exceptionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isComplete" Type="Int32" />
+          <Property Name="isSong" Type="Int32" />
+          <Property Name="isException" Type="Int32" />
+          <Property Name="youhui" Type="Double" />
+          <Property Name="exceptionAmount" Type="Double" />
+          <Property Name="exceptionAmountUn" Type="Double" />
+          <Property Name="exceptionAmountAl" Type="Double" />
+          <Property Name="serialNo" Type="Int32" />
+          <Property Name="zexception" Type="Decimal" />
+          <NavigationProperty Name="shop" Relationship="Self.FK_Reference_26" FromRole="cf_main" ToRole="shop" />
+        </EntityType>
+        <EntityType Name="cf_meal">
+          <Key>
+            <PropertyRef Name="cfmealkey" />
+          </Key>
+          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="tableNo" Type="Int32" Nullable="false" />
+          <Property Name="isComplete" Type="Int32" />
+          <Property Name="isRecomment" Type="Int32" />
+          <Property Name="serialNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="redPackageCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="exceptionPlan" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="exceptionRemark" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="payMemberkey" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="recommentMemberkey" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="useHbCode" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="jiucanno" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="merge" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="peoples" Type="Int32" />
+          <Property Name="isfree" Type="Boolean" />
+          <Property Name="issign" Type="Boolean" />
+          <Property Name="zexception" Type="Decimal" />
+          <Property Name="shopuserid" Type="Int32" />
+          <NavigationProperty Name="shop" Relationship="Self.FK_Reference_45" FromRole="cf_meal" ToRole="shop" />
         </EntityType>
         <EntityType Name="cf_member">
           <Key>
@@ -5453,6 +5515,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="isserver" Type="SByte" />
           <Property Name="zbankname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="zbankcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cf_main" Relationship="Self.FK_Reference_26" FromRole="shop" ToRole="cf_main" />
+          <NavigationProperty Name="cf_meal" Relationship="Self.FK_Reference_45" FromRole="shop" ToRole="cf_meal" />
           <NavigationProperty Name="income_record" Relationship="Self.FK_Reference_16" FromRole="shop" ToRole="income_record" />
           <NavigationProperty Name="item" Relationship="Self.FK_Reference_3" FromRole="shop" ToRole="item" />
           <NavigationProperty Name="item_category" Relationship="Self.FK_Reference_21" FromRole="shop" ToRole="item_category" />
@@ -5471,8 +5535,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="shop_info_record" Relationship="Self.FK_Reference_39" FromRole="shop" ToRole="shop_info_record" />
           <NavigationProperty Name="table_pos" Relationship="Self.FK_Reference_4" FromRole="shop" ToRole="table_pos" />
           <NavigationProperty Name="shop_income_clean" Relationship="Self.FK_Reference_58" FromRole="shop" ToRole="shop_income_clean" />
-          <NavigationProperty Name="cf_main" Relationship="diandianModel.cf_main_ibfk_1" FromRole="shop" ToRole="cf_main" />
-          <NavigationProperty Name="cf_meal" Relationship="diandianModel.cf_meal_ibfk_1" FromRole="shop" ToRole="cf_meal" />
         </EntityType>
         <EntityType Name="shop_car">
           <Key>
@@ -5848,6 +5910,30 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             </Principal>
             <Dependent Role="cf_detail">
               <PropertyRef Name="itemkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_26">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="cf_main" Type="Self.cf_main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="cf_main">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reference_45">
+          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
+          <End Role="cf_meal" Type="Self.cf_meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="cf_meal">
+              <PropertyRef Name="shopkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6330,6 +6416,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="bc_shop" EntityType="Self.bc_shop" />
           <EntitySet Name="bc_shop_account" EntityType="Self.bc_shop_account" />
           <EntitySet Name="cf_detail" EntityType="Self.cf_detail" />
+          <EntitySet Name="cf_main" EntityType="Self.cf_main" />
+          <EntitySet Name="cf_meal" EntityType="Self.cf_meal" />
           <EntitySet Name="cf_member" EntityType="Self.cf_member" />
           <EntitySet Name="comment_keyword" EntityType="Self.comment_keyword" />
           <EntitySet Name="dd_actives" EntityType="Self.dd_actives" />
@@ -6436,6 +6524,14 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="FK_Reference_27" Association="Self.FK_Reference_27">
             <End Role="item" EntitySet="item" />
             <End Role="cf_detail" EntitySet="cf_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_26" Association="Self.FK_Reference_26">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="cf_main" EntitySet="cf_main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reference_45" Association="Self.FK_Reference_45">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="cf_meal" EntitySet="cf_meal" />
           </AssociationSet>
           <AssociationSet Name="FK_Reference_43" Association="Self.FK_Reference_43">
             <End Role="member" EntitySet="member" />
@@ -6596,6 +6692,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="v_cfdetailitem" EntityType="diandianModel.v_cfdetailitem" />
           <EntitySet Name="v_cfmainmeal" EntityType="diandianModel.v_cfmainmeal" />
           <EntitySet Name="v_orderitem" EntityType="diandianModel.v_orderitem" />
+          <EntitySet Name="dd_book_orders" EntityType="diandianModel.dd_book_orders" />
           <EntitySet Name="allot_account_false" EntityType="diandianModel.allot_account_false" />
           <EntitySet Name="allot_account" EntityType="diandianModel.allot_account" />
           <EntitySet Name="v_category_items" EntityType="diandianModel.v_category_items" />
@@ -6637,17 +6734,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
           <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
           <EntitySet Name="v_shop_depot" EntityType="diandianModel.v_shop_depot" />
-          <EntitySet Name="cf_main" EntityType="diandianModel.cf_main" />
-          <EntitySet Name="cf_meal" EntityType="diandianModel.cf_meal" />
-          <EntitySet Name="dd_book_orders" EntityType="diandianModel.dd_book_orders" />
-          <AssociationSet Name="cf_main_ibfk_1" Association="diandianModel.cf_main_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="cf_main" EntitySet="cf_main" />
-          </AssociationSet>
-          <AssociationSet Name="cf_meal_ibfk_1" Association="diandianModel.cf_meal_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="cf_meal" EntitySet="cf_meal" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -6813,6 +6899,49 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="ismust" Type="SByte" />
           <Property Name="isware" Type="SByte" />
           <Property Name="item_orderNo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dd_book_orders">
+          <Key>
+            <PropertyRef Name="bid" />
+          </Key>
+          <Property Name="bid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="SByte" />
+          <Property Name="jctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="addtime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comm" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="linkman" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="linktel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="SByte" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="usepeoples" Type="SByte" />
+          <Property Name="amount" Type="Decimal" />
+          <Property Name="realamount" Type="Decimal" />
+          <Property Name="couponid" Type="Int32" />
+          <Property Name="youhui" Type="Decimal" />
+          <Property Name="orderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="paytype" Type="Int32" />
+          <Property Name="payuser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="successtime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ist0" Type="Boolean" />
+          <Property Name="reorderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="origin" Type="SByte" />
+          <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="packageFee" Type="Decimal" />
+          <Property Name="serviceFee" Type="Decimal" />
+          <Property Name="activityTotal" Type="Decimal" />
+          <Property Name="shopPart" Type="Decimal" />
+          <Property Name="pingtaiPart" Type="Decimal" />
+          <Property Name="mtorderid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="shippingstate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="dispatcherName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dispatcherPhone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="elmshopid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deliverFee" Type="Decimal" />
+          <Property Name="deliveryGeo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cardtype" Type="SByte" />
         </EntityType>
         <EntityType Name="allot_account_false">
           <Key>
@@ -7530,7 +7659,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="depinout_salemoney" Type="Decimal" />
           <Property Name="type" Type="SByte" />
           <Property Name="outinfoid" Type="Int32" Nullable="false" />
-          <Property Name="createdate" Type="DateTime" />
         </EntityType>
         <EntityType Name="storage_stock">
           <Key>
@@ -7628,137 +7756,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="type" Type="SByte" />
           <Property Name="depotin_cost" Type="Decimal" />
         </EntityType>
-        <EntityType Name="cf_main">
-          <Key>
-            <PropertyRef Name="cfmainkey" />
-          </Key>
-          <Property Name="cfmainkey" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="type" Type="Int32" />
-          <Property Name="billNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="peopleNum" Type="Int32" />
-          <Property Name="scTime" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="amount" Type="Double" />
-          <Property Name="realPay" Type="Decimal" />
-          <Property Name="memberkey" Type="Int32" />
-          <Property Name="remark" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="customRemark" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="createDate" Type="DateTime" />
-          <Property Name="payDate" Type="DateTime" />
-          <Property Name="state" Type="Int32" />
-          <Property Name="tableNo" Type="Int32" Nullable="false" />
-          <Property Name="orderNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="payType" Type="Int32" />
-          <Property Name="introduce" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="isConfirm" Type="Int32" />
-          <Property Name="exceptionPlan" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="exceptionRemark" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="exceptionTime" Type="DateTime" />
-          <Property Name="isComplete" Type="Int32" />
-          <Property Name="isSong" Type="Int32" />
-          <Property Name="isException" Type="Int32" />
-          <Property Name="youhui" Type="Double" />
-          <Property Name="exceptionAmount" Type="Double" />
-          <Property Name="exceptionAmountUn" Type="Double" />
-          <Property Name="exceptionAmountAl" Type="Double" />
-          <Property Name="serialNo" Type="Int32" />
-          <Property Name="zexception" Type="Decimal" />
-          <NavigationProperty Name="shop" Relationship="diandianModel.cf_main_ibfk_1" FromRole="cf_main" ToRole="shop" />
-        </EntityType>
-        <EntityType Name="cf_meal">
-          <Key>
-            <PropertyRef Name="cfmealkey" />
-          </Key>
-          <Property Name="cfmealkey" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="createDate" Type="DateTime" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="tableNo" Type="Int32" Nullable="false" />
-          <Property Name="isComplete" Type="Int32" />
-          <Property Name="isRecomment" Type="Int32" />
-          <Property Name="serialNo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="redPackageCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="exceptionPlan" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="exceptionRemark" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
-          <Property Name="payMemberkey" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="recommentMemberkey" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="useHbCode" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="jiucanno" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="merge" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="peoples" Type="Int32" />
-          <Property Name="isfree" Type="Boolean" />
-          <Property Name="issign" Type="Boolean" />
-          <Property Name="zexception" Type="Decimal" />
-          <Property Name="shopuserid" Type="Int32" />
-          <NavigationProperty Name="shop" Relationship="diandianModel.cf_meal_ibfk_1" FromRole="cf_meal" ToRole="shop" />
-        </EntityType>
-        <EntityType Name="dd_book_orders">
-          <Key>
-            <PropertyRef Name="bid" />
-          </Key>
-          <Property Name="bid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="type" Type="SByte" />
-          <Property Name="jctime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="addtime" Type="DateTime" />
-          <Property Name="comm" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="linkman" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="linktel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="status" Type="SByte" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="userid" Type="Int32" />
-          <Property Name="usepeoples" Type="SByte" />
-          <Property Name="amount" Type="Decimal" />
-          <Property Name="realamount" Type="Decimal" />
-          <Property Name="couponid" Type="Int32" />
-          <Property Name="youhui" Type="Decimal" />
-          <Property Name="orderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="paytype" Type="Int32" />
-          <Property Name="payuser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="successtime" Type="DateTime" />
-          <Property Name="ist0" Type="Boolean" />
-          <Property Name="reorderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="origin" Type="SByte" />
-          <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="packageFee" Type="Decimal" />
-          <Property Name="serviceFee" Type="Decimal" />
-          <Property Name="activityTotal" Type="Decimal" />
-          <Property Name="shopPart" Type="Decimal" />
-          <Property Name="pingtaiPart" Type="Decimal" />
-          <Property Name="mtorderid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="shippingstate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="dispatcherName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="dispatcherPhone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="elmshopid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="deliverFee" Type="Decimal" />
-          <Property Name="deliveryGeo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="cardtype" Type="SByte" />
-        </EntityType>
-        <Association Name="cf_main_ibfk_1">
-          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
-          <End Type="diandianModel.cf_main" Role="cf_main" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="cf_main">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cf_meal_ibfk_1">
-          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
-          <End Type="diandianModel.cf_meal" Role="cf_meal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="cf_meal">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7964,6 +7961,70 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="songcaiyuanyin" ColumnName="songcaiyuanyin" />
                 <ScalarProperty Name="youhui" ColumnName="youhui" />
                 <ScalarProperty Name="weight" ColumnName="weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cf_main">
+            <EntityTypeMapping TypeName="diandianModel.cf_main">
+              <MappingFragment StoreEntitySet="cf_main">
+                <ScalarProperty Name="cfmainkey" ColumnName="cfmainkey" />
+                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="billNo" ColumnName="billNo" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="peopleNum" ColumnName="peopleNum" />
+                <ScalarProperty Name="scTime" ColumnName="scTime" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="realPay" ColumnName="realPay" />
+                <ScalarProperty Name="memberkey" ColumnName="memberkey" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="customRemark" ColumnName="customRemark" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="payDate" ColumnName="payDate" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="tableNo" ColumnName="tableNo" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="payType" ColumnName="payType" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="isConfirm" ColumnName="isConfirm" />
+                <ScalarProperty Name="exceptionPlan" ColumnName="exceptionPlan" />
+                <ScalarProperty Name="exceptionRemark" ColumnName="exceptionRemark" />
+                <ScalarProperty Name="exceptionTime" ColumnName="exceptionTime" />
+                <ScalarProperty Name="isComplete" ColumnName="isComplete" />
+                <ScalarProperty Name="isSong" ColumnName="isSong" />
+                <ScalarProperty Name="isException" ColumnName="isException" />
+                <ScalarProperty Name="youhui" ColumnName="youhui" />
+                <ScalarProperty Name="exceptionAmount" ColumnName="exceptionAmount" />
+                <ScalarProperty Name="exceptionAmountUn" ColumnName="exceptionAmountUn" />
+                <ScalarProperty Name="exceptionAmountAl" ColumnName="exceptionAmountAl" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="zexception" ColumnName="zexception" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cf_meal">
+            <EntityTypeMapping TypeName="diandianModel.cf_meal">
+              <MappingFragment StoreEntitySet="cf_meal">
+                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="tableNo" ColumnName="tableNo" />
+                <ScalarProperty Name="isComplete" ColumnName="isComplete" />
+                <ScalarProperty Name="isRecomment" ColumnName="isRecomment" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="redPackageCode" ColumnName="redPackageCode" />
+                <ScalarProperty Name="exceptionPlan" ColumnName="exceptionPlan" />
+                <ScalarProperty Name="exceptionRemark" ColumnName="exceptionRemark" />
+                <ScalarProperty Name="payMemberkey" ColumnName="payMemberkey" />
+                <ScalarProperty Name="recommentMemberkey" ColumnName="recommentMemberkey" />
+                <ScalarProperty Name="useHbCode" ColumnName="useHbCode" />
+                <ScalarProperty Name="jiucanno" ColumnName="jiucanno" />
+                <ScalarProperty Name="merge" ColumnName="merge" />
+                <ScalarProperty Name="peoples" ColumnName="peoples" />
+                <ScalarProperty Name="isfree" ColumnName="isfree" />
+                <ScalarProperty Name="issign" ColumnName="issign" />
+                <ScalarProperty Name="zexception" ColumnName="zexception" />
+                <ScalarProperty Name="shopuserid" ColumnName="shopuserid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9637,6 +9698,50 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="dd_book_orders">
+            <EntityTypeMapping TypeName="diandianModel.dd_book_orders">
+              <MappingFragment StoreEntitySet="dd_book_orders">
+                <ScalarProperty Name="cardtype" ColumnName="cardtype" />
+                <ScalarProperty Name="deliveryGeo" ColumnName="deliveryGeo" />
+                <ScalarProperty Name="deliverFee" ColumnName="deliverFee" />
+                <ScalarProperty Name="elmshopid" ColumnName="elmshopid" />
+                <ScalarProperty Name="dispatcherPhone" ColumnName="dispatcherPhone" />
+                <ScalarProperty Name="dispatcherName" ColumnName="dispatcherName" />
+                <ScalarProperty Name="shippingstate" ColumnName="shippingstate" />
+                <ScalarProperty Name="mtorderid" ColumnName="mtorderid" />
+                <ScalarProperty Name="pingtaiPart" ColumnName="pingtaiPart" />
+                <ScalarProperty Name="shopPart" ColumnName="shopPart" />
+                <ScalarProperty Name="activityTotal" ColumnName="activityTotal" />
+                <ScalarProperty Name="serviceFee" ColumnName="serviceFee" />
+                <ScalarProperty Name="packageFee" ColumnName="packageFee" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="origin" ColumnName="origin" />
+                <ScalarProperty Name="reorderno" ColumnName="reorderno" />
+                <ScalarProperty Name="ist0" ColumnName="ist0" />
+                <ScalarProperty Name="successtime" ColumnName="successtime" />
+                <ScalarProperty Name="payuser" ColumnName="payuser" />
+                <ScalarProperty Name="paytype" ColumnName="paytype" />
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="youhui" ColumnName="youhui" />
+                <ScalarProperty Name="couponid" ColumnName="couponid" />
+                <ScalarProperty Name="realamount" ColumnName="realamount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="usepeoples" ColumnName="usepeoples" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="linktel" ColumnName="linktel" />
+                <ScalarProperty Name="linkman" ColumnName="linkman" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="jctime" ColumnName="jctime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="allot_account_false">
             <EntityTypeMapping TypeName="diandianModel.allot_account_false">
               <MappingFragment StoreEntitySet="allot_account_false">
@@ -10366,7 +10471,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotout_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotout_crude">
               <MappingFragment StoreEntitySet="v_depotout_crude">
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
                 <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="depinout_salemoney" ColumnName="depinout_salemoney" />
@@ -10487,114 +10591,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="crudeid" ColumnName="crudeid" />
                 <ScalarProperty Name="depotinid" ColumnName="depotinid" />
                 <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cf_main">
-            <EntityTypeMapping TypeName="diandianModel.cf_main">
-              <MappingFragment StoreEntitySet="cf_main">
-                <ScalarProperty Name="zexception" ColumnName="zexception" />
-                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
-                <ScalarProperty Name="exceptionAmountAl" ColumnName="exceptionAmountAl" />
-                <ScalarProperty Name="exceptionAmountUn" ColumnName="exceptionAmountUn" />
-                <ScalarProperty Name="exceptionAmount" ColumnName="exceptionAmount" />
-                <ScalarProperty Name="youhui" ColumnName="youhui" />
-                <ScalarProperty Name="isException" ColumnName="isException" />
-                <ScalarProperty Name="isSong" ColumnName="isSong" />
-                <ScalarProperty Name="isComplete" ColumnName="isComplete" />
-                <ScalarProperty Name="exceptionTime" ColumnName="exceptionTime" />
-                <ScalarProperty Name="exceptionRemark" ColumnName="exceptionRemark" />
-                <ScalarProperty Name="exceptionPlan" ColumnName="exceptionPlan" />
-                <ScalarProperty Name="isConfirm" ColumnName="isConfirm" />
-                <ScalarProperty Name="introduce" ColumnName="introduce" />
-                <ScalarProperty Name="payType" ColumnName="payType" />
-                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
-                <ScalarProperty Name="tableNo" ColumnName="tableNo" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="payDate" ColumnName="payDate" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="customRemark" ColumnName="customRemark" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="memberkey" ColumnName="memberkey" />
-                <ScalarProperty Name="realPay" ColumnName="realPay" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="scTime" ColumnName="scTime" />
-                <ScalarProperty Name="peopleNum" ColumnName="peopleNum" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="billNo" ColumnName="billNo" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
-                <ScalarProperty Name="cfmainkey" ColumnName="cfmainkey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cf_meal">
-            <EntityTypeMapping TypeName="diandianModel.cf_meal">
-              <MappingFragment StoreEntitySet="cf_meal">
-                <ScalarProperty Name="shopuserid" ColumnName="shopuserid" />
-                <ScalarProperty Name="zexception" ColumnName="zexception" />
-                <ScalarProperty Name="issign" ColumnName="issign" />
-                <ScalarProperty Name="isfree" ColumnName="isfree" />
-                <ScalarProperty Name="peoples" ColumnName="peoples" />
-                <ScalarProperty Name="merge" ColumnName="merge" />
-                <ScalarProperty Name="jiucanno" ColumnName="jiucanno" />
-                <ScalarProperty Name="useHbCode" ColumnName="useHbCode" />
-                <ScalarProperty Name="recommentMemberkey" ColumnName="recommentMemberkey" />
-                <ScalarProperty Name="payMemberkey" ColumnName="payMemberkey" />
-                <ScalarProperty Name="exceptionRemark" ColumnName="exceptionRemark" />
-                <ScalarProperty Name="exceptionPlan" ColumnName="exceptionPlan" />
-                <ScalarProperty Name="redPackageCode" ColumnName="redPackageCode" />
-                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
-                <ScalarProperty Name="isRecomment" ColumnName="isRecomment" />
-                <ScalarProperty Name="isComplete" ColumnName="isComplete" />
-                <ScalarProperty Name="tableNo" ColumnName="tableNo" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dd_book_orders">
-            <EntityTypeMapping TypeName="diandianModel.dd_book_orders">
-              <MappingFragment StoreEntitySet="dd_book_orders">
-                <ScalarProperty Name="cardtype" ColumnName="cardtype" />
-                <ScalarProperty Name="deliveryGeo" ColumnName="deliveryGeo" />
-                <ScalarProperty Name="deliverFee" ColumnName="deliverFee" />
-                <ScalarProperty Name="elmshopid" ColumnName="elmshopid" />
-                <ScalarProperty Name="dispatcherPhone" ColumnName="dispatcherPhone" />
-                <ScalarProperty Name="dispatcherName" ColumnName="dispatcherName" />
-                <ScalarProperty Name="shippingstate" ColumnName="shippingstate" />
-                <ScalarProperty Name="mtorderid" ColumnName="mtorderid" />
-                <ScalarProperty Name="pingtaiPart" ColumnName="pingtaiPart" />
-                <ScalarProperty Name="shopPart" ColumnName="shopPart" />
-                <ScalarProperty Name="activityTotal" ColumnName="activityTotal" />
-                <ScalarProperty Name="serviceFee" ColumnName="serviceFee" />
-                <ScalarProperty Name="packageFee" ColumnName="packageFee" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="origin" ColumnName="origin" />
-                <ScalarProperty Name="reorderno" ColumnName="reorderno" />
-                <ScalarProperty Name="ist0" ColumnName="ist0" />
-                <ScalarProperty Name="successtime" ColumnName="successtime" />
-                <ScalarProperty Name="payuser" ColumnName="payuser" />
-                <ScalarProperty Name="paytype" ColumnName="paytype" />
-                <ScalarProperty Name="orderno" ColumnName="orderno" />
-                <ScalarProperty Name="youhui" ColumnName="youhui" />
-                <ScalarProperty Name="couponid" ColumnName="couponid" />
-                <ScalarProperty Name="realamount" ColumnName="realamount" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="usepeoples" ColumnName="usepeoples" />
-                <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="sex" ColumnName="sex" />
-                <ScalarProperty Name="linktel" ColumnName="linktel" />
-                <ScalarProperty Name="linkman" ColumnName="linkman" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="comm" ColumnName="comm" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
-                <ScalarProperty Name="jctime" ColumnName="jctime" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="bid" ColumnName="bid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

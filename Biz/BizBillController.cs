@@ -80,17 +80,17 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var billList = db.cf_main.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && p.createDate >= sdate && p.createDate <= edate);
+                List<cf_main> billList = db.cf_main.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && Convert.ToDateTime(p.createDate) >= sdate && Convert.ToDateTime(p.createDate) <= edate).ToList();
                 if (isConfirm != 0)
                 {
-                    billList = billList.Where(p => p.isConfirm == isConfirm);
+                    billList = billList.Where(p => p.isConfirm == isConfirm).ToList();
                 }
                 if (state != 0)
                 {
-                    billList = billList.Where(p => p.state == state);
+                    billList = billList.Where(p => p.state == state).ToList();
                 }
-                return billList.ToList();
+                return billList;
             }
             catch (Exception e)
             {
@@ -106,7 +106,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 List<v_cfmainaccount> rslList = db.v_cfmainaccount.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && p.createdate >= sdate && p.createdate <= edate).ToList();
+                    && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).ToList();
                 if (!billNo.Equals(""))
                 {
                     rslList = rslList.Where(p => p.type.Equals(billNo)).ToList();
@@ -142,17 +142,17 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var rslList = db.dd_book_orders.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && p.addtime >= sdate && p.addtime <= edate);
+                List<dd_book_orders> rslList = db.dd_book_orders.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && Convert.ToDateTime(p.addtime) >= sdate && Convert.ToDateTime(p.addtime) <= edate).ToList();
                 if (!orderNo.Equals(""))
                 {
-                    rslList = rslList.Where(p => p.orderno.Equals(orderNo));
+                    rslList = rslList.Where(p => p.orderno.Equals(orderNo)).ToList();
                 }
                 if (status != 0)
                 {
-                    rslList = rslList.Where(p => p.status == status);
+                    rslList = rslList.Where(p => p.status == status).ToList();
                 }
-                return rslList.ToList();
+                return rslList;
             }
             catch (Exception e)
             {

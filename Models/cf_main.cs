@@ -29,8 +29,8 @@ using System;
         public Nullable<int> memberkey { get; set; }
         public string remark { get; set; }
         public string customRemark { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
-        public Nullable<System.DateTime> payDate { get; set; }
+        public string createDate { get; set; }
+        public string payDate { get; set; }
         public Nullable<int> state { get; set; }
         public int tableNo { get; set; }
         public string orderNo { get; set; }
@@ -39,7 +39,7 @@ using System;
         public Nullable<int> isConfirm { get; set; }
         public string exceptionPlan { get; set; }
         public string exceptionRemark { get; set; }
-        public Nullable<System.DateTime> exceptionTime { get; set; }
+        public string exceptionTime { get; set; }
         public Nullable<int> isComplete { get; set; }
         public Nullable<int> isSong { get; set; }
         public Nullable<int> isException { get; set; }

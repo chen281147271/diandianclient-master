@@ -18,7 +18,7 @@ using System;
     public partial class cf_meal
     {
         public string cfmealkey { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
+        public string createDate { get; set; }
         public Nullable<int> shopkey { get; set; }
         public int tableNo { get; set; }
         public Nullable<int> isComplete { get; set; }
