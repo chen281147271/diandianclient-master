@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="61d32c5714a64382879cb99915fbc621" Name="Diagram1" ZoomLevel="57">
+      <Diagram DiagramId="61d32c5714a64382879cb99915fbc621" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="diandianModel.allot_adjunct" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.allot_agent" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.allot_agent_qrcode" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
@@ -15,8 +15,6 @@
         <EntityTypeShape EntityType="diandianModel.bc_shop" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.bc_shop_account" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.cf_detail" Width="1.5" PointX="7.5" PointY="49" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.cf_main" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.cf_meal" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.cf_member" Width="1.5" PointX="5.25" PointY="58.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.comment_keyword" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_actives" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
@@ -110,13 +108,10 @@
         <EntityTypeShape EntityType="diandianModel.wb_openuser" Width="1.5" PointX="26.75" PointY="27.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.allot_agent_edit" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_chain" Width="1.5" PointX="28.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.v_dd_count_mid" Width="1.5" PointX="28.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.v_dd_member_shopcord" Width="1.5" PointX="28.75" PointY="13.75" IsExpanded="true" />
         <AssociationConnector Association="diandianModel.Fk_IR1" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.Fk_IR2" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_27" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_26" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_45" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_43" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_16" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_2" ManuallyRouted="false" />
@@ -157,9 +152,7 @@
         <AssociationConnector Association="diandianModel.FK_Reference_4" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_58" ManuallyRouted="false" />
         <EntityTypeShape EntityType="diandianModel.v_cfdetailitem" Width="1.5" PointX="23.375" PointY="29.75" />
-        <EntityTypeShape EntityType="diandianModel.v_cfmainmeal" Width="1.5" PointX="29.375" PointY="28.75" />
         <EntityTypeShape EntityType="diandianModel.v_orderitem" Width="1.5" PointX="7.375" PointY="30.75" />
-        <EntityTypeShape EntityType="diandianModel.dd_book_orders" Width="1.5" PointX="14.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account_false" Width="1.5" PointX="16.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.allot_account" Width="1.5" PointX="18.375" PointY="30.75" />
         <EntityTypeShape EntityType="diandianModel.v_category_items" Width="1.5" PointX="20.375" PointY="30.75" />
@@ -176,7 +169,6 @@
         <EntityTypeShape EntityType="diandianModel.sys_right" Width="1.5" PointX="11.375" PointY="33.75" />
         <EntityTypeShape EntityType="diandianModel.dd_printerqueue" Width="1.5" PointX="33.375" PointY="20.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_account" Width="1.5" PointX="33.375" PointY="24.75" />
-        <EntityTypeShape EntityType="diandianModel.v_cfmainaccount" Width="1.5" PointX="33.375" PointY="31.75" />
         <EntityTypeShape EntityType="diandianModel.v_dd_pocket_users" Width="1.5" PointX="19.375" PointY="4.75" />
         <EntityTypeShape EntityType="diandianModel.dd_meal_tips" Width="1.5" PointX="25.375" PointY="34.75" />
         <EntityTypeShape EntityType="diandianModel.dd_card_userecord" Width="1.5" PointX="35.375" PointY="0.75" />
@@ -204,6 +196,13 @@
         <EntityTypeShape EntityType="diandianModel.v_dd_shop_users_count" Width="1.5" PointX="37.375" PointY="7.75" />
         <EntityTypeShape EntityType="diandianModel.v_depotin_crude" Width="1.5" PointX="37.375" PointY="37.75" />
         <EntityTypeShape EntityType="diandianModel.v_shop_depot" Width="1.5" PointX="25.375" PointY="38.75" />
+        <EntityTypeShape EntityType="diandianModel.cf_main" Width="1.5" PointX="3.375" PointY="49.875" />
+        <EntityTypeShape EntityType="diandianModel.cf_meal" Width="1.5" PointX="3.375" PointY="57.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_book_orders" Width="1.5" PointX="0.75" PointY="25.75" />
+        <EntityTypeShape EntityType="diandianModel.v_cfmainaccount" Width="1.5" PointX="2.75" PointY="25.75" />
+        <EntityTypeShape EntityType="diandianModel.v_cfmainmeal" Width="1.5" PointX="27.75" PointY="31.75" />
+        <AssociationConnector Association="diandianModel.cf_main_ibfk_1" />
+        <AssociationConnector Association="diandianModel.cf_meal_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -26,8 +26,8 @@ namespace DianDianClient.Models
         public Nullable<int> memberkey { get; set; }
         public string remark { get; set; }
         public string customRemark { get; set; }
-        public string main_createDate { get; set; }
-        public string payDate { get; set; }
+        public Nullable<System.DateTime> main_createDate { get; set; }
+        public Nullable<System.DateTime> payDate { get; set; }
         public Nullable<int> state { get; set; }
         public int tableNo { get; set; }
         public string orderNo { get; set; }
@@ -35,7 +35,7 @@ namespace DianDianClient.Models
         public Nullable<int> isConfirm { get; set; }
         public string exceptionPlan { get; set; }
         public string exceptionRemark { get; set; }
-        public string exceptionTime { get; set; }
+        public Nullable<System.DateTime> exceptionTime { get; set; }
         public Nullable<int> main_isComplete { get; set; }
         public Nullable<int> isSong { get; set; }
         public Nullable<int> isException { get; set; }
@@ -45,7 +45,7 @@ namespace DianDianClient.Models
         public Nullable<double> exceptionAmountAl { get; set; }
         public Nullable<int> serialNo { get; set; }
         public Nullable<decimal> zexception { get; set; }
-        public string createDate { get; set; }
+        public Nullable<System.DateTime> createDate { get; set; }
         public Nullable<int> isComplete { get; set; }
         public Nullable<int> isRecomment { get; set; }
         public string main_serialNo { get; set; }

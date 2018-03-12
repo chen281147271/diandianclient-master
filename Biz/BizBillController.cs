@@ -80,17 +80,17 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                List<cf_main> billList = db.cf_main.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && Convert.ToDateTime(p.createDate) >= sdate && Convert.ToDateTime(p.createDate) <= edate).ToList();
+                var billList = db.cf_main.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && p.createDate >= sdate && p.createDate <= edate);
                 if (isConfirm != 0)
                 {
-                    billList = billList.Where(p => p.isConfirm == isConfirm).ToList();
+                    billList = billList.Where(p => p.isConfirm == isConfirm);
                 }
                 if (state != 0)
                 {
-                    billList = billList.Where(p => p.state == state).ToList();
+                    billList = billList.Where(p => p.state == state);
                 }
-                return billList;
+                return billList.ToList();
             }
             catch (Exception e)
             {
@@ -105,29 +105,29 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                List<v_cfmainaccount> rslList = db.v_cfmainaccount.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && Convert.ToDateTime(p.createdate) >= sdate && Convert.ToDateTime(p.createdate) <= edate).ToList();
+                var rslList = db.v_cfmainaccount.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && p.createdate >= sdate && p.createdate <= edate);
                 if (!billNo.Equals(""))
                 {
-                    rslList = rslList.Where(p => p.type.Equals(billNo)).ToList();
+                    rslList = rslList.Where(p => p.type.Equals(billNo));
                 }
                 if (paytype != 0)
                 {
-                    rslList = rslList.Where(p => p.paytype == paytype).ToList();
+                    rslList = rslList.Where(p => p.paytype == paytype);
                 }
                 if (state != 0)
                 {
-                    rslList = rslList.Where(p => p.state == state).ToList();
+                    rslList = rslList.Where(p => p.state == state);
                 }
                 if (!type.Equals("0"))
                 {
-                    rslList = rslList.Where(p => p.type.Equals(type)).ToList();
+                    rslList = rslList.Where(p => p.type.Equals(type));
                 }
                 if (tableNo != 0)
                 {
-                    rslList = rslList.Where(p => p.tableNo == tableNo).ToList();
+                    rslList = rslList.Where(p => p.tableNo == tableNo);
                 }
-                return rslList;
+                return rslList.ToList();
             }
             catch (Exception e)
             {
@@ -142,17 +142,17 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                List<dd_book_orders> rslList = db.dd_book_orders.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && Convert.ToDateTime(p.addtime) >= sdate && Convert.ToDateTime(p.addtime) <= edate).ToList();
+                var rslList = db.dd_book_orders.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && p.addtime >= sdate && p.addtime <= edate);
                 if (!orderNo.Equals(""))
                 {
-                    rslList = rslList.Where(p => p.orderno.Equals(orderNo)).ToList();
+                    rslList = rslList.Where(p => p.orderno.Equals(orderNo));
                 }
                 if (status != 0)
                 {
-                    rslList = rslList.Where(p => p.status == status).ToList();
+                    rslList = rslList.Where(p => p.status == status);
                 }
-                return rslList;
+                return rslList.ToList();
             }
             catch (Exception e)
             {
