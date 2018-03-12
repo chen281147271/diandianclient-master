@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.Btn_Print = new DevExpress.XtraEditors.SimpleButton();
+            this.Btn_Export = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).BeginInit();
@@ -216,11 +216,12 @@
             this.dateEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateEdit2.Size = new System.Drawing.Size(181, 20);
             this.dateEdit2.TabIndex = 4;
+            this.dateEdit2.EditValueChanged += new System.EventHandler(this.dateEdit2_EditValueChanged);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.simpleButton1);
-            this.flowLayoutPanel2.Controls.Add(this.simpleButton2);
+            this.flowLayoutPanel2.Controls.Add(this.Btn_Print);
+            this.flowLayoutPanel2.Controls.Add(this.Btn_Export);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(515, 3);
@@ -228,33 +229,34 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(417, 38);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
-            // simpleButton1
+            // Btn_Print
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton1.Location = new System.Drawing.Point(256, 3);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(158, 35);
-            this.simpleButton1.TabIndex = 9;
-            this.simpleButton1.Text = "打印";
+            this.Btn_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Print.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
+            this.Btn_Print.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Print.Appearance.Options.UseBackColor = true;
+            this.Btn_Print.Appearance.Options.UseFont = true;
+            this.Btn_Print.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Btn_Print.Location = new System.Drawing.Point(256, 3);
+            this.Btn_Print.Name = "Btn_Print";
+            this.Btn_Print.Size = new System.Drawing.Size(158, 35);
+            this.Btn_Print.TabIndex = 9;
+            this.Btn_Print.Text = "打印";
             // 
-            // simpleButton2
+            // Btn_Export
             // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton2.Location = new System.Drawing.Point(92, 3);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(158, 35);
-            this.simpleButton2.TabIndex = 10;
-            this.simpleButton2.Text = "导出";
+            this.Btn_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Export.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
+            this.Btn_Export.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Export.Appearance.Options.UseBackColor = true;
+            this.Btn_Export.Appearance.Options.UseFont = true;
+            this.Btn_Export.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Btn_Export.Location = new System.Drawing.Point(92, 3);
+            this.Btn_Export.Name = "Btn_Export";
+            this.Btn_Export.Size = new System.Drawing.Size(158, 35);
+            this.Btn_Export.TabIndex = 10;
+            this.Btn_Export.Text = "导出";
+            this.Btn_Export.Click += new System.EventHandler(this.Btn_Export_Click);
             // 
             // BusinessDetailControl
             // 
@@ -296,7 +298,7 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.DateEdit dateEdit2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton Btn_Print;
+        private DevExpress.XtraEditors.SimpleButton Btn_Export;
     }
 }

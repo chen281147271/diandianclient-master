@@ -131,7 +131,7 @@ namespace DianDianClient.Biz
             }
         }
         //按支付方式分类统计
-        RecordGroupTotleBean QueryRecordGroupByPayType(DateTime sdate, DateTime edate)
+        public RecordGroupTotleBean QueryRecordGroupByPayType(DateTime sdate, DateTime edate)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace DianDianClient.Biz
         }
 
         //按日期支付方式分类统计
-        List<RecordGroupTotleBean> QueryRecordGroupByDateByPayType(DateTime sdate, DateTime edate)
+        public List<RecordGroupTotleBean> QueryRecordGroupByDateByPayType(DateTime sdate, DateTime edate)
         {
             try
             {
@@ -176,6 +176,7 @@ namespace DianDianClient.Biz
                     var tmpList = rsl.GroupBy(p => p.paytype);
                     RecordGroupTotleBean rslbean = new RecordGroupTotleBean();
                     rslbean.totleCount = rsl.Count();
+                    rslbean.createdate=rsl.FirstOrDefault().createdate.ToString();
                     rslbean.sumMoney = rsl.Sum(p => p.money - p.brokerage).Value;
                     rslbean.groupList = new List<RecordGroupBean>();
 

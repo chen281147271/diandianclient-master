@@ -20,5 +20,6 @@ namespace DianDianClient.Models
         public decimal sumMoney { get; set; }
         public decimal tuiMoney { get; set; }
         public List<RecordGroupBean> groupList { get; set; }
+        public string createdate { get; set; }
     }
 }
