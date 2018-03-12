@@ -655,10 +655,10 @@
     <Compile Include="Models\v_dd_pocket_users.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\v_dd_shop_users1.cs">
+    <Compile Include="Models\v_dd_shop_users.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\v_dd_shop_users_count1.cs">
+    <Compile Include="Models\v_dd_shop_users_count.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_depotin_crude.cs">
@@ -677,6 +677,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_orderitem.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_shop_depot.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_stock_crude.cs">

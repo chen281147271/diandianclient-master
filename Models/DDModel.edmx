@@ -290,8 +290,8 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="createDate" Type="varchar" MaxLength="20" />
-          <Property Name="payDate" Type="varchar" MaxLength="20" />
+          <Property Name="createDate" Type="datetime" Precision="0" />
+          <Property Name="payDate" Type="datetime" Precision="0" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -300,7 +300,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
+          <Property Name="exceptionTime" Type="datetime" Precision="0" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -316,7 +316,7 @@
             <PropertyRef Name="cfmealkey" />
           </Key>
           <Property Name="cfmealkey" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="createDate" Type="varchar" MaxLength="20" />
+          <Property Name="createDate" Type="datetime" Precision="0" />
           <Property Name="shopkey" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="isComplete" Type="int" />
@@ -450,7 +450,7 @@
           <Property Name="bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="type" Type="tinyint" />
           <Property Name="jctime" Type="varchar" MaxLength="10" />
-          <Property Name="addtime" Type="varchar" MaxLength="20" />
+          <Property Name="addtime" Type="datetime" Precision="0" />
           <Property Name="comm" Type="varchar" MaxLength="255" />
           <Property Name="address" Type="varchar" MaxLength="255" />
           <Property Name="linkman" Type="varchar" MaxLength="30" />
@@ -467,7 +467,7 @@
           <Property Name="orderno" Type="varchar" MaxLength="30" />
           <Property Name="paytype" Type="int" />
           <Property Name="payuser" Type="varchar" MaxLength="255" />
-          <Property Name="successtime" Type="varchar" MaxLength="20" />
+          <Property Name="successtime" Type="datetime" Precision="0" />
           <Property Name="ist0" Type="bool" />
           <Property Name="reorderno" Type="varchar" MaxLength="30" />
           <Property Name="origin" Type="tinyint" />
@@ -2323,7 +2323,7 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="payDate" Type="varchar" MaxLength="20" />
+          <Property Name="payDate" Type="datetime" Precision="0" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -2332,7 +2332,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
+          <Property Name="exceptionTime" Type="datetime" Precision="0" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -2388,8 +2388,8 @@
           <Property Name="memberkey" Type="int" />
           <Property Name="remark" Type="varchar" MaxLength="128" />
           <Property Name="customRemark" Type="varchar" MaxLength="128" />
-          <Property Name="main_createDate" Type="varchar" MaxLength="20" />
-          <Property Name="payDate" Type="varchar" MaxLength="20" />
+          <Property Name="main_createDate" Type="datetime" Precision="0" />
+          <Property Name="payDate" Type="datetime" Precision="0" />
           <Property Name="state" Type="int" />
           <Property Name="tableNo" Type="int" Nullable="false" />
           <Property Name="orderNo" Type="varchar" MaxLength="32" />
@@ -2397,7 +2397,7 @@
           <Property Name="isConfirm" Type="int" />
           <Property Name="exceptionPlan" Type="varchar" MaxLength="64" />
           <Property Name="exceptionRemark" Type="varchar" MaxLength="64" />
-          <Property Name="exceptionTime" Type="varchar" MaxLength="20" />
+          <Property Name="exceptionTime" Type="datetime" Precision="0" />
           <Property Name="main_isComplete" Type="int" />
           <Property Name="isSong" Type="int" />
           <Property Name="isException" Type="int" />
@@ -2407,7 +2407,7 @@
           <Property Name="exceptionAmountAl" Type="double" />
           <Property Name="serialNo" Type="int" />
           <Property Name="zexception" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="createDate" Type="varchar" MaxLength="20" />
+          <Property Name="createDate" Type="datetime" Precision="0" />
           <Property Name="isComplete" Type="int" />
           <Property Name="isRecomment" Type="int" />
           <Property Name="main_serialNo" Type="varchar" MaxLength="32" />
@@ -2434,7 +2434,7 @@
           <Property Name="num" Type="bigint" Nullable="false" />
           <Property Name="userid" Type="int" />
           <Property Name="shopkey" Type="int" />
-          <Property Name="createdate" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="type" Type="varchar" MaxLength="1" />
         </EntityType>
         <!--生成过程中发现错误:
@@ -2552,6 +2552,11 @@
           <Property Name="platenum" Type="varchar" MaxLength="10" />
           <Property Name="type" Type="tinyint" />
           <Property Name="depotin_cost" Type="decimal" Precision="13" Scale="0" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotname" Type="varchar" MaxLength="20" />
+          <Property Name="addr" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="depot_state" Type="tinyint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_depotout_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -2578,6 +2583,7 @@
           <Property Name="depinout_salemoney" Type="decimal" Precision="13" Scale="2" />
           <Property Name="type" Type="tinyint" />
           <Property Name="outinfoid" Type="int" Nullable="false" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_emp_floor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -2706,6 +2712,22 @@
           <Property Name="ismust" Type="tinyint" />
           <Property Name="isware" Type="tinyint" />
           <Property Name="item_orderNo" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_shop_depot”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_shop_depot">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="depotid" Type="int" />
+          <Property Name="depotname" Type="varchar" MaxLength="20" />
+          <Property Name="addr" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="dutyperson" Type="varchar" MaxLength="100" />
+          <Property Name="state" Type="tinyint" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_stock_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3764,7 +3786,12 @@ FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
 `v_depotin_crude`.`driver`, 
 `v_depotin_crude`.`platenum`, 
 `v_depotin_crude`.`type`, 
-`v_depotin_crude`.`depotin_cost`
+`v_depotin_crude`.`depotin_cost`, 
+`v_depotin_crude`.`shopkey`, 
+`v_depotin_crude`.`depotname`, 
+`v_depotin_crude`.`addr`, 
+`v_depotin_crude`.`tel`, 
+`v_depotin_crude`.`depot_state`
 FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_depotout_crude" EntityType="Self.v_depotout_crude" store:Type="Views" store:Schema="diandian">
@@ -3787,7 +3814,8 @@ FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
 `v_depotout_crude`.`itemkey`, 
 `v_depotout_crude`.`depinout_salemoney`, 
 `v_depotout_crude`.`type`, 
-`v_depotout_crude`.`outinfoid`
+`v_depotout_crude`.`outinfoid`, 
+`v_depotout_crude`.`createdate`
 FROM `v_depotout_crude` AS `v_depotout_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_emp_floor" EntityType="Self.v_emp_floor" store:Type="Views" store:Schema="diandian">
@@ -3903,6 +3931,19 @@ FROM `v_memberrole` AS `v_memberrole`</DefiningQuery>
 `v_orderitem`.`isware`, 
 `v_orderitem`.`item_orderNo`
 FROM `v_orderitem` AS `v_orderitem`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_shop_depot" EntityType="Self.v_shop_depot" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_shop_depot`.`sid`, 
+`v_shop_depot`.`shopkey`, 
+`v_shop_depot`.`depotid`, 
+`v_shop_depot`.`depotname`, 
+`v_shop_depot`.`addr`, 
+`v_shop_depot`.`tel`, 
+`v_shop_depot`.`createdate`, 
+`v_shop_depot`.`dutyperson`, 
+`v_shop_depot`.`state`
+FROM `v_shop_depot` AS `v_shop_depot`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_stock_crude" EntityType="Self.v_stock_crude" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
@@ -6733,6 +6774,9 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="v_depotout_crude" EntityType="diandianModel.v_depotout_crude" />
           <EntitySet Name="storage_stock" EntityType="diandianModel.storage_stock" />
           <EntitySet Name="v_stock_crude" EntityType="diandianModel.v_stock_crude" />
+          <EntitySet Name="v_dd_shop_users" EntityType="diandianModel.v_dd_shop_users" />
+          <EntitySet Name="v_dd_shop_users_count" EntityType="diandianModel.v_dd_shop_users_count" />
+          <EntitySet Name="v_depotin_crude" EntityType="diandianModel.v_depotin_crude" />
           <EntitySet Name="v_shop_depot" EntityType="diandianModel.v_shop_depot" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
@@ -7659,6 +7703,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="depinout_salemoney" Type="Decimal" />
           <Property Name="type" Type="SByte" />
           <Property Name="outinfoid" Type="Int32" Nullable="false" />
+          <Property Name="createdate" Type="DateTime" />
         </EntityType>
         <EntityType Name="storage_stock">
           <Key>
@@ -7695,7 +7740,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="state" Type="SByte" />
           <Property Name="crudeid" Type="Int32" />
         </EntityType>
-        <EntityType Name="v_dd_shop_users1">
+        <EntityType Name="v_dd_shop_users">
           <Key>
             <PropertyRef Name="cnt" />
           </Key>
@@ -7711,7 +7756,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="sumrealpay" Type="Decimal" />
           <Property Name="aveprice" Type="Decimal" />
         </EntityType>
-        <EntityType Name="v_dd_shop_users_count1">
+        <EntityType Name="v_dd_shop_users_count">
           <Key>
             <PropertyRef Name="cnt" />
           </Key>
@@ -7755,6 +7800,25 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="platenum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="type" Type="SByte" />
           <Property Name="depotin_cost" Type="Decimal" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="depot_state" Type="SByte" />
+        </EntityType>
+        <EntityType Name="v_shop_depot">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="depotid" Type="Int32" />
+          <Property Name="depotname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="dutyperson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="SByte" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10471,6 +10535,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotout_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotout_crude">
               <MappingFragment StoreEntitySet="v_depotout_crude">
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
                 <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="depinout_salemoney" ColumnName="depinout_salemoney" />
@@ -10530,8 +10595,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_dd_shop_users1Set">
-            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users1">
+          <EntitySetMapping Name="v_dd_shop_users">
+            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users">
               <MappingFragment StoreEntitySet="v_dd_shop_users">
                 <ScalarProperty Name="aveprice" ColumnName="aveprice" />
                 <ScalarProperty Name="sumrealpay" ColumnName="sumrealpay" />
@@ -10547,8 +10612,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_dd_shop_users_count1Set">
-            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users_count1">
+          <EntitySetMapping Name="v_dd_shop_users_count">
+            <EntityTypeMapping TypeName="diandianModel.v_dd_shop_users_count">
               <MappingFragment StoreEntitySet="v_dd_shop_users_count">
                 <ScalarProperty Name="cnt" ColumnName="cnt" />
                 <ScalarProperty Name="cardid" ColumnName="cardid" />
@@ -10565,6 +10630,11 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotin_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotin_crude">
               <MappingFragment StoreEntitySet="v_depotin_crude">
+                <ScalarProperty Name="depot_state" ColumnName="depot_state" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="depotname" ColumnName="depotname" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="depotin_cost" ColumnName="depotin_cost" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="platenum" ColumnName="platenum" />
@@ -10591,6 +10661,21 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="crudeid" ColumnName="crudeid" />
                 <ScalarProperty Name="depotinid" ColumnName="depotinid" />
                 <ScalarProperty Name="ininfoid" ColumnName="ininfoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_shop_depot">
+            <EntityTypeMapping TypeName="diandianModel.v_shop_depot">
+              <MappingFragment StoreEntitySet="v_shop_depot">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="dutyperson" ColumnName="dutyperson" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="depotname" ColumnName="depotname" />
+                <ScalarProperty Name="depotid" ColumnName="depotid" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
