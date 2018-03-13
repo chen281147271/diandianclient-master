@@ -119,7 +119,7 @@ namespace DianDianClient.Biz
                 {
                     rslList = rslList.Where(p => p.state == state);
                 }
-                if (!type.Equals("0"))
+                if (!type.Equals(""))
                 {
                     rslList = rslList.Where(p => p.type.Equals(type));
                 }

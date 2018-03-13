@@ -109,7 +109,7 @@ namespace DianDianClient.MyControl.BusinessDetails
             }
             else
             {
-                this.gridControl1.DataSource = Utils.utils.CopyToDataTable(q.ToList());
+                this.gridControl1.DataSource = q.ToList();
             }
             this.tileView1.FocusedRowHandle = 0;
             this.allcount = q.Count();

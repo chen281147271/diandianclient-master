@@ -83,6 +83,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap confirm {
+            get {
+                object obj = ResourceManager.GetObject("confirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -146,6 +156,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap offshelf {
             get {
                 object obj = ResourceManager.GetObject("offshelf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap prints {
+            get {
+                object obj = ResourceManager.GetObject("prints", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,11 +124,10 @@
             this.Lab_TableNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Lab_TableNo.AutoSize = true;
             this.Lab_TableNo.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lab_TableNo.Location = new System.Drawing.Point(451, 3);
+            this.Lab_TableNo.Location = new System.Drawing.Point(498, 3);
             this.Lab_TableNo.Name = "Lab_TableNo";
-            this.Lab_TableNo.Size = new System.Drawing.Size(94, 38);
+            this.Lab_TableNo.Size = new System.Drawing.Size(0, 38);
             this.Lab_TableNo.TabIndex = 1;
-            this.Lab_TableNo.Text = "X号桌";
             // 
             // OrderDetailDetailControl
             // 

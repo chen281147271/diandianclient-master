@@ -778,6 +778,30 @@
     <Compile Include="MyControl\FoodManagement\MgncPagerControl.Designer.cs">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\MemberManagement\MemberManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\MemberManageControl.Designer.cs">
+      <DependentUpon>MemberManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\MemberQueryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\MemberQueryControl.Designer.cs">
+      <DependentUpon>MemberQueryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\ProtocolCustomerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\ProtocolCustomerControl.Designer.cs">
+      <DependentUpon>ProtocolCustomerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\UserManagementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\UserManagementControl.Designer.cs">
+      <DependentUpon>UserManagementControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\OrderManagement\OrderManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1006,11 +1030,26 @@
     <EmbeddedResource Include="MyControl\FoodManagement\MgncPagerControl.resx">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\MemberManageControl.resx">
+      <DependentUpon>MemberManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\MemberQueryControl.resx">
+      <DependentUpon>MemberQueryControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
       <DependentUpon>OrderManageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderProcessingControl.resx">
       <DependentUpon>OrderProcessingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\OrderManagement\OrderQueryControl.resx">
+      <DependentUpon>OrderQueryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\OrderManagement\ReservationOrderControl.resx">
+      <DependentUpon>ReservationOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\OrderManagement\TradingFlowControl.resx">
+      <DependentUpon>TradingFlowControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\TableSettlement\BtnSaleControl.resx">
       <DependentUpon>BtnSaleControl.cs</DependentUpon>
@@ -1132,6 +1171,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MyForm\MemberManagement\" />
     <Folder Include="MyForm\OrderManagement\" />
   </ItemGroup>
   <ItemGroup>
@@ -1159,6 +1199,8 @@
     <None Include="Resources\cancle.png" />
     <None Include="Resources\detail.png" />
     <None Include="Resources\minus.png" />
+    <None Include="Resources\confirm.png" />
+    <None Include="Resources\prints.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />
