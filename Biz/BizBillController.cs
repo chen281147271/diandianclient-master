@@ -24,8 +24,24 @@ namespace DianDianClient.Biz
         //退单
         private string CancelBillUrl = "http://app.diandiancaidan.com/shop/api.do";
 
+        public class BillDetailResponseBean
+        {
+            public List<CfMemberMealBean> memberList { get; set; }
+            public List<v_cfdetailitem> itemList { get; set; }
+        }
 
-
+        public class CfMemberMealBean
+        {
+            public int userid { get; set; }
+            public int shopkey { get; set; }
+            public DateTime createdate { get; set; }
+            public DateTime avedate { get; set; }
+            public string name { get; set; }
+            public string icon { get; set; }
+            public string tel { get; set; }
+            public string cardid { get; set; }
+            public int cnt { get; set; }
+        }
         //从服务器获取订单
         public void RemoteGetBillList()
         {
@@ -75,13 +91,13 @@ namespace DianDianClient.Biz
         }
 
         //查询订单
-        public List<cf_main> QueryBillList(int isConfirm, int state, DateTime sdate, DateTime edate)
+        public List<v_cfmainmeal> QueryBillList(int isConfirm, int state, DateTime sdate, DateTime edate)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var billList = db.cf_main.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && p.createDate >= sdate && p.createDate <= edate);
+                var billList = db.v_cfmainmeal.Where(p => p.shopkey == Properties.Settings.Default.shopkey
+                    && p.createDate >= sdate && p.createDate <= edate && p.isDel==0 && p.enable == 1);
                 if (isConfirm != 0)
                 {
                     billList = billList.Where(p => p.isConfirm == isConfirm);
@@ -161,7 +177,7 @@ namespace DianDianClient.Biz
             }
         }
         //确认接单
-        public void ConfirmBill(int cfMainkey)
+        public void ConfirmBill(string cfMainkey)
         {
             try
             {
@@ -323,12 +339,42 @@ namespace DianDianClient.Biz
         }
 
         //餐桌使用详情
-        public List<v_cfdetailitem> GetTableDetailInfo(string cfmainkey)
+        public BillDetailResponseBean GetTableDetailInfo(string cfmainkey)
         {
             try
             {
+                BillDetailResponseBean bdrb = new BillDetailResponseBean();
+                
                 DianDianEntities db = new DianDianEntities();
-                return db.v_cfdetailitem.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.cfmainkey.Equals(cfmainkey)).ToList();
+                var itemList = db.v_cfdetailitem.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.cfmainkey.Equals(cfmainkey)).ToList();
+                bdrb.itemList = itemList;
+                bdrb.memberList = new List<CfMemberMealBean>();
+
+                var cfMainItem = db.cf_main.Where(p => p.cfmainkey.Equals(cfmainkey)).FirstOrDefault();
+                if(cfMainItem == null)
+                {
+                    log.Error("can not find cf_main ,cfmainkey = " + cfmainkey);
+                    return null;
+                }
+                var userList = db.v_cf_member.Where(p => p.cfmealkey.Equals(cfMainItem.cfmealkey)).GroupBy(p =>p.userid);
+                foreach(var user in userList)
+                {
+                    string sql = "SELECT 	a.userid  AS userid, a.shopkey AS shopkey, MAX(a.createdate) AS createdate, ";
+                    sql += " a.avedate AS avedate, a.name AS name,a.icon AS icon,a.tel AS tel, a.cardid AS cardid, a.cnt ";
+                    sql += " FROM( SELECT mr.memberkey AS userid,ml.shopkey AS shopkey, MAX(mr.createDate) AS createdate,";
+                    sql += " CAST((TIMESTAMPDIFF(DAY, MIN(mr.createDate), CURDATE()) / COUNT(1)) AS DECIMAL(10, 0)) AS avedate,";
+                    sql += " m.name AS name,m.icon AS icon, m.tel  AS tel,mc.cardid AS cardid,  COUNT(1) cnt";
+                    sql += " FROM((((cf_member mr  LEFT JOIN member m ON((m.memberkey = mr.memberkey))) ";
+                    sql += " LEFT JOIN cf_meal ml	ON((ml.cfmealkey = mr.cfmealkey))) LEFT JOIN dd_mem_card mc ";
+                    sql += " ON(((mc.userid = m.memberkey) AND(mc.shopkey = ml.shopkey))))";
+                    sql += " LEFT JOIN cf_main mn ON((mn.cfmealkey = mr.cfmealkey)))";
+                    sql += " WHERE(mn.state = 2 AND mr.memberkey= "+user.Key+" AND ml.shopkey = "+ Properties.Settings.Default.shopkey + ")";
+                    sql += " GROUP BY mr.memberkey,ml.shopkey  ) a GROUP BY a.userid,a.shopkey; ";
+                    var result = db.Database.SqlQuery<CfMemberMealBean>(sql);
+                    bdrb.memberList.Add(result.FirstOrDefault());
+                }
+                
+                return bdrb;
             }
             catch (Exception e)
             {

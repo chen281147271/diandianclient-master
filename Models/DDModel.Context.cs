@@ -134,7 +134,6 @@ namespace DianDianClient.Models
         public virtual DbSet<allot_account_false> allot_account_false { get; set; }
         public virtual DbSet<allot_account> allot_account { get; set; }
         public virtual DbSet<v_category_items> v_category_items { get; set; }
-        public virtual DbSet<dd_shop_signusers> dd_shop_signusers { get; set; }
         public virtual DbSet<dd_adjunct_edit> dd_adjunct_edit { get; set; }
         public virtual DbSet<dd_areas> dd_areas { get; set; }
         public virtual DbSet<dd_printers> dd_printers { get; set; }
@@ -179,5 +178,7 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_book_orders> dd_book_orders { get; set; }
         public virtual DbSet<v_cfmainaccount> v_cfmainaccount { get; set; }
         public virtual DbSet<v_cfmainmeal> v_cfmainmeal { get; set; }
+        public virtual DbSet<v_cf_member> v_cf_member { get; set; }
+        public virtual DbSet<dd_shop_signusers> dd_shop_signusers { get; set; }
     }
 }
