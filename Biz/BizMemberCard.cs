@@ -116,7 +116,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 var recList = db.dd_card_userecord
-                    .Where(p => p.cardid == cardId && Convert.ToDateTime(p.addtime) >= sdate && Convert.ToDateTime(p.addtime) <= edate);
+                    .Where(p => p.cardid == cardId && p.addtime >= sdate && p.addtime <= edate);
                 if (type == 1 || type == 0)
                 {
                     recList = recList.Where(p => p.type == type);
