@@ -11,7 +11,7 @@ namespace DianDianClient.Biz
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizBillController");
 
-        public List<dd_mem_card> QueryMembers(string name, string tel, DateTime sdate, DateTime edate)
+        public List<dd_mem_card> QueryMembers(string name, string tel, DateTime? sdate, DateTime? edate)
         {  
             try
             {
@@ -25,16 +25,15 @@ namespace DianDianClient.Biz
                 {
                     cardList = cardList.Where(p => p.telno.Equals(tel));
                 }
-
                 DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
                 if (sdate != null)
                 {
-                    long timeStamp = (long)(sdate - startTime).TotalSeconds;
+                    long timeStamp = (long)(sdate.Value - startTime).TotalSeconds;
                     cardList = cardList.Where(p => p.addtime >= timeStamp);
                 }
                 if (edate != null)
                 {
-                    long timeStamp = (long)(edate - startTime).TotalSeconds;
+                    long timeStamp = (long)(edate.Value - startTime).TotalSeconds;
                     cardList = cardList.Where(p => p.addtime <= timeStamp);
                 }
                 return cardList.ToList();
@@ -233,7 +232,7 @@ namespace DianDianClient.Biz
             
         }
 
-        public List<dd_shop_signusers> QuerySignUser(string name, string tel, DateTime sdate, DateTime edate)
+        public List<dd_shop_signusers> QuerySignUser(string name, string tel, DateTime? sdate, DateTime? edate)
         {
             try
             {
@@ -251,11 +250,11 @@ namespace DianDianClient.Biz
                 
                 if (sdate != null)
                 {
-                    userList = userList.Where(p => Convert.ToDateTime(p.addtime) >= sdate);
+                    userList = userList.Where(p => p.addtime >= sdate.Value);
                 }
                 if (edate != null)
                 {
-                    userList = userList.Where(p => Convert.ToDateTime(p.addtime) <= edate);
+                    userList = userList.Where(p => p.addtime <= edate.Value);
                 }
                 return userList.ToList();
             }
@@ -273,7 +272,7 @@ namespace DianDianClient.Biz
                 DianDianEntities db = new DianDianEntities();
                 dd_shop_signusers user = new dd_shop_signusers
                 {
-                    addtime = DateTime.Now.ToString("yyyy-MM-dd HH::ss:mm"),
+                    addtime = DateTime.Now,
                     maxprice = maxprice,
                     maxusenums = maxusernums,
                     name = name,

@@ -19,7 +19,7 @@ namespace DianDianClient.Models
         public string telno { get; set; }
         public Nullable<int> maxusenums { get; set; }
         public Nullable<decimal> maxprice { get; set; }
-        public string addtime { get; set; }
+        public Nullable<System.DateTime> addtime { get; set; }
         public Nullable<int> signnums { get; set; }
         public Nullable<decimal> signmoney { get; set; }
         public string lasttime { get; set; }

@@ -62,5 +62,11 @@ namespace DianDianClient.Models
         public Nullable<bool> issign { get; set; }
         public Nullable<int> shopuserid { get; set; }
         public Nullable<int> payType { get; set; }
+        public string tableName { get; set; }
+        public Nullable<int> isDel { get; set; }
+        public Nullable<int> enable { get; set; }
+        public Nullable<int> isRoom { get; set; }
+        public Nullable<int> floorid { get; set; }
+        public Nullable<decimal> tfuwu { get; set; }
     }
 }

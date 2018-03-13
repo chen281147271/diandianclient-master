@@ -948,7 +948,7 @@
           <Property Name="telno" Type="varchar" MaxLength="20" />
           <Property Name="maxusenums" Type="int" />
           <Property Name="maxprice" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="addtime" Type="varchar" MaxLength="20" />
+          <Property Name="addtime" Type="datetime" Precision="0" />
           <Property Name="signnums" Type="int" />
           <Property Name="signmoney" Type="decimal" Precision="10" Scale="2" />
           <Property Name="lasttime" Type="varchar" MaxLength="20" />
@@ -2240,6 +2240,19 @@
           <Property Name="isware" Type="tinyint" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_cf_member”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_cf_member">
+          <Key>
+            <PropertyRef Name="cfmemberkey" />
+          </Key>
+          <Property Name="usericon" Type="varchar" MaxLength="255" />
+          <Property Name="username" Type="varchar" MaxLength="64" />
+          <Property Name="userid" Type="int" />
+          <Property Name="cfmemberkey" Type="int" Nullable="false" />
+          <Property Name="cfmealkey" Type="varchar" MaxLength="32" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_cfdetailitem”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -2424,9 +2437,13 @@
           <Property Name="issign" Type="bool" />
           <Property Name="shopuserid" Type="int" />
           <Property Name="payType" Type="int" />
+          <Property Name="tableName" Type="varchar" MaxLength="32" />
+          <Property Name="isDel" Type="int" />
+          <Property Name="enable" Type="int" />
+          <Property Name="isRoom" Type="int" />
+          <Property Name="floorid" Type="int" />
+          <Property Name="tfuwu" Type="decimal" Precision="13" Scale="2" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“def.diandian.v_dd_count_mid”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_dd_member_shopcord”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_dd_member_shopcord">
@@ -3496,6 +3513,16 @@ FROM `dd_shop_chain` AS `dd_shop_chain`</DefiningQuery>
 `v_category_items`.`isware`
 FROM `v_category_items` AS `v_category_items`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_cf_member" EntityType="Self.v_cf_member" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_cf_member`.`usericon`, 
+`v_cf_member`.`username`, 
+`v_cf_member`.`userid`, 
+`v_cf_member`.`cfmemberkey`, 
+`v_cf_member`.`cfmealkey`, 
+`v_cf_member`.`type`
+FROM `v_cf_member` AS `v_cf_member`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_cfdetailitem" EntityType="Self.v_cfdetailitem" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_cfdetailitem`.`cfdetailkey`, 
@@ -3667,7 +3694,13 @@ FROM `v_cfmainaccount` AS `v_cfmainaccount`</DefiningQuery>
 `v_cfmainmeal`.`isfree`, 
 `v_cfmainmeal`.`issign`, 
 `v_cfmainmeal`.`shopuserid`, 
-`v_cfmainmeal`.`payType`
+`v_cfmainmeal`.`payType`, 
+`v_cfmainmeal`.`tableName`, 
+`v_cfmainmeal`.`isDel`, 
+`v_cfmainmeal`.`enable`, 
+`v_cfmainmeal`.`isRoom`, 
+`v_cfmainmeal`.`floorid`, 
+`v_cfmainmeal`.`tfuwu`
 FROM `v_cfmainmeal` AS `v_cfmainmeal`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_dd_member_shopcord" EntityType="Self.v_dd_member_shopcord" store:Type="Views" store:Schema="diandian">
@@ -6588,7 +6621,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="allot_account_false" EntityType="diandianModel.allot_account_false" />
           <EntitySet Name="allot_account" EntityType="diandianModel.allot_account" />
           <EntitySet Name="v_category_items" EntityType="diandianModel.v_category_items" />
-          <EntitySet Name="dd_shop_signusers" EntityType="diandianModel.dd_shop_signusers" />
           <EntitySet Name="dd_adjunct_edit" EntityType="diandianModel.dd_adjunct_edit" />
           <EntitySet Name="dd_areas" EntityType="diandianModel.dd_areas" />
           <EntitySet Name="dd_printers" EntityType="diandianModel.dd_printers" />
@@ -6632,7 +6664,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="cf_meal" EntityType="diandianModel.cf_meal" />
           <EntitySet Name="dd_book_orders" EntityType="diandianModel.dd_book_orders" />
           <EntitySet Name="v_cfmainaccount" EntityType="diandianModel.v_cfmainaccount" />
-          <EntitySet Name="v_cfmainmeal" EntityType="diandianModel.v_cfmainmeal" />
           <AssociationSet Name="cf_main_ibfk_1" Association="diandianModel.cf_main_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_main" EntitySet="cf_main" />
@@ -6641,6 +6672,9 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_meal" EntitySet="cf_meal" />
           </AssociationSet>
+          <EntitySet Name="v_cfmainmeal" EntityType="diandianModel.v_cfmainmeal" />
+          <EntitySet Name="v_cf_member" EntityType="diandianModel.v_cf_member" />
+          <EntitySet Name="dd_shop_signusers" EntityType="diandianModel.dd_shop_signusers" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -6843,22 +6877,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="ispayagio" Type="SByte" />
           <Property Name="ismust" Type="SByte" />
           <Property Name="isware" Type="SByte" />
-        </EntityType>
-        <EntityType Name="dd_shop_signusers">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="telno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="maxusenums" Type="Int32" />
-          <Property Name="maxprice" Type="Decimal" />
-          <Property Name="addtime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="signnums" Type="Int32" />
-          <Property Name="signmoney" Type="Decimal" />
-          <Property Name="lasttime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="Int32" />
-          <Property Name="shopkey" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_adjunct_edit">
           <Key>
@@ -7693,6 +7711,30 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="chaneltype" Type="Int32" />
           <Property Name="payway" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="cf_main_ibfk_1">
+          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
+          <End Type="diandianModel.cf_main" Role="cf_main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="cf_main">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cf_meal_ibfk_1">
+          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
+          <End Type="diandianModel.cf_meal" Role="cf_meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="cf_meal">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="v_cfmainmeal">
           <Key>
             <PropertyRef Name="cfmainkey" />
@@ -7746,31 +7788,40 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="issign" Type="Boolean" />
           <Property Name="shopuserid" Type="Int32" />
           <Property Name="payType" Type="Int32" />
+          <Property Name="tableName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="isDel" Type="Int32" />
+          <Property Name="enable" Type="Int32" />
+          <Property Name="isRoom" Type="Int32" />
+          <Property Name="floorid" Type="Int32" />
+          <Property Name="tfuwu" Type="Decimal" />
         </EntityType>
-        <Association Name="cf_main_ibfk_1">
-          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
-          <End Type="diandianModel.cf_main" Role="cf_main" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="cf_main">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cf_meal_ibfk_1">
-          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
-          <End Type="diandianModel.cf_meal" Role="cf_meal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="cf_meal">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="v_cf_member">
+          <Key>
+            <PropertyRef Name="cfmemberkey" />
+          </Key>
+          <Property Name="usericon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="cfmemberkey" Type="Int32" Nullable="false" />
+          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dd_shop_signusers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="telno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="maxusenums" Type="Int32" />
+          <Property Name="maxprice" Type="Decimal" />
+          <Property Name="addtime" Type="DateTime" />
+          <Property Name="signnums" Type="Int32" />
+          <Property Name="signmoney" Type="Decimal" />
+          <Property Name="lasttime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9678,23 +9729,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dd_shop_signusers">
-            <EntityTypeMapping TypeName="diandianModel.dd_shop_signusers">
-              <MappingFragment StoreEntitySet="dd_shop_signusers">
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="lasttime" ColumnName="lasttime" />
-                <ScalarProperty Name="signmoney" ColumnName="signmoney" />
-                <ScalarProperty Name="signnums" ColumnName="signnums" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
-                <ScalarProperty Name="maxprice" ColumnName="maxprice" />
-                <ScalarProperty Name="maxusenums" ColumnName="maxusenums" />
-                <ScalarProperty Name="telno" ColumnName="telno" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dd_adjunct_edit">
             <EntityTypeMapping TypeName="diandianModel.dd_adjunct_edit">
               <MappingFragment StoreEntitySet="dd_adjunct_edit">
@@ -10568,6 +10602,12 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_cfmainmeal">
             <EntityTypeMapping TypeName="diandianModel.v_cfmainmeal">
               <MappingFragment StoreEntitySet="v_cfmainmeal">
+                <ScalarProperty Name="tfuwu" ColumnName="tfuwu" />
+                <ScalarProperty Name="floorid" ColumnName="floorid" />
+                <ScalarProperty Name="isRoom" ColumnName="isRoom" />
+                <ScalarProperty Name="enable" ColumnName="enable" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
                 <ScalarProperty Name="payType" ColumnName="payType" />
                 <ScalarProperty Name="shopuserid" ColumnName="shopuserid" />
                 <ScalarProperty Name="issign" ColumnName="issign" />
@@ -10616,6 +10656,35 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
                 <ScalarProperty Name="cfmainkey" ColumnName="cfmainkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_cf_member">
+            <EntityTypeMapping TypeName="diandianModel.v_cf_member">
+              <MappingFragment StoreEntitySet="v_cf_member">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
+                <ScalarProperty Name="cfmemberkey" ColumnName="cfmemberkey" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="usericon" ColumnName="usericon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dd_shop_signusers">
+            <EntityTypeMapping TypeName="diandianModel.dd_shop_signusers">
+              <MappingFragment StoreEntitySet="dd_shop_signusers">
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="lasttime" ColumnName="lasttime" />
+                <ScalarProperty Name="signmoney" ColumnName="signmoney" />
+                <ScalarProperty Name="signnums" ColumnName="signnums" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="maxprice" ColumnName="maxprice" />
+                <ScalarProperty Name="maxusenums" ColumnName="maxusenums" />
+                <ScalarProperty Name="telno" ColumnName="telno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

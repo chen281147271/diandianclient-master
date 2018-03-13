@@ -232,5 +232,25 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
+
+        public List<dd_shop_payway> QueryPayWay()
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var paywayList = db.dd_shop_payway.Where(p => p.shopid == Properties.Settings.Default.shopkey && p.isdel == 0);
+                return paywayList.ToList();
+            }
+            catch (Exception e)
+            {
+                log.Error("QueryPayWay error. msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public void SaveShopInfo(string shoppic, string shopname, string shopphone, string contact)
+        {
+
+        }
     }
 }

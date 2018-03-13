@@ -646,6 +646,9 @@
     <Compile Include="Models\v_cfmainmeal.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\v_cf_member.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\v_dd_member_shopcord.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>

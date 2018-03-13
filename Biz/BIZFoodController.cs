@@ -22,7 +22,7 @@ namespace DianDianClient.Biz
                 var foodList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (itemCategoryKey != 0)
                 {
-                    foodList = foodList.Where(p => p.itemcategorykey == itemCategoryKey);
+                    foodList = foodList.Where(p => p.itemcategorykey == itemCategoryKey && p.itemIsDel == 0);
                 }
                 return foodList.ToList();
             }
@@ -40,7 +40,7 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                return db.item_category.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
+                return db.item_category.Where(p => p.shopkey == Properties.Settings.Default.shopkey&&p.isDel == 0).ToList();
             }
             catch (Exception e)
             {
@@ -172,6 +172,8 @@ namespace DianDianClient.Biz
                 if (bean == null)
                 {
                     bean = new item();
+                    bean.name = name;
+                    bean.itemCode = code;
                 }
 
             } catch (Exception e)
