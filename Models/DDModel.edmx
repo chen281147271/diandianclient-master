@@ -2188,6 +2188,26 @@
           <Property Name="isdian" Type="bool" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_card_record_shop”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_card_record_shop">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="int" Nullable="false" />
+          <Property Name="cardid" Type="int" />
+          <Property Name="usetime" Type="datetime" Precision="0" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="consume" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="cfmealkey" Type="varchar" MaxLength="32" />
+          <Property Name="type" Type="int" />
+          <Property Name="addtime" Type="datetime" Precision="0" />
+          <Property Name="pconsume" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="smoney" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="gain" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="orderno" Type="varchar" MaxLength="30" />
+          <Property Name="shop_name" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_category_items”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_category_items">
           <Key>
@@ -2445,6 +2465,22 @@
           <Property Name="tfuwu" Type="decimal" Precision="13" Scale="2" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_cfmembermeal”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_cfmembermeal">
+          <Key>
+            <PropertyRef Name="cnt" />
+          </Key>
+          <Property Name="userid" Type="int" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="avedate" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="name" Type="varchar" MaxLength="64" />
+          <Property Name="icon" Type="varchar" MaxLength="255" />
+          <Property Name="tel" Type="varchar" MaxLength="32" />
+          <Property Name="cardid" Type="int" />
+          <Property Name="cnt" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_dd_member_shopcord”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_dd_member_shopcord">
           <Key>
@@ -2607,6 +2643,26 @@
           <Property Name="shopkey" Type="int" />
           <Property Name="state" Type="tinyint" />
           <Property Name="sid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_mem_card_shop”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_mem_card_shop">
+          <Key>
+            <PropertyRef Name="cardid" />
+          </Key>
+          <Property Name="shopkey" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="32" />
+          <Property Name="cardid" Type="int" Nullable="false" />
+          <Property Name="cardno" Type="varchar" MaxLength="20" />
+          <Property Name="userid" Type="int" />
+          <Property Name="suserid" Type="int" />
+          <Property Name="money" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="telno" Type="varchar" MaxLength="20" />
+          <Property Name="realname" Type="varchar" MaxLength="20" />
+          <Property Name="isvalid" Type="int" />
+          <Property Name="expirydate" Type="int" />
+          <Property Name="addtime" Type="int" />
+          <Property Name="jifen" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_memberrole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3464,6 +3520,23 @@ FROM `allot_agent_edit` AS `allot_agent_edit`</DefiningQuery>
 `dd_shop_chain`.`branchshopid`
 FROM `dd_shop_chain` AS `dd_shop_chain`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_card_record_shop" EntityType="Self.v_card_record_shop" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_card_record_shop`.`recordid`, 
+`v_card_record_shop`.`cardid`, 
+`v_card_record_shop`.`usetime`, 
+`v_card_record_shop`.`shopkey`, 
+`v_card_record_shop`.`consume`, 
+`v_card_record_shop`.`cfmealkey`, 
+`v_card_record_shop`.`type`, 
+`v_card_record_shop`.`addtime`, 
+`v_card_record_shop`.`pconsume`, 
+`v_card_record_shop`.`smoney`, 
+`v_card_record_shop`.`gain`, 
+`v_card_record_shop`.`orderno`, 
+`v_card_record_shop`.`shop_name`
+FROM `v_card_record_shop` AS `v_card_record_shop`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_category_items" EntityType="Self.v_category_items" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_category_items`.`itemcategorymapkey`, 
@@ -3703,6 +3776,19 @@ FROM `v_cfmainaccount` AS `v_cfmainaccount`</DefiningQuery>
 `v_cfmainmeal`.`tfuwu`
 FROM `v_cfmainmeal` AS `v_cfmainmeal`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_cfmembermeal" EntityType="Self.v_cfmembermeal" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_cfmembermeal`.`userid`, 
+`v_cfmembermeal`.`shopkey`, 
+`v_cfmembermeal`.`createdate`, 
+`v_cfmembermeal`.`avedate`, 
+`v_cfmembermeal`.`name`, 
+`v_cfmembermeal`.`icon`, 
+`v_cfmembermeal`.`tel`, 
+`v_cfmembermeal`.`cardid`, 
+`v_cfmembermeal`.`cnt`
+FROM `v_cfmembermeal` AS `v_cfmembermeal`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_dd_member_shopcord" EntityType="Self.v_dd_member_shopcord" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_dd_member_shopcord`.`comenums`, 
@@ -3841,6 +3927,23 @@ FROM `v_emp_floor` AS `v_emp_floor`</DefiningQuery>
 `v_item_crude`.`state`, 
 `v_item_crude`.`sid`
 FROM `v_item_crude` AS `v_item_crude`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_mem_card_shop" EntityType="Self.v_mem_card_shop" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_mem_card_shop`.`shopkey`, 
+`v_mem_card_shop`.`name`, 
+`v_mem_card_shop`.`cardid`, 
+`v_mem_card_shop`.`cardno`, 
+`v_mem_card_shop`.`userid`, 
+`v_mem_card_shop`.`suserid`, 
+`v_mem_card_shop`.`money`, 
+`v_mem_card_shop`.`telno`, 
+`v_mem_card_shop`.`realname`, 
+`v_mem_card_shop`.`isvalid`, 
+`v_mem_card_shop`.`expirydate`, 
+`v_mem_card_shop`.`addtime`, 
+`v_mem_card_shop`.`jifen`
+FROM `v_mem_card_shop` AS `v_mem_card_shop`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_memberrole" EntityType="Self.v_memberrole" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
@@ -6675,6 +6778,9 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="v_cfmainmeal" EntityType="diandianModel.v_cfmainmeal" />
           <EntitySet Name="v_cf_member" EntityType="diandianModel.v_cf_member" />
           <EntitySet Name="dd_shop_signusers" EntityType="diandianModel.dd_shop_signusers" />
+          <EntitySet Name="v_cfmembermeal" EntityType="diandianModel.v_cfmembermeal" />
+          <EntitySet Name="v_mem_card_shop" EntityType="diandianModel.v_mem_card_shop" />
+          <EntitySet Name="v_card_record_shop" EntityType="diandianModel.v_card_record_shop" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -7821,6 +7927,56 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="lasttime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="state" Type="Int32" />
           <Property Name="shopkey" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_cfmembermeal">
+          <Key>
+            <PropertyRef Name="cnt" />
+          </Key>
+          <Property Name="userid" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="avedate" Type="Decimal" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="cardid" Type="Int32" />
+          <Property Name="cnt" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_mem_card_shop">
+          <Key>
+            <PropertyRef Name="cardid" />
+          </Key>
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="cardid" Type="Int32" Nullable="false" />
+          <Property Name="cardno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="suserid" Type="Int32" />
+          <Property Name="money" Type="Decimal" />
+          <Property Name="telno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="realname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isvalid" Type="Int32" />
+          <Property Name="expirydate" Type="Int32" />
+          <Property Name="addtime" Type="Int32" />
+          <Property Name="jifen" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_card_record_shop">
+          <Key>
+            <PropertyRef Name="recordid" />
+          </Key>
+          <Property Name="recordid" Type="Int32" Nullable="false" />
+          <Property Name="cardid" Type="Int32" />
+          <Property Name="usetime" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="consume" Type="Decimal" />
+          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="addtime" Type="DateTime" />
+          <Property Name="pconsume" Type="Decimal" />
+          <Property Name="smoney" Type="Decimal" />
+          <Property Name="gain" Type="Decimal" />
+          <Property Name="orderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="shop_name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10685,6 +10841,59 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="telno" ColumnName="telno" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_cfmembermeal">
+            <EntityTypeMapping TypeName="diandianModel.v_cfmembermeal">
+              <MappingFragment StoreEntitySet="v_cfmembermeal">
+                <ScalarProperty Name="cnt" ColumnName="cnt" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="avedate" ColumnName="avedate" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_mem_card_shop">
+            <EntityTypeMapping TypeName="diandianModel.v_mem_card_shop">
+              <MappingFragment StoreEntitySet="v_mem_card_shop">
+                <ScalarProperty Name="jifen" ColumnName="jifen" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="expirydate" ColumnName="expirydate" />
+                <ScalarProperty Name="isvalid" ColumnName="isvalid" />
+                <ScalarProperty Name="realname" ColumnName="realname" />
+                <ScalarProperty Name="telno" ColumnName="telno" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="suserid" ColumnName="suserid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="cardno" ColumnName="cardno" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_card_record_shop">
+            <EntityTypeMapping TypeName="diandianModel.v_card_record_shop">
+              <MappingFragment StoreEntitySet="v_card_record_shop">
+                <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="gain" ColumnName="gain" />
+                <ScalarProperty Name="smoney" ColumnName="smoney" />
+                <ScalarProperty Name="pconsume" ColumnName="pconsume" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
+                <ScalarProperty Name="consume" ColumnName="consume" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="usetime" ColumnName="usetime" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="recordid" ColumnName="recordid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
