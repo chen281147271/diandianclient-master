@@ -634,6 +634,9 @@
     <Compile Include="Models\t_document.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\v_card_record_shop.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\v_category_items.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
@@ -644,6 +647,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_cfmainmeal.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_cfmembermeal.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_cf_member.cs">
@@ -674,6 +680,9 @@
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_memberrole.cs">
+      <DependentUpon>DDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_mem_card_shop.cs">
       <DependentUpon>DDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\v_orderitem.cs">

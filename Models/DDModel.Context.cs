@@ -180,5 +180,8 @@ namespace DianDianClient.Models
         public virtual DbSet<v_cfmainmeal> v_cfmainmeal { get; set; }
         public virtual DbSet<v_cf_member> v_cf_member { get; set; }
         public virtual DbSet<dd_shop_signusers> dd_shop_signusers { get; set; }
+        public virtual DbSet<v_cfmembermeal> v_cfmembermeal { get; set; }
+        public virtual DbSet<v_mem_card_shop> v_mem_card_shop { get; set; }
+        public virtual DbSet<v_card_record_shop> v_card_record_shop { get; set; }
     }
 }

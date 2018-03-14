@@ -100,6 +100,16 @@ namespace DianDianClient.Biz
                 var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(card);
                 stateEntity.SetModifiedProperty("money");
                 stateEntity.SetModifiedProperty("songmoney");
+
+                dd_card_userecord dcu = new dd_card_userecord();
+                dcu.addtime = DateTime.Now;
+                dcu.cardid = cardId;
+                dcu.consume = money;
+                dcu.shopkey = Properties.Settings.Default.shopkey;
+                dcu.smoney = songmoney;
+                dcu.type = 0;
+
+                db.dd_card_userecord.Add(dcu);
                 db.SaveChanges();
                 
                 return 0;
@@ -111,12 +121,12 @@ namespace DianDianClient.Biz
             }
         }
 
-        public List<dd_card_userecord> QueryCardUseRecord(int cardId, int type, DateTime? sdate, DateTime? edate)
+        public List<v_card_record_shop> QueryCardUseRecord(int cardId, int type, DateTime? sdate, DateTime? edate)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var recList = db.dd_card_userecord
+                var recList = db.v_card_record_shop
                     .Where(p => p.cardid == cardId);
                 if (type == 1 || type == 0)
                 {

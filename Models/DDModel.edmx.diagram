@@ -204,6 +204,9 @@
         <EntityTypeShape EntityType="diandianModel.v_cfmainmeal" Width="1.5" PointX="27.375" PointY="31.75" />
         <EntityTypeShape EntityType="diandianModel.v_cf_member" Width="1.5" PointX="27.375" PointY="10.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_signusers" Width="1.5" PointX="13.375" PointY="33.75" />
+        <EntityTypeShape EntityType="diandianModel.v_cfmembermeal" Width="1.5" PointX="29.375" PointY="35.75" />
+        <EntityTypeShape EntityType="diandianModel.v_mem_card_shop" Width="1.5" PointX="31.375" PointY="35.75" />
+        <EntityTypeShape EntityType="diandianModel.v_card_record_shop" Width="1.5" PointX="13.375" PointY="37.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
