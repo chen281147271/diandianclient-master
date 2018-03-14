@@ -12,7 +12,7 @@ namespace DianDianClient.MyControl.MemberManagement
     public partial class RechargeRecordControl : UserControl
     {
         Biz.BizMemberCard memberCard = new Biz.BizMemberCard();
-        List<Models.dd_card_userecord> list;
+        List<Models.v_card_record_shop> list; 
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
@@ -33,18 +33,18 @@ namespace DianDianClient.MyControl.MemberManagement
         public class ddcarduserecord
         {
             public string usetime { get; set; }
-            public string shopkey { get; set; }
+            public string shop_name { get; set; }
             public string consume { get; set; }
             public string type { get; set; }
         }
-        public List<ddcarduserecord> translate(List<Models.dd_card_userecord> list)
+        public List<ddcarduserecord> translate(List<Models.v_card_record_shop> list)
         {
             List<ddcarduserecord> list_temp = new List<ddcarduserecord>();
-            foreach (Models.dd_card_userecord item in list)
+            foreach (Models.v_card_record_shop item in list)
             {
                 ddcarduserecord temp = new ddcarduserecord();
                 temp.consume = item.consume.ToString();
-                temp.shopkey = item.shopkey.ToString();
+                temp.shop_name = item.shop_name.ToString();
                 temp.type = (item.type == 0) ? "充值" : "消费";
                 temp.usetime = (item.usetime != null) ? item.usetime.ToString() : "";
                 list_temp.Add(temp);

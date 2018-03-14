@@ -105,7 +105,7 @@
             // shopkey
             // 
             this.shopkey.Caption = "消费商铺";
-            this.shopkey.FieldName = "shopkey";
+            this.shopkey.FieldName = "shop_name";
             this.shopkey.Name = "shopkey";
             this.shopkey.Visible = true;
             this.shopkey.VisibleIndex = 1;
