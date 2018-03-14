@@ -41,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dt_etime = new DevExpress.XtraEditors.DateEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Btn_query = new DevExpress.XtraEditors.SimpleButton();
             this.Btn_return = new DevExpress.XtraEditors.SimpleButton();
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
@@ -54,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -135,7 +133,6 @@
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.dt_etime);
             this.flowLayoutPanel1.Controls.Add(this.radioGroup1);
-            this.flowLayoutPanel1.Controls.Add(this.comboBoxEdit1);
             this.flowLayoutPanel1.Controls.Add(this.Btn_query);
             this.flowLayoutPanel1.Controls.Add(this.Btn_return);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -215,23 +212,6 @@
             this.radioGroup1.TabIndex = 4;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxEdit1.Location = new System.Drawing.Point(635, 6);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "充值记录",
-            "消费记录"});
-            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit1.Size = new System.Drawing.Size(151, 28);
-            this.comboBoxEdit1.TabIndex = 15;
-            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
-            // 
             // Btn_query
             // 
             this.Btn_query.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -242,7 +222,7 @@
             this.Btn_query.Appearance.Options.UseFont = true;
             this.Btn_query.Appearance.Options.UseForeColor = true;
             this.Btn_query.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.Btn_query.Location = new System.Drawing.Point(792, 3);
+            this.Btn_query.Location = new System.Drawing.Point(635, 3);
             this.Btn_query.Name = "Btn_query";
             this.Btn_query.Size = new System.Drawing.Size(113, 35);
             this.Btn_query.TabIndex = 13;
@@ -259,7 +239,7 @@
             this.Btn_return.Appearance.Options.UseFont = true;
             this.Btn_return.Appearance.Options.UseForeColor = true;
             this.Btn_return.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.Btn_return.Location = new System.Drawing.Point(911, 3);
+            this.Btn_return.Location = new System.Drawing.Point(754, 3);
             this.Btn_return.Name = "Btn_return";
             this.Btn_return.Size = new System.Drawing.Size(113, 35);
             this.Btn_return.TabIndex = 14;
@@ -291,7 +271,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,6 +292,5 @@
         private DevExpress.XtraEditors.SimpleButton Btn_query;
         private DevExpress.XtraEditors.SimpleButton Btn_return;
         private FoodManagement.MgncPager mgncPager1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

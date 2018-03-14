@@ -27,12 +27,12 @@ namespace DianDianClient.MyControl.MemberManagement
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            MyEvent.MemberManagement.MemberDetaileEvent.Close(this.cardid,1);
+            MyEvent.MemberManagement.MemberDetaileEvent.Close(this.cardid,0);
         }
 
         private void Btn_Export_Click(object sender, EventArgs e)
         {
-            MyEvent.MemberManagement.MemberDetaileEvent.Close(this.cardid, 2);
+            MyEvent.MemberManagement.MemberDetaileEvent.Close(this.cardid, 1);
         }
     }
 }

@@ -17,14 +17,16 @@ namespace DianDianClient.MyControl.MemberManagement
         public int pageSize = 10;
         public int allcount = 0;
         int itype=0;
-        public RechargeRecordControl(string cardid,int type)//1充值记录 2消费记录
+        string cardid;
+        public RechargeRecordControl(string cardid,int type)//0充值记录 1消费记录
         {
             this.itype = type;
+            this.cardid = cardid;
             InitializeComponent();
             //string str = "2015-01-01";
             //DateTime strdt = Convert.ToDateTime(str);
             DateTime? dt = null;
-            list= memberCard.QueryCardUseRecord(Convert.ToInt32(cardid), 2, dt, DateTime.Now);
+            list= memberCard.QueryCardUseRecord(Convert.ToInt32(cardid), type, dt, DateTime.Now);
             this.gridControl1.DataSource = list;
             iniData();
         }
@@ -51,7 +53,7 @@ namespace DianDianClient.MyControl.MemberManagement
         }
         private void iniData()
         {
-            comboBoxEdit1.SelectedIndex = (itype == 1) ? 0 : 1;
+            radioGroup1.SelectedIndex = (itype == 0) ? 1 : 2;
 
             this.gridControl1.DataSource = this.translate(list).Take(10);
 
@@ -129,7 +131,32 @@ namespace DianDianClient.MyControl.MemberManagement
             //}
             //DateTime e_time = Convert.ToDateTime(dt_etime.Text);
             //this.list = MemberCard.QueryMembers(name, phone, s_time, e_time);
-
+            int type=0;
+            DateTime? s_time;
+            DateTime e_time;
+            if (dt_stime.Text.Length > 0)
+            {
+                s_time = Convert.ToDateTime(dt_stime.Text);
+               
+            }
+            else
+            {
+                s_time = null;
+            }
+            e_time = Convert.ToDateTime(dt_etime.Text);
+            switch (radioGroup1.SelectedIndex)
+            {
+                case 0:
+                    type = 2;
+                    break;
+                case 1:
+                    type = 0;
+                    break;
+                case 2:
+                    type = 1;
+                    break;
+            }
+            this.list= memberCard.QueryCardUseRecord(Convert.ToInt32(this.cardid), type, s_time, e_time);
             var q = this.list;
             if (singlePage)
             {
@@ -180,15 +207,6 @@ namespace DianDianClient.MyControl.MemberManagement
         }
 
         private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (dt_etime.Text.Length > 0)
-            {
-                this.curPage = 1;
-                RefreshGridList();
-            }
-        }
-
-        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dt_etime.Text.Length > 0)
             {
