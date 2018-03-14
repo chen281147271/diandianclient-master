@@ -26,7 +26,7 @@ namespace DianDianClient.MyControl.MemberManagement
             //string str = "2015-01-01";
             //DateTime strdt = Convert.ToDateTime(str);
             DateTime? dt = null;
-            list= memberCard.QueryCardUseRecord(Convert.ToInt32(cardid), type, dt, DateTime.Now);
+            list= memberCard.QueryCardUseRecord(Convert.ToInt32(cardid), type, dt, DateTime.Now.AddDays(1));
             this.gridControl1.DataSource = list;
             iniData();
         }
@@ -60,7 +60,6 @@ namespace DianDianClient.MyControl.MemberManagement
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
 
-            this.dt_etime.Text = DateTime.Now.ToShortDateString();
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -71,6 +70,7 @@ namespace DianDianClient.MyControl.MemberManagement
             mgncPager1.exportEvents += ExportEvents;// new MgncPager.ExportEvents(ExportEvents);
             //必须更新allcount！！！！！！！！！！！！！！！！！！！
             allcount = this.list.Count;
+            this.dt_etime.Text = DateTime.Now.ToShortDateString();
             mgncPager1.RefreshPager(pageSize, allcount, curPage);//更新分页控件显示。
         }
         private void Btn_Return_Click(object sender, EventArgs e)

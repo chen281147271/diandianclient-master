@@ -61,18 +61,18 @@ namespace DianDianClient.MyControl.MemberManagement
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            int rowhandle = this.gridView1.FocusedRowHandle;
+            MyModels.ddmemcard2 ddmemcard2 = new MyModels.ddmemcard2();
+            ddmemcard2.addtime = this.gridView1.GetRowCellValue(rowhandle, "addtime").ToString();
+            ddmemcard2.birthday = this.gridView1.GetRowCellValue(rowhandle, "birthday").ToString();
+            ddmemcard2.cardid = this.gridView1.GetRowCellValue(rowhandle, "cardid").ToString();
+            ddmemcard2.cardno = this.gridView1.GetRowCellValue(rowhandle, "cardno").ToString();
+            ddmemcard2.expirydate = this.gridView1.GetRowCellValue(rowhandle, "expirydate").ToString();
+            ddmemcard2.money = this.gridView1.GetRowCellValue(rowhandle, "money").ToString();
+            ddmemcard2.telno = this.gridView1.GetRowCellValue(rowhandle, "telno").ToString();
+            ddmemcard2.realname = this.gridView1.GetRowCellValue(rowhandle, "realname").ToString();
             if (e.Button.Index == 0)
             {
-                int rowhandle = this.gridView1.FocusedRowHandle;
-                MyModels.ddmemcard2 ddmemcard2=new MyModels.ddmemcard2();
-                ddmemcard2.addtime= this.gridView1.GetRowCellValue(rowhandle, "addtime").ToString();
-                ddmemcard2.birthday = this.gridView1.GetRowCellValue(rowhandle, "birthday").ToString();
-                ddmemcard2.cardid = this.gridView1.GetRowCellValue(rowhandle, "cardid").ToString();
-                ddmemcard2.cardno = this.gridView1.GetRowCellValue(rowhandle, "cardno").ToString();
-                ddmemcard2.expirydate = this.gridView1.GetRowCellValue(rowhandle, "expirydate").ToString();
-                ddmemcard2.money = this.gridView1.GetRowCellValue(rowhandle, "money").ToString();
-                ddmemcard2.telno = this.gridView1.GetRowCellValue(rowhandle, "telno").ToString();
-                ddmemcard2.realname = this.gridView1.GetRowCellValue(rowhandle, "realname").ToString();
                 MyForm.MemberManagement.MemberDetaileForm memberDetaileForm = new MyForm.MemberManagement.MemberDetaileForm(ddmemcard2);
                 memberDetaileForm.StartPosition = FormStartPosition.CenterScreen;
                 memberDetaileForm.ShowDialog();
@@ -80,7 +80,10 @@ namespace DianDianClient.MyControl.MemberManagement
             }
             else
             {
-
+                MyForm.MemberManagement.RechargeForm rechargeForm = new MyForm.MemberManagement.RechargeForm(ddmemcard2);
+                rechargeForm.StartPosition = FormStartPosition.CenterScreen;
+                rechargeForm.ShowDialog();
+                RefreshGridList();
             }
         }
         private void iniData()
@@ -156,7 +159,7 @@ namespace DianDianClient.MyControl.MemberManagement
                 s_time = Convert.ToDateTime(dt_stime.Text);
             }
             DateTime e_time = Convert.ToDateTime(dt_etime.Text);
-            this.list = MemberCard.QueryMembers(name, phone, s_time, e_time);
+            this.list = MemberCard.QueryMembers(name, phone, s_time, e_time.AddDays(1));
             var q = this.list;
             if (singlePage)
             {
@@ -217,6 +220,21 @@ namespace DianDianClient.MyControl.MemberManagement
                 this.curPage = 1;
                 RefreshGridList();
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            MyForm.MemberManagement.AddForm addForm = new MyForm.MemberManagement.AddForm();
+            addForm.StartPosition = FormStartPosition.CenterScreen;
+            addForm.ShowDialog();
+
+            this.curPage = 1;
+            RefreshGridList();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            MyEvent.MemberManagement.MemberDetaileEvent.Close_Rule();
         }
     }
 }

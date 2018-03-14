@@ -21,23 +21,34 @@ namespace DianDianClient.MyControl.MemberManagement
             initoolstrip();
             iniControl();
 
-            MyEvent.MemberManagement.MemberDetaileEvent.CloseEvent += MyCloseEvent;
-            MyEvent.MemberManagement.RechargeRecordEvent.CloseEvent += MyCloseEvent;
+            MyEvent.MemberManagement.MemberDetaileEvent.CloseEvent += MyCloseEvent_add;
+            MyEvent.MemberManagement.RechargeRecordEvent.CloseEvent += MyCloseEvent_close;
+            MyEvent.MemberManagement.RuleEventClass.CloseEvent += MyCloseEvent_close;
+            MyEvent.MemberManagement.MemberDetaileEvent.CloseEvent_Rule += MyCloseEvent_Rule;
+
+
         }
-        private void MyCloseEvent()
+        private void MyCloseEvent_close()
         {
             this.tableLayoutPanel1.Controls.RemoveAt(0);
             this.tableLayoutPanel1.Controls.Add(this.toolStrip1);
             this.tableLayoutPanel1.Controls.Add(memberQueryControl);
         }
-            private void MyCloseEvent(string cardid, int type)
+            private void MyCloseEvent_add(string cardid, int type)
         {
                 this.tableLayoutPanel1.Controls.Remove(this.toolStrip1);
                 this.tableLayoutPanel1.Controls.Remove(memberQueryControl);
                 MyControl.MemberManagement.RechargeRecordControl rechargeRecord = new RechargeRecordControl(cardid,type);
                 rechargeRecord.Dock = DockStyle.Fill;
-                this.tableLayoutPanel1.Controls.Add(rechargeRecord, 0, 1);
-            
+                this.tableLayoutPanel1.Controls.Add(rechargeRecord, 0, 1);     
+        }
+        private void MyCloseEvent_Rule()
+        {
+            this.tableLayoutPanel1.Controls.Remove(this.toolStrip1);
+            this.tableLayoutPanel1.Controls.Remove(memberQueryControl);
+            MyControl.MemberManagement.RuleControl rule = new RuleControl();
+            rule.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.Controls.Add(rule, 0, 1);
         }
         private void iniControl()
         {

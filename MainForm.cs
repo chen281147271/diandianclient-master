@@ -180,7 +180,7 @@ namespace DianDianClient
         delegate void MyMessageBoxShow(string msg, string title);
         void MyMessageBoxShow_F(string msg, string title)
         {
-            XtraMessageBox.Show(title,msg);
+            XtraMessageBox.Show(msg,title);
         }
 
         private void sideNavItem2_Click(object sender, EventArgs e)

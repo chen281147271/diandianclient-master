@@ -781,6 +781,18 @@
     <Compile Include="MyControl\FoodManagement\MgncPagerControl.Designer.cs">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\MemberManagement\AddControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\AddControl.Designer.cs">
+      <DependentUpon>AddControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\AddDetaileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\AddDetaileControl.Designer.cs">
+      <DependentUpon>AddDetaileControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\MemberManagement\MemberDetaileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -805,11 +817,23 @@
     <Compile Include="MyControl\MemberManagement\ProtocolCustomerControl.Designer.cs">
       <DependentUpon>ProtocolCustomerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\MemberManagement\RechargeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\RechargeControl.Designer.cs">
+      <DependentUpon>RechargeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\MemberManagement\RechargeRecordControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyControl\MemberManagement\RechargeRecordControl.Designer.cs">
       <DependentUpon>RechargeRecordControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\RuleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\RuleControl.Designer.cs">
+      <DependentUpon>RuleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\MemberManagement\UserManagementControl.cs">
       <SubType>UserControl</SubType>
@@ -903,6 +927,7 @@
     </Compile>
     <Compile Include="MyEvent\MemberManagement\MemberDetaileEvent.cs" />
     <Compile Include="MyEvent\MemberManagement\RechargeRecordEvent.cs" />
+    <Compile Include="MyEvent\MemberManagement\RuleEventClass.cs" />
     <Compile Include="MyEvent\TableSettlement\PayBillEvent.cs" />
     <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.cs">
       <SubType>Form</SubType>
@@ -946,11 +971,29 @@
     <Compile Include="MyForm\FoodManagement\MaterialSettingForm.Designer.cs">
       <DependentUpon>MaterialSettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\MemberManagement\AddDetaileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\AddDetaileForm.Designer.cs">
+      <DependentUpon>AddDetaileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\MemberManagement\MemberDetaileForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MyForm\MemberManagement\MemberDetaileForm.Designer.cs">
       <DependentUpon>MemberDetaileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\RechargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\RechargeForm.Designer.cs">
+      <DependentUpon>RechargeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyForm\TableSettlement\PayBillForm.cs">
       <SubType>Form</SubType>
@@ -1054,6 +1097,12 @@
     <EmbeddedResource Include="MyControl\FoodManagement\MgncPagerControl.resx">
       <DependentUpon>MgncPagerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\AddControl.resx">
+      <DependentUpon>AddControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\AddDetaileControl.resx">
+      <DependentUpon>AddDetaileControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\MemberManagement\MemberDetaileControl.resx">
       <DependentUpon>MemberDetaileControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1063,8 +1112,14 @@
     <EmbeddedResource Include="MyControl\MemberManagement\MemberQueryControl.resx">
       <DependentUpon>MemberQueryControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\RechargeControl.resx">
+      <DependentUpon>RechargeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\MemberManagement\RechargeRecordControl.resx">
       <DependentUpon>RechargeRecordControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\RuleControl.resx">
+      <DependentUpon>RuleControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
       <DependentUpon>OrderManageControl.cs</DependentUpon>
@@ -1129,8 +1184,14 @@
     <EmbeddedResource Include="MyForm\FoodManagement\MaterialSettingForm.resx">
       <DependentUpon>MaterialSettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\MemberManagement\AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\MemberDetaileForm.resx">
       <DependentUpon>MemberDetaileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
+      <DependentUpon>RechargeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\TableSettlement\PayBillForm.resx">
       <DependentUpon>PayBillForm.cs</DependentUpon>
