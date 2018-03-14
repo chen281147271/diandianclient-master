@@ -19,11 +19,11 @@ namespace DianDianClient.Biz
                 var cardList = db.dd_mem_card.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!name.Equals(""))
                 {
-                    cardList = cardList.Where(p => p.realname.Equals(name));
+                    cardList = cardList.Where(p => p.realname.Contains(name));
                 }
                 if (!tel.Equals(""))
                 {
-                    cardList = cardList.Where(p => p.telno.Equals(tel));
+                    cardList = cardList.Where(p => p.telno.Contains(tel));
                 }
                 DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
                 if (sdate != null)
@@ -110,17 +110,26 @@ namespace DianDianClient.Biz
             }
         }
 
-        public List<dd_card_userecord> QueryCardUseRecord(int cardId, int type, DateTime sdate, DateTime edate)
+        public List<dd_card_userecord> QueryCardUseRecord(int cardId, int type, DateTime? sdate, DateTime? edate)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
                 var recList = db.dd_card_userecord
-                    .Where(p => p.cardid == cardId && p.addtime >= sdate && p.addtime <= edate);
+                    .Where(p => p.cardid == cardId);
                 if (type == 1 || type == 0)
                 {
                     recList = recList.Where(p => p.type == type);
                 }
+                if(sdate != null)
+                {
+                    recList = recList.Where(p => p.addtime >= sdate);
+                }
+                if(edate != null)
+                {
+                    recList = recList.Where(p => p.addtime <= edate);
+                }
+
                 recList = recList.OrderByDescending(p => p.addtime);
 
                 return recList.ToList();

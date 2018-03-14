@@ -13,6 +13,19 @@ namespace DianDianClient.Biz
         //private DianDianEntities db = new DianDianEntities();
         private string FoodUrl = "http://app.diandiancaidan.com/shop/api.do";
 
+        public class ItemCrudeInfo
+        {
+            public int crudeid { get; set; }
+            public int guigeid { get; set; }
+            public int crudenum { get; set; }
+        }
+
+        public class ItemTCInfo
+        {
+            public int itemid { get; set; }
+            public int guigeid { get; set; }
+            public int itemnum { get; set; }
+        }
         //菜品列表
         public List<v_category_items> GetFoodList(int itemCategoryKey)
         {
@@ -161,9 +174,9 @@ namespace DianDianClient.Biz
         }
 
         //22. 添加更新菜品接口
-        public void SaveItem(int itemkey, string name, string code, decimal discountPrice, decimal agioprice,
+        public void SaveItem(int itemkey, string name, string code, double discountPrice, double agioprice,
             int itemType, string imgs, int minnum, int isStandard, int isSet, int isPrint,
-            int selebyunit, string unit, int ispayagio, int ismust, string introduce)
+            sbyte selebyunit, string unit, sbyte ispayagio, sbyte ismust, string introduce, List<ItemCrudeInfo> crudeList, List<ItemTCInfo>tcList)
         {
             try
             {
@@ -174,8 +187,132 @@ namespace DianDianClient.Biz
                     bean = new item();
                     bean.name = name;
                     bean.itemCode = code;
+                    bean.discountPrice = discountPrice;
+                    bean.agioprice = agioprice;
+                    bean.isDel = 0;
+                    bean.itemcategorykey = itemType;
+                    bean.imgs = imgs;
+                    bean.minnum = minnum;
+                    bean.isStandard = isStandard;
+                    bean.isSet = isSet;
+                    bean.isprint = isPrint;
+                    bean.selebyunit = selebyunit;
+                    bean.unit = unit;
+                    bean.ispayagio = ispayagio;
+                    bean.ismust = ismust;
+                    bean.introduce = introduce;
+
+                    db.item.Add(bean);                    
+                }
+                else
+                {
+                    bean.name = name;
+                    bean.discountPrice = discountPrice;
+                    bean.agioprice = agioprice;
+                    bean.isDel = 0;
+                    bean.itemcategorykey = itemType;
+                    bean.imgs = imgs;
+                    bean.minnum = minnum;
+                    bean.isStandard = isStandard;
+                    bean.isSet = isSet;
+                    bean.isprint = isPrint;
+                    bean.selebyunit = selebyunit;
+                    bean.unit = unit;
+                    bean.ispayagio = ispayagio;
+                    bean.ismust = ismust;
+                    bean.introduce = introduce;
+
+                    db.item.Attach(bean);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(bean);
+                    stateEntity.SetModifiedProperty("name");
+                    stateEntity.SetModifiedProperty("discountPrice");
+                    stateEntity.SetModifiedProperty("agioprice");
+                    stateEntity.SetModifiedProperty("isDel");
+                    stateEntity.SetModifiedProperty("itemcategorykey");
+                    stateEntity.SetModifiedProperty("imgs");
+                    stateEntity.SetModifiedProperty("minnum");
+                    stateEntity.SetModifiedProperty("isStandard");
+                    stateEntity.SetModifiedProperty("isprint");
+                    stateEntity.SetModifiedProperty("selebyunit");
+                    stateEntity.SetModifiedProperty("unit");
+                    stateEntity.SetModifiedProperty("ispayagio");
+                    stateEntity.SetModifiedProperty("ismust");
+                    stateEntity.SetModifiedProperty("introduce");
                 }
 
+                
+                List<int> keepList = new List<int>();
+                foreach (var crude in crudeList)
+                {
+                    storage_item_crude ic = db.storage_item_crude.Where(p => p.itemkey == bean.itemkey 
+                        && p.crudeid == crude.crudeid && p.guigeid == crude.guigeid).FirstOrDefault();
+                    if(ic != null)
+                    {
+                        ic.num = crude.crudenum;
+
+                        db.storage_item_crude.Attach(ic);
+                        var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(ic);
+                        stateEntity.SetModifiedProperty("num");
+
+                        keepList.Add(ic.sid);
+                    }
+                    else
+                    {
+                        ic = new storage_item_crude();
+                        ic.itemkey = bean.itemkey;
+                        ic.crudeid = crude.crudeid;
+                        ic.num = crude.crudenum;
+                        ic.guigeid = crude.guigeid;
+                        ic.type = 0;
+
+                        db.storage_item_crude.Add(ic);
+                    }                    
+                }
+                var delList = db.storage_item_crude.Where(p => !keepList.Contains(p.sid)).ToList();
+                foreach(var delbean in delList)
+                {
+                    db.storage_item_crude.Attach(delbean);
+                    db.storage_item_crude.Remove(delbean);
+                }
+
+                
+                if (isSet == 1)
+                {
+                    var setkeepList = new List<int>();
+                    foreach (var tc in tcList)
+                    {
+                        item_set itemSet = db.item_set.Where(p =>p.tcItemKey == bean.itemkey 
+                            && p.itemkey == tc.itemid && p.guigeid == tc.guigeid).FirstOrDefault();
+                        if(itemSet != null)
+                        {
+                            itemSet.itemnum = tc.itemnum;
+
+                            db.item_set.Attach(itemSet);
+                            var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(itemSet);
+                            stateEntity.SetModifiedProperty("itemnum");
+
+                            setkeepList.Add(itemSet.itemsetkey);
+                        }
+                        else
+                        {
+                            itemSet = new item_set();
+                            itemSet.tcItemKey = bean.itemkey;
+                            itemSet.itemkey = tc.itemid;
+                            itemSet.guigeid = tc.guigeid;
+                            itemSet.itemnum = tc.itemnum;
+
+                            db.item_set.Add(itemSet);
+                        }
+                    }
+
+                    var setDelList = db.item_set.Where(p => !setkeepList.Contains(p.itemsetkey)).ToList();
+                    foreach (var delbean in delList)
+                    {
+                        db.storage_item_crude.Attach(delbean);
+                        db.storage_item_crude.Remove(delbean);
+                    }
+                }
+                db.SaveChanges();
             } catch (Exception e)
             {
                 log.Error("SaveItem error. msg=" + e.Message);
