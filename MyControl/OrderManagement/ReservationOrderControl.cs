@@ -189,8 +189,8 @@ namespace DianDianClient.MyControl.OrderManagement
             {
                 string cfmainkey = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["cfmainkey"]).ToString();
                 string tableNo = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["tableNo"]).ToString();
-                List<Models.v_cfdetailitem> list1 = billController.GetTableDetailInfo(cfmainkey);
-                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list1);
+                Biz.BizBillController.BillDetailResponseBean list1 = billController.GetTableDetailInfo(cfmainkey);
+                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list1.itemList);
                 this.orderDetailDetailControl1.Lab_TableNo.Text = tableNo + "号桌";
             }
         }
@@ -209,7 +209,7 @@ namespace DianDianClient.MyControl.OrderManagement
             }
             else
             {
-                billController.ConfirmBill(Convert.ToInt32(cfmainkey));
+                billController.ConfirmBill(cfmainkey);
             }
         }
 

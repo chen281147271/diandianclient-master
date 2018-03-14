@@ -6,85 +6,53 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Columns;
 
 namespace DianDianClient.MyControl.MemberManagement
 {
-    public partial class MemberQueryControl : UserControl
+    public partial class RechargeRecordControl : UserControl
     {
-        Biz.BizMemberCard MemberCard = new Biz.BizMemberCard();
-        DateTime? s_time =null;
-        DateTime e_time = DateTime.Now;
-        List<Models.dd_mem_card> list;
+        Biz.BizMemberCard memberCard = new Biz.BizMemberCard();
+        List<Models.dd_card_userecord> list;
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
-        public MemberQueryControl()
+        int itype=0;
+        public RechargeRecordControl(string cardid,int type)//1充值记录 2消费记录
         {
+            this.itype = type;
             InitializeComponent();
-            list= MemberCard.QueryMembers("", "", s_time, e_time);
+            //string str = "2015-01-01";
+            //DateTime strdt = Convert.ToDateTime(str);
+            DateTime? dt = null;
+            list= memberCard.QueryCardUseRecord(Convert.ToInt32(cardid), 2, dt, DateTime.Now);
+            this.gridControl1.DataSource = list;
             iniData();
         }
-        public class ddmemcard
+        public class ddcarduserecord
         {
-            public string cardid { get; set; }
-            public string addtime { get; set; }
-            public string isvalid { get; set; }
-            public string realname { get; set; }
-            public string telno { get; set; }
-            public string cardno { get; set; }
-            public string money { get; set; }
-            public string birthday { get; set; }
-            public string expirydate { get; set; }
+            public string usetime { get; set; }
+            public string shopkey { get; set; }
+            public string consume { get; set; }
+            public string type { get; set; }
         }
-        public List<ddmemcard> translate(List<Models.dd_mem_card> list)
+        public List<ddcarduserecord> translate(List<Models.dd_card_userecord> list)
         {
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1)); // 当地时区
-            List<ddmemcard> list_temp = new List<ddmemcard>();
-            foreach (Models.dd_mem_card item in list)
+            List<ddcarduserecord> list_temp = new List<ddcarduserecord>();
+            foreach (Models.dd_card_userecord item in list)
             {
-                ddmemcard temp = new ddmemcard();
-                temp.addtime = (item.addtime != null) ? startTime.AddSeconds(Convert.ToDouble(item.addtime)).ToShortDateString() : "";
-                temp.birthday = (item.birthday != null) ? item.birthday : "";
-                temp.cardid = item.cardid.ToString();
-                temp.cardno = (item.cardno != null) ? item.cardno : "";
-                temp.expirydate = (item.expirydate != null) ? startTime.AddSeconds(Convert.ToDouble(item.expirydate)).ToShortDateString() : "";
-                temp.isvalid = item.isvalid.ToString();
-                temp.money= item.money.ToString();
-                temp.realname= (item.realname != null) ? item.realname : "";
-                temp.telno= (item.telno != null) ? item.telno : "";
+                ddcarduserecord temp = new ddcarduserecord();
+                temp.consume = item.consume.ToString();
+                temp.shopkey = item.shopkey.ToString();
+                temp.type = (item.type == 0) ? "充值" : "消费";
+                temp.usetime = (item.usetime != null) ? item.usetime.ToString() : "";
                 list_temp.Add(temp);
             }
             return list_temp;
         }
-
-        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Index == 0)
-            {
-                int rowhandle = this.gridView1.FocusedRowHandle;
-                MyModels.ddmemcard2 ddmemcard2=new MyModels.ddmemcard2();
-                ddmemcard2.addtime= this.gridView1.GetRowCellValue(rowhandle, "addtime").ToString();
-                ddmemcard2.birthday = this.gridView1.GetRowCellValue(rowhandle, "birthday").ToString();
-                ddmemcard2.cardid = this.gridView1.GetRowCellValue(rowhandle, "cardid").ToString();
-                ddmemcard2.cardno = this.gridView1.GetRowCellValue(rowhandle, "cardno").ToString();
-                ddmemcard2.expirydate = this.gridView1.GetRowCellValue(rowhandle, "expirydate").ToString();
-                ddmemcard2.money = this.gridView1.GetRowCellValue(rowhandle, "money").ToString();
-                ddmemcard2.telno = this.gridView1.GetRowCellValue(rowhandle, "telno").ToString();
-                ddmemcard2.realname = this.gridView1.GetRowCellValue(rowhandle, "realname").ToString();
-                MyForm.MemberManagement.MemberDetaileForm memberDetaileForm = new MyForm.MemberManagement.MemberDetaileForm(ddmemcard2);
-                memberDetaileForm.StartPosition = FormStartPosition.CenterScreen;
-                memberDetaileForm.ShowDialog();
-
-            }
-            else
-            {
-
-            }
-        }
         private void iniData()
         {
+            comboBoxEdit1.SelectedIndex = (itype == 1) ? 0 : 1;
+
             this.gridControl1.DataSource = this.translate(list).Take(10);
 
             this.gridView1.RowHeight = 50;
@@ -102,6 +70,10 @@ namespace DianDianClient.MyControl.MemberManagement
             //必须更新allcount！！！！！！！！！！！！！！！！！！！
             allcount = this.list.Count;
             mgncPager1.RefreshPager(pageSize, allcount, curPage);//更新分页控件显示。
+        }
+        private void Btn_Return_Click(object sender, EventArgs e)
+        {
+            MyEvent.MemberManagement.RechargeRecordEvent.Close();
         }
         #region MgncPager 实现
         /// <summary>
@@ -148,15 +120,16 @@ namespace DianDianClient.MyControl.MemberManagement
         }
         private void BindGrid(bool singlePage = true)//单页，所有     
         {
-            string phone = Txt_phone.Text;
-            string name = Txt_name.Text;
-            DateTime? s_time=null;
-            if (dt_stime.Text.Length > 0)
-            {
-                s_time = Convert.ToDateTime(dt_stime.Text);
-            }
-            DateTime e_time = Convert.ToDateTime(dt_etime.Text);
-            this.list = MemberCard.QueryMembers(name, phone, s_time, e_time);
+            //string phone = Txt_phone.Text;
+            //string name = Txt_name.Text;
+            //DateTime? s_time = null;
+            //if (dt_stime.Text.Length > 0)
+            //{
+            //    s_time = Convert.ToDateTime(dt_stime.Text);
+            //}
+            //DateTime e_time = Convert.ToDateTime(dt_etime.Text);
+            //this.list = MemberCard.QueryMembers(name, phone, s_time, e_time);
+
             var q = this.list;
             if (singlePage)
             {
@@ -188,20 +161,7 @@ namespace DianDianClient.MyControl.MemberManagement
             RefreshGridList();
         }
         #endregion
-
-        private void Txt_name_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void Txt_phone_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void dt_stime_EditValueChanged(object sender, EventArgs e)
+        private void dateEdit1_EditValueChanged(object sender, EventArgs e)
         {
             if (dt_etime.Text.Length > 0)
             {
@@ -210,7 +170,25 @@ namespace DianDianClient.MyControl.MemberManagement
             }
         }
 
-        private void dt_etime_EditValueChanged(object sender, EventArgs e)
+        private void dateEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dt_etime.Text.Length > 0)
+            {
+                this.curPage = 1;
+                RefreshGridList();
+            }
+        }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dt_etime.Text.Length > 0)
+            {
+                this.curPage = 1;
+                RefreshGridList();
+            }
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dt_etime.Text.Length > 0)
             {

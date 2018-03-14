@@ -20,6 +20,24 @@ namespace DianDianClient.MyControl.MemberManagement
             InitializeComponent();
             initoolstrip();
             iniControl();
+
+            MyEvent.MemberManagement.MemberDetaileEvent.CloseEvent += MyCloseEvent;
+            MyEvent.MemberManagement.RechargeRecordEvent.CloseEvent += MyCloseEvent;
+        }
+        private void MyCloseEvent()
+        {
+            this.tableLayoutPanel1.Controls.RemoveAt(0);
+            this.tableLayoutPanel1.Controls.Add(this.toolStrip1);
+            this.tableLayoutPanel1.Controls.Add(memberQueryControl);
+        }
+            private void MyCloseEvent(string cardid, int type)
+        {
+                this.tableLayoutPanel1.Controls.Remove(this.toolStrip1);
+                this.tableLayoutPanel1.Controls.Remove(memberQueryControl);
+                MyControl.MemberManagement.RechargeRecordControl rechargeRecord = new RechargeRecordControl(cardid,type);
+                rechargeRecord.Dock = DockStyle.Fill;
+                this.tableLayoutPanel1.Controls.Add(rechargeRecord, 0, 1);
+            
         }
         private void iniControl()
         {

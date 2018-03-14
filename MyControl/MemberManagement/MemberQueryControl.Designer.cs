@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -55,27 +55,27 @@
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.Txt_name = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.Txt_phone = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dt_stime = new DevExpress.XtraEditors.DateEdit();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dt_etime = new DevExpress.XtraEditors.DateEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.Btn_query = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_phone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_stime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_stime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,7 +103,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1124, 392);
+            this.gridControl1.Size = new System.Drawing.Size(1124, 391);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -201,8 +201,8 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "会员详情", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "余额充值", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "会员详情", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "余额充值", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -216,24 +216,24 @@
             // mgncPager1
             // 
             this.mgncPager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mgncPager1.Location = new System.Drawing.Point(3, 445);
+            this.mgncPager1.Location = new System.Drawing.Point(3, 444);
             this.mgncPager1.Name = "mgncPager1";
-            this.mgncPager1.Size = new System.Drawing.Size(1124, 39);
+            this.mgncPager1.Size = new System.Drawing.Size(1124, 40);
             this.mgncPager1.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.textEdit1);
+            this.flowLayoutPanel1.Controls.Add(this.Txt_name);
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.textEdit2);
+            this.flowLayoutPanel1.Controls.Add(this.Txt_phone);
             this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.dateEdit1);
+            this.flowLayoutPanel1.Controls.Add(this.dt_stime);
             this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.dateEdit2);
+            this.flowLayoutPanel1.Controls.Add(this.dt_etime);
             this.flowLayoutPanel1.Controls.Add(this.simpleButton1);
             this.flowLayoutPanel1.Controls.Add(this.simpleButton2);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
+            this.flowLayoutPanel1.Controls.Add(this.Btn_query);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -251,15 +251,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "姓名：";
             // 
-            // textEdit1
+            // Txt_name
             // 
-            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textEdit1.Location = new System.Drawing.Point(84, 3);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(98, 34);
-            this.textEdit1.TabIndex = 1;
+            this.Txt_name.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Txt_name.Location = new System.Drawing.Point(84, 3);
+            this.Txt_name.Name = "Txt_name";
+            this.Txt_name.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
+            this.Txt_name.Properties.Appearance.Options.UseFont = true;
+            this.Txt_name.Size = new System.Drawing.Size(98, 34);
+            this.Txt_name.TabIndex = 1;
+            this.Txt_name.EditValueChanged += new System.EventHandler(this.Txt_name_EditValueChanged);
             // 
             // label2
             // 
@@ -272,15 +273,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "电话：";
             // 
-            // textEdit2
+            // Txt_phone
             // 
-            this.textEdit2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textEdit2.Location = new System.Drawing.Point(269, 3);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(98, 34);
-            this.textEdit2.TabIndex = 3;
+            this.Txt_phone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Txt_phone.Location = new System.Drawing.Point(269, 3);
+            this.Txt_phone.Name = "Txt_phone";
+            this.Txt_phone.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
+            this.Txt_phone.Properties.Appearance.Options.UseFont = true;
+            this.Txt_phone.Size = new System.Drawing.Size(98, 34);
+            this.Txt_phone.TabIndex = 3;
+            this.Txt_phone.EditValueChanged += new System.EventHandler(this.Txt_phone_EditValueChanged);
             // 
             // label3
             // 
@@ -293,20 +295,21 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "注册日期：";
             // 
-            // dateEdit1
+            // dt_stime
             // 
-            this.dateEdit1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(496, 3);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dt_stime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dt_stime.EditValue = null;
+            this.dt_stime.Location = new System.Drawing.Point(496, 3);
+            this.dt_stime.Name = "dt_stime";
+            this.dt_stime.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
+            this.dt_stime.Properties.Appearance.Options.UseFont = true;
+            this.dt_stime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dt_stime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(133, 34);
-            this.dateEdit1.TabIndex = 5;
+            this.dt_stime.Size = new System.Drawing.Size(133, 34);
+            this.dt_stime.TabIndex = 5;
+            this.dt_stime.EditValueChanged += new System.EventHandler(this.dt_stime_EditValueChanged);
             // 
             // label4
             // 
@@ -319,20 +322,21 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "到";
             // 
-            // dateEdit2
+            // dt_etime
             // 
-            this.dateEdit2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(674, 3);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dt_etime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dt_etime.EditValue = null;
+            this.dt_etime.Location = new System.Drawing.Point(674, 3);
+            this.dt_etime.Name = "dt_etime";
+            this.dt_etime.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
+            this.dt_etime.Properties.Appearance.Options.UseFont = true;
+            this.dt_etime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dt_etime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(133, 34);
-            this.dateEdit2.TabIndex = 7;
+            this.dt_etime.Size = new System.Drawing.Size(133, 34);
+            this.dt_etime.TabIndex = 7;
+            this.dt_etime.EditValueChanged += new System.EventHandler(this.dt_etime_EditValueChanged);
             // 
             // simpleButton1
             // 
@@ -356,16 +360,17 @@
             this.simpleButton2.TabIndex = 9;
             this.simpleButton2.Text = "添加规则";
             // 
-            // simpleButton3
+            // Btn_query
             // 
-            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Location = new System.Drawing.Point(1038, 3);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(75, 34);
-            this.simpleButton3.TabIndex = 10;
-            this.simpleButton3.Text = "查询";
+            this.Btn_query.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_query.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
+            this.Btn_query.Appearance.Options.UseFont = true;
+            this.Btn_query.Location = new System.Drawing.Point(1038, 3);
+            this.Btn_query.Name = "Btn_query";
+            this.Btn_query.Size = new System.Drawing.Size(75, 34);
+            this.Btn_query.TabIndex = 10;
+            this.Btn_query.Text = "查询";
+            this.Btn_query.Click += new System.EventHandler(this.Btn_query_Click);
             // 
             // MemberQueryControl
             // 
@@ -380,12 +385,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_phone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_stime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_stime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_etime.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,15 +414,15 @@
         private FoodManagement.MgncPager mgncPager1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit Txt_name;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit Txt_phone;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dt_stime;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dt_etime;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton Btn_query;
     }
 }

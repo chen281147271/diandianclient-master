@@ -160,8 +160,8 @@ namespace DianDianClient.MyControl.BusinessDetails
             {
                 string cfmainkey = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["cfmainkey"]).ToString();
                 string tableNo = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["tableNo"]).ToString();
-                List<Models.v_cfdetailitem> list = billController.GetTableDetailInfo(cfmainkey);
-                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list);
+                Biz.BizBillController.BillDetailResponseBean list = billController.GetTableDetailInfo(cfmainkey);
+                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list.itemList);
                 this.orderDetailDetailControl1.Lab_TableNo.Text = tableNo+"号桌";
             }
         }

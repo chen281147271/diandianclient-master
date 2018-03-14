@@ -12,7 +12,7 @@ namespace DianDianClient.MyControl.OrderManagement
     public partial class OrderProcessingControl : UserControl
     {
         Biz.BizBillController billController = new Biz.BizBillController();
-        List<Models.cf_main> list;
+        List<Models.v_cfmainmeal> list;
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
@@ -34,10 +34,10 @@ namespace DianDianClient.MyControl.OrderManagement
             public string amount { get; set; }
             public string cfmainkey { get; set; }
         }
-        public List<cfmain> translate(List<Models.cf_main> list)
+        public List<cfmain> translate(List<Models.v_cfmainmeal> list)
         {
             List<cfmain> list_temp = new List<cfmain>();
-            foreach (Models.cf_main item in list)
+            foreach (Models.v_cfmainmeal item in list)
             {
                 cfmain temp = new cfmain();
                 temp.cfmainkey = item.cfmainkey;
@@ -179,8 +179,8 @@ namespace DianDianClient.MyControl.OrderManagement
             {
                 string cfmainkey = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["cfmainkey"]).ToString();
                 string tableNo = this.tileView1.GetRowCellValue(e.FocusedRowHandle, this.tileView1.Columns["tableNo"]).ToString();
-                List<Models.v_cfdetailitem> list1 = billController.GetTableDetailInfo(cfmainkey);
-                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list1);
+                Biz.BizBillController.BillDetailResponseBean list1 = billController.GetTableDetailInfo(cfmainkey);
+                this.orderDetailDetailControl1.gridControl1.DataSource = translate(list1.itemList);
                 this.orderDetailDetailControl1.Lab_TableNo.Text = tableNo + "号桌";
             }
         }
@@ -199,7 +199,7 @@ namespace DianDianClient.MyControl.OrderManagement
             }
             else
             {
-                billController.ConfirmBill(Convert.ToInt32(cfmainkey));
+                billController.ConfirmBill(cfmainkey);
             }
         }
     }
