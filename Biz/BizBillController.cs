@@ -32,15 +32,15 @@ namespace DianDianClient.Biz
 
         public class CfMemberMealBean
         {
-            public int userid { get; set; }
-            public int shopkey { get; set; }
-            public DateTime createdate { get; set; }
-            public DateTime avedate { get; set; }
+            public int? userid { get; set; }
+            public int? shopkey { get; set; }
+            public DateTime? createdate { get; set; }
+            public decimal? avedate { get; set; }
             public string name { get; set; }
             public string icon { get; set; }
             public string tel { get; set; }
             public string cardid { get; set; }
-            public int cnt { get; set; }
+            public int? cnt { get; set; }
         }
         //从服务器获取订单
         public void RemoteGetBillList()
@@ -97,7 +97,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 var billList = db.v_cfmainmeal.Where(p => p.shopkey == Properties.Settings.Default.shopkey
-                    && p.createDate >= sdate && p.createDate <= edate && p.isDel==0 && p.enable == 1);
+                    && p.createDate >= sdate && p.createDate <= edate);
                 if (isConfirm != 0)
                 {
                     billList = billList.Where(p => p.isConfirm == isConfirm);
@@ -135,7 +135,7 @@ namespace DianDianClient.Biz
                 {
                     rslList = rslList.Where(p => p.state == state);
                 }
-                if (!type.Equals("0"))
+                if (!type.Equals(""))
                 {
                     rslList = rslList.Where(p => p.type.Equals(type));
                 }
@@ -356,7 +356,7 @@ namespace DianDianClient.Biz
                     log.Error("can not find cf_main ,cfmainkey = " + cfmainkey);
                     return null;
                 }
-                var userList = db.v_cf_member.Where(p => p.cfmealkey.Equals(cfMainItem.cfmealkey)).GroupBy(p =>p.userid);
+                var userList = db.v_cf_member.Where(p => p.cfmealkey.Equals(cfMainItem.cfmealkey)).GroupBy(p =>p.userid).ToList();
                 foreach(var user in userList)
                 {
                     string sql = "SELECT 	a.userid  AS userid, a.shopkey AS shopkey, MAX(a.createdate) AS createdate, ";

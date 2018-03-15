@@ -50,7 +50,8 @@ namespace DianDianClient.Biz
             try {
                 if (cardNo.Equals(""))
                 {
-                    cardNo = "" + Properties.Settings.Default.shopkey + DateTime.Now.ToString("yyyyMMddHHmmssffff");
+                    // cardNo = "" + Properties.Settings.Default.shopkey + DateTime.Now.ToString("yyyyMMddHHmmssffff");
+                    cardNo = "" + Properties.Settings.Default.shopkey + DateTime.Now.ToString("yyyyMMddHHmmss");
                 }
                 dd_mem_card newMember = new dd_mem_card();
                 DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));

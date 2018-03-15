@@ -21,6 +21,7 @@ namespace DianDianClient
         bool BusinessDetails = false;
         bool ActivityManagement = false;
         bool OrderManagement = false;
+        bool MemberManagement = false;
         public MainForm()
         {
             InitializeComponent();
@@ -179,7 +180,7 @@ namespace DianDianClient
         delegate void MyMessageBoxShow(string msg, string title);
         void MyMessageBoxShow_F(string msg, string title)
         {
-            XtraMessageBox.Show(title,msg);
+            XtraMessageBox.Show(msg,title);
         }
 
         private void sideNavItem2_Click(object sender, EventArgs e)
@@ -208,6 +209,21 @@ namespace DianDianClient
                 orderManage.Dock = DockStyle.Fill;
                 this.sideNavPanel6.Controls.Add(orderManage);
                 OrderManagement = true;
+                splashScreenManager1.CloseWaitForm();
+            }
+        }
+
+        private void sideNavItem8_Click(object sender, EventArgs e)
+        {
+            if (!MemberManagement)
+            {
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.MemberManagement.MemberManageControl memberManage = new MyControl.MemberManagement.MemberManageControl();
+                memberManage.Dock = DockStyle.Fill;
+                this.sideNavPanel7.Controls.Add(memberManage);
+                MemberManagement = true;
                 splashScreenManager1.CloseWaitForm();
             }
         }
