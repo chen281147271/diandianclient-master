@@ -55,10 +55,10 @@ namespace DianDianClient.MyControl.MemberManagement
             memberQueryControl = new DianDianClient.MyControl.MemberManagement.MemberQueryControl();
             memberQueryControl.Dock = DockStyle.Fill;
             this.tableLayoutPanel1.Controls.Add(this.memberQueryControl, 0, 1);
-            protocolCustomerControl = new DianDianClient.MyControl.MemberManagement.ProtocolCustomerControl();
-            protocolCustomerControl.Dock = DockStyle.Fill;
             userManagementControl = new DianDianClient.MyControl.MemberManagement.UserManagementControl();
             userManagementControl.Dock = DockStyle.Fill;
+            protocolCustomerControl = new DianDianClient.MyControl.MemberManagement.ProtocolCustomerControl();
+            protocolCustomerControl.Dock = DockStyle.Fill;
         }
         private void initoolstrip()
         {
@@ -137,10 +137,10 @@ namespace DianDianClient.MyControl.MemberManagement
                     this.tableLayoutPanel1.Controls.Remove(memberQueryControl);
                     break;
                 case 1:
-                    this.tableLayoutPanel1.Controls.Remove(protocolCustomerControl);
+                    this.tableLayoutPanel1.Controls.Remove(userManagementControl);
                     break;
                 case 2:
-                    this.tableLayoutPanel1.Controls.Remove(userManagementControl);
+                    this.tableLayoutPanel1.Controls.Remove(protocolCustomerControl);
                     break;
             }
             AddControl(cur);
@@ -151,12 +151,12 @@ namespace DianDianClient.MyControl.MemberManagement
             {
                 case 0:
                     this.tableLayoutPanel1.Controls.Add(this.memberQueryControl, 0, 1);
-                    break;
+                    break; 
                 case 1:
-                    this.tableLayoutPanel1.Controls.Add(this.protocolCustomerControl, 0, 1);
+                    this.tableLayoutPanel1.Controls.Add(this.userManagementControl, 0, 1);
                     break;
                 case 2:
-                    this.tableLayoutPanel1.Controls.Add(this.userManagementControl, 0, 1);
+                    this.tableLayoutPanel1.Controls.Add(this.protocolCustomerControl, 0, 1);
                     break;
             }
         }
