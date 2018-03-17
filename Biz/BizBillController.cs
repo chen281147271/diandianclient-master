@@ -554,12 +554,6 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
-        //查询交易流水
-        public void QueryJYRecord(int dh, int zh, int skfs, int lx,int zt, DateTime sdate, DateTime edate)
-        {
-
-        }
-
+        
     }
 }
