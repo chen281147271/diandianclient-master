@@ -51,8 +51,36 @@ namespace DianDianClient.Biz
             public double memuserpercent { get; set; }
             public double periodnum { get; set; }
         }
+
+        public class StatisticActivityBean
+        {
+            public  int cnt { get; set; }
+            public string cname { get; set; }
+            public int used { get; set; }
+            public DateTime edate { get; set; }
+            public int ifmoney { get; set; }
+            public int okjian { get; set; }
+
+        }
+
+        public class StatisticItemBean
+        {
+            public decimal amount { get; set; }
+            public decimal price { get; set; }
+            public int excepnum { get; set; }
+            public int sellnum { get; set; }
+            public decimal weight { get; set; }
+            public string name { get; set; }
+            public int itemkey { get; set; }
+            public string unit { get; set; }
+            public int guigeid { get; set; }
+            public string guigename { get; set; }
+            public DateTime createdate { get; set; }
+            public string caegoryname { get; set; }
+        }
+
         //查询营业额
-      public decimal QueryTotleTurnover(DateTime sdate, DateTime edate)
+        public decimal QueryTotleTurnover(DateTime sdate, DateTime edate)
         {
             try
             {
@@ -452,6 +480,181 @@ namespace DianDianClient.Biz
             catch(Exception e)
             {
                 log.Error("getStatisticGlabolInfo error! msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public List<StatisticActivityBean> QueryStatisticCoupons()
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                int shopkey = Properties.Settings.Default.shopkey;
+
+                string sql = "SELECT COUNT(mp.id) cnt,dc.cname,COUNT(mp.isuse=1) used,dc.addtime,dc.edate,dc.ifmoney,dc.okjian"
+                + " FROM dd_coupons dc LEFT JOIN dd_mem_coupons mp ON dc.couponid=mp.couponid WHERE dc.shopid=" + shopkey + " GROUP BY dc.couponid ORDER BY dc.addtime desc";
+
+                return db.Database.SqlQuery<StatisticActivityBean>(sql).ToList();
+            }
+            catch (Exception e)
+            {
+                log.Error("queryStatisticCoupons error! msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public List<StatisticItemBean> QueryStatisticItem(string itemname, string categoryname, int bycategory, int issum, int order, DateTime? sdate, DateTime? edate)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                int shopkey = Properties.Settings.Default.shopkey;
+                string sql = "";
+                if (bycategory != 1)
+                {
+                    string strItemList = "";
+                    if (!categoryname.Equals(""))
+                    {
+                        sql = "SELECT GROUP_CONCAT(icm.itemkey) itemkeys FROM item_category_map icm LEFT JOIN item_category ic ON ic.itemcategorykey=icm.itemcategorykey"
+                            + "  WHERE ic.name LIKE '%" + categoryname + "%'AND shopkey=" + shopkey;
+                        strItemList = db.Database.SqlQuery<string>(sql).FirstOrDefault();
+                    }
+                    string fromsql = " cf_main mn"
+                    + " LEFT JOIN cf_detail cd ON cd.cfmainkey = mn.cfmainkey"
+                    + " LEFT JOIN item it ON it.itemkey = cd.itemkey"
+                    + " LEFT JOIN item_standard gg ON gg.standardkey=cd.guigeid";
+                    String wheresql = " mn.shopkey = " + shopkey + " AND it.itemkey IS NOT NULL AND it.isware!=1 AND mn.state=2";
+                    if (sdate != null)
+                    {
+                        wheresql += " and mn.createDate>='" + sdate.Value.ToString("yyyy-MM-dd") + "'";
+                    }
+                    if (edate != null)
+                    {
+                        wheresql += " and mn.createDate <='" + edate.Value.ToString("yyyy-MM-dd") + "'";
+                    }
+                    if (!itemname.Equals(""))
+                    {
+                        wheresql += " and it.name like '%" + itemname + "%'";
+                    }
+
+                    if (!strItemList.Equals(""))
+                    {
+                        wheresql += " and it.itemkey in (" + strItemList + ")";
+                    }
+                    String queryStr = " 1=1 ";
+                    String fieldssql = null;
+
+                    if (issum == 1)
+                    {
+                        wheresql += "  GROUP BY cd.itemkey,cd.guigeid";
+                        fieldssql = "	SUM(IF(cd.isException!=1,cd.price,0)) amount,"
+                                + " IF(gg.sprice IS NOT NULL,gg.sprice,it.discountprice)price,"
+                                + " COUNT(IF(cd.isException=1,TRUE,NULL))    excepnum,"
+                                + " COUNT(IF(cd.isException!=1,TRUE,NULL))    `sellnum`,"
+                                + " SUM(IF(cd.isException!=1,weight,0))    `weight`,"
+                                + " it.name,"
+                                + " it.itemkey,"
+                                + " it.unit,"
+                                + " cd.guigeid,"
+                                + " cd.guigename";
+                        queryStr += " GROUP BY a.itemkey,a.guigeid ORDER BY ";
+
+                        if (order == 1)
+                        {
+                            queryStr += " ic.name ,";
+                        }
+                        queryStr += "a.sellNum DESC,CONVERT(a.name USING gbk)COLLATE gbk_chinese_ci ASC";
+                    }
+                    else
+                    {
+                        wheresql += "  GROUP BY LEFT(mn.createdate,10),cd.itemkey,cd.guigeid";
+                        fieldssql = "	SUM(IF(cd.isException!=1,cd.price,0)) amount,"
+                                + " IF(gg.sprice IS NOT NULL,"
+                                + "		(IF(gg.sagioprice IS NOT NULL AND gg.sagioprice!=0,gg.sagioprice, gg.sprice)),"
+                                + "		(IF(it.agioprice IS NOT NULL AND it.agioprice!=0,it.agioprice, it.discountprice)))    price,"
+                                + " COUNT(IF(cd.isException=1,TRUE,NULL))    excepnum,"
+                                + " COUNT(IF(cd.isException!=1,TRUE,NULL))    `sellnum`,"
+                                + " SUM(IF(cd.isException!=1,weight,0))    `weight`,"
+                                + " it.name,"
+                                + " it.itemkey,"
+                                + " it.unit,"
+                                + " cd.guigeid,"
+                                + " cd.guigename,"
+                                + " DATE(mn.createdate) createdate";
+                        queryStr += " GROUP BY a.itemkey,a.guigeid,a.createdate ORDER BY ";
+                        if (order == 1)
+                        {
+                            queryStr += " ic.name ,";
+                        }
+                        queryStr += " a.createdate DESC ,a.sellNum DESC,CONVERT(a.name USING gbk)COLLATE gbk_chinese_ci ASC";
+                    }
+                    sql = "select " + fieldssql + " from " + fromsql + " where " + wheresql;
+
+                    sql = "select a.*,GROUP_CONCAT(ic.name)  categoryname from (" + sql + ") a "
+                        + "  LEFT JOIN item_category_map icm  ON icm.itemkey=a.itemkey  "
+                        + "  LEFT JOIN item_category ic ON ic.itemcategorykey=icm.itemcategorykey where " + queryStr;
+
+                    var rslList = db.Database.SqlQuery<StatisticItemBean>(sql);
+                    return rslList.ToList();
+                }
+                else
+                {
+                    String fromsql = " cf_main mn"
+                    + " LEFT JOIN cf_detail cd ON cd.cfmainkey = mn.cfmainkey"
+                    + " LEFT JOIN item it ON it.itemkey = cd.itemkey"
+                    + " LEFT JOIN ("
+                    + "		SELECT icm.*,ic.name categoryname FROM item_category_map icm LEFT JOIN item_category ic  ON ic.itemcategorykey=icm.itemcategorykey WHERE icm.itemcategorykey IS NOT NULL AND ic.shopkey=" + shopid + " GROUP BY  icm.itemkey ORDER BY icm.itemcategorykey"
+                    + " ) itc ON itc.itemkey=it.itemkey";
+                    String wheresql = " mn.shopkey = " + shopkey + " AND it.itemkey IS NOT NULL AND it.isware!=1 AND mn.state=2";
+                    if (sdate != null)
+                    {
+                        wheresql += " and mn.createDate >='" + sdate.Value.ToString("yyyy-MM-dd") + "'";
+                    }
+                    if (edate != null )
+                    {
+                        wheresql += " and mn.createDate <='" + edate.Value.ToString("yyyy-MM-dd") + "'";
+                    }
+                    if (!itemname.Equals(""))
+                    {
+                        wheresql += " and it.name like '%" + itemname + "%'";
+                    }
+                    String queryStr = " 1=1 ";
+                    String fieldssql = null;
+                    if (issum == 1)
+                    {
+                        wheresql += "  GROUP BY itc.itemcategorykey  ORDER BY ";
+                        if (order==1)
+                        {
+                            wheresql += " itc.categoryname ,";
+                        }
+                        wheresql += "COUNT(IF(cd.isException!=1,TRUE,NULL)) DESC ";
+                        fieldssql = " SUM(IF(cd.isException!=1,cd.price,0))    amount,"
+                                + " COUNT(IF(cd.isException=1,TRUE,NULL))    excepnum,"
+                                + " COUNT(IF(cd.isException!=1,TRUE,NULL))    `sellnum`,"
+                                + "	itc.categoryname";
+                    }
+                    else
+                    {
+                        wheresql += "  GROUP BY itc.itemcategorykey,mn.createdate  ORDER BY ";
+                        if (order==1)
+                        {
+                            wheresql += " itc.categoryname ,";
+                        }
+                        wheresql += " DATE(mn.createdate) desc, COUNT(IF(cd.isException!=1,TRUE,NULL)) DESC ";
+                        fieldssql = " SUM(IF(cd.isException!=1,cd.price,0))    amount,"
+                                + " COUNT(IF(cd.isException=1,TRUE,NULL))    excepnum,"
+                                + " COUNT(IF(cd.isException!=1,TRUE,NULL))    `sellnum`,"
+                                + " DATE(mn.createdate)    createdate,"
+                                + "	itc.categoryname";
+                    }
+                    sql = "select " + fieldssql + " from " + fromsql + " where " + wheresql;
+                    var rslList = db.Database.SqlQuery<StatisticItemBean>(sql);
+                    return rslList.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error("QueryStatisticItem error! msg=" + e.Message);
                 throw;
             }
         }
