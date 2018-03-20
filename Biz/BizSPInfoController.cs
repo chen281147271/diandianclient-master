@@ -212,7 +212,7 @@ namespace DianDianClient.Biz
         }
 
         //29. 区域状态修改接口
-        public void SavTable(int floorid, sbyte state)
+        public void SavFloor(int floorid, sbyte state)
         {
             try
             {
@@ -233,6 +233,124 @@ namespace DianDianClient.Biz
             }
         }
 
+        public void AddTable(int isRoom, int tableNo, string tableName, int peoplenum, decimal tfuwu, int floorid)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var table = db.table_pos.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.tableNo == tableNo).FirstOrDefault();
+                if(table == null)
+                {
+                    table = new table_pos();
+                    table.tableNo = tableNo;
+                    table.isRoom = isRoom;
+                    if(isRoom == 0)
+                    {
+                        table.tableName = tableNo + "号桌";
+                    }
+                    else
+                    {
+                        table.tableName = tableName;
+                    }
+                    table.peopleNum = peoplenum;
+                    table.floorid = floorid;
+                    table.tfuwu = tfuwu;
+
+                    db.table_pos.Add(table);
+                }
+                else
+                {
+                    ModifyTable(table.tableposkey, isRoom, tableNo, tableName, peoplenum, tfuwu, floorid);
+                    EnbaleTable(table.tableposkey, 1);
+                    DelTable(table.tableposkey, 0);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("AddTable error. msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public void ModifyTable(int tableposkey, int isRoom, int tableNo, string tableName, int peoplenum, decimal tfuwu, int floorid)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var table = db.table_pos.Find(tableposkey);
+                table.tableNo = tableNo;
+                table.isRoom = isRoom;
+                if (isRoom == 0)
+                {
+                    table.tableName = tableNo + "号桌";
+                }
+                else
+                {
+                    table.tableName = tableName;
+                }
+                table.peopleNum = peoplenum;
+                table.floorid = floorid;
+                table.tfuwu = tfuwu;
+
+                db.table_pos.Attach(table);
+                var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(table);
+                stateEntity.SetModifiedProperty("tableNo");
+                stateEntity.SetModifiedProperty("isRoom");
+                stateEntity.SetModifiedProperty("tableName");
+                stateEntity.SetModifiedProperty("peopleNum");
+                stateEntity.SetModifiedProperty("floorid");
+                stateEntity.SetModifiedProperty("tfuwu");
+                stateEntity.SetModifiedProperty("tableNo");
+
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("ModifyTable error. msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public void EnbaleTable(int tableposkey, int enableFlag) {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var table = db.table_pos.Find(tableposkey);
+
+                table.enable = enableFlag;
+                db.table_pos.Attach(table);
+                var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(table);
+                stateEntity.SetModifiedProperty("enable");
+
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("EnbaleTable error. msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public void DelTable(int tableposkey, int delFlag) {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var table = db.table_pos.Find(tableposkey);
+
+                table.isDel = delFlag;
+                db.table_pos.Attach(table);
+                var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(table);
+                stateEntity.SetModifiedProperty("isDel");
+
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("DelTable error. msg=" + e.Message);
+                throw;
+            }
+        }
         public List<dd_shop_payway> QueryPayWay()
         {
             try

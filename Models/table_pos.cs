@@ -21,7 +21,7 @@ namespace DianDianClient.Models
         public Nullable<int> peopleNum { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<int> state { get; set; }
-        public string createDate { get; set; }
+        public Nullable<System.DateTime> createDate { get; set; }
         public Nullable<int> enable { get; set; }
         public Nullable<int> isDel { get; set; }
         public Nullable<int> isRoom { get; set; }
