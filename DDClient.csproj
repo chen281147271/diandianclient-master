@@ -826,6 +826,12 @@
     <Compile Include="MyControl\MemberManagement\ProtocolCustomerControl.Designer.cs">
       <DependentUpon>ProtocolCustomerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\MemberManagement\ProtocolDetaileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\MemberManagement\ProtocolDetaileControl.Designer.cs">
+      <DependentUpon>ProtocolDetaileControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\MemberManagement\RechargeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -998,6 +1004,12 @@
     <Compile Include="MyForm\MemberManagement\MemberDetaileForm.Designer.cs">
       <DependentUpon>MemberDetaileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\MemberManagement\ProtocolDetaileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\MemberManagement\ProtocolDetaileForm.Designer.cs">
+      <DependentUpon>ProtocolDetaileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\MemberManagement\RechargeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1121,6 +1133,12 @@
     <EmbeddedResource Include="MyControl\MemberManagement\MemberQueryControl.resx">
       <DependentUpon>MemberQueryControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\ProtocolCustomerControl.resx">
+      <DependentUpon>ProtocolCustomerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\ProtocolDetaileControl.resx">
+      <DependentUpon>ProtocolDetaileControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\MemberManagement\RechargeControl.resx">
       <DependentUpon>RechargeControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1129,6 +1147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\MemberManagement\RuleControl.resx">
       <DependentUpon>RuleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
+      <DependentUpon>UserManagementControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
       <DependentUpon>OrderManageControl.cs</DependentUpon>
@@ -1198,6 +1219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\MemberDetaileForm.resx">
       <DependentUpon>MemberDetaileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\MemberManagement\ProtocolDetaileForm.resx">
+      <DependentUpon>ProtocolDetaileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
       <DependentUpon>RechargeForm.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyControl.MemberManagement
 {
+    
     public partial class UserManagementControl : UserControl
     {
         public UserManagementControl()

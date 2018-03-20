@@ -51,6 +51,7 @@ namespace DianDianClient
 
             Utils.utils.MyEvent += ShowTip;
             Utils.utils.MessageBoxEvent += ShowMessageBox;
+            Utils.utils.MessageBoxYesNoEvent += ShowMessageYesNoBox;
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -183,6 +184,19 @@ namespace DianDianClient
             XtraMessageBox.Show(msg,title);
         }
 
+
+        public void ShowMessageYesNoBox(string msg, string title,int id)
+        {
+            this.Invoke(new MyMessageYesNoBoxShow(MyMessageYesNoBoxShow_F), new object[] { msg, title, id});
+        }
+        delegate void MyMessageYesNoBoxShow(string msg, string title,int id);
+        void MyMessageYesNoBoxShow_F(string msg, string title,int id)
+        {
+            if (XtraMessageBox.Show(msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Utils.utils.ShowMessageYesNoBoxResult(id);
+            }
+        }
         private void sideNavItem2_Click(object sender, EventArgs e)
         {
             if (!ActivityManagement)

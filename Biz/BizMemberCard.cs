@@ -261,11 +261,11 @@ namespace DianDianClient.Biz
 
                 if (!name.Equals(""))
                 {
-                    userList = userList.Where(p => p.name.Equals(name));
+                    userList = userList.Where(p => p.name.Contains(name));
                 }
                 if (!tel.Equals(""))
                 {
-                    userList = userList.Where(p => p.telno.Equals(tel));
+                    userList = userList.Where(p => p.telno.Contains(tel));
                 }
                 
                 if (sdate != null)
@@ -342,13 +342,13 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void FreezeSignUser(int signuserId)
+        public void FreezeSignUser(int signuserId,int state)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
                 var user = db.dd_shop_signusers.Find(signuserId);
-                user.state = 0;
+                user.state = state;
 
                 db.dd_shop_signusers.Attach(user);
                 var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(user);
