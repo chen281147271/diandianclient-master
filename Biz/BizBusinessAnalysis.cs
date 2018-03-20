@@ -603,7 +603,7 @@ namespace DianDianClient.Biz
                     + " LEFT JOIN cf_detail cd ON cd.cfmainkey = mn.cfmainkey"
                     + " LEFT JOIN item it ON it.itemkey = cd.itemkey"
                     + " LEFT JOIN ("
-                    + "		SELECT icm.*,ic.name categoryname FROM item_category_map icm LEFT JOIN item_category ic  ON ic.itemcategorykey=icm.itemcategorykey WHERE icm.itemcategorykey IS NOT NULL AND ic.shopkey=" + shopid + " GROUP BY  icm.itemkey ORDER BY icm.itemcategorykey"
+                    + "		SELECT icm.*,ic.name categoryname FROM item_category_map icm LEFT JOIN item_category ic  ON ic.itemcategorykey=icm.itemcategorykey WHERE icm.itemcategorykey IS NOT NULL AND ic.shopkey=" + shopkey + " GROUP BY  icm.itemkey ORDER BY icm.itemcategorykey"
                     + " ) itc ON itc.itemkey=it.itemkey";
                     String wheresql = " mn.shopkey = " + shopkey + " AND it.itemkey IS NOT NULL AND it.isware!=1 AND mn.state=2";
                     if (sdate != null)
