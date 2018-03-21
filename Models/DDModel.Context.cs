@@ -123,7 +123,6 @@ namespace DianDianClient.Models
         public virtual DbSet<sys_role> sys_role { get; set; }
         public virtual DbSet<t_document> t_document { get; set; }
         public virtual DbSet<table_member> table_member { get; set; }
-        public virtual DbSet<table_pos> table_pos { get; set; }
         public virtual DbSet<turn_user_record> turn_user_record { get; set; }
         public virtual DbSet<wb_openuser> wb_openuser { get; set; }
         public virtual DbSet<allot_agent_edit> allot_agent_edit { get; set; }
@@ -183,5 +182,6 @@ namespace DianDianClient.Models
         public virtual DbSet<v_cfmembermeal> v_cfmembermeal { get; set; }
         public virtual DbSet<v_mem_card_shop> v_mem_card_shop { get; set; }
         public virtual DbSet<v_card_record_shop> v_card_record_shop { get; set; }
+        public virtual DbSet<table_pos> table_pos { get; set; }
     }
 }

@@ -33,10 +33,10 @@ namespace DianDianClient.Models
             this.shop_item_record = new HashSet<shop_item_record>();
             this.shop_oper_log = new HashSet<shop_oper_log>();
             this.shop_info_record = new HashSet<shop_info_record>();
-            this.table_pos = new HashSet<table_pos>();
             this.shop_income_clean = new HashSet<shop_income_clean>();
             this.cf_main = new HashSet<cf_main>();
             this.cf_meal = new HashSet<cf_meal>();
+            this.table_pos = new HashSet<table_pos>();
         }
     
         public int shopkey { get; set; }
@@ -153,12 +153,12 @@ namespace DianDianClient.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shop_info_record> shop_info_record { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<table_pos> table_pos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<shop_income_clean> shop_income_clean { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cf_main> cf_main { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cf_meal> cf_meal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<table_pos> table_pos { get; set; }
     }
 }

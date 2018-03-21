@@ -103,7 +103,6 @@
         <EntityTypeShape EntityType="diandianModel.sys_role" Width="1.5" PointX="18.75" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.t_document" Width="1.5" PointX="26.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.table_member" Width="1.5" PointX="11.25" PointY="60.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.table_pos" Width="1.5" PointX="3" PointY="99.875" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.turn_user_record" Width="1.5" PointX="11.75" PointY="27.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.wb_openuser" Width="1.5" PointX="26.75" PointY="27.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.allot_agent_edit" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
@@ -149,7 +148,6 @@
         <AssociationConnector Association="diandianModel.FK_Reference_35" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_38" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_39" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_4" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_58" ManuallyRouted="false" />
         <EntityTypeShape EntityType="diandianModel.v_cfdetailitem" Width="1.5" PointX="23.375" PointY="29.75" />
         <EntityTypeShape EntityType="diandianModel.v_orderitem" Width="1.5" PointX="7.375" PointY="30.75" />
@@ -207,6 +205,8 @@
         <EntityTypeShape EntityType="diandianModel.v_cfmembermeal" Width="1.5" PointX="29.375" PointY="35.75" />
         <EntityTypeShape EntityType="diandianModel.v_mem_card_shop" Width="1.5" PointX="31.375" PointY="35.75" />
         <EntityTypeShape EntityType="diandianModel.v_card_record_shop" Width="1.5" PointX="13.375" PointY="37.75" />
+        <EntityTypeShape EntityType="diandianModel.table_pos" Width="1.5" PointX="3" PointY="100.125" />
+        <AssociationConnector Association="diandianModel.table_pos_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
