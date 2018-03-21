@@ -22,6 +22,7 @@ namespace DianDianClient
         bool ActivityManagement = false;
         bool OrderManagement = false;
         bool MemberManagement = false;
+        bool More = false;
         public MainForm()
         {
             InitializeComponent();
@@ -52,6 +53,19 @@ namespace DianDianClient
             Utils.utils.MyEvent += ShowTip;
             Utils.utils.MessageBoxEvent += ShowMessageBox;
             Utils.utils.MessageBoxYesNoEvent += ShowMessageYesNoBox;
+            MyEvent.More.MoreEvent.ReplaceEvent += MyReplaceEvent;
+            MyEvent.More.MoreEvent.ShowWaitEvent += MyShowWaitEvent;
+            MyEvent.More.MoreEvent.EndShowWaitEvent += MyEndShowWaitEvent;
+        }
+        private void MyShowWaitEvent()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+        }
+        private void MyEndShowWaitEvent()
+        {
+            splashScreenManager1.CloseWaitForm();
         }
         private void comboBoxEdit1_EditValueChanged(object sender, EventArgs e)
         {
@@ -240,6 +254,62 @@ namespace DianDianClient
                 MemberManagement = true;
                 splashScreenManager1.CloseWaitForm();
             }
+        }
+
+        private void sideNavItem9_Click(object sender, EventArgs e)
+        {
+            //if (!More)
+            //{
+                this.sideNavPanel8.Controls.Clear();
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+                splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+                MyControl.More.MoreControl moreControl = new MyControl.More.MoreControl();
+                moreControl.Dock = DockStyle.Fill;
+                this.sideNavPanel8.Controls.Add(moreControl);
+                More = true;
+                splashScreenManager1.CloseWaitForm();
+            //}
+        }
+        private void MyReplaceEvent(int ControlId)
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+            switch (ControlId)
+            {
+                case 0:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.TableManageControl tableManage = new MyControl.More.TableManageControl();
+                    tableManage.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(tableManage);
+                    break;
+                case 1:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.StaffManageControl staffManage = new MyControl.More.StaffManageControl();
+                    staffManage.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(staffManage);
+                    break;
+                case 2:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.dangkouManageControl dangkouManage = new MyControl.More.dangkouManageControl();
+                    dangkouManage.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(dangkouManage);
+                    break;
+                case 3:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.jinxiaocunManageControl jinxiaocunManage = new MyControl.More.jinxiaocunManageControl();
+                    jinxiaocunManage.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(jinxiaocunManage);
+                    break;
+                case 4:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.cantingSetUpControl cantingSetUp = new MyControl.More.cantingSetUpControl();
+                    cantingSetUp.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(cantingSetUp);
+                    break;
+            }
+            splashScreenManager1.CloseWaitForm();
         }
     }
 }

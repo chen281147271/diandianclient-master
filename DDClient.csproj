@@ -136,6 +136,9 @@
       <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>DevExpress 17.2\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -856,6 +859,54 @@
     <Compile Include="MyControl\MemberManagement\UserManagementControl.Designer.cs">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\cantingSetUpControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUpControl.Designer.cs">
+      <DependentUpon>cantingSetUpControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManageControl.Designer.cs">
+      <DependentUpon>dangkouManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\ExportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\ExportControl.Designer.cs">
+      <DependentUpon>ExportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManageControl.Designer.cs">
+      <DependentUpon>jinxiaocunManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\MoreControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\MoreControl.Designer.cs">
+      <DependentUpon>MoreControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\QRCodeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\QRCodeControl.Designer.cs">
+      <DependentUpon>QRCodeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManageControl.Designer.cs">
+      <DependentUpon>StaffManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\TableManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\TableManageControl.Designer.cs">
+      <DependentUpon>TableManageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\OrderManagement\OrderManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -943,6 +994,7 @@
     <Compile Include="MyEvent\MemberManagement\MemberDetaileEvent.cs" />
     <Compile Include="MyEvent\MemberManagement\RechargeRecordEvent.cs" />
     <Compile Include="MyEvent\MemberManagement\RuleEventClass.cs" />
+    <Compile Include="MyEvent\More\MoreEvent.cs" />
     <Compile Include="MyEvent\TableSettlement\PayBillEvent.cs" />
     <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.cs">
       <SubType>Form</SubType>
@@ -1016,6 +1068,18 @@
     <Compile Include="MyForm\MemberManagement\RechargeForm.Designer.cs">
       <DependentUpon>RechargeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\QRCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\QRCodeForm.Designer.cs">
+      <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\TableSettlement\PayBillForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1060,6 +1124,7 @@
     <Compile Include="Utils\PrintImpact.cs" />
     <Compile Include="Utils\PrintUtil.cs" />
     <Compile Include="Utils\RestClient.cs" />
+    <Compile Include="Utils\ZipHelper.cs" />
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1151,6 +1216,18 @@
     <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\ExportControl.resx">
+      <DependentUpon>ExportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\MoreControl.resx">
+      <DependentUpon>MoreControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\QRCodeControl.resx">
+      <DependentUpon>QRCodeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\TableManageControl.resx">
+      <DependentUpon>TableManageControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
       <DependentUpon>OrderManageControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1225,6 +1302,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
       <DependentUpon>RechargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\QRCodeForm.resx">
+      <DependentUpon>QRCodeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\TableSettlement\PayBillForm.resx">
       <DependentUpon>PayBillForm.cs</DependentUpon>
@@ -1327,6 +1410,23 @@
     <None Include="Resources\minus.png" />
     <None Include="Resources\confirm.png" />
     <None Include="Resources\prints.png" />
+    <None Include="Resources\canting.png" />
+    <None Include="Resources\dangkou.png" />
+    <None Include="Resources\jinxiaocun.png" />
+    <None Include="Resources\tablemanage.png" />
+    <None Include="Resources\yuangong.png" />
+    <None Include="Resources\zhuotie1.png" />
+    <None Include="Resources\zhuotie2.png" />
+    <None Include="Resources\zhuotie3.png" />
+    <None Include="Resources\zhuopai1.png" />
+    <None Include="Resources\zhuopai2.png" />
+    <None Include="Resources\zhuopai3.png" />
+    <None Include="Resources\zhuotiebg1.png" />
+    <None Include="Resources\zhuopaibg1.png" />
+    <None Include="Resources\zhuopaibg2.png" />
+    <None Include="Resources\zhuopaibg3.png" />
+    <None Include="Resources\zhuotiebg2.png" />
+    <None Include="Resources\zhuotiebg3.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

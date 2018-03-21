@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.ComponentModel;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors.ViewInfo;
+using DevExpress.XtraEditors.Drawing;
+using DevExpress.XtraEditors.Repository;
+using System.Drawing;
 
 namespace DianDianClient.Utils
 {
@@ -52,6 +57,67 @@ namespace DianDianClient.Utils
                 ret.Rows.Add(Row);
             }
             return ret;
+        }
+
+        /// <summary>
+        /// 为列头绘制CheckBox
+        /// </summary>
+        /// <param name="view">GridView</param>
+        /// <param name="checkItem">RepositoryItemCheckEdit</param>
+        /// <param name="fieldName">需要绘制Checkbox的列名</param>
+        /// <param name="e">ColumnHeaderCustomDrawEventArgs</param>
+        public static void DrawHeaderCheckBox(this GridView view, RepositoryItemCheckEdit checkItem, string fieldName, ColumnHeaderCustomDrawEventArgs e)
+        {
+            /*说明：
+             *参考：https://www.devexpress.com/Support/Center/Question/Details/Q354489
+             *在CustomDrawColumnHeader中使用
+             *eg：
+             * private void gvCabChDetail_CustomDrawColumnHeader(object sender, DevExpress.XtraGrid.Views.Grid.ColumnHeaderCustomDrawEventArgs e)
+             * {
+             * GridView _view = sender as GridView;
+             * _view.DrawHeaderCheckBox(CheckItem, "Check", e);
+             * }
+             */
+            if (e.Column != null && e.Column.FieldName.Equals(fieldName))
+            {
+                e.Info.InnerElements.Clear();
+                e.Painter.DrawObject(e.Info);
+                DrawCheckBox(checkItem, e.Graphics, e.Bounds, getCheckedCount(view, fieldName) == view.DataRowCount);
+                e.Handled = true;
+            }
+        }
+        private static void DrawCheckBox(RepositoryItemCheckEdit checkItem, Graphics g, Rectangle r, bool Checked)
+        {
+            CheckEditViewInfo _info;
+            CheckEditPainter _painter;
+            ControlGraphicsInfoArgs _args;
+            _info = checkItem.CreateViewInfo() as CheckEditViewInfo;
+            _painter = checkItem.CreatePainter() as CheckEditPainter;
+            _info.EditValue = Checked;
+
+            _info.Bounds = r;
+            _info.PaintAppearance.ForeColor = Color.Black;
+            _info.CalcViewInfo(g);
+            _args = new ControlGraphicsInfoArgs(_info, new DevExpress.Utils.Drawing.GraphicsCache(g), r);
+            _painter.Draw(_args);
+            _args.Cache.Dispose();
+        }
+        private static int getCheckedCount(GridView view, string filedName)
+        {
+            int count = 0;
+            for (int i = 0; i < view.DataRowCount; i++)
+            {
+                object _cellValue = view.GetRowCellValue(i, view.Columns[filedName]);
+                if (_cellValue == null) continue;
+                if (string.IsNullOrEmpty(_cellValue.ToString().Trim())) continue;
+                bool _checkStatus = false;
+                if (bool.TryParse(_cellValue.ToString(), out _checkStatus))
+                {
+                    if (_checkStatus)
+                        count++;
+                }
+            }
+            return count;
         }
 
     }
