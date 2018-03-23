@@ -1,4 +1,4 @@
-﻿namespace DianDianClient.MyControl.More
+﻿namespace DianDianClient.MyControl.More.TableManage
 {
     partial class TableManageControl
     {
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,7 +52,7 @@
             this.floorname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isRoom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.peopleNum = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.state = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.enable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
             this.tfuwu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.qrCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,12 +60,16 @@
             this.operation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tableposkey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tableNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.floorid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_export = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_addtable = new DevExpress.XtraEditors.SimpleButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Btn_quyu = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -120,11 +124,13 @@
             this.floorname,
             this.isRoom,
             this.peopleNum,
-            this.state,
+            this.enable,
             this.tfuwu,
             this.qrCode,
             this.operation,
-            this.tableposkey});
+            this.tableposkey,
+            this.tableNo,
+            this.floorid});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -186,15 +192,15 @@
             this.peopleNum.VisibleIndex = 4;
             this.peopleNum.Width = 131;
             // 
-            // state
+            // enable
             // 
-            this.state.Caption = "是否有效";
-            this.state.ColumnEdit = this.repositoryItemRadioGroup1;
-            this.state.FieldName = "state";
-            this.state.Name = "state";
-            this.state.Visible = true;
-            this.state.VisibleIndex = 5;
-            this.state.Width = 131;
+            this.enable.Caption = "是否有效";
+            this.enable.ColumnEdit = this.repositoryItemRadioGroup1;
+            this.enable.FieldName = "enable";
+            this.enable.Name = "enable";
+            this.enable.Visible = true;
+            this.enable.VisibleIndex = 5;
+            this.enable.Width = 131;
             // 
             // repositoryItemRadioGroup1
             // 
@@ -230,7 +236,7 @@
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "编辑二维码", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "编辑二维码", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.ReadOnly = true;
             this.repositoryItemButtonEdit2.Click += new System.EventHandler(this.repositoryItemButtonEdit2_Click);
@@ -249,16 +255,29 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "编辑", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "编辑", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
             // 
             // tableposkey
             // 
             this.tableposkey.Caption = "tableposkey";
             this.tableposkey.FieldName = "tableposkey";
             this.tableposkey.Name = "tableposkey";
+            // 
+            // tableNo
+            // 
+            this.tableNo.Caption = "tableNo";
+            this.tableNo.FieldName = "tableNo";
+            this.tableNo.Name = "tableNo";
+            // 
+            // floorid
+            // 
+            this.floorid.Caption = "floorid";
+            this.floorid.FieldName = "floorid";
+            this.floorid.Name = "floorid";
             // 
             // mgncPager1
             // 
@@ -301,6 +320,8 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.Btn_export);
+            this.flowLayoutPanel1.Controls.Add(this.btn_addtable);
+            this.flowLayoutPanel1.Controls.Add(this.Btn_quyu);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(541, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -325,6 +346,23 @@
             this.Btn_export.Text = "导出模板";
             this.Btn_export.Click += new System.EventHandler(this.Btn_export_Click);
             // 
+            // btn_addtable
+            // 
+            this.btn_addtable.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_addtable.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
+            this.btn_addtable.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addtable.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_addtable.Appearance.Options.UseBackColor = true;
+            this.btn_addtable.Appearance.Options.UseFont = true;
+            this.btn_addtable.Appearance.Options.UseForeColor = true;
+            this.btn_addtable.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btn_addtable.Location = new System.Drawing.Point(311, 3);
+            this.btn_addtable.Name = "btn_addtable";
+            this.btn_addtable.Size = new System.Drawing.Size(106, 35);
+            this.btn_addtable.TabIndex = 19;
+            this.btn_addtable.Text = "添加餐桌";
+            this.btn_addtable.Click += new System.EventHandler(this.btn_addtable_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -337,6 +375,23 @@
             this.checkBox1.Text = "全选";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // Btn_quyu
+            // 
+            this.Btn_quyu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Btn_quyu.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
+            this.Btn_quyu.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_quyu.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Btn_quyu.Appearance.Options.UseBackColor = true;
+            this.Btn_quyu.Appearance.Options.UseFont = true;
+            this.Btn_quyu.Appearance.Options.UseForeColor = true;
+            this.Btn_quyu.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Btn_quyu.Location = new System.Drawing.Point(199, 3);
+            this.Btn_quyu.Name = "Btn_quyu";
+            this.Btn_quyu.Size = new System.Drawing.Size(106, 35);
+            this.Btn_quyu.TabIndex = 20;
+            this.Btn_quyu.Text = "区域管理";
+            this.Btn_quyu.Click += new System.EventHandler(this.Btn_quyu_Click);
             // 
             // TableManageControl
             // 
@@ -371,7 +426,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn floorname;
         private DevExpress.XtraGrid.Columns.GridColumn isRoom;
         private DevExpress.XtraGrid.Columns.GridColumn peopleNum;
-        private DevExpress.XtraGrid.Columns.GridColumn state;
         private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
         private DevExpress.XtraGrid.Columns.GridColumn tfuwu;
         private DevExpress.XtraGrid.Columns.GridColumn qrCode;
@@ -385,5 +439,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private DevExpress.XtraEditors.SimpleButton Btn_export;
         private System.Windows.Forms.CheckBox checkBox1;
+        private DevExpress.XtraGrid.Columns.GridColumn tableNo;
+        private DevExpress.XtraGrid.Columns.GridColumn floorid;
+        private DevExpress.XtraGrid.Columns.GridColumn enable;
+        private DevExpress.XtraEditors.SimpleButton btn_addtable;
+        private DevExpress.XtraEditors.SimpleButton Btn_quyu;
     }
 }

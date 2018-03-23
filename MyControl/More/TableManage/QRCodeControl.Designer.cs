@@ -1,4 +1,4 @@
-﻿namespace DianDianClient.MyControl.More
+﻿namespace DianDianClient.MyControl.More.TableManage
 {
     partial class QRCodeControl
     {

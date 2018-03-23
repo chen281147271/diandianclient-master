@@ -280,33 +280,39 @@ namespace DianDianClient
             {
                 case 0:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.TableManageControl tableManage = new MyControl.More.TableManageControl();
+                    MyControl.More.TableManage.TableManageControl tableManage = new MyControl.More.TableManage.TableManageControl();
                     tableManage.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(tableManage);
                     break;
                 case 1:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.StaffManageControl staffManage = new MyControl.More.StaffManageControl();
+                    MyControl.More.StaffManage.StaffManageControl staffManage = new MyControl.More.StaffManage.StaffManageControl();
                     staffManage.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(staffManage);
                     break;
                 case 2:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.dangkouManageControl dangkouManage = new MyControl.More.dangkouManageControl();
+                    MyControl.More.dangkouManage.dangkouManageControl dangkouManage = new MyControl.More.dangkouManage.dangkouManageControl();
                     dangkouManage.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(dangkouManage);
                     break;
                 case 3:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.jinxiaocunManageControl jinxiaocunManage = new MyControl.More.jinxiaocunManageControl();
+                    MyControl.More.jinxiaocunManage.jinxiaocunManageControl jinxiaocunManage = new MyControl.More.jinxiaocunManage.jinxiaocunManageControl();
                     jinxiaocunManage.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(jinxiaocunManage);
                     break;
                 case 4:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.cantingSetUpControl cantingSetUp = new MyControl.More.cantingSetUpControl();
+                    MyControl.More.cantingSetUp.cantingSetUpControl cantingSetUp = new MyControl.More.cantingSetUp.cantingSetUpControl();
                     cantingSetUp.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(cantingSetUp);
+                    break;
+                case 1001:
+                    this.sideNavPanel8.Controls.Clear();
+                    MyControl.More.TableManage.QuYuManageControl quYuManage = new MyControl.More.TableManage.QuYuManageControl();
+                    quYuManage.Dock = DockStyle.Fill;
+                    this.sideNavPanel8.Controls.Add(quYuManage);
                     break;
             }
             splashScreenManager1.CloseWaitForm();

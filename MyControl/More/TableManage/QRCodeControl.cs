@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace DianDianClient.MyControl.More
+namespace DianDianClient.MyControl.More.TableManage
 {
     public partial class QRCodeControl : UserControl
     {

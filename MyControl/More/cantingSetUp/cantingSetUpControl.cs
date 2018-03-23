@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DianDianClient.MyControl.More
+namespace DianDianClient.MyControl.More.cantingSetUp
 {
-    public partial class dangkouManageControl : UserControl
+    public partial class cantingSetUpControl : UserControl
     {
-        public dangkouManageControl()
+        public cantingSetUpControl()
         {
             InitializeComponent();
         }

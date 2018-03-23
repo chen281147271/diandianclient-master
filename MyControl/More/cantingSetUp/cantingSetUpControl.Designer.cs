@@ -1,6 +1,6 @@
-﻿namespace DianDianClient.MyControl.More
+﻿namespace DianDianClient.MyControl.More.cantingSetUp
 {
-    partial class StaffManageControl
+    partial class cantingSetUpControl
     {
         /// <summary> 
         /// 必需的设计器变量。

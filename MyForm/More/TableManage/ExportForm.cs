@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DianDianClient.MyForm.More
+namespace DianDianClient.MyForm.More.TableManage
 {
     public partial class ExportForm : Form
     {
         public ExportForm(DataTable dt)
         {
             InitializeComponent();
-            MyControl.More.ExportControl export = new MyControl.More.ExportControl(dt);
+            MyControl.More.TableManage.ExportControl export = new MyControl.More.TableManage.ExportControl(dt);
             export.Dock = DockStyle.Fill;
             this.Controls.Add(export);
         }

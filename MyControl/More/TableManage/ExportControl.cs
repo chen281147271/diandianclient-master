@@ -12,7 +12,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.IO;
 using ZipOneCode.ZipProvider;
-namespace DianDianClient.MyControl.More
+namespace DianDianClient.MyControl.More.TableManage
 {
     public partial class ExportControl : UserControl
     {

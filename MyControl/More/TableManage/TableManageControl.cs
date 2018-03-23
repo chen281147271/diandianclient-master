@@ -9,8 +9,9 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using DianDianClient.Utils;
+using DevExpress.XtraEditors;
 
-namespace DianDianClient.MyControl.More
+namespace DianDianClient.MyControl.More.TableManage
 {
     public partial class TableManageControl : UserControl
     {
@@ -23,6 +24,8 @@ namespace DianDianClient.MyControl.More
         RepositoryItem _disabledItem;
         RepositoryItemCheckEdit CheckItem = new RepositoryItemCheckEdit();
         const string gcCheckFieldName = "isCheck";
+        int? itoolStripCheck = null;
+        string strtoolStripCheck = "";
         public TableManageControl()
         {
             InitializeComponent();
@@ -93,7 +96,8 @@ namespace DianDianClient.MyControl.More
         }
         private void BindGrid(bool singlePage = true)//单页，所有     
         {
-            var q = this.list_pos;
+            this.list_pos = BizSPInfo.GetTableList(0);
+            var q = (this.strtoolStripCheck == "餐桌管理")?this.list_pos: this.list_pos.Where(o => o.floorid == this.itoolStripCheck);
             if (singlePage)
             {
                 this.gridControl1.DataSource = this.translate((q.Skip((curPage - 1) * pageSize).Take(pageSize)).ToList());
@@ -130,11 +134,13 @@ namespace DianDianClient.MyControl.More
             public string floorname{ get; set; }
             public string isRoom { get; set; }
             public string peopleNum { get; set; }
-            public string state { get; set; }
+            public string enable { get; set; }
             public string tfuwu { get; set; }
             public string qrCode { get; set; }
             public string tableposkey { get; set; }
             public string isCheck { get; set; }
+            public string tableNo { get; set; }
+            public string floorid { get; set; }
         }
         public List<tablepos> translate(List<Models.table_pos> list)
         {
@@ -142,6 +148,7 @@ namespace DianDianClient.MyControl.More
             foreach (Models.table_pos item in list)
             {
                 tablepos temp = new tablepos();
+                temp.floorname = "";
                 var c = list_floor.Where(o => o.floorid == item.floorid);
                 foreach (var d in c)
                 {
@@ -149,7 +156,7 @@ namespace DianDianClient.MyControl.More
                 }
                 temp.isRoom =(item.isRoom==0)?"否":"是";
                 temp.peopleNum = item.peopleNum.ToString();
-                temp.state = item.state.ToString();
+                temp.enable = item.enable.ToString();
                 temp.tfuwu = item.tfuwu.ToString();
                 temp.tableName = (item.tableName!=null)? item.tableName:"";
                 temp.qrCode = (item.qrCode != null) ? item.qrCode : "";
@@ -162,6 +169,8 @@ namespace DianDianClient.MyControl.More
                     temp.isCheck = "0";
                 }
                 temp.tableposkey = item.tableposkey.ToString();
+                temp.tableNo = item.tableNo.ToString();
+                temp.floorid = item.floorid.ToString();
                 list_temp.Add(temp);
             }
             return list_temp;
@@ -175,13 +184,13 @@ namespace DianDianClient.MyControl.More
             dt.Columns.Add("tag", typeof(String));
 
 
-            list_pos =BizSPInfo.GetTableList();
+            list_pos =BizSPInfo.GetTableList(0);
             var a = list_pos.GroupBy(o => o.floorid).Select(o=>new { id=o.Key });
             list_floor=BizSPInfo.GetFloorList();
             dt.Rows.Add(new object[] { "餐桌管理", 0 });
+            int i = 0;
             foreach (var b in a)
             {
-                int i = 0;
                 var c = list_floor.Where(o => o.floorid == b.id);
                 if (c.Count() != 0)
                 {
@@ -215,13 +224,15 @@ namespace DianDianClient.MyControl.More
                 toolStripItem[i].Size = new Size(150, 100);
                 toolStripItem[i].Click += eventHandler;
                 toolStripItem[i].ForeColor = Color.White;
-                toolStripItem[i].Margin = new System.Windows.Forms.Padding(5, 0, 10, 0);
-                toolStripItem[i].BackColor = Color.Transparent;
+                toolStripItem[i].Margin = new System.Windows.Forms.Padding(0);
+                toolStripItem[i].Padding = new Padding(0);
+                toolStripItem[i].BackColor = ToolStripBackColor;
                 toolStripItem[i].Tag= dataTable.Rows[i][tagColumn].ToString();
             }
             toolStrip.Items.AddRange(toolStripItem);
             toolStrip.BackColor = ToolStripBackColor;
             toolStrip.Items[0].PerformClick();
+            toolStrip.RenderMode = ToolStripRenderMode.System;
             toolStrip.Refresh();
         }
         private void toolStripItem_Click(object sender, EventArgs e)
@@ -231,18 +242,19 @@ namespace DianDianClient.MyControl.More
             ToolStripButton toolStripButton = (ToolStripButton)sender;
             toolStripButton.ForeColor = Color.Black;
             toolStripButton.BackColor = Color.White;
-
-            switch (sender.ToString())
+            //this.itoolStripCheck = (toolStripButton.Tag.ToString()=="")?null: Convert.ToInt32(toolStripButton.Tag);
+            if(toolStripButton.Tag.ToString() == "")
             {
-                case "会员查询":
-                    break;
-                case "用户管理":
-                    break;
-                case "协议客户":
-                    break;
-
+                this.itoolStripCheck = null;
             }
-
+            else
+            {
+                this.itoolStripCheck = Convert.ToInt32(toolStripButton.Tag);
+            }
+            //itoolStripCheck =Convert.ToInt32(toolStripButton.Tag);
+            strtoolStripCheck = toolStripButton.Text;
+            this.curPage = 1;
+            RefreshGridList();
             // MessageBox.Show(sender.ToString());
 
         }
@@ -250,7 +262,7 @@ namespace DianDianClient.MyControl.More
         {
             foreach (ToolStripItem ti in toolStrip1.Items)
             {
-                ti.BackColor = Color.Transparent;
+                ti.BackColor = Color.FromArgb(200, 32, 15, 17);
                 ti.ForeColor = Color.White;
             }
         }
@@ -258,17 +270,32 @@ namespace DianDianClient.MyControl.More
         {
             string qr_code = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "qrCode").ToString();
             string tableposkey = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableposkey").ToString();
-            MyForm.More.QRCodeForm qRCode = new MyForm.More.QRCodeForm(Convert.ToInt32(tableposkey), Convert.ToInt32(qr_code));
+            qr_code = (qr_code == "")?"0":qr_code;
+            MyForm.More.TableManage.QRCodeForm qRCode = new MyForm.More.TableManage.QRCodeForm(Convert.ToInt32(tableposkey), Convert.ToInt32(qr_code));
             qRCode.StartPosition = FormStartPosition.CenterScreen;
             qRCode.ShowDialog();
         }
 
         private void repositoryItemRadioGroup1_EditValueChanged(object sender, EventArgs e)
         {
-            string state = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "state").ToString();
-            if (state == "在用")
+            try
             {
-              //  BizSPInfo.SavTable()
+                string enable = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "enable").ToString();
+                string tableposkey = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableposkey").ToString();
+                string isRoom = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "isRoom").ToString();
+                string tableNo = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableNo").ToString();
+                string tableName = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableName").ToString();
+                string peopleNum = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "peopleNum").ToString();
+                string tfuwu = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tfuwu").ToString();
+                string floorid = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "floorid").ToString();
+                enable = (enable == "在用") ? "1" : "0";
+                isRoom = (isRoom == "是") ? "1" : "0";
+                // BizSPInfo.ModifyTable(Convert.ToInt32(tableposkey), Convert.ToInt32(isRoom), Convert.ToInt32(tableNo), tableName, Convert.ToInt32(peopleNum), Convert.ToDecimal(tfuwu), Convert.ToInt32(floorid));
+                BizSPInfo.EnbaleTable(Convert.ToInt32(tableposkey), Convert.ToInt32(enable));
+            }
+            catch
+            {
+
             }
         }
 
@@ -325,9 +352,51 @@ namespace DianDianClient.MyControl.More
                     dt.Rows.Add(new object[] { this.gridView1.GetRowCellValue(i, "tableName").ToString(), this.gridView1.GetRowCellValue(i, "qrCode").ToString() , this.gridView1.GetRowCellValue(i, "tableposkey").ToString() });
                 }
             }
-            MyForm.More.ExportForm export = new MyForm.More.ExportForm(dt);
+            MyForm.More.TableManage.ExportForm export = new MyForm.More.TableManage.ExportForm(dt);
             export.StartPosition = FormStartPosition.CenterScreen;
             export.ShowDialog();
+        }
+
+        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        { 
+            string peopleNum = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "peopleNum").ToString();
+            string tfuwu = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tfuwu").ToString();
+            string floorname = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "floorname").ToString();
+            string floorid = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "floorid").ToString();
+            string tableposkey = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableposkey").ToString();
+            string isRoom = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "isRoom").ToString();
+            string tableNo = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableNo").ToString();
+            string tableName = this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "tableName").ToString();
+            isRoom = (isRoom == "是") ? "1" : "0";
+            if (e.Button.Index == 0)
+            {
+                MyForm.More.TableManage.EditForm edit = new MyForm.More.TableManage.EditForm(list_floor, peopleNum, tfuwu, floorname, floorid,tableposkey,isRoom,tableNo,tableName);
+                edit.StartPosition = FormStartPosition.CenterScreen;
+                edit.ShowDialog();
+            }
+            else
+            {
+                if (XtraMessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    BizSPInfo.DelTable(Convert.ToInt32(tableposkey), 1);
+                }
+            }
+            RefreshGridList();
+            initoolstrip();
+        }
+
+        private void btn_addtable_Click(object sender, EventArgs e)
+        {
+            MyForm.More.TableManage.AddTableForm addTable = new MyForm.More.TableManage.AddTableForm(list_floor);
+            addTable.StartPosition = FormStartPosition.CenterScreen;
+            addTable.ShowDialog();
+            RefreshGridList();
+            initoolstrip();
+        }
+
+        private void Btn_quyu_Click(object sender, EventArgs e)
+        {
+            MyEvent.More.MoreEvent.Replace(1001);
         }
     }
 }

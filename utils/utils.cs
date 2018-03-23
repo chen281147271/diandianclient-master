@@ -119,6 +119,9 @@ namespace DianDianClient.Utils
             }
             return count;
         }
-
+        public static int Count(string str, string constr)
+        {
+            return System.Text.RegularExpressions.Regex.Matches(str, constr).Count;
+        }
     }
 }

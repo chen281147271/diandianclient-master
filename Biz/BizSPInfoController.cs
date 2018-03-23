@@ -120,12 +120,19 @@ namespace DianDianClient.Biz
 
 
         //25. 获取商户餐桌列表接口
-        public List<table_pos> GetTableList()
+        public List<table_pos> GetTableList(int? isDel=null)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                return db.table_pos.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
+                if (isDel == null)
+                {
+                    return db.table_pos.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
+                }
+                else
+                {
+                    return db.table_pos.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.isDel==isDel).ToList();
+                }
             }
             catch (Exception e)
             {
@@ -135,12 +142,15 @@ namespace DianDianClient.Biz
         }
 
         //26. 获取商户区域列表接口
-        public List<dd_table_floor> GetFloorList()
+        public List<dd_table_floor> GetFloorList(int isdel=-1)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                return db.dd_table_floor.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
+                if(isdel==-1)
+                return db.dd_table_floor.Where(p => p.shopkey == Properties.Settings.Default.shopkey).OrderBy(p=>p.orderno).ToList();
+                else
+                    return db.dd_table_floor.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.isdel==isdel).OrderBy(p => p.orderno).ToList();
             }
             catch (Exception e)
             {

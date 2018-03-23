@@ -859,28 +859,40 @@
     <Compile Include="MyControl\MemberManagement\UserManagementControl.Designer.cs">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\cantingSetUpControl.cs">
+    <Compile Include="MyControl\More\cantingSetUp\cantingSetUpControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\cantingSetUpControl.Designer.cs">
+    <Compile Include="MyControl\More\cantingSetUp\cantingSetUpControl.Designer.cs">
       <DependentUpon>cantingSetUpControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\dangkouManageControl.cs">
+    <Compile Include="MyControl\More\dangkouManage\dangkouManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\dangkouManageControl.Designer.cs">
+    <Compile Include="MyControl\More\dangkouManage\dangkouManageControl.Designer.cs">
       <DependentUpon>dangkouManageControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\ExportControl.cs">
+    <Compile Include="MyControl\More\TableManage\AddTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\ExportControl.Designer.cs">
+    <Compile Include="MyControl\More\TableManage\AddTableControl.Designer.cs">
+      <DependentUpon>AddTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\EditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\EditControl.Designer.cs">
+      <DependentUpon>EditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\ExportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\ExportControl.Designer.cs">
       <DependentUpon>ExportControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\jinxiaocunManageControl.cs">
+    <Compile Include="MyControl\More\jinxiaocunManage\jinxiaocunManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\jinxiaocunManageControl.Designer.cs">
+    <Compile Include="MyControl\More\jinxiaocunManage\jinxiaocunManageControl.Designer.cs">
       <DependentUpon>jinxiaocunManageControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\More\MoreControl.cs">
@@ -889,22 +901,34 @@
     <Compile Include="MyControl\More\MoreControl.Designer.cs">
       <DependentUpon>MoreControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\QRCodeControl.cs">
+    <Compile Include="MyControl\More\TableManage\QRCodeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\QRCodeControl.Designer.cs">
+    <Compile Include="MyControl\More\TableManage\QRCodeControl.Designer.cs">
       <DependentUpon>QRCodeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\StaffManageControl.cs">
+    <Compile Include="MyControl\More\StaffManage\StaffManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\StaffManageControl.Designer.cs">
+    <Compile Include="MyControl\More\StaffManage\StaffManageControl.Designer.cs">
       <DependentUpon>StaffManageControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyControl\More\TableManageControl.cs">
+    <Compile Include="MyControl\More\TableManage\QuYuEditControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyControl\More\TableManageControl.Designer.cs">
+    <Compile Include="MyControl\More\TableManage\QuYuEditControl.Designer.cs">
+      <DependentUpon>QuYuEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\QuYuManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\QuYuManageControl.Designer.cs">
+      <DependentUpon>QuYuManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\TableManageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\TableManage\TableManageControl.Designer.cs">
       <DependentUpon>TableManageControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\OrderManagement\OrderManageControl.cs">
@@ -1068,17 +1092,35 @@
     <Compile Include="MyForm\MemberManagement\RechargeForm.Designer.cs">
       <DependentUpon>RechargeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\More\ExportForm.cs">
+    <Compile Include="MyForm\More\TableManage\AddTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\More\ExportForm.Designer.cs">
+    <Compile Include="MyForm\More\TableManage\AddTableForm.Designer.cs">
+      <DependentUpon>AddTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\ExportForm.Designer.cs">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyForm\More\QRCodeForm.cs">
+    <Compile Include="MyForm\More\TableManage\QRCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyForm\More\QRCodeForm.Designer.cs">
+    <Compile Include="MyForm\More\TableManage\QRCodeForm.Designer.cs">
       <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\QuYuEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\TableManage\QuYuEditForm.Designer.cs">
+      <DependentUpon>QuYuEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyForm\TableSettlement\PayBillForm.cs">
       <SubType>Form</SubType>
@@ -1216,16 +1258,28 @@
     <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyControl\More\ExportControl.resx">
+    <EmbeddedResource Include="MyControl\More\TableManage\AddTableControl.resx">
+      <DependentUpon>AddTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\TableManage\EditControl.resx">
+      <DependentUpon>EditControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\TableManage\ExportControl.resx">
       <DependentUpon>ExportControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\MoreControl.resx">
       <DependentUpon>MoreControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyControl\More\QRCodeControl.resx">
+    <EmbeddedResource Include="MyControl\More\TableManage\QRCodeControl.resx">
       <DependentUpon>QRCodeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyControl\More\TableManageControl.resx">
+    <EmbeddedResource Include="MyControl\More\TableManage\QuYuEditControl.resx">
+      <DependentUpon>QuYuEditControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\TableManage\QuYuManageControl.resx">
+      <DependentUpon>QuYuManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\TableManage\TableManageControl.resx">
       <DependentUpon>TableManageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\OrderManagement\OrderManageControl.resx">
@@ -1303,11 +1357,20 @@
     <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
       <DependentUpon>RechargeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\More\ExportForm.resx">
+    <EmbeddedResource Include="MyForm\More\TableManage\AddTableForm.resx">
+      <DependentUpon>AddTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\TableManage\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\TableManage\ExportForm.resx">
       <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm\More\QRCodeForm.resx">
+    <EmbeddedResource Include="MyForm\More\TableManage\QRCodeForm.resx">
       <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\TableManage\QuYuEditForm.resx">
+      <DependentUpon>QuYuEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\TableSettlement\PayBillForm.resx">
       <DependentUpon>PayBillForm.cs</DependentUpon>

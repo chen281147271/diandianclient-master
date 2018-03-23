@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DianDianClient.MyControl.More
+namespace DianDianClient.MyControl.More.StaffManage
 {
     public partial class StaffManageControl : UserControl
     {

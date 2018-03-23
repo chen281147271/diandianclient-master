@@ -1,6 +1,6 @@
-﻿namespace DianDianClient.MyControl.More
+﻿namespace DianDianClient.MyControl.More.jinxiaocunManage
 {
-    partial class dangkouManageControl
+    partial class jinxiaocunManageControl
     {
         /// <summary> 
         /// 必需的设计器变量。
