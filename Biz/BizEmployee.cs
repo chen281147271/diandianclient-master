@@ -11,13 +11,17 @@ namespace DianDianClient.Biz
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizEmployee");
 
-        public List<v_memberrole> QueryEmployee(string name)
+        public List<v_memberrole> QueryEmployee(string name,int isDel=-1)
         {
             try {
                 DianDianEntities db = new DianDianEntities();
                 var userList = db.v_memberrole.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!name.Equals("")) {
                     userList = userList.Where(p => p.name.Contains(name));
+                }
+                if (isDel != -1)
+                {
+                    userList = userList.Where(p=>p.isDel==isDel);
                 }
                 return userList.ToList();
             }
@@ -28,14 +32,18 @@ namespace DianDianClient.Biz
             }
         }
 
-        public List<sys_role> QueryPostion()
+        public List<sys_role> QueryPostion(string isdel="")
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var roleList = db.sys_role.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-
-                return roleList.ToList();
+                if (isdel == "") {
+                    return db.sys_role.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
+                }
+                else
+                {
+                    return db.sys_role.Where(p => p.shopkey == Properties.Settings.Default.shopkey && p.isdel ==isdel).ToList();
+                }
             }
             catch (Exception e)
             {
@@ -66,9 +74,10 @@ namespace DianDianClient.Biz
                 var mem = db.member.Find(memberkey);
                 if(mem == null)
                 {
+                    mem = new member();
                     mem.name = name;
                     mem.role = posid;
-
+                    mem.isDel = 0;
                     db.member.Add(mem);
                 }
                 else
@@ -117,6 +126,19 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
+        public List<sys_right> QuerySysRight(int sysroleid)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                return db.sys_right.Where(o => o.sysroleid == sysroleid).ToList();
+            }
+            catch(Exception e)
+            {
+                log.Error("QuerySysRight error. msg=" + e.Message);
+                throw;
+            }
+        }
         //订单管理 134
         //餐桌管理 137
         //桌位结算 159
@@ -135,6 +157,11 @@ namespace DianDianClient.Biz
                 {
                     pos = new sys_role();
                     pos.rolename = posName;
+                    pos.createtime = DateTime.Now.ToString();
+                    pos.isdel = "0";
+                    pos.state = "1";
+                    pos.shopkey = Properties.Settings.Default.shopkey;
+
 
                     db.sys_role.Add(pos);
                 }
@@ -146,20 +173,21 @@ namespace DianDianClient.Biz
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(pos);
                     stateEntity.SetModifiedProperty("rolename");
                 }
-                var delList = db.sys_right.Where(p => p.sysroleid == posId && !rightList.Contains(p.menuid.Value)).ToList();
+                var delList = db.sys_right.Where(p => p.sysroleid == pos.sysroleid& !rightList.Contains(p.menuid.Value)).ToList();
                 foreach(var item in delList)
                 {
                     db.sys_right.Attach(item);
                     db.sys_right.Remove(item);
                 }
-                foreach(int menuId in rightList)
+                db.SaveChanges();
+                foreach (int menuId in rightList)
                 {
-                    var item = db.sys_right.Where(p => p.menuid == menuId && p.sysroleid == posId).FirstOrDefault();
+                    var item = db.sys_right.Where(p => p.menuid == menuId && p.sysroleid == pos.sysroleid).FirstOrDefault();
                     if(item == null)
                     {
                         item = new sys_right();
                         item.menuid = menuId;
-                        item.sysroleid = posId;
+                        item.sysroleid = Convert.ToInt32(pos.sysroleid);
                         item.userid = 1000;
                         item.type = "menu1";
                         item.optime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");

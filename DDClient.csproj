@@ -871,6 +871,36 @@
     <Compile Include="MyControl\More\dangkouManage\dangkouManageControl.Designer.cs">
       <DependentUpon>dangkouManageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\StaffManage\PWControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\PWControl.Designer.cs">
+      <DependentUpon>PWControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\YuanGongControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\YuanGongControl.Designer.cs">
+      <DependentUpon>YuanGongControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\YuanGongEidtControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\YuanGongEidtControl.Designer.cs">
+      <DependentUpon>YuanGongEidtControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\ZhiWeiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\ZhiWeiControl.Designer.cs">
+      <DependentUpon>ZhiWeiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\ZhiWeiEidtControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\StaffManage\ZhiWeiEidtControl.Designer.cs">
+      <DependentUpon>ZhiWeiEidtControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\TableManage\AddTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1092,6 +1122,24 @@
     <Compile Include="MyForm\MemberManagement\RechargeForm.Designer.cs">
       <DependentUpon>RechargeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\StaffManage\PWForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\StaffManage\PWForm.Designer.cs">
+      <DependentUpon>PWForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\StaffManage\YuanGongEidtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\StaffManage\YuanGongEidtForm.Designer.cs">
+      <DependentUpon>YuanGongEidtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\StaffManage\ZhiWeiEidtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\StaffManage\ZhiWeiEidtForm.Designer.cs">
+      <DependentUpon>ZhiWeiEidtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\More\TableManage\AddTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1258,6 +1306,24 @@
     <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\PWControl.resx">
+      <DependentUpon>PWControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\StaffManageControl.resx">
+      <DependentUpon>StaffManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\YuanGongControl.resx">
+      <DependentUpon>YuanGongControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\YuanGongEidtControl.resx">
+      <DependentUpon>YuanGongEidtControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\ZhiWeiControl.resx">
+      <DependentUpon>ZhiWeiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\StaffManage\ZhiWeiEidtControl.resx">
+      <DependentUpon>ZhiWeiEidtControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\TableManage\AddTableControl.resx">
       <DependentUpon>AddTableControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1356,6 +1422,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
       <DependentUpon>RechargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\StaffManage\PWForm.resx">
+      <DependentUpon>PWForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\StaffManage\YuanGongEidtForm.resx">
+      <DependentUpon>YuanGongEidtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\StaffManage\ZhiWeiEidtForm.resx">
+      <DependentUpon>ZhiWeiEidtForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\TableManage\AddTableForm.resx">
       <DependentUpon>AddTableForm.cs</DependentUpon>
