@@ -220,4 +220,16 @@
   <data name="zhuotiebg3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zhuotiebg3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="kaishishiyong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kaishishiyong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="printtest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printtest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stopshiyong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stopshiyong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="isdefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\isdefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

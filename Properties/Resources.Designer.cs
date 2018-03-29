@@ -153,6 +153,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap isdefault {
+            get {
+                object obj = ResourceManager.GetObject("isdefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap itemedit {
             get {
                 object obj = ResourceManager.GetObject("itemedit", resourceCulture);
@@ -166,6 +176,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap jinxiaocun {
             get {
                 object obj = ResourceManager.GetObject("jinxiaocun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap kaishishiyong {
+            get {
+                object obj = ResourceManager.GetObject("kaishishiyong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +216,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap prints {
             get {
                 object obj = ResourceManager.GetObject("prints", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap printtest {
+            get {
+                object obj = ResourceManager.GetObject("printtest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +266,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap sort {
             get {
                 object obj = ResourceManager.GetObject("sort", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap stopshiyong {
+            get {
+                object obj = ResourceManager.GetObject("stopshiyong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

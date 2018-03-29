@@ -11,7 +11,7 @@ namespace DianDianClient.Biz
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizBillController");
 
-        public List<dd_printers> QueryPrinters(int useState, string printername)
+        public List<dd_printers> QueryPrinters(int? useState, string printername)
         {
             try
             {
@@ -34,8 +34,26 @@ namespace DianDianClient.Biz
             }
 
         }
+        private void setPrintetisdefault()
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var temp = db.dd_printers.ToList();
+                foreach( var a in temp)
+                {
+                    a.isdefault = 0;
+                }
+                db.SaveChanges();
 
-        public void AddPrinter(string printername, int shopid, string pstatus, int psize, int pbites, int isdefault)
+            }
+            catch(Exception e)
+            {
+                log.Error("setPrintetisdefault error. msg=" + e.Message);
+                throw;
+            }
+        }
+        public void AddPrinter(string printername, int status, int isdefault)
         {
             try
             {
@@ -45,9 +63,9 @@ namespace DianDianClient.Biz
                 {
                     printer = new dd_printers();
                     printer.printername = printername;
-                    printer.status = 0;
-                    printer.shopid = shopid;
-                    printer.pstatus = pstatus;
+                    printer.status = status;
+                    printer.shopid = Properties.Settings.Default.shopkey;
+                    printer.pstatus = "0";
                     printer.psize = 58;
                     printer.pbites = 19200;
                     printer.isdefault = isdefault;
@@ -57,10 +75,18 @@ namespace DianDianClient.Biz
                 }
                 else
                 {
-                    printer.pstatus = pstatus;
+                    printer.pstatus = "0";
+                    printer.isdefault = isdefault;
+                    printer.status = status;
                     db.dd_printers.Attach(printer);
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(printer);
                     stateEntity.SetModifiedProperty("pstatus");
+                    stateEntity.SetModifiedProperty("isdefault");
+                    stateEntity.SetModifiedProperty("status");
+                    if (status == 1)
+                    {
+                        setPrintetisdefault();
+                    }
                     db.SaveChanges();
                 }
             }
@@ -70,7 +96,41 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-        
+        public void AddPrinter(string printername)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                dd_printers printer = QueryPrinters(2, printername).FirstOrDefault();
+                if (printer == null)
+                {
+                    printer = new dd_printers();
+                    printer.printername = printername;
+                    printer.status = 0;
+                    printer.shopid = Properties.Settings.Default.shopkey;
+                    printer.pstatus = "0";
+                    printer.psize = 58;
+                    printer.pbites = 19200;
+                    printer.isdefault = 0;
+
+                    db.dd_printers.Add(printer);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    printer.pstatus = "0";
+                    db.dd_printers.Attach(printer);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(printer);
+                    stateEntity.SetModifiedProperty("pstatus");;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error("AddPrinter error. msg=" + e.Message);
+                throw;
+            }
+        }
         public void delPrinter()
         {
             try

@@ -865,11 +865,35 @@
     <Compile Include="MyControl\More\cantingSetUp\cantingSetUpControl.Designer.cs">
       <DependentUpon>cantingSetUpControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\dangkouManage\AddPrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\AddPrintControl.Designer.cs">
+      <DependentUpon>AddPrintControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\dangkouManage\dangkouManageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyControl\More\dangkouManage\dangkouManageControl.Designer.cs">
       <DependentUpon>dangkouManageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\EditdangkouControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\EditdangkouControl.Designer.cs">
+      <DependentUpon>EditdangkouControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\PrintSetUpControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\PrintSetUpControl.Designer.cs">
+      <DependentUpon>PrintSetUpControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\QuerydangkouControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\dangkouManage\QuerydangkouControl.Designer.cs">
+      <DependentUpon>QuerydangkouControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\More\StaffManage\PWControl.cs">
       <SubType>UserControl</SubType>
@@ -1122,6 +1146,18 @@
     <Compile Include="MyForm\MemberManagement\RechargeForm.Designer.cs">
       <DependentUpon>RechargeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\dangkouManage\AddPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\dangkouManage\AddPrintForm.Designer.cs">
+      <DependentUpon>AddPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\dangkouManage\EditdangkouForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\dangkouManage\EditdangkouForm.Designer.cs">
+      <DependentUpon>EditdangkouForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\More\StaffManage\PWForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1306,6 +1342,21 @@
     <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\dangkouManage\AddPrintControl.resx">
+      <DependentUpon>AddPrintControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\dangkouManage\dangkouManageControl.resx">
+      <DependentUpon>dangkouManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\dangkouManage\EditdangkouControl.resx">
+      <DependentUpon>EditdangkouControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\dangkouManage\PrintSetUpControl.resx">
+      <DependentUpon>PrintSetUpControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\dangkouManage\QuerydangkouControl.resx">
+      <DependentUpon>QuerydangkouControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\StaffManage\PWControl.resx">
       <DependentUpon>PWControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1422,6 +1473,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\MemberManagement\RechargeForm.resx">
       <DependentUpon>RechargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\dangkouManage\AddPrintForm.resx">
+      <DependentUpon>AddPrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\dangkouManage\EditdangkouForm.resx">
+      <DependentUpon>EditdangkouForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\StaffManage\PWForm.resx">
       <DependentUpon>PWForm.cs</DependentUpon>
@@ -1565,6 +1622,10 @@
     <None Include="Resources\zhuopaibg3.png" />
     <None Include="Resources\zhuotiebg2.png" />
     <None Include="Resources\zhuotiebg3.png" />
+    <None Include="Resources\kaishishiyong.png" />
+    <None Include="Resources\printtest.png" />
+    <None Include="Resources\stopshiyong.png" />
+    <None Include="Resources\isdefault.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

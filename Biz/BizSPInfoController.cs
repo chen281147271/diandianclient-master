@@ -31,7 +31,7 @@ namespace DianDianClient.Biz
         }
 
         //15. 添加修改档口
-        public void UpdateStall(int shopid, int id, string name, string desc, string printname, int printnum, bool isdefault, int status, bool isprintexcep, bool isyicaiyidan)
+        public void UpdateStall(int id, string name, string desc, string printname, int printnum, bool isdefault, int status, bool isprintexcep, bool isyicaiyidan)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace DianDianClient.Biz
                 if(window == null)
                 {
                     window = new dd_shop_windows();
-                    window.shopid = shopid;
+                    window.shopid = Properties.Settings.Default.shopkey;
                     window.windowname = name;
                     window.windowdesc = desc;
                     window.printname = printname;
@@ -54,7 +54,7 @@ namespace DianDianClient.Biz
                 }
                 else
                 {
-                    window.shopid = shopid;
+                    window.shopid = Properties.Settings.Default.shopkey;
                     window.windowname = name;
                     window.windowdesc = desc;
                     window.printname = printname;
@@ -67,8 +67,8 @@ namespace DianDianClient.Biz
                     db.dd_shop_windows.Attach(window);
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(window);
                     stateEntity.SetModifiedProperty("shopid");
-                    stateEntity.SetModifiedProperty("name");
-                    stateEntity.SetModifiedProperty("desc");
+                    stateEntity.SetModifiedProperty("windowname");
+                    stateEntity.SetModifiedProperty("windowdesc");
                     stateEntity.SetModifiedProperty("printname");
                     stateEntity.SetModifiedProperty("printnum");
                     stateEntity.SetModifiedProperty("isdefault");
