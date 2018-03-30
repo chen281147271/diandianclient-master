@@ -24,5 +24,6 @@ namespace DianDianClient.Models
         public Nullable<int> genreid { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<sbyte> state { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

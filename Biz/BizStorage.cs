@@ -11,6 +11,7 @@ namespace DianDianClient.Biz
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizStorage");
 
+        //查询原料
         public List<storage_crude> QueryCrude(string crudename, int genreid)
         {
             try
@@ -35,6 +36,7 @@ namespace DianDianClient.Biz
             }
         }
 
+        //保存原料
         public void SaveCrude(int crudeid, int genreid, string crudename, string unit)
         {
             try
@@ -73,7 +75,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //删除原料
         public void DelCrude(int crudeid)
         {
             try
@@ -94,7 +96,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //原料分类
         public List<storage_genre> QueryGenre()
         {
             try
@@ -108,7 +110,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //保存原料分类
         public void SaveGenre(int genreId, string genrename)
         {
             try
@@ -142,7 +144,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //删除原料分类
         public void DelGenre(int genreid)
         {
             try
@@ -163,6 +165,7 @@ namespace DianDianClient.Biz
             }
         }
 
+        //库存
         public List<v_stock_crude> QueryStock(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
@@ -212,7 +215,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //估清
         public void StockEstimateClear()
         {
             try
@@ -235,7 +238,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //修改有效期
         public void StockModifyValidate(int crudeid, DateTime validate, DateTime changedate)
         {
             try
@@ -266,7 +269,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //入库
         public List<v_depotin_crude> QueryDepotIn(string itemname, DateTime validate, DateTime sdate, DateTime edate, string dutyperson, string deliveryman, string categoryname)
         {
             try
@@ -322,7 +325,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //入库明细
         public List<v_depotin_crude> QueryDepotDetail(int depotinid)
         {
             try
@@ -338,7 +341,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //出库/总表
         public List<v_depotout_crude> QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
@@ -388,7 +391,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //添加入库
         public void AddDepotIn(decimal cost, string dutyperson, string deliveryman, string deliveryphone, string driver, string platenum)
         {
             try
@@ -412,7 +415,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //损益
         public List<v_storagelossorspill_crude> QueryLossOrSpillInfo(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
@@ -462,7 +465,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
+        //添加损益
         public void AddLossOrSpillInfo(int crudeid, int num, sbyte type, string reason)
         {
             try

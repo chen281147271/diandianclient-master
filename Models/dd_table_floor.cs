@@ -22,5 +22,6 @@ namespace DianDianClient.Models
         public Nullable<System.DateTime> createdate { get; set; }
         public Nullable<int> orderno { get; set; }
         public Nullable<decimal> ffuwu { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

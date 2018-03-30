@@ -30,6 +30,7 @@ namespace DianDianClient.Models
         public Nullable<int> enable { get; set; }
         public Nullable<int> orderNo { get; set; }
         public Nullable<int> isDel { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<item> item { get; set; }

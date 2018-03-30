@@ -24,5 +24,6 @@ namespace DianDianClient.Models
         public string isdel { get; set; }
         public Nullable<int> agentid { get; set; }
         public string rtype { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

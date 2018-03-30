@@ -572,6 +572,7 @@
           <Property Name="ismarketing" Type="int" />
           <Property Name="maxmoney" Type="decimal" Precision="10" Scale="2" />
           <Property Name="maxnum" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_emp_floor">
           <Key>
@@ -1077,6 +1078,7 @@
           <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="orderno" Type="int" />
           <Property Name="ffuwu" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_tuijian">
           <Key>
@@ -1286,6 +1288,7 @@
           <Property Name="ispayagio" Type="tinyint" />
           <Property Name="ismust" Type="tinyint" />
           <Property Name="isware" Type="tinyint" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="item_category">
           <Key>
@@ -1300,6 +1303,7 @@
           <Property Name="enable" Type="int" />
           <Property Name="orderNo" Type="int" />
           <Property Name="isDel" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="item_category_map">
           <Key>
@@ -1389,6 +1393,7 @@
           <Property Name="lng" Type="decimal" Precision="10" Scale="6" Nullable="false" />
           <Property Name="role" Type="int" />
           <Property Name="agentid" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="member_notice">
           <Key>
@@ -1866,6 +1871,7 @@
           <Property Name="genreid" Type="int" />
           <Property Name="shopkey" Type="int" />
           <Property Name="state" Type="tinyint" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="storage_depot">
           <Key>
@@ -2084,6 +2090,7 @@
           <Property Name="isdel" Type="varchar" MaxLength="2" />
           <Property Name="agentid" Type="int" />
           <Property Name="rtype" Type="varchar" MaxLength="2" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="t_document">
           <Key>
@@ -2146,6 +2153,7 @@
           <Property Name="shopuserid" Type="int" />
           <Property Name="shopusername" Type="varchar" MaxLength="60" />
           <Property Name="tfuwu" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="turn_user_record">
           <Key>
@@ -4610,6 +4618,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="ismarketing" Type="Int32" />
           <Property Name="maxmoney" Type="Decimal" />
           <Property Name="maxnum" Type="Int32" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_false_data">
           <Key>
@@ -5142,6 +5151,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="shop_item_record" Relationship="Self.FK_Reference_36" FromRole="item" ToRole="shop_item_record" />
           <NavigationProperty Name="item_category_map" Relationship="Self.FK_Reference_56" FromRole="item" ToRole="item_category_map" />
           <NavigationProperty Name="item_comment" Relationship="Self.FK_Reference_6" FromRole="item" ToRole="item_comment" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="item_category">
           <Key>
@@ -5159,6 +5169,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="item" Relationship="Self.FK_Reference_2" FromRole="item_category" ToRole="item" />
           <NavigationProperty Name="shop" Relationship="Self.FK_Reference_21" FromRole="item_category" ToRole="shop" />
           <NavigationProperty Name="item_category_map" Relationship="Self.FK_Reference_57" FromRole="item_category" ToRole="item_category_map" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="item_category_map">
           <Key>
@@ -5266,6 +5277,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="shop_oper_log" Relationship="Self.FK_Reference_37" FromRole="member" ToRole="shop_oper_log" />
           <NavigationProperty Name="pay_bill" Relationship="Self.FK_Reference_48" FromRole="member" ToRole="pay_bill" />
           <NavigationProperty Name="sys_oper_log" Relationship="Self.FK_Reference_sys_log_memberkey" FromRole="member" ToRole="sys_oper_log" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="member_notice">
           <Key>
@@ -5784,6 +5796,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="isdel" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="agentid" Type="Int32" />
           <Property Name="rtype" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="t_document">
           <Key>
@@ -7241,6 +7254,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="createdate" Type="DateTime" />
           <Property Name="orderno" Type="Int32" />
           <Property Name="ffuwu" Type="Decimal" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="v_memberrole">
           <Key>
@@ -7316,6 +7330,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="genreid" Type="Int32" />
           <Property Name="shopkey" Type="Int32" />
           <Property Name="state" Type="SByte" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="storage_depot">
           <Key>
@@ -7965,6 +7980,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="shopusername" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="tfuwu" Type="Decimal" />
           <NavigationProperty Name="shop" Relationship="diandianModel.table_pos_ibfk_1" FromRole="table_pos" ToRole="shop" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <Association Name="table_pos_ibfk_1">
           <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
@@ -8327,6 +8343,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_coupons">
             <EntityTypeMapping TypeName="diandianModel.dd_coupons">
               <MappingFragment StoreEntitySet="dd_coupons">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="couponid" ColumnName="couponid" />
                 <ScalarProperty Name="cname" ColumnName="cname" />
                 <ScalarProperty Name="cdesc" ColumnName="cdesc" />
@@ -8867,6 +8884,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="item">
             <EntityTypeMapping TypeName="diandianModel.item">
               <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="itemkey" ColumnName="itemkey" />
                 <ScalarProperty Name="itemCode" ColumnName="itemCode" />
                 <ScalarProperty Name="itemType" ColumnName="itemType" />
@@ -8909,6 +8927,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="item_category">
             <EntityTypeMapping TypeName="diandianModel.item_category">
               <MappingFragment StoreEntitySet="item_category">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="itemcategorykey" ColumnName="itemcategorykey" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="itemCategoryCode" ColumnName="itemCategoryCode" />
@@ -8983,6 +9002,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="member">
             <EntityTypeMapping TypeName="diandianModel.member">
               <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="memberkey" ColumnName="memberkey" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="postkey" ColumnName="postkey" />
@@ -9505,6 +9525,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="sys_role">
             <EntityTypeMapping TypeName="diandianModel.sys_role">
               <MappingFragment StoreEntitySet="sys_role">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="sysroleid" ColumnName="sysroleid" />
                 <ScalarProperty Name="superroleid" ColumnName="superroleid" />
                 <ScalarProperty Name="rolename" ColumnName="rolename" />
@@ -10161,6 +10182,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_table_floor">
             <EntityTypeMapping TypeName="diandianModel.dd_table_floor">
               <MappingFragment StoreEntitySet="dd_table_floor">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="ffuwu" ColumnName="ffuwu" />
                 <ScalarProperty Name="orderno" ColumnName="orderno" />
                 <ScalarProperty Name="createdate" ColumnName="createdate" />
@@ -10236,6 +10258,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="storage_crude">
             <EntityTypeMapping TypeName="diandianModel.storage_crude">
               <MappingFragment StoreEntitySet="storage_crude">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="genreid" ColumnName="genreid" />
@@ -10877,6 +10900,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="table_pos">
             <EntityTypeMapping TypeName="diandianModel.table_pos">
               <MappingFragment StoreEntitySet="table_pos">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="tfuwu" ColumnName="tfuwu" />
                 <ScalarProperty Name="shopusername" ColumnName="shopusername" />
                 <ScalarProperty Name="shopuserid" ColumnName="shopuserid" />

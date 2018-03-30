@@ -32,5 +32,6 @@ namespace DianDianClient.Models
         public Nullable<int> ismarketing { get; set; }
         public Nullable<decimal> maxmoney { get; set; }
         public Nullable<int> maxnum { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }
