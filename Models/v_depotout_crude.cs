@@ -34,5 +34,7 @@ namespace DianDianClient.Models
         public Nullable<sbyte> type { get; set; }
         public int outinfoid { get; set; }
         public Nullable<System.DateTime> createdate { get; set; }
+        public string categoryName { get; set; }
+        public string itemName { get; set; }
     }
 }

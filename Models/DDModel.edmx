@@ -2616,6 +2616,8 @@
           <Property Name="type" Type="tinyint" />
           <Property Name="outinfoid" Type="int" Nullable="false" />
           <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="categoryName" Type="varchar" MaxLength="32" />
+          <Property Name="itemName" Type="varchar" MaxLength="256" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_emp_floor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3355,6 +3357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ClearItemSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
         <EntityContainer Name="diandianModelStoreContainer">
           <EntitySet Name="allot_account" EntityType="Self.allot_account" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="allot_account_false" EntityType="Self.allot_account_false" Schema="diandian" store:Type="Tables" />
@@ -3904,7 +3907,9 @@ FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
 `v_depotout_crude`.`depinout_salemoney`, 
 `v_depotout_crude`.`type`, 
 `v_depotout_crude`.`outinfoid`, 
-`v_depotout_crude`.`createdate`
+`v_depotout_crude`.`createdate`, 
+`v_depotout_crude`.`categoryName`, 
+`v_depotout_crude`.`itemName`
 FROM `v_depotout_crude` AS `v_depotout_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_emp_floor" EntityType="Self.v_emp_floor" store:Type="Views" store:Schema="diandian">
@@ -6759,6 +6764,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="shop" EntitySet="shop" />
             <End Role="table_pos" EntitySet="table_pos" />
           </AssociationSet>
+          <FunctionImport Name="ClearItemSyncFlag" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -7511,6 +7517,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="type" Type="SByte" />
           <Property Name="outinfoid" Type="Int32" Nullable="false" />
           <Property Name="createdate" Type="DateTime" />
+          <Property Name="categoryName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="itemName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="storage_stock">
           <Key>
@@ -10441,6 +10449,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotout_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotout_crude">
               <MappingFragment StoreEntitySet="v_depotout_crude">
+                <ScalarProperty Name="itemName" ColumnName="itemName" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
                 <ScalarProperty Name="createdate" ColumnName="createdate" />
                 <ScalarProperty Name="outinfoid" ColumnName="outinfoid" />
                 <ScalarProperty Name="type" ColumnName="type" />
@@ -10921,6 +10931,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ClearItemSyncFlag" FunctionName="diandianModel.Store.ClearItemSyncFlag" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

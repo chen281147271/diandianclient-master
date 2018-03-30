@@ -13,7 +13,7 @@ namespace DianDianClient.Biz
     class SyncClient
     {
         static log4net.ILog log = log4net.LogManager.GetLogger("SyncClient");
-        private DianDianEntities db = new DianDianEntities();
+        //private DianDianEntities db = new DianDianEntities();
         static public String token = "";
         static public bool needSyncCC = false;
         static public bool needSyncYL = false;
@@ -45,6 +45,7 @@ namespace DianDianClient.Biz
         public void SyncMethod()
         {
             var json = "";
+            DianDianEntities db = new DianDianEntities();
             RestClient client = new RestClient();
             client.ContentType = "application/json";
             while (true)
@@ -88,10 +89,26 @@ namespace DianDianClient.Biz
 
         public void SyncInfoList()
         {
+            var json = "";
+            DianDianEntities db = new DianDianEntities();
+            RestClient client = new RestClient();
+            client.ContentType = "application/json";
+            client.Method = HttpVerb.POST;
+            var strShopkey = "?shopkey=" + Properties.Settings.Default.shopkey;
             while (true)
             {
+                //增量同步药品
+                var foodList = db.item.Where(p => p.syncFlag == 1).ToList();
+                client.EndPoint = SysConstant.WEBURI+SysConstant.SYNCITEMURL+strShopkey;
+                client.PostData = JsonConvert.SerializeObject(foodList);
+
+                json = client.MakeRequest();
+                log.Debug(json.ToString());
+                db.ClearItemSyncFlag();
+
+
                 //库存同步
-                if(needSyncCC)
+                if (needSyncCC)
                 {
 
                 }

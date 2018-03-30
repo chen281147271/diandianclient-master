@@ -12,6 +12,8 @@ namespace DianDianClient.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DianDianEntities : DbContext
     {
@@ -183,5 +185,10 @@ namespace DianDianClient.Models
         public virtual DbSet<v_mem_card_shop> v_mem_card_shop { get; set; }
         public virtual DbSet<v_card_record_shop> v_card_record_shop { get; set; }
         public virtual DbSet<table_pos> table_pos { get; set; }
+    
+        public virtual int ClearItemSyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearItemSyncFlag");
+        }
     }
 }
