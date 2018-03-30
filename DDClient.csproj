@@ -1390,6 +1390,18 @@
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\jinxiaocunManageControl.resx">
       <DependentUpon>jinxiaocunManageControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\kucunControl.resx">
+      <DependentUpon>kucunControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\rukuControl.resx">
+      <DependentUpon>rukuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\sunyiControl.resx">
+      <DependentUpon>sunyiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\yuanliaoControl.resx">
+      <DependentUpon>yuanliaoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\zongControl.resx">
       <DependentUpon>zongControl.cs</DependentUpon>
     </EmbeddedResource>

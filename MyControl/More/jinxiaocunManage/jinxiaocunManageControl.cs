@@ -98,15 +98,15 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
                     break;
                 case "损益表":
                     ReplaceControl(2);
-                    ichecked = 1;
+                    ichecked = 2;
                     break;
                 case "库存表":
                     ReplaceControl(3);
-                    ichecked = 1;
+                    ichecked = 3;
                     break;
                 case "原料管理":
                     ReplaceControl(4);
-                    ichecked = 1;
+                    ichecked = 4;
                     break;
 
             }
