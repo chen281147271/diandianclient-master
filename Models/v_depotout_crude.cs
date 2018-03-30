@@ -36,5 +36,7 @@ namespace DianDianClient.Models
         public Nullable<System.DateTime> createdate { get; set; }
         public string categoryName { get; set; }
         public string itemName { get; set; }
+        public string genrename { get; set; }
+        public Nullable<int> remainnum { get; set; }
     }
 }

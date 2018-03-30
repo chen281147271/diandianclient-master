@@ -2618,6 +2618,8 @@
           <Property Name="createdate" Type="datetime" Precision="0" />
           <Property Name="categoryName" Type="varchar" MaxLength="32" />
           <Property Name="itemName" Type="varchar" MaxLength="256" />
+          <Property Name="genrename" Type="varchar" MaxLength="10" />
+          <Property Name="remainnum" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_emp_floor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3909,7 +3911,9 @@ FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
 `v_depotout_crude`.`outinfoid`, 
 `v_depotout_crude`.`createdate`, 
 `v_depotout_crude`.`categoryName`, 
-`v_depotout_crude`.`itemName`
+`v_depotout_crude`.`itemName`, 
+`v_depotout_crude`.`genrename`, 
+`v_depotout_crude`.`remainnum`
 FROM `v_depotout_crude` AS `v_depotout_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_emp_floor" EntityType="Self.v_emp_floor" store:Type="Views" store:Schema="diandian">
@@ -7519,6 +7523,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="createdate" Type="DateTime" />
           <Property Name="categoryName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="itemName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="remainnum" Type="Int32" />
         </EntityType>
         <EntityType Name="storage_stock">
           <Key>
@@ -10449,6 +10455,8 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotout_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotout_crude">
               <MappingFragment StoreEntitySet="v_depotout_crude">
+                <ScalarProperty Name="remainnum" ColumnName="remainnum" />
+                <ScalarProperty Name="genrename" ColumnName="genrename" />
                 <ScalarProperty Name="itemName" ColumnName="itemName" />
                 <ScalarProperty Name="categoryName" ColumnName="categoryName" />
                 <ScalarProperty Name="createdate" ColumnName="createdate" />
