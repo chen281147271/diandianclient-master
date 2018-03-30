@@ -895,6 +895,36 @@
     <Compile Include="MyControl\More\dangkouManage\QuerydangkouControl.Designer.cs">
       <DependentUpon>QuerydangkouControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\kucunControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\kucunControl.Designer.cs">
+      <DependentUpon>kucunControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\rukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\rukuControl.Designer.cs">
+      <DependentUpon>rukuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\sunyiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\sunyiControl.Designer.cs">
+      <DependentUpon>sunyiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\yuanliaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\yuanliaoControl.Designer.cs">
+      <DependentUpon>yuanliaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\zongControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\zongControl.Designer.cs">
+      <DependentUpon>zongControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\StaffManage\PWControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1356,6 +1386,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\dangkouManage\QuerydangkouControl.resx">
       <DependentUpon>QuerydangkouControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\jinxiaocunManageControl.resx">
+      <DependentUpon>jinxiaocunManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\zongControl.resx">
+      <DependentUpon>zongControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\StaffManage\PWControl.resx">
       <DependentUpon>PWControl.cs</DependentUpon>
