@@ -73,6 +73,7 @@ namespace DianDianClient.Biz
                 ic.itemCategoryCode = code;
                 ic.orderNo = orderNo;
                 ic.enable = enable;
+                ic.syncFlag = 1;
 
                 db.item_category.Add(ic);
                 db.SaveChanges();
@@ -95,6 +96,7 @@ namespace DianDianClient.Biz
                 ic.itemCategoryCode = code;
                 ic.orderNo = orderNo;
                 ic.enable = enable;
+                ic.syncFlag = 1;
 
                 db.item_category.Attach(ic);
                 var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(ic);
@@ -102,6 +104,7 @@ namespace DianDianClient.Biz
                 stateEntity.SetModifiedProperty("itemCategoryCode");
                 stateEntity.SetModifiedProperty("orderNo");
                 stateEntity.SetModifiedProperty("enable");
+                stateEntity.SetModifiedProperty("syncFlag");
                 db.SaveChanges();
             }
             catch (Exception e)
@@ -201,6 +204,7 @@ namespace DianDianClient.Biz
                     bean.ispayagio = ispayagio;
                     bean.ismust = ismust;
                     bean.introduce = introduce;
+                    bean.syncFlag = 1;
 
                     db.item.Add(bean);                    
                 }
@@ -221,6 +225,7 @@ namespace DianDianClient.Biz
                     bean.ispayagio = ispayagio;
                     bean.ismust = ismust;
                     bean.introduce = introduce;
+                    bean.syncFlag = 1;
 
                     db.item.Attach(bean);
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(bean);
@@ -238,6 +243,7 @@ namespace DianDianClient.Biz
                     stateEntity.SetModifiedProperty("ispayagio");
                     stateEntity.SetModifiedProperty("ismust");
                     stateEntity.SetModifiedProperty("introduce");
+                    stateEntity.SetModifiedProperty("syncFlag");
                 }
 
                 
@@ -427,7 +433,7 @@ namespace DianDianClient.Biz
                 {
                     storage_item_crude ic = db.storage_item_crude.Find(sid);
                     ic.num = num;
-                    ic.type = type;
+                    ic.type = type;                    
 
                     db.storage_item_crude.Attach(ic);
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(ic);
@@ -479,10 +485,12 @@ namespace DianDianClient.Biz
                 DianDianEntities db = new DianDianEntities();
                 item ic = db.item.Find(itemKey);
                 ic.state = state;
+                ic.syncFlag = 1;
 
                 db.item.Attach(ic);
                 var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(ic);
                 stateEntity.SetModifiedProperty("state");
+                stateEntity.SetModifiedProperty("syncFlag");
                 db.SaveChanges();
             }
             catch (Exception e)

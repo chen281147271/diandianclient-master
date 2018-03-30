@@ -60,6 +60,7 @@ namespace DianDianClient.Models
         public Nullable<sbyte> ispayagio { get; set; }
         public Nullable<sbyte> ismust { get; set; }
         public Nullable<sbyte> isware { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cf_detail> cf_detail { get; set; }

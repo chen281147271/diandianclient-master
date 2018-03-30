@@ -60,6 +60,7 @@ namespace DianDianClient.Models
         public decimal lng { get; set; }
         public Nullable<int> role { get; set; }
         public Nullable<int> agentid { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cf_member> cf_member { get; set; }
