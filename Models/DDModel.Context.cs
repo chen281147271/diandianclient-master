@@ -190,5 +190,26 @@ namespace DianDianClient.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearItemSyncFlag");
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> GetSumSaleMoney(string itemname, string categoryname, Nullable<System.DateTime> sdate, Nullable<System.DateTime> edate)
+        {
+            var itemnameParameter = itemname != null ?
+                new ObjectParameter("itemname", itemname) :
+                new ObjectParameter("itemname", typeof(string));
+    
+            var categorynameParameter = categoryname != null ?
+                new ObjectParameter("categoryname", categoryname) :
+                new ObjectParameter("categoryname", typeof(string));
+    
+            var sdateParameter = sdate.HasValue ?
+                new ObjectParameter("sdate", sdate) :
+                new ObjectParameter("sdate", typeof(System.DateTime));
+    
+            var edateParameter = edate.HasValue ?
+                new ObjectParameter("edate", edate) :
+                new ObjectParameter("edate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetSumSaleMoney", itemnameParameter, categorynameParameter, sdateParameter, edateParameter);
+        }
     }
 }

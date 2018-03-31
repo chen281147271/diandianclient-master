@@ -3360,6 +3360,12 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="ClearItemSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
+        <Function Name="GetSumSaleMoney" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian">
+          <Parameter Name="itemname" Type="varchar" Mode="In" />
+          <Parameter Name="categoryname" Type="varchar" Mode="In" />
+          <Parameter Name="sdate" Type="datetime" Mode="In" />
+          <Parameter Name="edate" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="diandianModelStoreContainer">
           <EntitySet Name="allot_account" EntityType="Self.allot_account" Schema="diandian" store:Type="Tables" />
           <EntitySet Name="allot_account_false" EntityType="Self.allot_account_false" Schema="diandian" store:Type="Tables" />
@@ -6769,6 +6775,12 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="table_pos" EntitySet="table_pos" />
           </AssociationSet>
           <FunctionImport Name="ClearItemSyncFlag" />
+          <FunctionImport Name="GetSumSaleMoney" ReturnType="Collection(Decimal)">
+            <Parameter Name="itemname" Mode="In" Type="String" />
+            <Parameter Name="categoryname" Mode="In" Type="String" />
+            <Parameter Name="sdate" Mode="In" Type="DateTime" />
+            <Parameter Name="edate" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -10940,6 +10952,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ClearItemSyncFlag" FunctionName="diandianModel.Store.ClearItemSyncFlag" />
+          <FunctionImportMapping FunctionImportName="GetSumSaleMoney" FunctionName="diandianModel.Store.GetSumSaleMoney" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

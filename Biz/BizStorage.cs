@@ -11,6 +11,12 @@ namespace DianDianClient.Biz
     {
         log4net.ILog log = log4net.LogManager.GetLogger("BizStorage");
 
+        public class QueryDepotOutResult
+        {
+            public List<v_depotout_crude> depotoutList { get; set; }
+            public decimal salemoney { get; set; }
+            public decimal buymoney { get; set; }
+        }
         //查询原料
         public List<storage_crude> QueryCrude(string crudename, int genreid)
         {
@@ -342,11 +348,13 @@ namespace DianDianClient.Biz
             }
         }
         //出库/总表
-        public List<v_depotout_crude> QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
+        public QueryDepotOutResult QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
             {
                 bool includeItem = false;
+                QueryDepotOutResult resultbean = new QueryDepotOutResult();
+                resultbean.salemoney = 0;
                 DianDianEntities db = new DianDianEntities();
                 var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!itemname.Equals(""))
@@ -383,7 +391,27 @@ namespace DianDianClient.Biz
                 {
                     stockList = stockList.Where(p => includeCrudeList.Contains(p.crudeid));
                 }
-                return stockList.ToList();
+                resultbean.depotoutList = stockList.ToList();
+                var rsl = db.GetSumSaleMoney(itemname, categoryname, sdate, edate).FirstOrDefault();
+                if(rsl != null)
+                {
+                    resultbean.salemoney = rsl.Value;
+                }
+                var rsl2 = db.storage_depotin.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (sdate != null)
+                {
+                    rsl2 = rsl2.Where(p => p.createdate >= sdate);
+                }
+                if (sdate != null)
+                {
+                    rsl2 = rsl2.Where(p => p.createdate <= edate);
+                }
+                if(rsl2 != null)
+                {
+                    resultbean.buymoney = rsl2.Sum(p => p.cost).Value;
+                }               
+                
+                return resultbean;
             }
             catch (Exception e)
             {
@@ -391,6 +419,7 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
+        
         //添加入库
         public void AddDepotIn(decimal cost, string dutyperson, string deliveryman, string deliveryphone, string driver, string platenum)
         {
