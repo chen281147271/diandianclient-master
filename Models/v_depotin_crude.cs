@@ -45,5 +45,6 @@ namespace DianDianClient.Models
         public string addr { get; set; }
         public string tel { get; set; }
         public Nullable<sbyte> depot_state { get; set; }
+        public string genrename { get; set; }
     }
 }

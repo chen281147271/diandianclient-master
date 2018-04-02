@@ -2589,6 +2589,7 @@
           <Property Name="addr" Type="varchar" MaxLength="50" />
           <Property Name="tel" Type="varchar" MaxLength="20" />
           <Property Name="depot_state" Type="tinyint" />
+          <Property Name="genrename" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_depotout_crude”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -3891,7 +3892,8 @@ FROM `v_dd_shop_users_count` AS `v_dd_shop_users_count`</DefiningQuery>
 `v_depotin_crude`.`depotname`, 
 `v_depotin_crude`.`addr`, 
 `v_depotin_crude`.`tel`, 
-`v_depotin_crude`.`depot_state`
+`v_depotin_crude`.`depot_state`, 
+`v_depotin_crude`.`genrename`
 FROM `v_depotin_crude` AS `v_depotin_crude`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_depotout_crude" EntityType="Self.v_depotout_crude" store:Type="Views" store:Schema="diandian">
@@ -7638,6 +7640,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="depot_state" Type="SByte" />
+          <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="v_shop_depot">
           <Key>
@@ -10566,6 +10569,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="v_depotin_crude">
             <EntityTypeMapping TypeName="diandianModel.v_depotin_crude">
               <MappingFragment StoreEntitySet="v_depotin_crude">
+                <ScalarProperty Name="genrename" ColumnName="genrename" />
                 <ScalarProperty Name="depot_state" ColumnName="depot_state" />
                 <ScalarProperty Name="tel" ColumnName="tel" />
                 <ScalarProperty Name="addr" ColumnName="addr" />
