@@ -297,7 +297,9 @@ namespace DianDianClient.Biz
                 var includeCrudeList = db.v_item_crude.Where(p => itemcrudeList.Contains(p.itemkey)).Select(p => p.crudeid).ToList();
 
 
-                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                // var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                var depotInList = db.v_depotin_crude.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
+                int aaa = depotInList.Count();
                 if (validate != null)
                 {
                     depotInList = depotInList.Where(p => p.validity <= validate);
@@ -348,7 +350,7 @@ namespace DianDianClient.Biz
             }
         }
         //出库/总表
-        public QueryDepotOutResult QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
+        public QueryDepotOutResult QueryDepotOut(string itemname, string categoryname, string crudename, string genrename, DateTime sdate, DateTime edate)
         {
             try
             {
@@ -375,9 +377,13 @@ namespace DianDianClient.Biz
                 {
                     stockList = stockList.Where(p => p.crudename.Contains(crudename));
                 }
-                if (genreid != 0)
+                //if (genreid != 0)
+                //{
+                //    stockList = stockList.Where(p => p.genreid == genreid);
+                //}
+                if (!genrename.Equals(""))
                 {
-                    stockList = stockList.Where(p => p.genreid == genreid);
+                    stockList = stockList.Where(p => p.genrename == genrename);
                 }
                 if (sdate != null)
                 {
@@ -406,9 +412,9 @@ namespace DianDianClient.Biz
                 {
                     rsl2 = rsl2.Where(p => p.createdate <= edate);
                 }
-                if(rsl2 != null)
+                if (rsl2.Count()>0)
                 {
-                    resultbean.buymoney = rsl2.Sum(p => p.cost).Value;
+                    resultbean.buymoney = (rsl2.Sum(p => p.cost).Value);
                 }               
                 
                 return resultbean;

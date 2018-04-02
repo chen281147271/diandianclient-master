@@ -9,31 +9,24 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyControl.More.jinxiaocunManage
 {
-    public partial class zongControl : UserControl
+    public partial class detailrukuControl : UserControl
     {
-        Biz.BizStorage BizStorage = new Biz.BizStorage();
-        Biz.BizStorage.QueryDepotOutResult queryDepotOut;
-        List<Models.v_depotout_crude> list;
+        Biz.BizStorage bizStorage = new Biz.BizStorage();
+        List<Models.v_depotin_crude> list;
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
-        public zongControl()
+        bool isfirst = true;
+        public detailrukuControl( int depotinid)
         {
             InitializeComponent();
-            string s_date = DateTime.Now.ToString("yyyy-MM-dd");
-            string e_date = DateTime.Now.ToString("yyyy-MM-dd");
-            queryDepotOut = BizStorage.QueryDepotOut("", "", "", "",Convert.ToDateTime(s_date), Convert.ToDateTime( e_date));
-            list = queryDepotOut.depotoutList;
-            iniData();
+            list=bizStorage.QueryDepotDetail(depotinid);
         }
         private void iniData()
         {
             this.gridControl1.DataSource = (list).Take(10);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-            txt_sumjinjia.Text = queryDepotOut.buymoney.ToString();
-            txt_sumshoujia.Text = queryDepotOut.salemoney.ToString();
-            txt_sumlirun.Text = (queryDepotOut.salemoney - queryDepotOut.buymoney).ToString();
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
@@ -46,6 +39,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             //必须更新allcount！！！！！！！！！！！！！！！！！！！
             allcount = list.Count;
             mgncPager1.RefreshPager(pageSize, allcount, curPage);//更新分页控件显示。
+            isfirst = false;
         }
         #region MgncPager 实现
         /// <summary>
@@ -93,21 +87,10 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         private void BindGrid(bool singlePage = true)//单页，所有     
         {
             string itemname = Txt_shangpinName.Text;
-            string categoryname = Txt_shangpinType.Text;
-            string crudename = txt_yuanliaoName.Text;
-            string genrename = txt_yuanliangType.Text;
-            if (de_stime.Text == "")
-            {
-                IniDate();
-            }
-            DateTime sdate = Convert.ToDateTime(de_stime.Text);
-            DateTime edate = Convert.ToDateTime(de_etime.Text);
-            queryDepotOut = BizStorage.QueryDepotOut(itemname, categoryname, crudename, genrename, sdate, edate);
-            txt_sumjinjia.Text = queryDepotOut.buymoney.ToString();
-            txt_sumshoujia.Text = queryDepotOut.salemoney.ToString();
-            txt_sumlirun.Text = (queryDepotOut.salemoney - queryDepotOut.buymoney).ToString();
-            this.list = queryDepotOut.depotoutList;
-            var q = (list);
+            string categoryname = txt_shangpinType.Text;
+            DateTime validate = Convert.ToDateTime(this.de_zhibaoqi.Text);
+            
+            var q = list;
             if (singlePage)
             {
                 this.gridControl1.DataSource = (q.Skip((curPage - 1) * pageSize).Take(pageSize)).ToList();
@@ -138,65 +121,10 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             RefreshGridList();
         }
         #endregion
-        private void IniDate()
+
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //de_stime.Text = "2017 - 02 - 27";
-            this.de_stime.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            this.de_etime.Text = DateTime.Now.ToString("yyyy-MM-dd");
-        }
-
-        private void Txt_shangpinName_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void Txt_shangpinType_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void txt_yuanliaoName_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void txt_yuanliangType_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void de_stime_EditValueChanged(object sender, EventArgs e)
-        {
-            if (this.de_etime.Text.Equals(""))
-                return;
-            this.curPage = 1;
-            RefreshGridList();
-
-        }
-
-        private void de_etime_EditValueChanged(object sender, EventArgs e)
-        {
-            this.curPage = 1;
-            RefreshGridList();
-        }
-
-        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
-        {
-            if(e.Column.Name== "type")
-            {
-                if (e.DisplayText == "1")
-                {
-                    e.DisplayText = "消耗";
-                }
-                else if(e.DisplayText == "3")
-                {
-                    e.DisplayText = "出库";
-                }
-            
-            }
+            MyEvent.More.jinxiaocunManage.jinxiaocunEvent.Replace();
         }
     }
 }
