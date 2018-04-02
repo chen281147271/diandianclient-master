@@ -421,26 +421,80 @@ namespace DianDianClient.Biz
         }
         
         //添加入库
-        public void AddDepotIn(decimal cost, string dutyperson, string deliveryman, string deliveryphone, string driver, string platenum)
+        public void AddDepotIn(int depotId, DateTime createdate, decimal cost, string dutyperson, string deliveryman, string deliveryphone, string driver, string platenum)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                storage_depotin depotin = new storage_depotin();
-                depotin.createdate = DateTime.Now;
-                depotin.cost = cost;
-                depotin.dutyperson = dutyperson;
-                depotin.deliveryman = deliveryman;
-                depotin.deliveryphone = deliveryphone;
-                depotin.driver = driver;
-                depotin.platenum = platenum;
 
-                db.storage_depotin.Add(depotin);
+                var depotin = db.storage_depotin.Find(depotId);
+                if(depotin == null)
+                {
+                    depotin = new storage_depotin();
+                    depotin.createdate = createdate;
+                    depotin.cost = cost;
+                    depotin.dutyperson = dutyperson;
+                    depotin.deliveryman = deliveryman;
+                    depotin.deliveryphone = deliveryphone;
+                    depotin.driver = driver;
+                    depotin.platenum = platenum;
+
+                    db.storage_depotin.Add(depotin);
+                }
+                else
+                {
+                    depotin.createdate = createdate;
+                    depotin.cost = cost;
+                    depotin.dutyperson = dutyperson;
+                    depotin.deliveryman = deliveryman;
+                    depotin.deliveryphone = deliveryphone;
+                    depotin.driver = driver;
+                    depotin.platenum = platenum;
+
+                    db.storage_depotin.Attach(depotin);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(depotin);
+                    stateEntity.SetModifiedProperty("createdate");
+                    stateEntity.SetModifiedProperty("cost");
+                    stateEntity.SetModifiedProperty("dutyperson");
+                    stateEntity.SetModifiedProperty("deliveryman");
+                    stateEntity.SetModifiedProperty("deliveryphone");
+                    stateEntity.SetModifiedProperty("driver");
+                    stateEntity.SetModifiedProperty("platenum");
+                }
+                
                 db.SaveChanges();
             }
             catch (Exception e)
             {
                 log.Error("AddDepotIn error. msg=" + e.Message);
+                throw;
+            }
+        }
+        //添加入库详情
+        public void AddDepotInInfo(int genreid, int crudeid, decimal cost, int num, DateTime? validity, DateTime? productiondate,
+            DateTime? backdate, String maker, string remarks, string supplier )
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+
+                storage_depotin_info deportininfo = new storage_depotin_info();
+                deportininfo.crudeid = crudeid;
+                deportininfo.cost = cost;
+                deportininfo.num = num;
+                deportininfo.validity = validity;
+                deportininfo.productiondate = productiondate;
+                deportininfo.backdate = backdate;
+                deportininfo.maker = maker;
+                deportininfo.remarks = remarks;
+                deportininfo.supplier = supplier;
+
+                db.storage_depotin_info.Add(deportininfo);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("AddDepotInInfo error. msg=" + e.Message);
                 throw;
             }
         }
