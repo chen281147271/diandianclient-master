@@ -24,7 +24,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 var crudeList = db.storage_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-                if (crudename.Equals(crudename))
+                if (crudename.Equals(""))
                 {
                     crudeList = crudeList.Where(p => p.crudename.Contains(crudename));
                 }
@@ -477,7 +477,7 @@ namespace DianDianClient.Biz
             }
         }
         //添加入库详情
-        public void AddDepotInInfo(int genreid, int crudeid, decimal cost, int num, DateTime? validity, DateTime? productiondate,
+        public void AddDepotInInfo(int depotinid,int genreid, int crudeid, decimal cost, int num, DateTime? validity, DateTime? productiondate,
             DateTime? backdate, String maker, string remarks, string supplier )
         {
             try
@@ -485,6 +485,7 @@ namespace DianDianClient.Biz
                 DianDianEntities db = new DianDianEntities();
 
                 storage_depotin_info deportininfo = new storage_depotin_info();
+                deportininfo.depotinid = depotinid;
                 deportininfo.crudeid = crudeid;
                 deportininfo.cost = cost;
                 deportininfo.num = num;

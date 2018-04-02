@@ -901,6 +901,12 @@
     <Compile Include="MyControl\More\jinxiaocunManage\detailrukuControl.Designer.cs">
       <DependentUpon>detailrukuControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.Designer.cs">
+      <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\jinxiaocunManage\EidtrukuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1201,6 +1207,12 @@
     <Compile Include="MyForm\More\dangkouManage\EditdangkouForm.Designer.cs">
       <DependentUpon>EditdangkouForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.Designer.cs">
+      <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\More\jinxiaocunManage\EidtrukuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1409,6 +1421,9 @@
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\detailrukuControl.resx">
       <DependentUpon>detailrukuControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.resx">
+      <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EidtrukuControl.resx">
       <DependentUpon>EidtrukuControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1552,6 +1567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\dangkouManage\EditdangkouForm.resx">
       <DependentUpon>EditdangkouForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.resx">
+      <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EidtrukuForm.resx">
       <DependentUpon>EidtrukuForm.cs</DependentUpon>

@@ -17,6 +17,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
+        bool isfirst = true;
         public zongControl()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             //必须更新allcount！！！！！！！！！！！！！！！！！！！
             allcount = list.Count;
             mgncPager1.RefreshPager(pageSize, allcount, curPage);//更新分页控件显示。
+            isfirst = false;
         }
         #region MgncPager 实现
         /// <summary>
@@ -165,22 +167,27 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
 
         private void txt_yuanliangType_EditValueChanged(object sender, EventArgs e)
         {
-
+            this.curPage = 1;
+            RefreshGridList();
         }
 
         private void de_stime_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.de_etime.Text.Equals(""))
-                return;
-            this.curPage = 1;
-            RefreshGridList();
+            if (!isfirst)
+            {
+                this.curPage = 1;
+                RefreshGridList();
+            }
 
         }
 
         private void de_etime_EditValueChanged(object sender, EventArgs e)
         {
-            this.curPage = 1;
-            RefreshGridList();
+            if (!isfirst)
+            {
+                this.curPage = 1;
+                RefreshGridList();
+            }
         }
 
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)

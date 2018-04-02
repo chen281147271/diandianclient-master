@@ -16,11 +16,13 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         public int curPage = 1;
         public int pageSize = 10;
         public int allcount = 0;
-        bool isfirst = true;
+        int depotinid = 0;
         public detailrukuControl( int depotinid)
         {
+            this.depotinid = depotinid;
             InitializeComponent();
             list=bizStorage.QueryDepotDetail(depotinid);
+            iniData();
         }
         private void iniData()
         {
@@ -39,7 +41,6 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             //必须更新allcount！！！！！！！！！！！！！！！！！！！
             allcount = list.Count;
             mgncPager1.RefreshPager(pageSize, allcount, curPage);//更新分页控件显示。
-            isfirst = false;
         }
         #region MgncPager 实现
         /// <summary>
@@ -88,9 +89,21 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         {
             string itemname = Txt_shangpinName.Text;
             string categoryname = txt_shangpinType.Text;
-            DateTime validate = Convert.ToDateTime(this.de_zhibaoqi.Text);
-            
-            var q = list;
+            list = bizStorage.QueryDepotDetail(depotinid);
+            var q = list.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
+            if (itemname.Length != 0)
+            {
+                 q = list.Where(o => o.crudename.Contains(itemname));
+            }
+            if (categoryname.Length != 0)
+            {
+                q = list.Where(o => o.crudename.Contains(categoryname));
+            }
+            if (this.de_zhibaoqi.Text.Length != 0)
+            {
+                DateTime validate = Convert.ToDateTime(this.de_zhibaoqi.Text);
+                q = list.Where(o => o.validity<= validate);
+            }
             if (singlePage)
             {
                 this.gridControl1.DataSource = (q.Skip((curPage - 1) * pageSize).Take(pageSize)).ToList();
@@ -125,6 +138,15 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             MyEvent.More.jinxiaocunManage.jinxiaocunEvent.Replace();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            MyForm.More.jinxiaocunManage.EditdetailrukuForm editdetailruku = new MyForm.More.jinxiaocunManage.EditdetailrukuForm(depotinid);
+            editdetailruku.StartPosition = FormStartPosition.CenterScreen;
+            editdetailruku.ShowDialog();
+            this.curPage = 1;
+            RefreshGridList();
         }
     }
 }

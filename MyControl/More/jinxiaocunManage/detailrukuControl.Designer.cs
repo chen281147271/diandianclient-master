@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.itemName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.categoryName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crudename = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.genrename = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.validity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cost = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.remarks = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
@@ -49,7 +50,6 @@
             this.btn_search = new DevExpress.XtraEditors.SimpleButton();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.remarks = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -69,27 +69,27 @@
             this.unit.Visible = true;
             this.unit.VisibleIndex = 3;
             // 
-            // itemName
+            // crudename
             // 
-            this.itemName.Caption = "商品名";
-            this.itemName.FieldName = "itemName";
-            this.itemName.Name = "itemName";
-            this.itemName.Visible = true;
-            this.itemName.VisibleIndex = 1;
+            this.crudename.Caption = "原料";
+            this.crudename.FieldName = "crudename";
+            this.crudename.Name = "crudename";
+            this.crudename.Visible = true;
+            this.crudename.VisibleIndex = 1;
             // 
-            // categoryName
+            // genrename
             // 
-            this.categoryName.Caption = "商品分类";
-            this.categoryName.FieldName = "categoryName";
-            this.categoryName.Name = "categoryName";
-            this.categoryName.Visible = true;
-            this.categoryName.VisibleIndex = 0;
+            this.genrename.Caption = "原料分类";
+            this.genrename.FieldName = "genrename";
+            this.genrename.Name = "genrename";
+            this.genrename.Visible = true;
+            this.genrename.VisibleIndex = 0;
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.categoryName,
-            this.itemName,
+            this.genrename,
+            this.crudename,
             this.validity,
             this.unit,
             this.num,
@@ -122,6 +122,14 @@
             this.cost.Name = "cost";
             this.cost.Visible = true;
             this.cost.VisibleIndex = 5;
+            // 
+            // remarks
+            // 
+            this.remarks.Caption = "入库备注";
+            this.remarks.FieldName = "remarks";
+            this.remarks.Name = "remarks";
+            this.remarks.Visible = true;
+            this.remarks.VisibleIndex = 6;
             // 
             // gridControl1
             // 
@@ -282,6 +290,7 @@
             this.btn_search.Size = new System.Drawing.Size(106, 28);
             this.btn_search.TabIndex = 25;
             this.btn_search.Text = "查询";
+            this.btn_search.Click += new System.EventHandler(this.Btn_query_Click);
             // 
             // btn_add
             // 
@@ -298,6 +307,7 @@
             this.btn_add.Size = new System.Drawing.Size(106, 28);
             this.btn_add.TabIndex = 26;
             this.btn_add.Text = "添加";
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // simpleButton1
             // 
@@ -315,14 +325,6 @@
             this.simpleButton1.TabIndex = 27;
             this.simpleButton1.Text = "返回";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // remarks
-            // 
-            this.remarks.Caption = "入库备注";
-            this.remarks.FieldName = "remarks";
-            this.remarks.Name = "remarks";
-            this.remarks.Visible = true;
-            this.remarks.VisibleIndex = 6;
             // 
             // detailrukuControl
             // 
@@ -348,8 +350,8 @@
         #endregion
 
         private DevExpress.XtraGrid.Columns.GridColumn unit;
-        private DevExpress.XtraGrid.Columns.GridColumn itemName;
-        private DevExpress.XtraGrid.Columns.GridColumn categoryName;
+        private DevExpress.XtraGrid.Columns.GridColumn crudename;
+        private DevExpress.XtraGrid.Columns.GridColumn genrename;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn validity;
         private DevExpress.XtraGrid.Columns.GridColumn num;

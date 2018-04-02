@@ -47,9 +47,13 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             string productiondate = de_rukutime.Text;
             string driver = txt_songhuosiji.Text;
             decimal cost =Convert.ToDecimal(txt_songhuosiji.Text);
+            DateTime dt = Convert.ToDateTime(this.de_rukutime.Text);
             if (this.type == 2)
             {
-                BizStorage.AddDepotIn(cost, dutyperson, deliveryman, tel, driver, platenum);
+                BizStorage.AddDepotIn(-1, dt,cost, dutyperson, deliveryman, tel, driver, platenum);
+            }else if (this.type == 1)
+            {
+                BizStorage.AddDepotIn(Convert.ToInt32(this.depotinid), dt, cost, dutyperson, deliveryman, tel, driver, platenum);
             }
             this.MyEvent();
         }
