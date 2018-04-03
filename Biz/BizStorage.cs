@@ -18,13 +18,13 @@ namespace DianDianClient.Biz
             public decimal buymoney { get; set; }
         }
         //查询原料
-        public List<storage_crude> QueryCrude(string crudename, int genreid)
+        public List<v_crude_genre> QueryCrude(string crudename, int genreid)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var crudeList = db.storage_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-                if (crudename.Equals(""))
+                var crudeList = db.v_crude_genre.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                if (!crudename.Equals(""))
                 {
                     crudeList = crudeList.Where(p => p.crudename.Contains(crudename));
                 }
@@ -299,9 +299,7 @@ namespace DianDianClient.Biz
                 var includeCrudeList = db.v_item_crude.Where(p => itemcrudeList.Contains(p.itemkey)).Select(p => p.crudeid).ToList();
 
 
-                // var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-                var depotInList = db.v_depotin_crude.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
-                int aaa = depotInList.Count();
+                var depotInList = db.v_depotin_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (validate != null)
                 {
                     depotInList = depotInList.Where(p => p.validity <= validate);
@@ -352,7 +350,7 @@ namespace DianDianClient.Biz
             }
         }
         //出库/总表
-        public QueryDepotOutResult QueryDepotOut(string itemname, string categoryname, string crudename, string genrename, DateTime sdate, DateTime edate)
+        public QueryDepotOutResult QueryDepotOut(string itemname, string categoryname, string crudename, int genreid, DateTime sdate, DateTime edate)
         {
             try
             {

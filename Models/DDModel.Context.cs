@@ -83,8 +83,6 @@ namespace DianDianClient.Models
         public virtual DbSet<elm_shop_refreshtoken> elm_shop_refreshtoken { get; set; }
         public virtual DbSet<income_record> income_record { get; set; }
         public virtual DbSet<interaction_record> interaction_record { get; set; }
-        public virtual DbSet<item> item { get; set; }
-        public virtual DbSet<item_category> item_category { get; set; }
         public virtual DbSet<item_category_map> item_category_map { get; set; }
         public virtual DbSet<item_comment> item_comment { get; set; }
         public virtual DbSet<item_recomment> item_recomment { get; set; }
@@ -185,6 +183,9 @@ namespace DianDianClient.Models
         public virtual DbSet<v_mem_card_shop> v_mem_card_shop { get; set; }
         public virtual DbSet<v_card_record_shop> v_card_record_shop { get; set; }
         public virtual DbSet<table_pos> table_pos { get; set; }
+        public virtual DbSet<item> item { get; set; }
+        public virtual DbSet<item_category> item_category { get; set; }
+        public virtual DbSet<v_crude_genre> v_crude_genre { get; set; }
     
         public virtual int ClearItemSyncFlag()
         {
@@ -210,6 +211,31 @@ namespace DianDianClient.Models
                 new ObjectParameter("edate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetSumSaleMoney", itemnameParameter, categorynameParameter, sdateParameter, edateParameter);
+        }
+    
+        public virtual int ClearCategorySyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearCategorySyncFlag");
+        }
+    
+        public virtual int ClearCrudeSyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearCrudeSyncFlag");
+        }
+    
+        public virtual int ClearMemberSyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearMemberSyncFlag");
+        }
+    
+        public virtual int ClearSysRoleSyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearSysRoleSyncFlag");
+        }
+    
+        public virtual int ClearTablePosSyncFlag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClearTablePosSyncFlag");
         }
     }
 }

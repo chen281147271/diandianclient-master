@@ -23,7 +23,6 @@ namespace DianDianClient.Models
         public Nullable<int> guigeid { get; set; }
         public string zuofa { get; set; }
     
-        public virtual item item { get; set; }
         public virtual shop shop { get; set; }
     }
 }

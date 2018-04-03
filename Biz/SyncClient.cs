@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,7 +15,7 @@ namespace DianDianClient.Biz
     {
         static log4net.ILog log = log4net.LogManager.GetLogger("SyncClient");
         //private DianDianEntities db = new DianDianEntities();
-        static public String token = "";
+        static public String token = "ggg";
         static public bool needSyncCC = false;
         static public bool needSyncYL = false;
         static public bool needSyncFL = false;
@@ -26,6 +27,21 @@ namespace DianDianClient.Biz
         static public bool needSyncHD = false;
         static public bool needSyncSPInfo = false;
         static public bool needSyncDK = false;
+
+
+        public class SyncItemBean 
+        {
+            public item itemInfo { get; set; }
+            public List<item_standard> itemStandardList { get; set; }
+            public List<item_category_map> itemCategoryList { get; set; }
+
+            public List<item_set> itemSetList { get; set; }
+        }
+        public class SyncItemRequest
+        {
+            public List<item_category> categoryList { get; set; }
+            public List<SyncItemBean> itemBeanList { get; set; }
+        }
 
         public SyncClient()
         {
@@ -97,15 +113,34 @@ namespace DianDianClient.Biz
             var strShopkey = "?shopkey=" + Properties.Settings.Default.shopkey;
             while (true)
             {
-                //增量同步药品
-                var foodList = db.item.Where(p => p.syncFlag == 1).ToList();
-                client.EndPoint = SysConstant.WEBURI+SysConstant.SYNCITEMURL+strShopkey;
-                client.PostData = JsonConvert.SerializeObject(foodList);
+                SyncItemRequest itemRequest = new SyncItemRequest();
+                itemRequest.itemBeanList = new List<SyncItemBean>();
+                itemRequest.categoryList = db.item_category.Where(p => p.syncFlag == 1).ToList();
 
+                //增量同步菜品
+                var foodList = db.item.Where(p => p.syncFlag == 1).ToList();
+                foreach(var fooditem in foodList)
+                {
+                    SyncItemBean itemBean = new SyncItemBean();
+                    itemBean.itemInfo = fooditem;
+                    itemBean.itemCategoryList = db.item_category_map.Where(p => p.itemkey == fooditem.itemkey).ToList();
+                    itemBean.itemStandardList = db.item_standard.Where(p => p.itemKey == fooditem.itemkey).ToList();
+                    itemBean.itemSetList = db.item_set.Where(p => p.itemkey == fooditem.itemkey || p.tcItemKey == fooditem.itemkey).ToList();
+                    itemRequest.itemBeanList.Add(itemBean);
+                }
+                
+                client.EndPoint = SysConstant.BASE_URI+SysConstant.SYNC_ITEM_URL+token;
+
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //JsonSerializer ser = JsonSerializer.Create(settings);
+                
+                client.PostData = JsonConvert.SerializeObject(itemRequest,settings);
+                log.Debug(client.PostData);
                 json = client.MakeRequest();
                 log.Debug(json.ToString());
-                db.ClearItemSyncFlag();
-
+                //db.ClearItemSyncFlag();                
+                //db.ClearCategorySyncFlag();
 
                 //库存同步
                 if (needSyncCC)

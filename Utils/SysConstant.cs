@@ -8,7 +8,8 @@ namespace DianDianClient.Utils
 {
    public class SysConstant
     {
-        public static string WEBURI = "http://127.0.0.1:8080/DdService/";
-        public static string SYNCITEMURL = "";
+        public static string BASE_URI = "http://test.diandiancaidan.com/";
+        public static string SYNC_ITEM_URL = "/item/api.do?m=uploadItem&token=";
+        public static string SYNC_CATEGORY_URL = "";
     }
 }

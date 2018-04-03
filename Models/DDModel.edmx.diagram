@@ -61,8 +61,6 @@
         <EntityTypeShape EntityType="diandianModel.elm_shop_refreshtoken" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.income_record" Width="1.5" PointX="3" PointY="38.5" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.interaction_record" Width="1.5" PointX="5.25" PointY="44.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.item" Width="1.5" PointX="5.25" PointY="48.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="diandianModel.item_category" Width="1.5" PointX="3" PointY="41.875" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.item_category_map" Width="1.5" PointX="7.5" PointY="45.625" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.item_comment" Width="1.5" PointX="10.5" PointY="56.25" IsExpanded="true" />
         <EntityTypeShape EntityType="diandianModel.item_recomment" Width="1.5" PointX="8.25" PointY="60.375" IsExpanded="true" />
@@ -110,17 +108,8 @@
         <EntityTypeShape EntityType="diandianModel.v_dd_member_shopcord" Width="1.5" PointX="28.75" PointY="13.75" IsExpanded="true" />
         <AssociationConnector Association="diandianModel.Fk_IR1" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.Fk_IR2" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_27" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_43" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_16" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_2" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_28" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_3" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_36" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_56" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_6" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_21" ManuallyRouted="false" />
-        <AssociationConnector Association="diandianModel.FK_Reference_57" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_7" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_13" ManuallyRouted="false" />
         <AssociationConnector Association="diandianModel.FK_Reference_17" ManuallyRouted="false" />
@@ -207,6 +196,11 @@
         <EntityTypeShape EntityType="diandianModel.v_card_record_shop" Width="1.5" PointX="13.375" PointY="37.75" />
         <EntityTypeShape EntityType="diandianModel.table_pos" Width="1.5" PointX="3" PointY="100.125" />
         <AssociationConnector Association="diandianModel.table_pos_ibfk_1" />
+        <EntityTypeShape EntityType="diandianModel.item" Width="1.5" PointX="13" PointY="44" />
+        <EntityTypeShape EntityType="diandianModel.item_category" Width="1.5" PointX="10.75" PointY="46.625" />
+        <AssociationConnector Association="diandianModel.item_ibfk_1" />
+        <AssociationConnector Association="diandianModel.item_ibfk_2" />
+        <EntityTypeShape EntityType="diandianModel.v_crude_genre" Width="1.5" PointX="39.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
