@@ -102,6 +102,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             if (this.de_zhibaoqi.Text.Length != 0)
             {
                 DateTime validate = Convert.ToDateTime(this.de_zhibaoqi.Text);
+                validate = validate.AddDays(1);
                 q = list.Where(o => o.validity<= validate);
             }
             if (singlePage)

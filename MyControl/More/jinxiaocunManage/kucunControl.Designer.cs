@@ -38,14 +38,13 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.createdate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.orderno = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.floorname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.floorid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.validate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.backdate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crudename = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crudeid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.str_state = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ffuwu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.operation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -53,6 +52,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Txt_shangpinName = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_shangpinType = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_yuanliaoName = new DevExpress.XtraEditors.TextEdit();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,100 +60,96 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_yuanliaoType = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.de_stime = new DevExpress.XtraEditors.DateEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.de_etime = new DevExpress.XtraEditors.DateEdit();
             this.btn_search = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_add = new DevExpress.XtraEditors.SimpleButton();
-            this.txt_shangpinType = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbo_yuanliaoType = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_shangpinType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_shangpinType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // repositoryItemRadioGroup1
+            // validate
             // 
-            this.repositoryItemRadioGroup1.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "禁用"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "启用")});
-            this.repositoryItemRadioGroup1.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Flow;
-            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
+            this.validate.Caption = "保质日期";
+            this.validate.FieldName = "validate";
+            this.validate.Name = "validate";
+            this.validate.Visible = true;
+            this.validate.VisibleIndex = 2;
             // 
-            // createdate
+            // backdate
             // 
-            this.createdate.Caption = "创建时间";
-            this.createdate.FieldName = "createdate";
-            this.createdate.Name = "createdate";
-            this.createdate.Visible = true;
-            this.createdate.VisibleIndex = 2;
+            this.backdate.Caption = "退换货日期";
+            this.backdate.FieldName = "backdate";
+            this.backdate.Name = "backdate";
+            this.backdate.Visible = true;
+            this.backdate.VisibleIndex = 1;
             // 
-            // orderno
+            // crudename
             // 
-            this.orderno.Caption = "顺序";
-            this.orderno.FieldName = "orderno";
-            this.orderno.Name = "orderno";
-            this.orderno.Visible = true;
-            this.orderno.VisibleIndex = 1;
+            this.crudename.Caption = "商品名";
+            this.crudename.FieldName = "crudename";
+            this.crudename.Name = "crudename";
+            this.crudename.Visible = true;
+            this.crudename.VisibleIndex = 0;
             // 
-            // floorname
+            // crudeid
             // 
-            this.floorname.Caption = "区域名称";
-            this.floorname.FieldName = "floorname";
-            this.floorname.Name = "floorname";
-            this.floorname.Visible = true;
-            this.floorname.VisibleIndex = 0;
-            // 
-            // floorid
-            // 
-            this.floorid.Caption = "floorid";
-            this.floorid.FieldName = "floorid";
-            this.floorid.Name = "floorid";
+            this.crudeid.Caption = "crudeid";
+            this.crudeid.FieldName = "crudeid";
+            this.crudeid.Name = "crudeid";
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.floorid,
-            this.floorname,
-            this.orderno,
-            this.createdate,
-            this.str_state,
-            this.ffuwu,
+            this.crudeid,
+            this.crudename,
+            this.backdate,
+            this.validate,
+            this.unit,
+            this.num,
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
             this.operation});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // str_state
+            // unit
             // 
-            this.str_state.Caption = "状态";
-            this.str_state.ColumnEdit = this.repositoryItemRadioGroup1;
-            this.str_state.FieldName = "str_state";
-            this.str_state.Name = "str_state";
-            this.str_state.Visible = true;
-            this.str_state.VisibleIndex = 3;
+            this.unit.Caption = "单位";
+            this.unit.FieldName = "unit";
+            this.unit.Name = "unit";
+            this.unit.Visible = true;
+            this.unit.VisibleIndex = 3;
             // 
-            // ffuwu
+            // num
             // 
-            this.ffuwu.Caption = "服务费";
-            this.ffuwu.FieldName = "ffuwu";
-            this.ffuwu.Name = "ffuwu";
-            this.ffuwu.Visible = true;
-            this.ffuwu.VisibleIndex = 4;
+            this.num.Caption = "数量";
+            this.num.FieldName = "num";
+            this.num.Name = "num";
+            this.num.Visible = true;
+            this.num.VisibleIndex = 4;
             // 
             // operation
             // 
@@ -161,16 +157,17 @@
             this.operation.ColumnEdit = this.repositoryItemButtonEdit1;
             this.operation.Name = "operation";
             this.operation.Visible = true;
-            this.operation.VisibleIndex = 5;
+            this.operation.VisibleIndex = 9;
             // 
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "编辑", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "沽清", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "修改保质期", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
             // 
             // gridControl1
             // 
@@ -179,7 +176,6 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemRadioGroup1,
             this.repositoryItemButtonEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1107, 451);
             this.gridControl1.TabIndex = 0;
@@ -233,6 +229,18 @@
             this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 19;
             this.label1.Text = "商品分类：";
+            // 
+            // txt_shangpinType
+            // 
+            this.txt_shangpinType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txt_shangpinType.Location = new System.Drawing.Point(378, 3);
+            this.txt_shangpinType.Name = "txt_shangpinType";
+            this.txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_shangpinType.Properties.Appearance.Options.UseFont = true;
+            this.txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
+            this.txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txt_shangpinType.Size = new System.Drawing.Size(177, 26);
+            this.txt_shangpinType.TabIndex = 23;
             // 
             // label2
             // 
@@ -302,13 +310,12 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txt_yuanliaoType);
+            this.flowLayoutPanel2.Controls.Add(this.cbo_yuanliaoType);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.de_stime);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.de_etime);
             this.flowLayoutPanel2.Controls.Add(this.btn_search);
-            this.flowLayoutPanel2.Controls.Add(this.btn_add);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 40);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -326,24 +333,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "原料分类：";
             // 
-            // txt_yuanliaoType
-            // 
-            this.txt_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_yuanliaoType.Location = new System.Drawing.Point(99, 4);
-            this.txt_yuanliaoType.Name = "txt_yuanliaoType";
-            this.txt_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_yuanliaoType.Properties.Appearance.Options.UseFont = true;
-            this.txt_yuanliaoType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_yuanliaoType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txt_yuanliaoType.Size = new System.Drawing.Size(177, 26);
-            this.txt_yuanliaoType.TabIndex = 18;
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(282, 6);
+            this.label4.Location = new System.Drawing.Point(267, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 21);
             this.label4.TabIndex = 19;
@@ -353,7 +348,7 @@
             // 
             this.de_stime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.de_stime.EditValue = null;
-            this.de_stime.Location = new System.Drawing.Point(378, 4);
+            this.de_stime.Location = new System.Drawing.Point(363, 4);
             this.de_stime.Name = "de_stime";
             this.de_stime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.de_stime.Properties.Appearance.Options.UseFont = true;
@@ -374,7 +369,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(565, 6);
+            this.label5.Location = new System.Drawing.Point(550, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 21);
             this.label5.TabIndex = 21;
@@ -384,7 +379,7 @@
             // 
             this.de_etime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.de_etime.EditValue = null;
-            this.de_etime.Location = new System.Drawing.Point(588, 4);
+            this.de_etime.Location = new System.Drawing.Point(573, 4);
             this.de_etime.Name = "de_etime";
             this.de_etime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.de_etime.Properties.Appearance.Options.UseFont = true;
@@ -410,39 +405,53 @@
             this.btn_search.Appearance.Options.UseFont = true;
             this.btn_search.Appearance.Options.UseForeColor = true;
             this.btn_search.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_search.Location = new System.Drawing.Point(775, 3);
+            this.btn_search.Location = new System.Drawing.Point(760, 3);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(106, 28);
             this.btn_search.TabIndex = 25;
             this.btn_search.Text = "查询";
+            this.btn_search.Click += new System.EventHandler(this.Btn_query_Click);
             // 
-            // btn_add
+            // gridColumn1
             // 
-            this.btn_add.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_add.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
-            this.btn_add.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Appearance.Options.UseBackColor = true;
-            this.btn_add.Appearance.Options.UseFont = true;
-            this.btn_add.Appearance.Options.UseForeColor = true;
-            this.btn_add.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_add.Location = new System.Drawing.Point(887, 3);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(106, 28);
-            this.btn_add.TabIndex = 26;
-            this.btn_add.Text = "添加";
+            this.gridColumn1.Caption = "总入库数";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 5;
             // 
-            // txt_shangpinType
+            // gridColumn2
             // 
-            this.txt_shangpinType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_shangpinType.Location = new System.Drawing.Point(378, 3);
-            this.txt_shangpinType.Name = "txt_shangpinType";
-            this.txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_shangpinType.Properties.Appearance.Options.UseFont = true;
-            this.txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txt_shangpinType.Size = new System.Drawing.Size(177, 26);
-            this.txt_shangpinType.TabIndex = 23;
+            this.gridColumn2.Caption = "总出库数";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 6;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "月入库数";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 7;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "月出库数";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 8;
+            // 
+            // cbo_yuanliaoType
+            // 
+            this.cbo_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbo_yuanliaoType.Location = new System.Drawing.Point(99, 4);
+            this.cbo_yuanliaoType.Name = "cbo_yuanliaoType";
+            this.cbo_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_yuanliaoType.Properties.Appearance.Options.UseFont = true;
+            this.cbo_yuanliaoType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_yuanliaoType.Size = new System.Drawing.Size(162, 26);
+            this.cbo_yuanliaoType.TabIndex = 29;
+            this.cbo_yuanliaoType.SelectedIndexChanged += new System.EventHandler(this.cbo_yuanliaoType_SelectedIndexChanged);
             // 
             // kucunControl
             // 
@@ -451,38 +460,35 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "kucunControl";
             this.Size = new System.Drawing.Size(1113, 577);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_shangpinType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_shangpinType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
-        private DevExpress.XtraGrid.Columns.GridColumn createdate;
-        private DevExpress.XtraGrid.Columns.GridColumn orderno;
-        private DevExpress.XtraGrid.Columns.GridColumn floorname;
-        private DevExpress.XtraGrid.Columns.GridColumn floorid;
+        private DevExpress.XtraGrid.Columns.GridColumn validate;
+        private DevExpress.XtraGrid.Columns.GridColumn backdate;
+        private DevExpress.XtraGrid.Columns.GridColumn crudename;
+        private DevExpress.XtraGrid.Columns.GridColumn crudeid;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn str_state;
-        private DevExpress.XtraGrid.Columns.GridColumn ffuwu;
+        private DevExpress.XtraGrid.Columns.GridColumn unit;
+        private DevExpress.XtraGrid.Columns.GridColumn num;
         private DevExpress.XtraGrid.Columns.GridColumn operation;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraGrid.GridControl gridControl1;
@@ -498,12 +504,15 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.TextEdit txt_yuanliaoType;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.DateEdit de_stime;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.DateEdit de_etime;
         private DevExpress.XtraEditors.SimpleButton btn_search;
-        private DevExpress.XtraEditors.SimpleButton btn_add;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.ComboBoxEdit cbo_yuanliaoType;
     }
 }

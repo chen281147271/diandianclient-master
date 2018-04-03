@@ -907,6 +907,18 @@
     <Compile Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.Designer.cs">
       <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditkuncunControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditkuncunControl.Designer.cs">
+      <DependentUpon>EditkuncunControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditsunyiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditsunyiControl.Designer.cs">
+      <DependentUpon>EditsunyiControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\jinxiaocunManage\EidtrukuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1213,6 +1225,18 @@
     <Compile Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.Designer.cs">
       <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditkuncunForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditkuncunForm.Designer.cs">
+      <DependentUpon>EditkuncunForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditsunyiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditsunyiForm.Designer.cs">
+      <DependentUpon>EditsunyiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\More\jinxiaocunManage\EidtrukuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1424,6 +1448,12 @@
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.resx">
       <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditkuncunControl.resx">
+      <DependentUpon>EditkuncunControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditsunyiControl.resx">
+      <DependentUpon>EditsunyiControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EidtrukuControl.resx">
       <DependentUpon>EidtrukuControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1570,6 +1600,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.resx">
       <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditkuncunForm.resx">
+      <DependentUpon>EditkuncunForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditsunyiForm.resx">
+      <DependentUpon>EditsunyiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EidtrukuForm.resx">
       <DependentUpon>EidtrukuForm.cs</DependentUpon>

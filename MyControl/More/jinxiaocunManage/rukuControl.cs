@@ -24,7 +24,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
            // string s_date = DateTime.Now.ToString("yyyy-MM-dd");
             string e_date = DateTime.Now.ToString("yyyy-MM-dd");
             string validate = "2018 - 08 - 03";
-            list=BizStorage.QueryDepotIn("", Convert.ToDateTime(validate),Convert.ToDateTime(s_date),Convert.ToDateTime(e_date), "", "", "");
+            list=BizStorage.QueryDepotIn("", Convert.ToDateTime(validate).AddDays(1),Convert.ToDateTime(s_date),Convert.ToDateTime(e_date).AddDays(1), "", "", "");
             IniDate();
             iniData();
             MyEvent.More.jinxiaocunManage.jinxiaocunEvent.ReplaceEvent += MyReplaceEvent;
@@ -104,7 +104,9 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             string categoryname = txt_shangpinType.Text;
             DateTime sdate = Convert.ToDateTime(de_stime.Text);
             DateTime edate = Convert.ToDateTime(de_etime.Text);
+            edate = edate.AddDays(1);
             DateTime validate = Convert.ToDateTime(this.de_zhibaoqi.Text);
+            validate = validate.AddDays(1);
             this.list = BizStorage.QueryDepotIn(itemname, validate, sdate, edate, dutyperson, deliveryman, categoryname);
             var q = (list);
             if (singlePage)

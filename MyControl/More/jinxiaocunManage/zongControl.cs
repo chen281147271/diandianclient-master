@@ -23,7 +23,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             InitializeComponent();
             string s_date = DateTime.Now.ToString("yyyy-MM-dd");
             string e_date = DateTime.Now.ToString("yyyy-MM-dd");
-            queryDepotOut = BizStorage.QueryDepotOut("", "", "", "",Convert.ToDateTime(s_date), Convert.ToDateTime( e_date));
+            queryDepotOut = BizStorage.QueryDepotOut("", "", "", "",Convert.ToDateTime(s_date), Convert.ToDateTime( e_date).AddDays(1));
             list = queryDepotOut.depotoutList;
             iniData();
         }
@@ -104,6 +104,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             }
             DateTime sdate = Convert.ToDateTime(de_stime.Text);
             DateTime edate = Convert.ToDateTime(de_etime.Text);
+            edate = edate.AddDays(1);
             queryDepotOut = BizStorage.QueryDepotOut(itemname, categoryname, crudename, genrename, sdate, edate);
             txt_sumjinjia.Text = queryDepotOut.buymoney.ToString();
             txt_sumshoujia.Text = queryDepotOut.salemoney.ToString();

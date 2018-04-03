@@ -261,7 +261,9 @@ namespace DianDianClient.Biz
 
                     db.storage_stock.Attach(stock);
                     var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(stock);
-                    stateEntity.SetModifiedProperty("genrename");
+                    stateEntity.SetModifiedProperty("backdate");
+                    stateEntity.SetModifiedProperty("validate");
+                    db.SaveChanges();
                 }
                 else
                 {
@@ -512,7 +514,7 @@ namespace DianDianClient.Biz
             {
                 bool includeItem = false;
                 DianDianEntities db = new DianDianEntities();
-                var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                var itemList = db.v_category_items.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
                 if (!itemname.Equals(""))
                 {
                     itemList = itemList.Where(p => p.itemName.Contains(itemname));
