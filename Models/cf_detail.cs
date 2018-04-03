@@ -41,6 +41,5 @@ namespace DianDianClient.Models
     
         public virtual interaction_record interaction_record { get; set; }
         public virtual interaction_record interaction_record1 { get; set; }
-        public virtual item item { get; set; }
     }
 }

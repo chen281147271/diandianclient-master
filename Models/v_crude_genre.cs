@@ -12,17 +12,19 @@ namespace DianDianClient.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class item_category
+    public partial class v_crude_genre
     {
-        public int itemcategorykey { get; set; }
+        public int crudeid { get; set; }
+        public string crudename { get; set; }
+        public string unit { get; set; }
+        public string standard { get; set; }
+        public string crudecode { get; set; }
+        public string barcode { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
+        public Nullable<int> genreid { get; set; }
         public Nullable<int> shopkey { get; set; }
-        public string itemCategoryCode { get; set; }
-        public string name { get; set; }
-        public string instructions { get; set; }
-        public string img { get; set; }
-        public Nullable<int> enable { get; set; }
-        public Nullable<int> orderNo { get; set; }
-        public Nullable<int> isDel { get; set; }
+        public Nullable<sbyte> state { get; set; }
         public Nullable<int> syncFlag { get; set; }
+        public string genrename { get; set; }
     }
 }

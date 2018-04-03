@@ -18,8 +18,5 @@ namespace DianDianClient.Models
         public Nullable<int> itemkey { get; set; }
         public Nullable<int> itemcategorykey { get; set; }
         public Nullable<int> index { get; set; }
-    
-        public virtual item item { get; set; }
-        public virtual item_category item_category { get; set; }
     }
 }

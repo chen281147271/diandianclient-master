@@ -28,9 +28,10 @@ namespace DianDianClient
             InitializeComponent();
 
             SyncClient client = new SyncClient();
+            //client.SyncInfoList();
             //创建后台同步的线程
             Thread syncThread = new Thread(new ThreadStart(client.SyncMethod));
-          //  syncThread.Start();
+            //syncThread.Start();
             BizBillController bbc = new BizBillController();
             Thread billThread = new Thread(new ThreadStart(bbc.RemoteGetBillList));
           //  billThread.Start();

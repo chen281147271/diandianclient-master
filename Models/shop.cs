@@ -18,8 +18,6 @@ namespace DianDianClient.Models
         public shop()
         {
             this.income_record = new HashSet<income_record>();
-            this.item = new HashSet<item>();
-            this.item_category = new HashSet<item_category>();
             this.item_recomment = new HashSet<item_recomment>();
             this.member = new HashSet<member>();
             this.post = new HashSet<post>();
@@ -37,6 +35,7 @@ namespace DianDianClient.Models
             this.cf_main = new HashSet<cf_main>();
             this.cf_meal = new HashSet<cf_meal>();
             this.table_pos = new HashSet<table_pos>();
+            this.item = new HashSet<item>();
         }
     
         public int shopkey { get; set; }
@@ -123,10 +122,6 @@ namespace DianDianClient.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<income_record> income_record { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item> item { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_category> item_category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<item_recomment> item_recomment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<member> member { get; set; }
@@ -160,5 +155,7 @@ namespace DianDianClient.Models
         public virtual ICollection<cf_meal> cf_meal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<table_pos> table_pos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<item> item { get; set; }
     }
 }

@@ -14,16 +14,6 @@ namespace DianDianClient.Models
     
     public partial class item
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public item()
-        {
-            this.cf_detail = new HashSet<cf_detail>();
-            this.shop_car = new HashSet<shop_car>();
-            this.shop_item_record = new HashSet<shop_item_record>();
-            this.item_category_map = new HashSet<item_category_map>();
-            this.item_comment = new HashSet<item_comment>();
-        }
-    
         public int itemkey { get; set; }
         public string itemCode { get; set; }
         public Nullable<int> itemType { get; set; }
@@ -61,18 +51,5 @@ namespace DianDianClient.Models
         public Nullable<sbyte> ismust { get; set; }
         public Nullable<sbyte> isware { get; set; }
         public Nullable<int> syncFlag { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cf_detail> cf_detail { get; set; }
-        public virtual item_category item_category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<shop_car> shop_car { get; set; }
-        public virtual shop shop { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<shop_item_record> shop_item_record { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_category_map> item_category_map { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_comment> item_comment { get; set; }
     }
 }

@@ -23,7 +23,6 @@ namespace DianDianClient.Models
         public string imgs { get; set; }
         public Nullable<int> enable { get; set; }
     
-        public virtual item item { get; set; }
         public virtual member member { get; set; }
     }
 }

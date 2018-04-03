@@ -18,12 +18,12 @@ namespace DianDianClient.Biz
             public decimal buymoney { get; set; }
         }
         //查询原料
-        public List<storage_crude> QueryCrude(string crudename, int genreid)
+        public List<v_crude_genre> QueryCrude(string crudename, int genreid)
         {
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                var crudeList = db.storage_crude.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
+                var crudeList = db.v_crude_genre.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (crudename.Equals(crudename))
                 {
                     crudeList = crudeList.Where(p => p.crudename.Contains(crudename));

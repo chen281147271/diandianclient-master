@@ -2489,6 +2489,25 @@
           <Property Name="cnt" Type="bigint" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“def.diandian.v_crude_genre”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_crude_genre">
+          <Key>
+            <PropertyRef Name="crudeid" />
+          </Key>
+          <Property Name="crudeid" Type="int" Nullable="false" />
+          <Property Name="crudename" Type="varchar" MaxLength="20" />
+          <Property Name="unit" Type="varchar" MaxLength="5" />
+          <Property Name="standard" Type="varchar" MaxLength="5" />
+          <Property Name="crudecode" Type="varchar" MaxLength="10" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="createdate" Type="datetime" Precision="0" />
+          <Property Name="genreid" Type="int" />
+          <Property Name="shopkey" Type="int" />
+          <Property Name="state" Type="tinyint" />
+          <Property Name="syncFlag" Type="int" />
+          <Property Name="genrename" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“def.diandian.v_dd_member_shopcord”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_dd_member_shopcord">
           <Key>
@@ -2832,42 +2851,6 @@
           <Property Name="genreid" Type="int" />
           <Property Name="state" Type="tinyint" />
         </EntityType>
-        <Association Name="cf_detail_ibfk_1">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="cf_detail">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cf_detail_ibfk_2">
-          <End Role="interaction_record" Type="Self.interaction_record" Multiplicity="0..1" />
-          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="interaction_record">
-              <PropertyRef Name="interactionrecordkey" />
-            </Principal>
-            <Dependent Role="cf_detail">
-              <PropertyRef Name="interactionrecordkey1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cf_detail_ibfk_3">
-          <End Role="interaction_record" Type="Self.interaction_record" Multiplicity="0..1" />
-          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="interaction_record">
-              <PropertyRef Name="interactionrecordkey" />
-            </Principal>
-            <Dependent Role="cf_detail">
-              <PropertyRef Name="interactionrecordkey2" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="cf_main_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
           <End Role="cf_main" Type="Self.cf_main" Multiplicity="*" />
@@ -2876,18 +2859,6 @@
               <PropertyRef Name="shopkey" />
             </Principal>
             <Dependent Role="cf_main">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cf_meal_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="cf_meal" Type="Self.cf_meal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="cf_meal">
               <PropertyRef Name="shopkey" />
             </Dependent>
           </ReferentialConstraint>
@@ -2913,66 +2884,6 @@
             </Principal>
             <Dependent Role="income_record">
               <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_category_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item_category">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_category_map_ibfk_1">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="item_category_map">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_category_map_ibfk_2">
-          <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
-          <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item_category">
-              <PropertyRef Name="itemcategorykey" />
-            </Principal>
-            <Dependent Role="item_category_map">
-              <PropertyRef Name="itemcategorykey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_comment_ibfk_1">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="item_comment" Type="Self.item_comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="item_comment">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_comment_ibfk_2">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="item_comment" Type="Self.item_comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="item_comment">
-              <PropertyRef Name="memberkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3204,30 +3115,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="shop_car_ibfk_1">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_car">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="shop_car_ibfk_2">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_car">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="shop_income_clean_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
           <End Role="shop_income_clean" Type="Self.shop_income_clean" Multiplicity="*" />
@@ -3261,30 +3148,6 @@
             </Principal>
             <Dependent Role="shop_info_record">
               <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="shop_item_record_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="shop_item_record">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="shop_item_record_ibfk_2">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_item_record">
-              <PropertyRef Name="itemkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3360,7 +3223,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ClearCategorySyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
+        <Function Name="ClearCrudeSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
         <Function Name="ClearItemSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
+        <Function Name="ClearMemberSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
+        <Function Name="ClearSysRoleSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
+        <Function Name="ClearTablePosSyncFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian" />
         <Function Name="GetSumSaleMoney" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="diandian">
           <Parameter Name="itemname" Type="varchar" Mode="In" />
           <Parameter Name="categoryname" Type="varchar" Mode="In" />
@@ -3809,6 +3677,22 @@ FROM `v_cfmainmeal` AS `v_cfmainmeal`</DefiningQuery>
 `v_cfmembermeal`.`cnt`
 FROM `v_cfmembermeal` AS `v_cfmembermeal`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_crude_genre" EntityType="Self.v_crude_genre" store:Type="Views" store:Schema="diandian">
+            <DefiningQuery>SELECT
+`v_crude_genre`.`crudeid`, 
+`v_crude_genre`.`crudename`, 
+`v_crude_genre`.`unit`, 
+`v_crude_genre`.`standard`, 
+`v_crude_genre`.`crudecode`, 
+`v_crude_genre`.`barcode`, 
+`v_crude_genre`.`createdate`, 
+`v_crude_genre`.`genreid`, 
+`v_crude_genre`.`shopkey`, 
+`v_crude_genre`.`state`, 
+`v_crude_genre`.`syncFlag`, 
+`v_crude_genre`.`genrename`
+FROM `v_crude_genre` AS `v_crude_genre`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_dd_member_shopcord" EntityType="Self.v_dd_member_shopcord" store:Type="Views" store:Schema="diandian">
             <DefiningQuery>SELECT
 `v_dd_member_shopcord`.`comenums`, 
@@ -4108,25 +3992,9 @@ FROM `v_stock_crude` AS `v_stock_crude`</DefiningQuery>
 `v_storagelossorspill_crude`.`state`
 FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="cf_detail_ibfk_1" Association="Self.cf_detail_ibfk_1">
-            <End Role="item" EntitySet="item" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
-          <AssociationSet Name="cf_detail_ibfk_2" Association="Self.cf_detail_ibfk_2">
-            <End Role="interaction_record" EntitySet="interaction_record" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
-          <AssociationSet Name="cf_detail_ibfk_3" Association="Self.cf_detail_ibfk_3">
-            <End Role="interaction_record" EntitySet="interaction_record" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
           <AssociationSet Name="cf_main_ibfk_1" Association="Self.cf_main_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_main" EntitySet="cf_main" />
-          </AssociationSet>
-          <AssociationSet Name="cf_meal_ibfk_1" Association="Self.cf_meal_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="cf_meal" EntitySet="cf_meal" />
           </AssociationSet>
           <AssociationSet Name="cf_member_ibfk_1" Association="Self.cf_member_ibfk_1">
             <End Role="member" EntitySet="member" />
@@ -4135,26 +4003,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="income_record_ibfk_1" Association="Self.income_record_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="income_record" EntitySet="income_record" />
-          </AssociationSet>
-          <AssociationSet Name="item_category_ibfk_1" Association="Self.item_category_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item_category" EntitySet="item_category" />
-          </AssociationSet>
-          <AssociationSet Name="item_category_map_ibfk_1" Association="Self.item_category_map_ibfk_1">
-            <End Role="item" EntitySet="item" />
-            <End Role="item_category_map" EntitySet="item_category_map" />
-          </AssociationSet>
-          <AssociationSet Name="item_category_map_ibfk_2" Association="Self.item_category_map_ibfk_2">
-            <End Role="item_category" EntitySet="item_category" />
-            <End Role="item_category_map" EntitySet="item_category_map" />
-          </AssociationSet>
-          <AssociationSet Name="item_comment_ibfk_1" Association="Self.item_comment_ibfk_1">
-            <End Role="item" EntitySet="item" />
-            <End Role="item_comment" EntitySet="item_comment" />
-          </AssociationSet>
-          <AssociationSet Name="item_comment_ibfk_2" Association="Self.item_comment_ibfk_2">
-            <End Role="member" EntitySet="member" />
-            <End Role="item_comment" EntitySet="item_comment" />
           </AssociationSet>
           <AssociationSet Name="item_ibfk_1" Association="Self.item_ibfk_1">
             <End Role="item_category" EntitySet="item_category" />
@@ -4232,14 +4080,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="shop" EntitySet="shop" />
             <End Role="redpacket_record" EntitySet="redpacket_record" />
           </AssociationSet>
-          <AssociationSet Name="shop_car_ibfk_1" Association="Self.shop_car_ibfk_1">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_car" EntitySet="shop_car" />
-          </AssociationSet>
-          <AssociationSet Name="shop_car_ibfk_2" Association="Self.shop_car_ibfk_2">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_car" EntitySet="shop_car" />
-          </AssociationSet>
           <AssociationSet Name="shop_income_clean_ibfk_1" Association="Self.shop_income_clean_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="shop_income_clean" EntitySet="shop_income_clean" />
@@ -4251,14 +4091,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="shop_info_record_ibfk_1" Association="Self.shop_info_record_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="shop_info_record" EntitySet="shop_info_record" />
-          </AssociationSet>
-          <AssociationSet Name="shop_item_record_ibfk_1" Association="Self.shop_item_record_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="shop_item_record" EntitySet="shop_item_record" />
-          </AssociationSet>
-          <AssociationSet Name="shop_item_record_ibfk_2" Association="Self.shop_item_record_ibfk_2">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_item_record" EntitySet="shop_item_record" />
           </AssociationSet>
           <AssociationSet Name="shop_oper_log_ibfk_1" Association="Self.shop_oper_log_ibfk_1">
             <End Role="member" EntitySet="member" />
@@ -4482,7 +4314,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="weight" Type="Decimal" />
           <NavigationProperty Name="interaction_record" Relationship="Self.Fk_IR1" FromRole="cf_detail" ToRole="interaction_record" />
           <NavigationProperty Name="interaction_record1" Relationship="Self.Fk_IR2" FromRole="cf_detail" ToRole="interaction_record" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_27" FromRole="cf_detail" ToRole="item" />
         </EntityType>
         <EntityType Name="cf_member">
           <Key>
@@ -5121,73 +4952,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="cf_detail" Relationship="Self.Fk_IR1" FromRole="interaction_record" ToRole="cf_detail" />
           <NavigationProperty Name="cf_detail1" Relationship="Self.Fk_IR2" FromRole="interaction_record" ToRole="cf_detail" />
         </EntityType>
-        <EntityType Name="item">
-          <Key>
-            <PropertyRef Name="itemkey" />
-          </Key>
-          <Property Name="itemkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="itemCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="itemType" Type="Int32" />
-          <Property Name="itemcategorykey" Type="Int32" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="introduce" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
-          <Property Name="thumb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="place" Type="Int32" />
-          <Property Name="imgs" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="price" Type="Double" />
-          <Property Name="discountPrice" Type="Double" />
-          <Property Name="discount" Type="Double" />
-          <Property Name="stockNum" Type="Int32" />
-          <Property Name="soldNum" Type="Int32" />
-          <Property Name="unit" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="createDate" Type="DateTime" />
-          <Property Name="state" Type="Int32" />
-          <Property Name="orderNo" Type="Int32" />
-          <Property Name="isShowIndex" Type="Int32" />
-          <Property Name="isDel" Type="Int32" />
-          <Property Name="recommentNum" Type="Int32" />
-          <Property Name="commentDate" Type="DateTime" />
-          <Property Name="isSet" Type="Int32" />
-          <Property Name="isStandard" Type="Int32" />
-          <Property Name="agioprice" Type="Double" />
-          <Property Name="minnum" Type="Int32" />
-          <Property Name="islikenum" Type="Int32" />
-          <Property Name="unlikenum" Type="Int32" />
-          <Property Name="isprint" Type="Int32" />
-          <Property Name="isprintset" Type="Int32" />
-          <Property Name="storagenum" Type="Int32" />
-          <Property Name="selebyunit" Type="SByte" />
-          <Property Name="ispayagio" Type="SByte" />
-          <Property Name="ismust" Type="SByte" />
-          <Property Name="isware" Type="SByte" />
-          <NavigationProperty Name="cf_detail" Relationship="Self.FK_Reference_27" FromRole="item" ToRole="cf_detail" />
-          <NavigationProperty Name="item_category" Relationship="Self.FK_Reference_2" FromRole="item" ToRole="item_category" />
-          <NavigationProperty Name="shop_car" Relationship="Self.FK_Reference_28" FromRole="item" ToRole="shop_car" />
-          <NavigationProperty Name="shop" Relationship="Self.FK_Reference_3" FromRole="item" ToRole="shop" />
-          <NavigationProperty Name="shop_item_record" Relationship="Self.FK_Reference_36" FromRole="item" ToRole="shop_item_record" />
-          <NavigationProperty Name="item_category_map" Relationship="Self.FK_Reference_56" FromRole="item" ToRole="item_category_map" />
-          <NavigationProperty Name="item_comment" Relationship="Self.FK_Reference_6" FromRole="item" ToRole="item_comment" />
-          <Property Name="syncFlag" Type="Int32" />
-        </EntityType>
-        <EntityType Name="item_category">
-          <Key>
-            <PropertyRef Name="itemcategorykey" />
-          </Key>
-          <Property Name="itemcategorykey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="itemCategoryCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="instructions" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="img" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="enable" Type="Int32" />
-          <Property Name="orderNo" Type="Int32" />
-          <Property Name="isDel" Type="Int32" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_2" FromRole="item_category" ToRole="item" />
-          <NavigationProperty Name="shop" Relationship="Self.FK_Reference_21" FromRole="item_category" ToRole="shop" />
-          <NavigationProperty Name="item_category_map" Relationship="Self.FK_Reference_57" FromRole="item_category" ToRole="item_category_map" />
-          <Property Name="syncFlag" Type="Int32" />
-        </EntityType>
         <EntityType Name="item_category_map">
           <Key>
             <PropertyRef Name="itemcategorymapkey" />
@@ -5196,8 +4960,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="itemkey" Type="Int32" />
           <Property Name="itemcategorykey" Type="Int32" />
           <Property Name="index" Type="Int32" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_56" FromRole="item_category_map" ToRole="item" />
-          <NavigationProperty Name="item_category" Relationship="Self.FK_Reference_57" FromRole="item_category_map" ToRole="item_category" />
         </EntityType>
         <EntityType Name="item_comment">
           <Key>
@@ -5211,7 +4973,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="createDate" Type="DateTime" />
           <Property Name="imgs" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="enable" Type="Int32" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_6" FromRole="item_comment" ToRole="item" />
           <NavigationProperty Name="member" Relationship="Self.FK_Reference_7" FromRole="item_comment" ToRole="member" />
         </EntityType>
         <EntityType Name="item_recomment">
@@ -5620,8 +5381,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="zbankname" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="zbankcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="income_record" Relationship="Self.FK_Reference_16" FromRole="shop" ToRole="income_record" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_3" FromRole="shop" ToRole="item" />
-          <NavigationProperty Name="item_category" Relationship="Self.FK_Reference_21" FromRole="shop" ToRole="item_category" />
           <NavigationProperty Name="item_recomment" Relationship="Self.FK_Reference_17" FromRole="shop" ToRole="item_recomment" />
           <NavigationProperty Name="member" Relationship="Self.FK_Reference_1" FromRole="shop" ToRole="member" />
           <NavigationProperty Name="post" Relationship="Self.FK_Reference_20" FromRole="shop" ToRole="post" />
@@ -5639,6 +5398,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <NavigationProperty Name="cf_main" Relationship="diandianModel.cf_main_ibfk_1" FromRole="shop" ToRole="cf_main" />
           <NavigationProperty Name="cf_meal" Relationship="diandianModel.cf_meal_ibfk_1" FromRole="shop" ToRole="cf_meal" />
           <NavigationProperty Name="table_pos" Relationship="diandianModel.table_pos_ibfk_1" FromRole="shop" ToRole="table_pos" />
+          <NavigationProperty Name="item" Relationship="diandianModel.item_ibfk_2" FromRole="shop" ToRole="item" />
         </EntityType>
         <EntityType Name="shop_car">
           <Key>
@@ -5652,7 +5412,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="memberkey" Type="Int32" />
           <Property Name="guigeid" Type="Int32" />
           <Property Name="zuofa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_28" FromRole="shop_car" ToRole="item" />
           <NavigationProperty Name="shop" Relationship="Self.FK_Reference_29" FromRole="shop_car" ToRole="shop" />
         </EntityType>
         <EntityType Name="shop_income_clean">
@@ -5708,7 +5467,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="isexception" Type="Int32" />
           <Property Name="addnum" Type="Int32" />
           <Property Name="guigeid" Type="Int32" />
-          <NavigationProperty Name="item" Relationship="Self.FK_Reference_36" FromRole="shop_item_record" ToRole="item" />
           <NavigationProperty Name="shop" Relationship="Self.FK_Reference_35" FromRole="shop_item_record" ToRole="shop" />
         </EntityType>
         <EntityType Name="shop_oper_log">
@@ -5973,18 +5731,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Reference_27">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="cf_detail" Type="Self.cf_detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="cf_detail">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Reference_43">
           <End Role="member" Type="Self.member" Multiplicity="0..1" />
           <End Role="cf_member" Type="Self.cf_member" Multiplicity="*" />
@@ -6006,102 +5752,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             </Principal>
             <Dependent Role="income_record">
               <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_2">
-          <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
-          <End Role="item" Type="Self.item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item_category">
-              <PropertyRef Name="itemcategorykey" />
-            </Principal>
-            <Dependent Role="item">
-              <PropertyRef Name="itemcategorykey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_28">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_car" Type="Self.shop_car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_car">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_3">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item" Type="Self.item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_36">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="shop_item_record" Type="Self.shop_item_record" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="shop_item_record">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_56">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="item_category_map">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_6">
-          <End Role="item" Type="Self.item" Multiplicity="0..1" />
-          <End Role="item_comment" Type="Self.item_comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="itemkey" />
-            </Principal>
-            <Dependent Role="item_comment">
-              <PropertyRef Name="itemkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_21">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item_category">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reference_57">
-          <End Role="item_category" Type="Self.item_category" Multiplicity="0..1" />
-          <End Role="item_category_map" Type="Self.item_category_map" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item_category">
-              <PropertyRef Name="itemcategorykey" />
-            </Principal>
-            <Dependent Role="item_category_map">
-              <PropertyRef Name="itemcategorykey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6498,8 +6148,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="elm_shop_refreshtoken" EntityType="Self.elm_shop_refreshtoken" />
           <EntitySet Name="income_record" EntityType="Self.income_record" />
           <EntitySet Name="interaction_record" EntityType="Self.interaction_record" />
-          <EntitySet Name="item" EntityType="Self.item" />
-          <EntitySet Name="item_category" EntityType="Self.item_category" />
           <EntitySet Name="item_category_map" EntityType="Self.item_category_map" />
           <EntitySet Name="item_comment" EntityType="Self.item_comment" />
           <EntitySet Name="item_recomment" EntityType="Self.item_recomment" />
@@ -6553,10 +6201,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="interaction_record" EntitySet="interaction_record" />
             <End Role="cf_detail" EntitySet="cf_detail" />
           </AssociationSet>
-          <AssociationSet Name="FK_Reference_27" Association="Self.FK_Reference_27">
-            <End Role="item" EntitySet="item" />
-            <End Role="cf_detail" EntitySet="cf_detail" />
-          </AssociationSet>
           <AssociationSet Name="FK_Reference_43" Association="Self.FK_Reference_43">
             <End Role="member" EntitySet="member" />
             <End Role="cf_member" EntitySet="cf_member" />
@@ -6564,38 +6208,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="FK_Reference_16" Association="Self.FK_Reference_16">
             <End Role="shop" EntitySet="shop" />
             <End Role="income_record" EntitySet="income_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_2" Association="Self.FK_Reference_2">
-            <End Role="item_category" EntitySet="item_category" />
-            <End Role="item" EntitySet="item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_28" Association="Self.FK_Reference_28">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_car" EntitySet="shop_car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_3" Association="Self.FK_Reference_3">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item" EntitySet="item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_36" Association="Self.FK_Reference_36">
-            <End Role="item" EntitySet="item" />
-            <End Role="shop_item_record" EntitySet="shop_item_record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_56" Association="Self.FK_Reference_56">
-            <End Role="item" EntitySet="item" />
-            <End Role="item_category_map" EntitySet="item_category_map" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_6" Association="Self.FK_Reference_6">
-            <End Role="item" EntitySet="item" />
-            <End Role="item_comment" EntitySet="item_comment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_21" Association="Self.FK_Reference_21">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item_category" EntitySet="item_category" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reference_57" Association="Self.FK_Reference_57">
-            <End Role="item_category" EntitySet="item_category" />
-            <End Role="item_category_map" EntitySet="item_category_map" />
           </AssociationSet>
           <AssociationSet Name="FK_Reference_7" Association="Self.FK_Reference_7">
             <End Role="member" EntitySet="member" />
@@ -6783,6 +6395,22 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <Parameter Name="sdate" Mode="In" Type="DateTime" />
             <Parameter Name="edate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="ClearCategorySyncFlag" />
+          <EntitySet Name="item" EntityType="diandianModel.item" />
+          <EntitySet Name="item_category" EntityType="diandianModel.item_category" />
+          <AssociationSet Name="item_ibfk_1" Association="diandianModel.item_ibfk_1">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="item_ibfk_2" Association="diandianModel.item_ibfk_2">
+            <End Role="shop" EntitySet="shop" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <EntitySet Name="v_crude_genre" EntityType="diandianModel.v_crude_genre" />
+          <FunctionImport Name="ClearCrudeSyncFlag" />
+          <FunctionImport Name="ClearMemberSyncFlag" />
+          <FunctionImport Name="ClearSysRoleSyncFlag" />
+          <FunctionImport Name="ClearTablePosSyncFlag" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -8023,6 +7651,104 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="itemkey" />
+          </Key>
+          <Property Name="itemkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="itemType" Type="Int32" />
+          <Property Name="itemcategorykey" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="introduce" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="thumb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="place" Type="Int32" />
+          <Property Name="imgs" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="discountPrice" Type="Double" />
+          <Property Name="discount" Type="Double" />
+          <Property Name="stockNum" Type="Int32" />
+          <Property Name="soldNum" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="createDate" Type="DateTime" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="orderNo" Type="Int32" />
+          <Property Name="isShowIndex" Type="Int32" />
+          <Property Name="isDel" Type="Int32" />
+          <Property Name="recommentNum" Type="Int32" />
+          <Property Name="commentDate" Type="DateTime" />
+          <Property Name="isSet" Type="Int32" />
+          <Property Name="isStandard" Type="Int32" />
+          <Property Name="agioprice" Type="Double" />
+          <Property Name="minnum" Type="Int32" />
+          <Property Name="islikenum" Type="Int32" />
+          <Property Name="unlikenum" Type="Int32" />
+          <Property Name="isprint" Type="Int32" />
+          <Property Name="isprintset" Type="Int32" />
+          <Property Name="storagenum" Type="Int32" />
+          <Property Name="selebyunit" Type="SByte" />
+          <Property Name="ispayagio" Type="SByte" />
+          <Property Name="ismust" Type="SByte" />
+          <Property Name="isware" Type="SByte" />
+          <Property Name="syncFlag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="item_category">
+          <Key>
+            <PropertyRef Name="itemcategorykey" />
+          </Key>
+          <Property Name="itemcategorykey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="itemCategoryCode" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="instructions" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="enable" Type="Int32" />
+          <Property Name="orderNo" Type="Int32" />
+          <Property Name="isDel" Type="Int32" />
+          <Property Name="syncFlag" Type="Int32" />
+        </EntityType>
+        <Association Name="item_ibfk_1">
+          <End Type="diandianModel.item_category" Role="item_category" Multiplicity="0..1" />
+          <End Type="diandianModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item_category">
+              <PropertyRef Name="itemcategorykey" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="itemcategorykey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="item_ibfk_2">
+          <End Type="diandianModel.shop" Role="shop" Multiplicity="0..1" />
+          <End Type="diandianModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shop">
+              <PropertyRef Name="shopkey" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="shopkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="v_crude_genre">
+          <Key>
+            <PropertyRef Name="crudeid" />
+          </Key>
+          <Property Name="crudeid" Type="Int32" Nullable="false" />
+          <Property Name="crudename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="crudecode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdate" Type="DateTime" />
+          <Property Name="genreid" Type="Int32" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="state" Type="SByte" />
+          <Property Name="syncFlag" Type="Int32" />
+          <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8907,65 +8633,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
                 <ScalarProperty Name="createDate" ColumnName="createDate" />
                 <ScalarProperty Name="memberkey" ColumnName="memberkey" />
                 <ScalarProperty Name="flagMemberkey" ColumnName="flagMemberkey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="item">
-            <EntityTypeMapping TypeName="diandianModel.item">
-              <MappingFragment StoreEntitySet="item">
-                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
-                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
-                <ScalarProperty Name="itemCode" ColumnName="itemCode" />
-                <ScalarProperty Name="itemType" ColumnName="itemType" />
-                <ScalarProperty Name="itemcategorykey" ColumnName="itemcategorykey" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="introduce" ColumnName="introduce" />
-                <ScalarProperty Name="thumb" ColumnName="thumb" />
-                <ScalarProperty Name="place" ColumnName="place" />
-                <ScalarProperty Name="imgs" ColumnName="imgs" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="discountPrice" ColumnName="discountPrice" />
-                <ScalarProperty Name="discount" ColumnName="discount" />
-                <ScalarProperty Name="stockNum" ColumnName="stockNum" />
-                <ScalarProperty Name="soldNum" ColumnName="soldNum" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
-                <ScalarProperty Name="isShowIndex" ColumnName="isShowIndex" />
-                <ScalarProperty Name="isDel" ColumnName="isDel" />
-                <ScalarProperty Name="recommentNum" ColumnName="recommentNum" />
-                <ScalarProperty Name="commentDate" ColumnName="commentDate" />
-                <ScalarProperty Name="isSet" ColumnName="isSet" />
-                <ScalarProperty Name="isStandard" ColumnName="isStandard" />
-                <ScalarProperty Name="agioprice" ColumnName="agioprice" />
-                <ScalarProperty Name="minnum" ColumnName="minnum" />
-                <ScalarProperty Name="islikenum" ColumnName="islikenum" />
-                <ScalarProperty Name="unlikenum" ColumnName="unlikenum" />
-                <ScalarProperty Name="isprint" ColumnName="isprint" />
-                <ScalarProperty Name="isprintset" ColumnName="isprintset" />
-                <ScalarProperty Name="storagenum" ColumnName="storagenum" />
-                <ScalarProperty Name="selebyunit" ColumnName="selebyunit" />
-                <ScalarProperty Name="ispayagio" ColumnName="ispayagio" />
-                <ScalarProperty Name="ismust" ColumnName="ismust" />
-                <ScalarProperty Name="isware" ColumnName="isware" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="item_category">
-            <EntityTypeMapping TypeName="diandianModel.item_category">
-              <MappingFragment StoreEntitySet="item_category">
-                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
-                <ScalarProperty Name="itemcategorykey" ColumnName="itemcategorykey" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="itemCategoryCode" ColumnName="itemCategoryCode" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="instructions" ColumnName="instructions" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="enable" ColumnName="enable" />
-                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
-                <ScalarProperty Name="isDel" ColumnName="isDel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10957,6 +10624,88 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ClearItemSyncFlag" FunctionName="diandianModel.Store.ClearItemSyncFlag" />
           <FunctionImportMapping FunctionImportName="GetSumSaleMoney" FunctionName="diandianModel.Store.GetSumSaleMoney" />
+          <FunctionImportMapping FunctionImportName="ClearCategorySyncFlag" FunctionName="diandianModel.Store.ClearCategorySyncFlag" />
+          <EntitySetMapping Name="item">
+            <EntityTypeMapping TypeName="diandianModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
+                <ScalarProperty Name="isware" ColumnName="isware" />
+                <ScalarProperty Name="ismust" ColumnName="ismust" />
+                <ScalarProperty Name="ispayagio" ColumnName="ispayagio" />
+                <ScalarProperty Name="selebyunit" ColumnName="selebyunit" />
+                <ScalarProperty Name="storagenum" ColumnName="storagenum" />
+                <ScalarProperty Name="isprintset" ColumnName="isprintset" />
+                <ScalarProperty Name="isprint" ColumnName="isprint" />
+                <ScalarProperty Name="unlikenum" ColumnName="unlikenum" />
+                <ScalarProperty Name="islikenum" ColumnName="islikenum" />
+                <ScalarProperty Name="minnum" ColumnName="minnum" />
+                <ScalarProperty Name="agioprice" ColumnName="agioprice" />
+                <ScalarProperty Name="isStandard" ColumnName="isStandard" />
+                <ScalarProperty Name="isSet" ColumnName="isSet" />
+                <ScalarProperty Name="commentDate" ColumnName="commentDate" />
+                <ScalarProperty Name="recommentNum" ColumnName="recommentNum" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="isShowIndex" ColumnName="isShowIndex" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="soldNum" ColumnName="soldNum" />
+                <ScalarProperty Name="stockNum" ColumnName="stockNum" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="discountPrice" ColumnName="discountPrice" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="imgs" ColumnName="imgs" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="thumb" ColumnName="thumb" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="itemcategorykey" ColumnName="itemcategorykey" />
+                <ScalarProperty Name="itemType" ColumnName="itemType" />
+                <ScalarProperty Name="itemCode" ColumnName="itemCode" />
+                <ScalarProperty Name="itemkey" ColumnName="itemkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_category">
+            <EntityTypeMapping TypeName="diandianModel.item_category">
+              <MappingFragment StoreEntitySet="item_category">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="enable" ColumnName="enable" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="instructions" ColumnName="instructions" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="itemCategoryCode" ColumnName="itemCategoryCode" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="itemcategorykey" ColumnName="itemcategorykey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_crude_genre">
+            <EntityTypeMapping TypeName="diandianModel.v_crude_genre">
+              <MappingFragment StoreEntitySet="v_crude_genre">
+                <ScalarProperty Name="genrename" ColumnName="genrename" />
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="genreid" ColumnName="genreid" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="crudecode" ColumnName="crudecode" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="crudename" ColumnName="crudename" />
+                <ScalarProperty Name="crudeid" ColumnName="crudeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ClearCrudeSyncFlag" FunctionName="diandianModel.Store.ClearCrudeSyncFlag" />
+          <FunctionImportMapping FunctionImportName="ClearMemberSyncFlag" FunctionName="diandianModel.Store.ClearMemberSyncFlag" />
+          <FunctionImportMapping FunctionImportName="ClearSysRoleSyncFlag" FunctionName="diandianModel.Store.ClearSysRoleSyncFlag" />
+          <FunctionImportMapping FunctionImportName="ClearTablePosSyncFlag" FunctionName="diandianModel.Store.ClearTablePosSyncFlag" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

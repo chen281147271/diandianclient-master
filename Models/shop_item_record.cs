@@ -25,7 +25,6 @@ namespace DianDianClient.Models
         public Nullable<int> addnum { get; set; }
         public Nullable<int> guigeid { get; set; }
     
-        public virtual item item { get; set; }
         public virtual shop shop { get; set; }
     }
 }
