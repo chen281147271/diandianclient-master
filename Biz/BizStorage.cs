@@ -24,7 +24,7 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 var crudeList = db.v_crude_genre.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
-                if (crudename.Equals(crudename))
+                if (!crudename.Equals(""))
                 {
                     crudeList = crudeList.Where(p => p.crudename.Contains(crudename));
                 }
@@ -375,9 +375,13 @@ namespace DianDianClient.Biz
                 {
                     stockList = stockList.Where(p => p.crudename.Contains(crudename));
                 }
-                if (genreid != 0)
+                //if (genreid != 0)
+                //{
+                //    stockList = stockList.Where(p => p.genreid == genreid);
+                //}
+                if (!genrename.Equals(""))
                 {
-                    stockList = stockList.Where(p => p.genreid == genreid);
+                    stockList = stockList.Where(p => p.genrename == genrename);
                 }
                 if (sdate != null)
                 {
@@ -406,9 +410,9 @@ namespace DianDianClient.Biz
                 {
                     rsl2 = rsl2.Where(p => p.createdate <= edate);
                 }
-                if(rsl2 != null)
+                if (rsl2.Count()>0)
                 {
-                    resultbean.buymoney = rsl2.Sum(p => p.cost).Value;
+                    resultbean.buymoney = (rsl2.Sum(p => p.cost).Value);
                 }               
                 
                 return resultbean;
@@ -471,7 +475,7 @@ namespace DianDianClient.Biz
             }
         }
         //添加入库详情
-        public void AddDepotInInfo(int genreid, int crudeid, decimal cost, int num, DateTime? validity, DateTime? productiondate,
+        public void AddDepotInInfo(int depotinid,int genreid, int crudeid, decimal cost, int num, DateTime? validity, DateTime? productiondate,
             DateTime? backdate, String maker, string remarks, string supplier )
         {
             try
@@ -479,6 +483,7 @@ namespace DianDianClient.Biz
                 DianDianEntities db = new DianDianEntities();
 
                 storage_depotin_info deportininfo = new storage_depotin_info();
+                deportininfo.depotinid = depotinid;
                 deportininfo.crudeid = crudeid;
                 deportininfo.cost = cost;
                 deportininfo.num = num;

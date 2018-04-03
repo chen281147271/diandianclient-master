@@ -898,6 +898,54 @@
     <Compile Include="MyControl\More\dangkouManage\QuerydangkouControl.Designer.cs">
       <DependentUpon>QuerydangkouControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\detailrukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\detailrukuControl.Designer.cs">
+      <DependentUpon>detailrukuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.Designer.cs">
+      <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EidtrukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EidtrukuControl.Designer.cs">
+      <DependentUpon>EidtrukuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\kucunControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\kucunControl.Designer.cs">
+      <DependentUpon>kucunControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\rukuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\rukuControl.Designer.cs">
+      <DependentUpon>rukuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\sunyiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\sunyiControl.Designer.cs">
+      <DependentUpon>sunyiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\yuanliaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\yuanliaoControl.Designer.cs">
+      <DependentUpon>yuanliaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\zongControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\zongControl.Designer.cs">
+      <DependentUpon>zongControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\StaffManage\PWControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1075,6 +1123,7 @@
     <Compile Include="MyEvent\MemberManagement\MemberDetaileEvent.cs" />
     <Compile Include="MyEvent\MemberManagement\RechargeRecordEvent.cs" />
     <Compile Include="MyEvent\MemberManagement\RuleEventClass.cs" />
+    <Compile Include="MyEvent\More\jinxiaocunManage\jinxiaocunEvent.cs" />
     <Compile Include="MyEvent\More\MoreEvent.cs" />
     <Compile Include="MyEvent\TableSettlement\PayBillEvent.cs" />
     <Compile Include="MyForm\ActivityManagement\ActivityManageDeatilForm.cs">
@@ -1160,6 +1209,18 @@
     </Compile>
     <Compile Include="MyForm\More\dangkouManage\EditdangkouForm.Designer.cs">
       <DependentUpon>EditdangkouForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.Designer.cs">
+      <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EidtrukuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EidtrukuForm.Designer.cs">
+      <DependentUpon>EidtrukuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyForm\More\StaffManage\PWForm.cs">
       <SubType>Form</SubType>
@@ -1360,6 +1421,33 @@
     <EmbeddedResource Include="MyControl\More\dangkouManage\QuerydangkouControl.resx">
       <DependentUpon>QuerydangkouControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\detailrukuControl.resx">
+      <DependentUpon>detailrukuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditdetailrukuControl.resx">
+      <DependentUpon>EditdetailrukuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EidtrukuControl.resx">
+      <DependentUpon>EidtrukuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\jinxiaocunManageControl.resx">
+      <DependentUpon>jinxiaocunManageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\kucunControl.resx">
+      <DependentUpon>kucunControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\rukuControl.resx">
+      <DependentUpon>rukuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\sunyiControl.resx">
+      <DependentUpon>sunyiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\yuanliaoControl.resx">
+      <DependentUpon>yuanliaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\zongControl.resx">
+      <DependentUpon>zongControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\StaffManage\PWControl.resx">
       <DependentUpon>PWControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1482,6 +1570,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\dangkouManage\EditdangkouForm.resx">
       <DependentUpon>EditdangkouForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditdetailrukuForm.resx">
+      <DependentUpon>EditdetailrukuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EidtrukuForm.resx">
+      <DependentUpon>EidtrukuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\StaffManage\PWForm.resx">
       <DependentUpon>PWForm.cs</DependentUpon>
