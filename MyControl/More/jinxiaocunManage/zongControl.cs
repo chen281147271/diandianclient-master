@@ -18,14 +18,27 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         public int pageSize = 10;
         public int allcount = 0;
         bool isfirst = true;
+        List<Models.storage_genre> list_storagegenre;
+        int genreid;
         public zongControl()
         {
             InitializeComponent();
             string s_date = DateTime.Now.ToString("yyyy-MM-dd");
             string e_date = DateTime.Now.ToString("yyyy-MM-dd");
-            queryDepotOut = BizStorage.QueryDepotOut("", "", "", "",Convert.ToDateTime(s_date), Convert.ToDateTime( e_date).AddDays(1));
+            queryDepotOut = BizStorage.QueryDepotOut("", "", "", 0,Convert.ToDateTime(s_date), Convert.ToDateTime( e_date).AddDays(1));
             list = queryDepotOut.depotoutList;
             iniData();
+            iniCob();
+        }
+        private void iniCob()
+        {
+            list_storagegenre = BizStorage.QueryGenre();
+            cbo_yuanliaoType.Properties.Items.Add("全部");
+            foreach (var a in list_storagegenre)
+            {
+                cbo_yuanliaoType.Properties.Items.Add(a.genrename);
+            }
+            cbo_yuanliaoType.SelectedIndex = 0;
         }
         private void iniData()
         {
@@ -97,7 +110,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             string itemname = Txt_shangpinName.Text;
             string categoryname = Txt_shangpinType.Text;
             string crudename = txt_yuanliaoName.Text;
-            string genrename = txt_yuanliangType.Text;
+            int genreid = this.genreid;
             if (de_stime.Text == "")
             {
                 IniDate();
@@ -105,7 +118,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             DateTime sdate = Convert.ToDateTime(de_stime.Text);
             DateTime edate = Convert.ToDateTime(de_etime.Text);
             edate = edate.AddDays(1);
-            queryDepotOut = BizStorage.QueryDepotOut(itemname, categoryname, crudename, genrename, sdate, edate);
+            queryDepotOut = BizStorage.QueryDepotOut(itemname, categoryname, crudename, genreid, sdate, edate);
             txt_sumjinjia.Text = queryDepotOut.buymoney.ToString();
             txt_sumshoujia.Text = queryDepotOut.salemoney.ToString();
             txt_sumlirun.Text = (queryDepotOut.salemoney - queryDepotOut.buymoney).ToString();
@@ -204,6 +217,16 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
                     e.DisplayText = "出库";
                 }
             
+            }
+        }
+
+        private void cbo_yuanliaoType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.genreid = (cbo_yuanliaoType.SelectedIndex == 0) ? 0 : list_storagegenre[cbo_yuanliaoType.SelectedIndex - 1].genreid;
+            if (!isfirst)
+            {
+                this.curPage = 1;
+                RefreshGridList();
             }
         }
     }

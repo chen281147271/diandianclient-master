@@ -51,7 +51,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_yuanliangType = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.de_stime = new DevExpress.XtraEditors.DateEdit();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.Txt_shangpinType = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_yuanliaoName = new DevExpress.XtraEditors.TextEdit();
+            this.cbo_yuanliaoType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_sumjinjia.Properties)).BeginInit();
@@ -73,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliangType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).BeginInit();
@@ -82,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -313,7 +313,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txt_yuanliangType);
+            this.flowLayoutPanel2.Controls.Add(this.cbo_yuanliaoType);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.de_stime);
             this.flowLayoutPanel2.Controls.Add(this.label5);
@@ -336,25 +336,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "原料分类：";
             // 
-            // txt_yuanliangType
-            // 
-            this.txt_yuanliangType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_yuanliangType.Location = new System.Drawing.Point(99, 4);
-            this.txt_yuanliangType.Name = "txt_yuanliangType";
-            this.txt_yuanliangType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_yuanliangType.Properties.Appearance.Options.UseFont = true;
-            this.txt_yuanliangType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_yuanliangType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txt_yuanliangType.Size = new System.Drawing.Size(177, 26);
-            this.txt_yuanliangType.TabIndex = 18;
-            this.txt_yuanliangType.EditValueChanged += new System.EventHandler(this.txt_yuanliangType_EditValueChanged);
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(282, 6);
+            this.label4.Location = new System.Drawing.Point(267, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 21);
             this.label4.TabIndex = 19;
@@ -364,7 +351,7 @@
             // 
             this.de_stime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.de_stime.EditValue = null;
-            this.de_stime.Location = new System.Drawing.Point(417, 4);
+            this.de_stime.Location = new System.Drawing.Point(402, 4);
             this.de_stime.Name = "de_stime";
             this.de_stime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.de_stime.Properties.Appearance.Options.UseFont = true;
@@ -386,7 +373,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(604, 6);
+            this.label5.Location = new System.Drawing.Point(589, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 21);
             this.label5.TabIndex = 21;
@@ -396,7 +383,7 @@
             // 
             this.de_etime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.de_etime.EditValue = null;
-            this.de_etime.Location = new System.Drawing.Point(627, 4);
+            this.de_etime.Location = new System.Drawing.Point(612, 4);
             this.de_etime.Name = "de_etime";
             this.de_etime.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.de_etime.Properties.Appearance.Options.UseFont = true;
@@ -423,7 +410,7 @@
             this.btn_search.Appearance.Options.UseFont = true;
             this.btn_search.Appearance.Options.UseForeColor = true;
             this.btn_search.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_search.Location = new System.Drawing.Point(814, 3);
+            this.btn_search.Location = new System.Drawing.Point(799, 3);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(106, 28);
             this.btn_search.TabIndex = 25;
@@ -516,6 +503,19 @@
             this.txt_yuanliaoName.TabIndex = 22;
             this.txt_yuanliaoName.EditValueChanged += new System.EventHandler(this.txt_yuanliaoName_EditValueChanged);
             // 
+            // cbo_yuanliaoType
+            // 
+            this.cbo_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbo_yuanliaoType.Location = new System.Drawing.Point(99, 4);
+            this.cbo_yuanliaoType.Name = "cbo_yuanliaoType";
+            this.cbo_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_yuanliaoType.Properties.Appearance.Options.UseFont = true;
+            this.cbo_yuanliaoType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_yuanliaoType.Size = new System.Drawing.Size(162, 26);
+            this.cbo_yuanliaoType.TabIndex = 30;
+            this.cbo_yuanliaoType.SelectedIndexChanged += new System.EventHandler(this.cbo_yuanliaoType_SelectedIndexChanged);
+            // 
             // zongControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -534,7 +534,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliangType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).EndInit();
@@ -544,6 +543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,7 +564,6 @@
         private DevExpress.XtraEditors.TextEdit Txt_shangpinName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.TextEdit txt_yuanliangType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -585,5 +584,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn num;
         private DevExpress.XtraGrid.Columns.GridColumn type;
         private DevExpress.XtraGrid.Columns.GridColumn remainnum;
+        private DevExpress.XtraEditors.ComboBoxEdit cbo_yuanliaoType;
     }
 }

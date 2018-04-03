@@ -28,6 +28,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             this.de_stime.Text = s_date;
             this.de_etime.Text = e_date;
             list = BizStorage.QueryStock("", "", "", 0, Convert.ToDateTime(s_date), Convert.ToDateTime(e_date).AddDays(1));
+            iniCob();
             iniData();
         }
         private void iniData()

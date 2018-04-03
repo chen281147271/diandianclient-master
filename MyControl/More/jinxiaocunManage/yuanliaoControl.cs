@@ -12,7 +12,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
     public partial class yuanliaoControl : UserControl
     {
         Biz.BizStorage BizStorage = new Biz.BizStorage();
-        List<Models.storage_crude> list;
+        List<Models.v_crude_genre> list;
         public yuanliaoControl()
         {
             InitializeComponent();

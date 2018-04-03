@@ -377,13 +377,9 @@ namespace DianDianClient.Biz
                 {
                     stockList = stockList.Where(p => p.crudename.Contains(crudename));
                 }
-                //if (genreid != 0)
-                //{
-                //    stockList = stockList.Where(p => p.genreid == genreid);
-                //}
-                if (!genrename.Equals(""))
+                if (genreid != 0)
                 {
-                    stockList = stockList.Where(p => p.genrename == genrename);
+                    stockList = stockList.Where(p => p.genreid == genreid);
                 }
                 if (sdate != null)
                 {

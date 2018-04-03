@@ -14,7 +14,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         Biz.BizStorage BizStorage = new Biz.BizStorage();
         List<Models.storage_genre> list_storagegenre;
         int genreid=0;
-        List<Models.storage_crude> list_storagecrude;
+        List<Models.v_crude_genre> list_storagecrude;
         int crudeid = 0;
         public delegate void MyDelegate();
         public event MyDelegate MyEnent;

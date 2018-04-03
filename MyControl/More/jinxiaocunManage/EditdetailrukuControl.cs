@@ -13,7 +13,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
     {
         Biz.BizStorage BizStorage = new Biz.BizStorage();
         List<Models.storage_genre> list_storagegenre;
-        List<Models.storage_crude> list_storagecrude;
+        List<Models.v_crude_genre> list_storagecrude;
         int genreid = 0;
         int crudeid = 0;
         public delegate void Mydelegate();

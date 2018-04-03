@@ -33,17 +33,13 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.Txt_shangpinName = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_yuanliaoType = new DevExpress.XtraEditors.TextEdit();
             this.btn_search = new DevExpress.XtraEditors.SimpleButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,17 +50,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.floorid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.floorname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.orderno = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crudeid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.crudename = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.createdate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.str_state = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.ffuwu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.genrename = new DevExpress.XtraGrid.Columns.GridColumn();
             this.operation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoType.Properties)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -75,7 +69,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,6 +150,21 @@
             this.btn_add.Size = new System.Drawing.Size(106, 28);
             this.btn_add.TabIndex = 26;
             this.btn_add.Text = "添加原料分类";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton1.Location = new System.Drawing.Point(506, 3);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(106, 28);
+            this.simpleButton1.TabIndex = 27;
+            this.simpleButton1.Text = "添加原料";
             // 
             // tableLayoutPanel2
             // 
@@ -270,7 +278,6 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemRadioGroup1,
             this.repositoryItemButtonEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1122, 459);
             this.gridControl1.TabIndex = 0;
@@ -280,38 +287,38 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.floorid,
-            this.floorname,
-            this.orderno,
+            this.crudeid,
+            this.crudename,
             this.createdate,
-            this.str_state,
-            this.ffuwu,
+            this.unit,
+            this.genrename,
+            this.gridColumn1,
             this.operation});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // floorid
+            // crudeid
             // 
-            this.floorid.Caption = "floorid";
-            this.floorid.FieldName = "floorid";
-            this.floorid.Name = "floorid";
+            this.crudeid.Caption = "crudeid";
+            this.crudeid.FieldName = "crudeid";
+            this.crudeid.Name = "crudeid";
             // 
-            // floorname
+            // crudename
             // 
-            this.floorname.Caption = "区域名称";
-            this.floorname.FieldName = "floorname";
-            this.floorname.Name = "floorname";
-            this.floorname.Visible = true;
-            this.floorname.VisibleIndex = 0;
+            this.crudename.Caption = "原料名";
+            this.crudename.FieldName = "crudename";
+            this.crudename.Name = "crudename";
+            this.crudename.Visible = true;
+            this.crudename.VisibleIndex = 0;
             // 
-            // orderno
+            // unit
             // 
-            this.orderno.Caption = "顺序";
-            this.orderno.FieldName = "orderno";
-            this.orderno.Name = "orderno";
-            this.orderno.Visible = true;
-            this.orderno.VisibleIndex = 1;
+            this.unit.Caption = "单位";
+            this.unit.FieldName = "unit";
+            this.unit.Name = "unit";
+            this.unit.Visible = true;
+            this.unit.VisibleIndex = 2;
             // 
             // createdate
             // 
@@ -319,32 +326,15 @@
             this.createdate.FieldName = "createdate";
             this.createdate.Name = "createdate";
             this.createdate.Visible = true;
-            this.createdate.VisibleIndex = 2;
+            this.createdate.VisibleIndex = 1;
             // 
-            // str_state
+            // genrename
             // 
-            this.str_state.Caption = "状态";
-            this.str_state.ColumnEdit = this.repositoryItemRadioGroup1;
-            this.str_state.FieldName = "str_state";
-            this.str_state.Name = "str_state";
-            this.str_state.Visible = true;
-            this.str_state.VisibleIndex = 3;
-            // 
-            // repositoryItemRadioGroup1
-            // 
-            this.repositoryItemRadioGroup1.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "禁用"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "启用")});
-            this.repositoryItemRadioGroup1.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Flow;
-            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
-            // 
-            // ffuwu
-            // 
-            this.ffuwu.Caption = "服务费";
-            this.ffuwu.FieldName = "ffuwu";
-            this.ffuwu.Name = "ffuwu";
-            this.ffuwu.Visible = true;
-            this.ffuwu.VisibleIndex = 4;
+            this.genrename.Caption = "所属类别";
+            this.genrename.FieldName = "genrename";
+            this.genrename.Name = "genrename";
+            this.genrename.Visible = true;
+            this.genrename.VisibleIndex = 3;
             // 
             // operation
             // 
@@ -358,8 +348,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "编辑", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -371,20 +360,12 @@
             this.mgncPager1.Size = new System.Drawing.Size(1122, 34);
             this.mgncPager1.TabIndex = 2;
             // 
-            // simpleButton1
+            // gridColumn1
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(104)))), ((int)(((byte)(18)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton1.Location = new System.Drawing.Point(506, 3);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(106, 28);
-            this.simpleButton1.TabIndex = 27;
-            this.simpleButton1.Text = "添加原料";
+            this.gridColumn1.Caption = "库存余量";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
             // 
             // yuanliaoControl
             // 
@@ -405,7 +386,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
@@ -430,15 +410,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn floorid;
-        private DevExpress.XtraGrid.Columns.GridColumn floorname;
-        private DevExpress.XtraGrid.Columns.GridColumn orderno;
+        private DevExpress.XtraGrid.Columns.GridColumn crudeid;
+        private DevExpress.XtraGrid.Columns.GridColumn crudename;
+        private DevExpress.XtraGrid.Columns.GridColumn unit;
         private DevExpress.XtraGrid.Columns.GridColumn createdate;
-        private DevExpress.XtraGrid.Columns.GridColumn str_state;
-        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
-        private DevExpress.XtraGrid.Columns.GridColumn ffuwu;
+        private DevExpress.XtraGrid.Columns.GridColumn genrename;
         private DevExpress.XtraGrid.Columns.GridColumn operation;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private FoodManagement.MgncPager mgncPager1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
