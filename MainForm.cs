@@ -31,6 +31,8 @@ namespace DianDianClient
             //client.SyncInfoList();
             //创建后台同步的线程
             Thread syncThread = new Thread(new ThreadStart(client.SyncMethod));
+            Thread TipFormThread = new Thread(new ThreadStart(ShowTipFormThread));
+          //  Thread testtipThread = new Thread(new ThreadStart(showtesttipThread));
             //syncThread.Start();
             BizBillController bbc = new BizBillController();
             Thread billThread = new Thread(new ThreadStart(bbc.RemoteGetBillList));
@@ -57,6 +59,19 @@ namespace DianDianClient
             MyEvent.More.MoreEvent.ReplaceEvent += MyReplaceEvent;
             MyEvent.More.MoreEvent.ShowWaitEvent += MyShowWaitEvent;
             MyEvent.More.MoreEvent.EndShowWaitEvent += MyEndShowWaitEvent;
+            Utils.utils.MessageBoxTipsFormListEvent += ShowMessageBoxTipsFormListEvent;
+            TipFormThread.Start();
+          //  testtipThread.Start();
+        }
+        private void ShowMessageBoxTipsFormListEvent()
+        {
+            if (MyModels.TipMsg.list.Count == 0)
+                return;
+            MyModels.TipMsg._TipMsg a = new MyModels.TipMsg._TipMsg();
+            a = MyModels.TipMsg.list[0];
+            MyForm.TipForm tip = new MyForm.TipForm(a.title, a.msg);
+            tip.StartPosition = FormStartPosition.CenterScreen;
+            tip.ShowDialog();
         }
         private void MyShowWaitEvent()
         {
@@ -318,5 +333,32 @@ namespace DianDianClient
             }
             splashScreenManager1.CloseWaitForm();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Utils.utils.AddMessageBoxTipsFormList("信息", "提示啊");
+        }
+        private void ShowTipFormThread()
+        {
+            while (true)
+            {
+                Utils.utils.ShowMessageBoxTipsForm();
+                Thread.Sleep(500);
+            }
+        }
+        //private void showtesttipThread()
+        //{
+        //    int i = 0;
+        //    while (true)
+        //    {
+        //        i++;
+        //        Utils.utils.AddMessageBoxTipsFormList("哈哈哈哈" + i.ToString());
+        //        Thread.Sleep(3000);
+        //        if (i == 5)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //}
     }
 }

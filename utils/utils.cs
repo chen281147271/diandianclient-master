@@ -27,6 +27,11 @@ namespace DianDianClient.Utils
 
         public delegate void MessageBoxYesNoResult(int id);
         public static event MessageBoxYesNoResult MessageBoxYesNoResultEvent;
+
+        public delegate void MessageBoxTipsFormList();
+        public static event MessageBoxTipsFormList MessageBoxTipsFormListEvent;
+
+
         //右下角提示框
         public static void ShowTip(string title, string msg, int FormDelayTime=5000)
         {
@@ -35,6 +40,17 @@ namespace DianDianClient.Utils
         public static void ShowMessageBox( string msg, string title="提示")
         {
             MessageBoxEvent(msg,title);
+        }
+        public static void AddMessageBoxTipsFormList( string msg, string title="提示")
+        {
+            MyModels.TipMsg._TipMsg tip = new MyModels.TipMsg._TipMsg();
+            tip.msg = msg;
+            tip.title = title;
+            MyModels.TipMsg.list.Add(tip);
+        }
+        public static void ShowMessageBoxTipsForm()
+        {
+            MessageBoxTipsFormListEvent();
         }
         public static void ShowMessageYesNoBox(string msg,  string title = "提示",int id=0)
         {

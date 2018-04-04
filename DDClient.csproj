@@ -1342,7 +1342,14 @@
     <Compile Include="MyForm\TableSettlement\TuiCaiGrid.Designer.cs">
       <DependentUpon>TuiCaiGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\TipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\TipForm.Designer.cs">
+      <DependentUpon>TipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyModels\ddmemcard2.cs" />
+    <Compile Include="MyModels\TipMsg.cs" />
     <Compile Include="MyModels\v_cfmainaccount2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1684,6 +1691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\TableSettlement\TuiCaiGrid.resx">
       <DependentUpon>TuiCaiGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\TipForm.resx">
+      <DependentUpon>TipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
