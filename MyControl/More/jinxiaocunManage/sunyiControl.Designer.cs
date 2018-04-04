@@ -341,8 +341,6 @@
             this.Txt_yuanliaoname.Name = "Txt_yuanliaoname";
             this.Txt_yuanliaoname.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_yuanliaoname.Properties.Appearance.Options.UseFont = true;
-            this.Txt_yuanliaoname.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.Txt_yuanliaoname.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.Txt_yuanliaoname.Size = new System.Drawing.Size(177, 26);
             this.Txt_yuanliaoname.TabIndex = 18;
             this.Txt_yuanliaoname.EditValueChanged += new System.EventHandler(this.Txt_yuanliaoname_EditValueChanged);
@@ -365,8 +363,6 @@
             this.txt_shangpinName.Name = "txt_shangpinName";
             this.txt_shangpinName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_shangpinName.Properties.Appearance.Options.UseFont = true;
-            this.txt_shangpinName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_shangpinName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_shangpinName.Size = new System.Drawing.Size(177, 26);
             this.txt_shangpinName.TabIndex = 27;
             this.txt_shangpinName.EditValueChanged += new System.EventHandler(this.txt_shangpinName_EditValueChanged);
@@ -413,8 +409,6 @@
             this.txt_shangpinType.Name = "txt_shangpinType";
             this.txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_shangpinType.Properties.Appearance.Options.UseFont = true;
-            this.txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_shangpinType.Size = new System.Drawing.Size(177, 26);
             this.txt_shangpinType.TabIndex = 26;
             this.txt_shangpinType.EditValueChanged += new System.EventHandler(this.txt_shangpinType_EditValueChanged);

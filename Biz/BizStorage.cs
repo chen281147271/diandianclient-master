@@ -18,7 +18,7 @@ namespace DianDianClient.Biz
             public decimal buymoney { get; set; }
         }
         //查询原料
-        public List<v_crude_genre> QueryCrude(string crudename, int genreid)
+        public List<v_crude_genre> QueryCrude(string crudename, int genreid,string categoryName,string itemName,int state=-1)
         {
             try
             {
@@ -31,6 +31,10 @@ namespace DianDianClient.Biz
                 if (genreid != 0)
                 {
                     crudeList = crudeList.Where(p => p.genreid == genreid);
+                }
+                if (state != -1)
+                {
+                    crudeList = crudeList.Where(p => p.state==state);
                 }
                 return crudeList.ToList();
             }
@@ -508,7 +512,7 @@ namespace DianDianClient.Biz
             {
                 bool includeItem = false;
                 DianDianEntities db = new DianDianEntities();
-                var itemList = db.v_category_items.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
+                var itemList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (!itemname.Equals(""))
                 {
                     itemList = itemList.Where(p => p.itemName.Contains(itemname));

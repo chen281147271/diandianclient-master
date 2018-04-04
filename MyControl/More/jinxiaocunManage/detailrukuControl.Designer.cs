@@ -216,8 +216,6 @@
             this.Txt_shangpinName.Name = "Txt_shangpinName";
             this.Txt_shangpinName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_shangpinName.Properties.Appearance.Options.UseFont = true;
-            this.Txt_shangpinName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.Txt_shangpinName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.Txt_shangpinName.Size = new System.Drawing.Size(135, 26);
             this.Txt_shangpinName.TabIndex = 18;
             // 
@@ -270,8 +268,6 @@
             this.txt_shangpinType.Name = "txt_shangpinType";
             this.txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_shangpinType.Properties.Appearance.Options.UseFont = true;
-            this.txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_shangpinType.Size = new System.Drawing.Size(135, 26);
             this.txt_shangpinType.TabIndex = 26;
             // 

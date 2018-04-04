@@ -51,6 +51,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbo_yuanliaoType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.de_stime = new DevExpress.XtraEditors.DateEdit();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.Txt_shangpinType = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_yuanliaoName = new DevExpress.XtraEditors.TextEdit();
-            this.cbo_yuanliaoType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_sumjinjia.Properties)).BeginInit();
@@ -73,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).BeginInit();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -135,8 +135,6 @@
             this.txt_sumjinjia.Name = "txt_sumjinjia";
             this.txt_sumjinjia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_sumjinjia.Properties.Appearance.Options.UseFont = true;
-            this.txt_sumjinjia.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_sumjinjia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_sumjinjia.Size = new System.Drawing.Size(177, 26);
             this.txt_sumjinjia.TabIndex = 18;
             // 
@@ -158,8 +156,6 @@
             this.txt_sumshoujia.Name = "txt_sumshoujia";
             this.txt_sumshoujia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_sumshoujia.Properties.Appearance.Options.UseFont = true;
-            this.txt_sumshoujia.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_sumshoujia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_sumshoujia.Size = new System.Drawing.Size(177, 26);
             this.txt_sumshoujia.TabIndex = 20;
             // 
@@ -181,8 +177,6 @@
             this.txt_sumlirun.Name = "txt_sumlirun";
             this.txt_sumlirun.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_sumlirun.Properties.Appearance.Options.UseFont = true;
-            this.txt_sumlirun.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_sumlirun.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_sumlirun.Size = new System.Drawing.Size(177, 26);
             this.txt_sumlirun.TabIndex = 22;
             // 
@@ -336,6 +330,19 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "原料分类：";
             // 
+            // cbo_yuanliaoType
+            // 
+            this.cbo_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbo_yuanliaoType.Location = new System.Drawing.Point(99, 4);
+            this.cbo_yuanliaoType.Name = "cbo_yuanliaoType";
+            this.cbo_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_yuanliaoType.Properties.Appearance.Options.UseFont = true;
+            this.cbo_yuanliaoType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_yuanliaoType.Size = new System.Drawing.Size(162, 26);
+            this.cbo_yuanliaoType.TabIndex = 30;
+            this.cbo_yuanliaoType.SelectedIndexChanged += new System.EventHandler(this.cbo_yuanliaoType_SelectedIndexChanged);
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -449,8 +456,6 @@
             this.Txt_shangpinName.Name = "Txt_shangpinName";
             this.Txt_shangpinName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_shangpinName.Properties.Appearance.Options.UseFont = true;
-            this.Txt_shangpinName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.Txt_shangpinName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.Txt_shangpinName.Size = new System.Drawing.Size(177, 26);
             this.Txt_shangpinName.TabIndex = 18;
             this.Txt_shangpinName.EditValueChanged += new System.EventHandler(this.Txt_shangpinName_EditValueChanged);
@@ -473,8 +478,6 @@
             this.Txt_shangpinType.Name = "Txt_shangpinType";
             this.Txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_shangpinType.Properties.Appearance.Options.UseFont = true;
-            this.Txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.Txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.Txt_shangpinType.Size = new System.Drawing.Size(177, 26);
             this.Txt_shangpinType.TabIndex = 20;
             this.Txt_shangpinType.EditValueChanged += new System.EventHandler(this.Txt_shangpinType_EditValueChanged);
@@ -497,24 +500,9 @@
             this.txt_yuanliaoName.Name = "txt_yuanliaoName";
             this.txt_yuanliaoName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_yuanliaoName.Properties.Appearance.Options.UseFont = true;
-            this.txt_yuanliaoName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_yuanliaoName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_yuanliaoName.Size = new System.Drawing.Size(177, 26);
             this.txt_yuanliaoName.TabIndex = 22;
             this.txt_yuanliaoName.EditValueChanged += new System.EventHandler(this.txt_yuanliaoName_EditValueChanged);
-            // 
-            // cbo_yuanliaoType
-            // 
-            this.cbo_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbo_yuanliaoType.Location = new System.Drawing.Point(99, 4);
-            this.cbo_yuanliaoType.Name = "cbo_yuanliaoType";
-            this.cbo_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbo_yuanliaoType.Properties.Appearance.Options.UseFont = true;
-            this.cbo_yuanliaoType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_yuanliaoType.Size = new System.Drawing.Size(162, 26);
-            this.cbo_yuanliaoType.TabIndex = 30;
-            this.cbo_yuanliaoType.SelectedIndexChanged += new System.EventHandler(this.cbo_yuanliaoType_SelectedIndexChanged);
             // 
             // zongControl
             // 
@@ -534,6 +522,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_stime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_etime.Properties.CalendarTimeProperties)).EndInit();
@@ -543,7 +532,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -90,7 +90,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             string itemname = Txt_shangpinName.Text;
             string categoryname = txt_shangpinType.Text;
             list = bizStorage.QueryDepotDetail(depotinid);
-            var q = list.Where(p => p.shopkey != Properties.Settings.Default.shopkey);
+            var q = list.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
             if (itemname.Length != 0)
             {
                  q = list.Where(o => o.crudename.Contains(itemname));

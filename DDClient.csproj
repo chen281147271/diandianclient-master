@@ -922,6 +922,18 @@
     <Compile Include="MyControl\More\jinxiaocunManage\EditsunyiControl.Designer.cs">
       <DependentUpon>EditsunyiControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EdityuanliaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EdityuanliaoControl.Designer.cs">
+      <DependentUpon>EdityuanliaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EdityuanliaoTypeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\jinxiaocunManage\EdityuanliaoTypeControl.Designer.cs">
+      <DependentUpon>EdityuanliaoTypeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\jinxiaocunManage\EidtrukuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1240,6 +1252,18 @@
     <Compile Include="MyForm\More\jinxiaocunManage\EditsunyiForm.Designer.cs">
       <DependentUpon>EditsunyiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EdityuanliaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EdityuanliaoForm.Designer.cs">
+      <DependentUpon>EdityuanliaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EdityuanliaoTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\jinxiaocunManage\EdityuanliaoTypeForm.Designer.cs">
+      <DependentUpon>EdityuanliaoTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\More\jinxiaocunManage\EidtrukuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1457,6 +1481,12 @@
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EditsunyiControl.resx">
       <DependentUpon>EditsunyiControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EdityuanliaoControl.resx">
+      <DependentUpon>EdityuanliaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EdityuanliaoTypeControl.resx">
+      <DependentUpon>EdityuanliaoTypeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\jinxiaocunManage\EidtrukuControl.resx">
       <DependentUpon>EidtrukuControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1609,6 +1639,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EditsunyiForm.resx">
       <DependentUpon>EditsunyiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EdityuanliaoForm.resx">
+      <DependentUpon>EdityuanliaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EdityuanliaoTypeForm.resx">
+      <DependentUpon>EdityuanliaoTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\jinxiaocunManage\EidtrukuForm.resx">
       <DependentUpon>EidtrukuForm.cs</DependentUpon>

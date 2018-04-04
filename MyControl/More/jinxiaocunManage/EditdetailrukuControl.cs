@@ -62,7 +62,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         private void cbo_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.genreid = list_storagegenre[cbo_Type.SelectedIndex].genreid;
-            list_storagecrude = BizStorage.QueryCrude("", this.genreid);
+            list_storagecrude = BizStorage.QueryCrude("", this.genreid,"","");
             this.cbo_yuanliaoname.Properties.Items.Clear();
             foreach (var b in list_storagecrude)
             {

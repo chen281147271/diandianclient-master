@@ -52,7 +52,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         private void QueryCrude(int genreid)
         {
             cbo_name.Properties.Items.Clear();
-            list_storagecrude =(genreid==0)? BizStorage.QueryCrude("", 0):BizStorage.QueryCrude("", genreid);
+            list_storagecrude =(genreid==0)? BizStorage.QueryCrude("", 0,"",""):BizStorage.QueryCrude("", genreid,"","");
             foreach(var a in list_storagecrude)
             {
                 cbo_name.Properties.Items.Add(a.crudename);

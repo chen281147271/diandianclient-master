@@ -17,7 +17,7 @@ namespace DianDianClient.MyControl.TableSettlement
         public decimal SalePrice = 0;
         public delegate void CloseEvents();
         public event CloseEvents MyCloseEvents;
-        public decimal Price { get => price; set => price = value; }
+        public decimal Price;
 
         public SaleControlcs()
         {

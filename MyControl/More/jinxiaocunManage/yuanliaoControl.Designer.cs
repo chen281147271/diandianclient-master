@@ -35,9 +35,9 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.Txt_shangpinName = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_yuanliaoType = new DevExpress.XtraEditors.TextEdit();
             this.btn_search = new DevExpress.XtraEditors.SimpleButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbo_yuanliaoType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,16 +52,16 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.crudeid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.crudename = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.createdate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.genrename = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.operation = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.mgncPager1 = new DianDianClient.MyControl.FoodManagement.MgncPager();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoType.Properties)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_shangpinType.Properties)).BeginInit();
@@ -79,10 +79,9 @@
             this.Txt_shangpinName.Name = "Txt_shangpinName";
             this.Txt_shangpinName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_shangpinName.Properties.Appearance.Options.UseFont = true;
-            this.Txt_shangpinName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.Txt_shangpinName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.Txt_shangpinName.Size = new System.Drawing.Size(177, 26);
             this.Txt_shangpinName.TabIndex = 18;
+            this.Txt_shangpinName.EditValueChanged += new System.EventHandler(this.Txt_shangpinName_EditValueChanged);
             // 
             // label3
             // 
@@ -95,18 +94,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "原料分类：";
             // 
-            // txt_yuanliaoType
-            // 
-            this.txt_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_yuanliaoType.Location = new System.Drawing.Point(99, 4);
-            this.txt_yuanliaoType.Name = "txt_yuanliaoType";
-            this.txt_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_yuanliaoType.Properties.Appearance.Options.UseFont = true;
-            this.txt_yuanliaoType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_yuanliaoType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txt_yuanliaoType.Size = new System.Drawing.Size(177, 26);
-            this.txt_yuanliaoType.TabIndex = 18;
-            // 
             // btn_search
             // 
             this.btn_search.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -117,7 +104,7 @@
             this.btn_search.Appearance.Options.UseFont = true;
             this.btn_search.Appearance.Options.UseForeColor = true;
             this.btn_search.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_search.Location = new System.Drawing.Point(282, 3);
+            this.btn_search.Location = new System.Drawing.Point(267, 3);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(106, 28);
             this.btn_search.TabIndex = 25;
@@ -126,7 +113,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txt_yuanliaoType);
+            this.flowLayoutPanel2.Controls.Add(this.cbo_yuanliaoType);
             this.flowLayoutPanel2.Controls.Add(this.btn_search);
             this.flowLayoutPanel2.Controls.Add(this.btn_add);
             this.flowLayoutPanel2.Controls.Add(this.simpleButton1);
@@ -135,6 +122,19 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1116, 31);
             this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // cbo_yuanliaoType
+            // 
+            this.cbo_yuanliaoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbo_yuanliaoType.Location = new System.Drawing.Point(99, 4);
+            this.cbo_yuanliaoType.Name = "cbo_yuanliaoType";
+            this.cbo_yuanliaoType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_yuanliaoType.Properties.Appearance.Options.UseFont = true;
+            this.cbo_yuanliaoType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_yuanliaoType.Size = new System.Drawing.Size(162, 26);
+            this.cbo_yuanliaoType.TabIndex = 29;
+            this.cbo_yuanliaoType.SelectedIndexChanged += new System.EventHandler(this.cbo_yuanliaoType_SelectedIndexChanged);
             // 
             // btn_add
             // 
@@ -145,11 +145,12 @@
             this.btn_add.Appearance.Options.UseFont = true;
             this.btn_add.Appearance.Options.UseForeColor = true;
             this.btn_add.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_add.Location = new System.Drawing.Point(394, 3);
+            this.btn_add.Location = new System.Drawing.Point(379, 3);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(106, 28);
             this.btn_add.TabIndex = 26;
             this.btn_add.Text = "添加原料分类";
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // simpleButton1
             // 
@@ -160,11 +161,12 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton1.Location = new System.Drawing.Point(506, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(491, 3);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(106, 28);
             this.simpleButton1.TabIndex = 27;
             this.simpleButton1.Text = "添加原料";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -225,10 +227,9 @@
             this.txt_shangpinType.Name = "txt_shangpinType";
             this.txt_shangpinType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_shangpinType.Properties.Appearance.Options.UseFont = true;
-            this.txt_shangpinType.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_shangpinType.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_shangpinType.Size = new System.Drawing.Size(177, 26);
             this.txt_shangpinType.TabIndex = 23;
+            this.txt_shangpinType.EditValueChanged += new System.EventHandler(this.txt_shangpinType_EditValueChanged);
             // 
             // label2
             // 
@@ -248,10 +249,9 @@
             this.txt_yuanliaoName.Name = "txt_yuanliaoName";
             this.txt_yuanliaoName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_yuanliaoName.Properties.Appearance.Options.UseFont = true;
-            this.txt_yuanliaoName.Properties.Mask.EditMask = "\\+?[1-9]\\d*";
-            this.txt_yuanliaoName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_yuanliaoName.Size = new System.Drawing.Size(177, 26);
             this.txt_yuanliaoName.TabIndex = 22;
+            this.txt_yuanliaoName.EditValueChanged += new System.EventHandler(this.txt_yuanliaoName_EditValueChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -312,14 +312,6 @@
             this.crudename.Visible = true;
             this.crudename.VisibleIndex = 0;
             // 
-            // unit
-            // 
-            this.unit.Caption = "单位";
-            this.unit.FieldName = "unit";
-            this.unit.Name = "unit";
-            this.unit.Visible = true;
-            this.unit.VisibleIndex = 2;
-            // 
             // createdate
             // 
             this.createdate.Caption = "创建时间";
@@ -328,6 +320,14 @@
             this.createdate.Visible = true;
             this.createdate.VisibleIndex = 1;
             // 
+            // unit
+            // 
+            this.unit.Caption = "单位";
+            this.unit.FieldName = "unit";
+            this.unit.Name = "unit";
+            this.unit.Visible = true;
+            this.unit.VisibleIndex = 2;
+            // 
             // genrename
             // 
             this.genrename.Caption = "所属类别";
@@ -335,6 +335,13 @@
             this.genrename.Name = "genrename";
             this.genrename.Visible = true;
             this.genrename.VisibleIndex = 3;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "库存余量";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
             // 
             // operation
             // 
@@ -351,6 +358,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
             // 
             // mgncPager1
             // 
@@ -360,13 +368,6 @@
             this.mgncPager1.Size = new System.Drawing.Size(1122, 34);
             this.mgncPager1.TabIndex = 2;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "库存余量";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
-            // 
             // yuanliaoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -375,9 +376,9 @@
             this.Name = "yuanliaoControl";
             this.Size = new System.Drawing.Size(1128, 585);
             ((System.ComponentModel.ISupportInitialize)(this.Txt_shangpinName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_yuanliaoType.Properties)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_yuanliaoType.Properties)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -395,7 +396,6 @@
 
         private DevExpress.XtraEditors.TextEdit Txt_shangpinName;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.TextEdit txt_yuanliaoType;
         private DevExpress.XtraEditors.SimpleButton btn_search;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private DevExpress.XtraEditors.SimpleButton btn_add;
@@ -419,5 +419,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private FoodManagement.MgncPager mgncPager1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.ComboBoxEdit cbo_yuanliaoType;
     }
 }

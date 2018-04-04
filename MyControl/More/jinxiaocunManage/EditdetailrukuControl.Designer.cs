@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.de_baozhiqi = new DevExpress.XtraEditors.DateEdit();
             this.cbo_yuanliaoname = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -134,9 +134,9 @@
             this.de_baozhiqi.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.de_baozhiqi.Size = new System.Drawing.Size(223, 26);
             this.de_baozhiqi.TabIndex = 62;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.de_baozhiqi, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.de_baozhiqi, conditionValidationRule5);
             // 
             // cbo_yuanliaoname
             // 
@@ -289,9 +289,9 @@
             this.txt_sumprice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_sumprice.Size = new System.Drawing.Size(223, 26);
             this.txt_sumprice.TabIndex = 48;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.txt_sumprice, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.txt_sumprice, conditionValidationRule1);
             this.txt_sumprice.EditValueChanged += new System.EventHandler(this.txt_sumprice_EditValueChanged);
             // 
             // txt_num
@@ -304,9 +304,9 @@
             this.txt_num.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_num.Size = new System.Drawing.Size(223, 26);
             this.txt_num.TabIndex = 49;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.txt_num, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.txt_num, conditionValidationRule2);
             this.txt_num.EditValueChanged += new System.EventHandler(this.txt_num_EditValueChanged);
             // 
             // txt_price
@@ -360,9 +360,9 @@
             this.de_shenchan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.de_shenchan.Size = new System.Drawing.Size(223, 26);
             this.de_shenchan.TabIndex = 57;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.de_shenchan, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.de_shenchan, conditionValidationRule3);
             // 
             // de_tuihuan
             // 
