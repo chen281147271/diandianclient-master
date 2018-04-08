@@ -32,7 +32,5 @@ namespace DianDianClient.Models
         public string shopusername { get; set; }
         public Nullable<decimal> tfuwu { get; set; }
         public Nullable<int> syncFlag { get; set; }
-    
-        public virtual shop shop { get; set; }
     }
 }

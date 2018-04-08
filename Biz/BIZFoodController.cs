@@ -520,19 +520,75 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void QueryTuijianList()
+        public List<dd_tuijian> QueryTuijianList()
         {
+            try
+            {
+                int shopkey = Properties.Settings.Default.shopkey;
+                DianDianEntities db = new DianDianEntities();
+                var tjList = db.dd_tuijian.Where(p => p.shopkey == shopkey);
 
+                return tjList.ToList();
+            }
+            catch(Exception e)
+            {
+                log.Error("QueryTuijianList error. msg=" + e.Message);
+                throw;
+            }
         }
 
-        public void SaveTuijian()
+        public void SaveTuijian(int tjkey, string items, int afternum, string liyou)
         {
+            try
+            {
+                int shopkey = Properties.Settings.Default.shopkey;
+                DianDianEntities db = new DianDianEntities();
 
+                var tjbean = db.dd_tuijian.Find(tjkey);
+                if(tjbean != null)
+                {
+                    tjbean.afternum = afternum;
+                    tjbean.items = items;
+                    tjbean.liyou = liyou;
+
+                    db.dd_tuijian.Attach(tjbean);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(tjbean);
+                    stateEntity.SetModifiedProperty("afternum");
+                    stateEntity.SetModifiedProperty("items");
+                    stateEntity.SetModifiedProperty("liyou");
+                }
+                else
+                {
+                    tjbean = new dd_tuijian();
+                    tjbean.afternum = afternum;
+                    tjbean.createdate = DateTime.Now;
+                    tjbean.items = items;
+                    tjbean.liyou = liyou;
+                    tjbean.peoplenum = 1;
+                    tjbean.timesbyday = -1;
+                    tjbean.shopkey = shopkey;
+                    tjbean.operater = BizLoginController.userid;
+
+                    db.dd_tuijian.Add(tjbean);
+                }
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                log.Error("SaveTuijian error. msg=" + e.Message);
+                throw;
+            }
         }
 
-        public void DeleteTuijian()
+        public void DeleteTuijian(int tjkey)
         {
+            DianDianEntities db = new DianDianEntities();
+            dd_tuijian tj = new dd_tuijian();
+            tj.tjid = tjkey;
 
+            db.dd_tuijian.Attach(tj);
+            db.dd_tuijian.Remove(tj);
+            db.SaveChanges();
         }
     }
 }

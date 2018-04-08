@@ -7636,7 +7636,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="shopuserid" Type="Int32" />
           <Property Name="shopusername" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="tfuwu" Type="Decimal" />
-          <NavigationProperty Name="shop" Relationship="diandianModel.table_pos_ibfk_1" FromRole="table_pos" ToRole="shop" />
           <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <Association Name="table_pos_ibfk_1">
