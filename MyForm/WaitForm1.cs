@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 
-namespace DianDianClient
+namespace DianDianClient.MyForm
 {
     public partial class WaitForm1 : WaitForm
     {

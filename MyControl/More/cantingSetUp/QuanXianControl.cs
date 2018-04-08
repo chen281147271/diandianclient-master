@@ -11,11 +11,10 @@ using System.Collections;
 using DianDianClient.Utils;
 namespace DianDianClient.MyControl.More.cantingSetUp
 {
-    public partial class cantingSetUpControl : UserControl
+    public partial class QuanXianControl : UserControl
     {
         private GridEditorCollection gridEditors;
-        int dqcode;
-        public cantingSetUpControl()
+        public QuanXianControl()
         {
             InitializeComponent();
             gridView1.OptionsMenu.ShowAutoFilterRowItem = false;
@@ -78,38 +77,32 @@ namespace DianDianClient.MyControl.More.cantingSetUp
             //this.gridView1.SetRowCellValue(rowHandle_CommodityName, "Value","hahhahahahah");
 
             this.gridEditors = new GridEditorCollection();
-            //
-            Bitmap bitmap = new Bitmap(Properties.Resources._1,new Size(100,50));
 
-            this.gridEditors.Add(this.repositoryItemPictureEdit1, "门店头像", bitmap);
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "门店名称:", "门店名称");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "商铺编码:", "000003");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "门店电话:", "1232232555555");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "联系人:", "联系人");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "银行卡号:", "62222552252252");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "开户人姓名:", "奥马巴");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "开户行:", "6666银行");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "详细地址:", "地址啊");
-            this.gridEditors.Add(this.repositoryItemButtonEdit1, "门店所在地区:", "嘿嘿");
-            this.gridEditors.Add(this.repositoryItemButtonEdit2, "菜品口味:", "嘿嘿");
-            this.gridEditors.Add(this.repositoryItemTextEdit1, "餐具费:", "100");
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "是否开启定位:", true);
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "是否开启锁桌:", true);
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "是否在线支付:", true);
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "是否买单清桌:", true);
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "未接订单提醒:", true);
+            this.gridEditors.Add(this.repositoryItemRadioGroup1, "开启呼叫服务:", true);
+            this.gridEditors.Add(this.repositoryItemToggleSwitch1, "关联美团外卖:", true);
+            this.gridEditors.Add(this.repositoryItemToggleSwitch2, "关联饿了么外卖:", true);
             //
             this.gridControl1.DataSource = gridEditors;
         }
         #endregion
 
-        private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
-        {
-            MyForm.More.cantingSetUp.TreeViewForm treeView = new MyForm.More.cantingSetUp.TreeViewForm();
-            treeView.StartPosition = FormStartPosition.CenterScreen;
-            treeView.ShowDialog();
-            this.gridView1.SetRowCellValue(9, "Value", treeView.strSelected);
-            this.dqcode = treeView.dqcode;
+        private void repositoryItemToggleSwitch1_EditValueChanged(object sender, EventArgs e)
+        {  
+            System.Diagnostics.Process.Start("explorer.exe", "https://www.baidu.com/");
+            //根据具体操作 设置值
+            this.gridView1.SetRowCellValue(6, "Value", false);
         }
 
-        private void repositoryItemButtonEdit2_Click(object sender, EventArgs e)
+        private void repositoryItemToggleSwitch2_EditValueChanged(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("explorer.exe", "https://www.baidu.com/");
+            //根据具体操作 设置值
+            this.gridView1.SetRowCellValue(7, "Value", false);
         }
     }
 }

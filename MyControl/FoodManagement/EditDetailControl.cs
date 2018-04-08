@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DianDianClient.Utils;
 
 namespace DianDianClient.MyControl.FoodManagement
 {

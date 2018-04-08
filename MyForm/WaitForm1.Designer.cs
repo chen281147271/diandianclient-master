@@ -1,4 +1,4 @@
-﻿namespace DianDianClient
+﻿namespace DianDianClient.MyForm
 {
     partial class WaitForm1
     {

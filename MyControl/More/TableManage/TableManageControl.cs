@@ -220,7 +220,7 @@ namespace DianDianClient.MyControl.More.TableManage
                 toolStripItem[i] = new ToolStripButton();
                 toolStripItem[i].DisplayStyle = ToolStripItemDisplayStyle.Text;
                 toolStripItem[i].Text = dataTable.Rows[i][TextColumn].ToString();
-                toolStripItem[i].AutoSize = false;
+               // toolStripItem[i].AutoSize = (i > 10)? true : false;
                 toolStripItem[i].Size = new Size(150, 100);
                 toolStripItem[i].Click += eventHandler;
                 toolStripItem[i].ForeColor = Color.White;
@@ -397,6 +397,18 @@ namespace DianDianClient.MyControl.More.TableManage
         private void Btn_quyu_Click(object sender, EventArgs e)
         {
             MyEvent.More.MoreEvent.Replace(1001);
+        }
+
+        private void tableLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            int width = this.tableLayoutPanel1.Width / 10;
+            int i = 1;
+            foreach (ToolStripItem ti in toolStrip1.Items)
+            {
+                ti.AutoSize = (i <= 10) ? false : true;
+                ti.Size = new Size(width - 10, 100);
+                i++;
+            }
         }
     }
 }

@@ -41,6 +41,7 @@ namespace DianDianClient.Utils
         {
             MessageBoxEvent(msg,title);
         }
+        //模态对话框
         public static void AddMessageBoxTipsFormList( string msg, string title="提示")
         {
             MyModels.TipMsg._TipMsg tip = new MyModels.TipMsg._TipMsg();
