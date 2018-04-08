@@ -93,6 +93,9 @@
             this.gridView1.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.gridView1.OptionsView.ShowColumnHeaders = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.RowHeight = 70;
             this.gridView1.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gridView1_CustomRowCellEdit);
             // 

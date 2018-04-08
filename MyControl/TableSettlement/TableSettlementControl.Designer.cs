@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.metroTilePanel1 = new DevComponents.DotNetBar.Metro.MetroTilePanel();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.selectedDetails1 = new DianDianClient.MyControl.TableSettlement.SelectedDetails();
             this.tableLayoutPanel1.SuspendLayout();
@@ -43,8 +43,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.metroTilePanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroTilePanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.toolStrip2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.selectedDetails1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -54,8 +54,24 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(895, 566);
             this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.SizeChanged += new System.EventHandler(this.tableLayoutPanel1_SizeChanged);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.toolStrip1, 2);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStrip1.Size = new System.Drawing.Size(895, 28);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // metroTilePanel1
             // 
@@ -95,18 +111,6 @@
             this.itemContainer1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.itemContainer1.TitleText = "First";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.toolStrip1, 2);
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(895, 28);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
             // toolStrip2
             // 
             this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
@@ -145,8 +149,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevComponents.DotNetBar.Metro.MetroTilePanel metroTilePanel1;
         private DevComponents.DotNetBar.ItemContainer itemContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         public MyControl.TableSettlement.SelectedDetails selectedDetails1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

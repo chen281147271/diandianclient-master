@@ -320,7 +320,7 @@ namespace DianDianClient
                     break;
                 case 4:
                     this.sideNavPanel8.Controls.Clear();
-                    MyControl.More.cantingSetUp.cantingSetUpControl cantingSetUp = new MyControl.More.cantingSetUp.cantingSetUpControl();
+                    MyControl.More.cantingSetUp.cantingControl cantingSetUp = new MyControl.More.cantingSetUp.cantingControl();
                     cantingSetUp.Dock = DockStyle.Fill;
                     this.sideNavPanel8.Controls.Add(cantingSetUp);
                     break;

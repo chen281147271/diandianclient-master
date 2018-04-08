@@ -138,7 +138,7 @@ override CreateParams CreateParams
             DataTable dt = new DataTable();
             dt.Columns.Add("Text", typeof(String));
             dt.Columns.Add("iColor", typeof(Int32));
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 string str = i + "号桌";
                 dt.Rows.Add(new object[] {str, 999 });
@@ -203,11 +203,15 @@ override CreateParams CreateParams
                 toolStripItem[i].Size = new Size(150, 100);
                 toolStripItem[i].Click += eventHandler;
                 toolStripItem[i].ForeColor = Color.White;
-                toolStripItem[i].Margin = new System.Windows.Forms.Padding(5, 0, 10, 0);
-                toolStripItem[i].BackColor = ChangeClolor(Convert.ToInt32(dataTable.Rows[i][ForeColorColumn].ToString())); ;
+               // toolStripItem[i].Margin = new System.Windows.Forms.Padding(5, 0, 10, 0);
+               // toolStripItem[i].BackColor = ChangeClolor(Convert.ToInt32(dataTable.Rows[i][ForeColorColumn].ToString()));
+                toolStripItem[i].Padding = new System.Windows.Forms.Padding(0);
+                toolStripItem[i].Margin = new System.Windows.Forms.Padding(0);
+                toolStripItem[i].BackColor = ToolStripBackColor;
             }
             toolStrip.Items.AddRange(toolStripItem);
             toolStrip.BackColor = ToolStripBackColor;
+            toolStrip.RenderMode = ToolStripRenderMode.System;
             toolStrip.Refresh();
         }
         private void toolStripItem_Click(object sender, EventArgs e)
@@ -422,6 +426,18 @@ override CreateParams CreateParams
             if (m.Msg == 0x0014) // 禁掉清除背景消息
                 return;
             base.WndProc(ref m);
+        }
+
+        private void tableLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            int width = this.tableLayoutPanel1.Width / 10;
+            int i = 1;
+            foreach (ToolStripItem ti in toolStrip1.Items)
+            {
+                ti.AutoSize = (i <= 10) ? false : true;
+                ti.Size = new Size(width - 10, 50);
+                i++;
+            }
         }
     }
 }

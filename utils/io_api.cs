@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using System.Windows.Forms; //Keys枚举在这里面  
 
-namespace DianDianClient
+namespace DianDianClient.Utils
 {
     //鼠标事件常量  
     public enum MouseEventFlag : uint

@@ -41,11 +41,13 @@
             this.tileItem3 = new DevExpress.XtraEditors.TileItem();
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
             this.tileItem5 = new DevExpress.XtraEditors.TileItem();
+            this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -65,6 +67,7 @@
             this.tileControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tileControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileControl1.Groups.Add(this.tileGroup1);
+            this.tileControl1.Groups.Add(this.tileGroup2);
             this.tileControl1.Location = new System.Drawing.Point(3, 103);
             this.tileControl1.MaxId = 6;
             this.tileControl1.Name = "tileControl1";
@@ -137,10 +140,15 @@
             this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
             this.tileItem5.Name = "tileItem5";
             // 
+            // tileGroup2
+            // 
+            this.tileGroup2.Name = "tileGroup2";
+            // 
             // MoreControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MoreControl";
             this.Size = new System.Drawing.Size(1032, 504);
@@ -159,5 +167,6 @@
         private DevExpress.XtraEditors.TileItem tileItem3;
         private DevExpress.XtraEditors.TileItem tileItem4;
         private DevExpress.XtraEditors.TileItem tileItem5;
+        private DevExpress.XtraEditors.TileGroup tileGroup2;
     }
 }

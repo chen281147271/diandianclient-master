@@ -365,8 +365,8 @@ namespace DianDianClient.Biz
         {
             try
             {
-                DianDianEntities db = new DianDianEntities();
-                var paywayList = db.dd_shop_payway.Where(p => p.shopid == Properties.Settings.Default.shopkey && p.isdel == 0);
+                DianDianEntities db = new DianDianEntities(); 
+                var paywayList = db.dd_shop_payway.Where(p => p.isdel == 0 &&(p.shopid == Properties.Settings.Default.shopkey|| p.shopid == null));
                 return paywayList.ToList();
             }
             catch (Exception e)
@@ -375,10 +375,60 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
+        public void EditPayWayName(int id,string strpayway)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                var paywayList = db.dd_shop_payway.Where(p => p.shopid == Properties.Settings.Default.shopkey);
+                dd_shop_payway payway = paywayList.Where(p => p.id.Equals(id)).FirstOrDefault();
+                if (payway != null)
+                {
+                    payway.payway = strpayway;
+                    //payway.addtime = DateTime.Now.ToString();
+                    //payway.shopid = Properties.Settings.Default.shopkey;
+                    //payway.isdel = 0;
+                    //payway.enable = 1;
 
+                    db.dd_shop_payway.Attach(payway);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(payway);
+                    stateEntity.SetModifiedProperty("payway");
+                }
+                else
+                {
+                    dd_shop_payway _Payway = new dd_shop_payway();
+                    _Payway.payway = strpayway;
+                    _Payway.addtime = DateTime.Now.ToString();
+                    _Payway.shopid = Properties.Settings.Default.shopkey;
+                    _Payway.isdel = 0;
+                    _Payway.enable = 1;
+                    db.dd_shop_payway.Add(_Payway);
+                }
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                log.Error("EditPayWayName error. msg=" + e.Message);
+                throw;
+            }
+        }
         public void SaveShopInfo(string shoppic, string shopname, string shopphone, string contact)
         {
 
+        }
+        public List<dd_areas> QueryAreas()
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                return db.dd_areas.ToList();
+            }
+            catch (Exception e)
+            {
+                log.Error("QueryAreas error. msg=" + e.Message);
+                throw;
+            }
         }
     }
 }

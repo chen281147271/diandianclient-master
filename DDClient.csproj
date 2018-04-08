@@ -202,7 +202,7 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
-    <Compile Include="io_api.cs" />
+    <Compile Include="Utils\io_api.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -862,11 +862,29 @@
     <Compile Include="MyControl\MemberManagement\UserManagementControl.Designer.cs">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\cantingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\cantingControl.Designer.cs">
+      <DependentUpon>cantingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyControl\More\cantingSetUp\cantingSetUpControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MyControl\More\cantingSetUp\cantingSetUpControl.Designer.cs">
       <DependentUpon>cantingSetUpControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\EditPayWayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\EditPayWayControl.Designer.cs">
+      <DependentUpon>EditPayWayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\QuanXianControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\More\cantingSetUp\QuanXianControl.Designer.cs">
+      <DependentUpon>QuanXianControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MyControl\More\dangkouManage\AddPrintControl.cs">
       <SubType>UserControl</SubType>
@@ -1174,6 +1192,24 @@
     <Compile Include="MyForm\BusinessDetails\printForm.Designer.cs">
       <DependentUpon>printForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\EditkouweiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\EditkouweiForm.Designer.cs">
+      <DependentUpon>EditkouweiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\EditPayWayNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\EditPayWayNameForm.Designer.cs">
+      <DependentUpon>EditPayWayNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\TreeViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\More\cantingSetUp\TreeViewForm.Designer.cs">
+      <DependentUpon>TreeViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\FoodManagement\EditDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1370,10 +1406,10 @@
     <Compile Include="Utils\PrintUtil.cs" />
     <Compile Include="Utils\RestClient.cs" />
     <Compile Include="Utils\ZipHelper.cs" />
-    <Compile Include="WaitForm1.cs">
+    <Compile Include="MyForm\WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaitForm1.Designer.cs">
+    <Compile Include="MyForm\WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SysConstant.cs" />
@@ -1460,6 +1496,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\MemberManagement\UserManagementControl.resx">
       <DependentUpon>UserManagementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\cantingSetUp\cantingControl.resx">
+      <DependentUpon>cantingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\cantingSetUp\cantingSetUpControl.resx">
+      <DependentUpon>cantingSetUpControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\cantingSetUp\EditPayWayControl.resx">
+      <DependentUpon>EditPayWayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\More\cantingSetUp\QuanXianControl.resx">
+      <DependentUpon>QuanXianControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyControl\More\dangkouManage\AddPrintControl.resx">
       <DependentUpon>AddPrintControl.cs</DependentUpon>
@@ -1611,6 +1659,15 @@
     <EmbeddedResource Include="MyForm\BusinessDetails\printForm.resx">
       <DependentUpon>printForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\cantingSetUp\EditkouweiForm.resx">
+      <DependentUpon>EditkouweiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\cantingSetUp\EditPayWayNameForm.resx">
+      <DependentUpon>EditPayWayNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\More\cantingSetUp\TreeViewForm.resx">
+      <DependentUpon>TreeViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FoodManagement\EditDetailForm.resx">
       <DependentUpon>EditDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1706,7 +1763,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WaitForm1.resx">
+    <EmbeddedResource Include="MyForm\WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
