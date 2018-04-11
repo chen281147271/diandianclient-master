@@ -25,5 +25,6 @@ namespace DianDianClient.Models
         public string lasttime { get; set; }
         public Nullable<int> state { get; set; }
         public Nullable<int> shopkey { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace DianDianClient.Biz
         //private DianDianEntities db = new DianDianEntities();
         
         //获取订单
-        private string GetBillRequestUrl = "http://app.diandiancaidan.com/item/api.do";
+        private string GetBillRequestUrl = "http://test.diandiancaidan.com/item/api.do";
         //确认订单
         private string ConfirmBillUrl = "http://app.diandiancaidan.com/shop/api.do";
         //退单
@@ -56,17 +56,18 @@ namespace DianDianClient.Biz
 
                 while (true)
                 {
-                    Thread.Sleep(5000);
+                    Thread.Sleep(6000);
                     if (SyncClient.token.Equals(""))
                     {
                         log.Warn("have not remote login");
                         continue;
                     }
-                    string requestParam = "m=GetBillRequestUrl&sdate=" + DateTime.Now.ToString("d");
-                    requestParam += "&edate=" + DateTime.Now.ToString("d");
+                    string requestParam = "m=getBillListWithoutClient&sdate=" + DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
+                    requestParam += "&edate=" + DateTime.Now.ToString("yyyy-MM-dd");
                     requestParam += "&p=1";
                     requestParam += "&isConfirm=0";
                     requestParam += "&token=" + SyncClient.token;
+                    //requestParam += "&type=0";
                     client.EndPoint = GetBillRequestUrl + "?" + requestParam;
 
                     string result = client.MakeRequest();
@@ -74,11 +75,14 @@ namespace DianDianClient.Biz
 
                     GetBillResponseBean gbrb = JsonConvert.DeserializeObject<GetBillResponseBean>(result);
                     //插入本地数据库
-                    List<GetBillResultResponseBean> billList = JsonConvert.DeserializeObject<List<GetBillResultResponseBean>>(gbrb.results);
-                    foreach (GetBillResultResponseBean billInfo in billList)
+                    if(gbrb.code.Equals("100"))
                     {
-
+                        foreach (GetBillResultResponseBean billInfo in gbrb.results)
+                        {
+                            //已存在的跳过，未存在的插入
+                        }
                     }
+                    
 
                     
                 }

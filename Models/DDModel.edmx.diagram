@@ -156,7 +156,6 @@
         <EntityTypeShape EntityType="diandianModel.dd_printerqueue" Width="1.5" PointX="33.375" PointY="20.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_account" Width="1.5" PointX="33.375" PointY="24.75" />
         <EntityTypeShape EntityType="diandianModel.v_dd_pocket_users" Width="1.5" PointX="19.375" PointY="4.75" />
-        <EntityTypeShape EntityType="diandianModel.dd_meal_tips" Width="1.5" PointX="25.375" PointY="34.75" />
         <EntityTypeShape EntityType="diandianModel.dd_card_userecord" Width="1.5" PointX="35.375" PointY="0.75" />
         <EntityTypeShape EntityType="diandianModel.dd_shop_windows" Width="1.5" PointX="35.375" PointY="4.75" />
         <EntityTypeShape EntityType="diandianModel.dd_table_floor" Width="1.5" PointX="35.375" PointY="8.75" />
@@ -201,6 +200,7 @@
         <AssociationConnector Association="diandianModel.item_ibfk_1" />
         <AssociationConnector Association="diandianModel.item_ibfk_2" />
         <EntityTypeShape EntityType="diandianModel.v_crude_genre" Width="1.5" PointX="39.375" PointY="0.75" />
+        <EntityTypeShape EntityType="diandianModel.dd_meal_tips" Width="1.5" PointX="39.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,22 +14,6 @@ namespace DianDianClient.Models
     
     public partial class member
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public member()
-        {
-            this.cf_member = new HashSet<cf_member>();
-            this.item_comment = new HashSet<item_comment>();
-            this.item_recomment = new HashSet<item_recomment>();
-            this.member_role = new HashSet<member_role>();
-            this.redpacket_record = new HashSet<redpacket_record>();
-            this.member_notice = new HashSet<member_notice>();
-            this.table_member = new HashSet<table_member>();
-            this.print_main = new HashSet<print_main>();
-            this.shop_oper_log = new HashSet<shop_oper_log>();
-            this.pay_bill = new HashSet<pay_bill>();
-            this.sys_oper_log = new HashSet<sys_oper_log>();
-        }
-    
         public int memberkey { get; set; }
         public Nullable<int> shopkey { get; set; }
         public Nullable<int> postkey { get; set; }
@@ -61,29 +45,5 @@ namespace DianDianClient.Models
         public Nullable<int> role { get; set; }
         public Nullable<int> agentid { get; set; }
         public Nullable<int> syncFlag { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cf_member> cf_member { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_comment> item_comment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_recomment> item_recomment { get; set; }
-        public virtual shop shop { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<member_role> member_role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<redpacket_record> redpacket_record { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<member_notice> member_notice { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<table_member> table_member { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<print_main> print_main { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<shop_oper_log> shop_oper_log { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pay_bill> pay_bill { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sys_oper_log> sys_oper_log { get; set; }
     }
 }

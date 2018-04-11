@@ -15,7 +15,7 @@ namespace DianDianClient.Biz
     {
         static log4net.ILog log = log4net.LogManager.GetLogger("SyncClient");
         //private DianDianEntities db = new DianDianEntities();
-        static public String token = "ggg";
+        static public String token = "1507700568237";
         static public bool needSyncCC = false;
         static public bool needSyncYL = false;
         static public bool needSyncFL = false;
@@ -55,6 +55,20 @@ namespace DianDianClient.Biz
             public List<storage_genre> genresList { get; set; }
             public List<storage_crude> crudeList { get; set; }
             public List<storage_stock> stockList { get; set; }
+        }
+
+        public class SyncMemberRoleRequest
+        {
+            public List<member> memList { get; set; }
+            public List<sys_role> roleList { get; set; }
+        }
+
+        public class SyncSignUserRequest
+        {
+            public List<dd_shop_signusers> signUserList { get; set; }
+            public List<dd_sign_accounts> signAccountsList { get; set; }
+            public List<dd_sign_meals> signMealsList { get; set; }
+            public List<dd_mem_card> memCard { get; set; }
         }
         public SyncClient()
         {
@@ -154,61 +168,11 @@ namespace DianDianClient.Biz
                     //SyncTablePos();
 
                     //SyncStorageInfo();
-                    //库存同步
-                    if (needSyncCC)
-                    {
-
-                    }
-                    //原料同步
-                    if (needSyncYL)
-                    {
-
-                    }
-                    //分类同步
-                    if (needSyncFL)
-                    {
-
-                    }
-                    //职位同步
-                    if (needSyncZW)
-                    {
-
-                    }
-                    //员工同步
-                    if (needSyncYG)
-                    {
-
-                    }
-                    //区域同步
-                    if (needSyncQY)
-                    {
-
-                    }
-                    //餐桌同步
-                    if (needSyncCZ)
-                    {
-
-                    }
-                    //会员同步
-                    if (needSyncHY)
-                    {
-
-                    }
-                    //活动同步
-                    if (needSyncHD)
-                    {
-
-                    }
-                    //餐厅基本信息
-                    if (needSyncSPInfo)
-                    {
-
-                    }
-                    //档口同步       
-                    if (needSyncDK)
-                    {
-
-                    }
+                    SyncMemberInfo();
+                    //SyncSignUserInfo();
+                    //SyncActivityInfo();
+                    //SyncWindowsInfo();
+                    
                 }catch(Exception e)
                 {
                     log.Error("SyncInfoList error, msg = " + e.Message);
@@ -313,9 +277,9 @@ namespace DianDianClient.Biz
                 SyncStorageRequest request = new SyncStorageRequest();
                 int shopkey = Properties.Settings.Default.shopkey;
 
-                request.genresList = db.storage_genre.Where(p => p.shopkey == shopkey).ToList();
-                request.crudeList = db.storage_crude.Where(p => p.shopkey == shopkey).ToList();
-                request.stockList = db.storage_stock.Where(p => p.shopkey == shopkey).ToList();
+                request.genresList = db.storage_genre.Where(p => p.shopkey == shopkey).DefaultIfEmpty().ToList();
+                request.crudeList = db.storage_crude.Where(p => p.shopkey == shopkey).DefaultIfEmpty().ToList();
+                request.stockList = db.storage_stock.Where(p => p.shopkey == shopkey).DefaultIfEmpty().ToList();
                 
                 client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
@@ -341,7 +305,29 @@ namespace DianDianClient.Biz
         {
             try
             {
+                var json = "";
+                DianDianEntities db = new DianDianEntities();
+                RestClient client = new RestClient();
+                client.ContentType = "application/json";
+                client.Method = HttpVerb.POST;
+                SyncMemberRoleRequest request = new SyncMemberRoleRequest();
+                int shopkey = Properties.Settings.Default.shopkey;
+                request.memList = db.member.Where(p => p.syncFlag == 1 && p.shopkey == shopkey).ToList();
+                request.roleList = db.sys_role.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
+                
 
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                client.PostData = JsonConvert.SerializeObject(request, settings);
+                log.Debug(client.PostData);
+                json = client.MakeRequest();
+                log.Debug(json.ToString());
+                var res = JsonConvert.DeserializeObject<Models.CommonResponseBean>(json);
+                if (res.code == 100)
+                {
+                    //db.ClearTablePosSyncFlag();
+                }
             }
             catch (Exception e)
             {
@@ -354,7 +340,31 @@ namespace DianDianClient.Biz
         {
             try
             {
+                var json = "";
+                DianDianEntities db = new DianDianEntities();
+                RestClient client = new RestClient();
+                client.ContentType = "application/json";
+                client.Method = HttpVerb.POST;
+                SyncSignUserRequest request = new SyncSignUserRequest();
+                int shopkey = Properties.Settings.Default.shopkey;
 
+                request.signUserList = db.dd_shop_signusers.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
+                request.signAccountsList = db.dd_sign_accounts.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
+                request.signMealsList = db.dd_sign_meals.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
+                request.memCard = db.dd_mem_card.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
+
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                client.PostData = JsonConvert.SerializeObject(request, settings);
+                log.Debug(client.PostData);
+                json = client.MakeRequest();
+                log.Debug(json.ToString());
+                var res = JsonConvert.DeserializeObject<Models.CommonResponseBean>(json);
+                if (res.code == 100)
+                {
+                    //db.ClearTablePosSyncFlag();
+                }
             }
             catch (Exception e)
             {
@@ -367,7 +377,28 @@ namespace DianDianClient.Biz
         {
             try
             {
+                var json = "";
+                DianDianEntities db = new DianDianEntities();
+                RestClient client = new RestClient();
+                client.ContentType = "application/json";
+                client.Method = HttpVerb.POST;
+                List<dd_coupons> request = new List<dd_coupons>();
+                int shopkey = Properties.Settings.Default.shopkey;
 
+                request = db.dd_coupons.Where(p => p.shopid == shopkey && p.syncFlag == 1).ToList();                
+
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                client.PostData = JsonConvert.SerializeObject(request, settings);
+                log.Debug(client.PostData);
+                json = client.MakeRequest();
+                log.Debug(json.ToString());
+                var res = JsonConvert.DeserializeObject<Models.CommonResponseBean>(json);
+                if (res.code == 100)
+                {
+                    //db.ClearTablePosSyncFlag();
+                }
             }
             catch (Exception e)
             {
@@ -380,7 +411,28 @@ namespace DianDianClient.Biz
         {
             try
             {
+                var json = "";
+                DianDianEntities db = new DianDianEntities();
+                RestClient client = new RestClient();
+                client.ContentType = "application/json";
+                client.Method = HttpVerb.POST;
+                List<dd_shop_windows> request = new List<dd_shop_windows>();
+                int shopkey = Properties.Settings.Default.shopkey;
 
+                request = db.dd_shop_windows.Where(p => p.shopid == shopkey && p.syncFlag == 1).ToList();
+
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                client.PostData = JsonConvert.SerializeObject(request, settings);
+                log.Debug(client.PostData);
+                json = client.MakeRequest();
+                log.Debug(json.ToString());
+                var res = JsonConvert.DeserializeObject<Models.CommonResponseBean>(json);
+                if (res.code == 100)
+                {
+                    //db.ClearTablePosSync
+                }
             }
             catch (Exception e)
             {

@@ -609,7 +609,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="cfmealkey" Type="varchar" MaxLength="32" />
           <Property Name="feiyong" Type="decimal" Precision="8" Scale="2" />
           <Property Name="addtime" Type="datetime" Precision="0" />
@@ -642,6 +642,7 @@
           <Property Name="songmoney" Type="decimal" Precision="10" Scale="2" />
           <Property Name="yiling" Type="int" />
           <Property Name="isdian" Type="bool" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_mem_coupons">
           <Key>
@@ -766,7 +767,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="printername" Type="varchar" MaxLength="30" />
           <Property Name="status" Type="int" />
           <Property Name="shopid" Type="int" />
@@ -955,6 +956,7 @@
           <Property Name="lasttime" Type="varchar" MaxLength="20" />
           <Property Name="state" Type="int" />
           <Property Name="shopkey" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_shop_weixin">
           <Key>
@@ -982,6 +984,7 @@
           <Property Name="porder" Type="int" />
           <Property Name="isyicaiyidan" Type="bool" />
           <Property Name="isprintexcep" Type="bool" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_shop_wmcode">
           <Key>
@@ -1029,6 +1032,7 @@
           <Property Name="addtime" Type="varchar" MaxLength="20" />
           <Property Name="shopkey" Type="int" />
           <Property Name="shopuserid" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_sign_meals">
           <Key>
@@ -1042,6 +1046,7 @@
           <Property Name="money" Type="decimal" Precision="10" Scale="2" />
           <Property Name="shopuserid" Type="int" />
           <Property Name="shopkey" Type="int" />
+          <Property Name="syncFlag" Type="int" />
         </EntityType>
         <EntityType Name="dd_sys_consts">
           <Key>
@@ -2863,18 +2868,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="cf_member_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="cf_member" Type="Self.cf_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="cf_member">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="income_record_ibfk_1">
           <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
           <End Role="income_record" Type="Self.income_record" Multiplicity="*" />
@@ -2911,66 +2904,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="item_recomment_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="item_recomment">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="item_recomment_ibfk_2">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="item_recomment" Type="Self.item_recomment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="item_recomment">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="member_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="member" Type="Self.member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="member">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="member_notice_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="member_notice" Type="Self.member_notice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="member_notice">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="member_role_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="member_role" Type="Self.member_role" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="member_role">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="menu_ibfk_1">
           <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
           <End Role="menu1" Type="Self.menu" Multiplicity="*" />
@@ -2980,18 +2913,6 @@
             </Principal>
             <Dependent Role="menu1">
               <PropertyRef Name="parentMenukey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pay_bill_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="pay_bill" Type="Self.pay_bill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="pay_bill">
-              <PropertyRef Name="memberkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3040,18 +2961,6 @@
             </Principal>
             <Dependent Role="print_info">
               <PropertyRef Name="printmainkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="print_main_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="print_main" Type="Self.print_main" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="print_main">
-              <PropertyRef Name="memberkey" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3171,54 +3080,6 @@
               <PropertyRef Name="shopkey" />
             </Principal>
             <Dependent Role="shop_oper_log">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="sys_oper_log_ibfk_1">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="sys_oper_log" Type="Self.sys_oper_log" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="sys_oper_log">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="table_member_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="table_member">
-              <PropertyRef Name="shopkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="table_member_ibfk_2">
-          <End Role="member" Type="Self.member" Multiplicity="0..1" />
-          <End Role="table_member" Type="Self.table_member" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="memberkey" />
-            </Principal>
-            <Dependent Role="table_member">
-              <PropertyRef Name="memberkey" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="table_pos_ibfk_1">
-          <End Role="shop" Type="Self.shop" Multiplicity="0..1" />
-          <End Role="table_pos" Type="Self.table_pos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="shop">
-              <PropertyRef Name="shopkey" />
-            </Principal>
-            <Dependent Role="table_pos">
               <PropertyRef Name="shopkey" />
             </Dependent>
           </ReferentialConstraint>
@@ -3996,10 +3857,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="shop" EntitySet="shop" />
             <End Role="cf_main" EntitySet="cf_main" />
           </AssociationSet>
-          <AssociationSet Name="cf_member_ibfk_1" Association="Self.cf_member_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="cf_member" EntitySet="cf_member" />
-          </AssociationSet>
           <AssociationSet Name="income_record_ibfk_1" Association="Self.income_record_ibfk_1">
             <End Role="shop" EntitySet="shop" />
             <End Role="income_record" EntitySet="income_record" />
@@ -4012,33 +3869,9 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
             <End Role="shop" EntitySet="shop" />
             <End Role="item" EntitySet="item" />
           </AssociationSet>
-          <AssociationSet Name="item_recomment_ibfk_1" Association="Self.item_recomment_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="item_recomment" EntitySet="item_recomment" />
-          </AssociationSet>
-          <AssociationSet Name="item_recomment_ibfk_2" Association="Self.item_recomment_ibfk_2">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="item_recomment" EntitySet="item_recomment" />
-          </AssociationSet>
-          <AssociationSet Name="member_ibfk_1" Association="Self.member_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="member" EntitySet="member" />
-          </AssociationSet>
-          <AssociationSet Name="member_notice_ibfk_1" Association="Self.member_notice_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="member_notice" EntitySet="member_notice" />
-          </AssociationSet>
-          <AssociationSet Name="member_role_ibfk_1" Association="Self.member_role_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="member_role" EntitySet="member_role" />
-          </AssociationSet>
           <AssociationSet Name="menu_ibfk_1" Association="Self.menu_ibfk_1">
             <End Role="menu" EntitySet="menu" />
             <End Role="menu1" EntitySet="menu" />
-          </AssociationSet>
-          <AssociationSet Name="pay_bill_ibfk_1" Association="Self.pay_bill_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="pay_bill" EntitySet="pay_bill" />
           </AssociationSet>
           <AssociationSet Name="post_ibfk_1" Association="Self.post_ibfk_1">
             <End Role="shop" EntitySet="shop" />
@@ -4055,10 +3888,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="print_info_ibfk_1" Association="Self.print_info_ibfk_1">
             <End Role="print_main" EntitySet="print_main" />
             <End Role="print_info" EntitySet="print_info" />
-          </AssociationSet>
-          <AssociationSet Name="print_main_ibfk_1" Association="Self.print_main_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="print_main" EntitySet="print_main" />
           </AssociationSet>
           <AssociationSet Name="qr_code_batch_ibfk_1" Association="Self.qr_code_batch_ibfk_1">
             <End Role="shop" EntitySet="shop" />
@@ -4099,22 +3928,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <AssociationSet Name="shop_oper_log_ibfk_2" Association="Self.shop_oper_log_ibfk_2">
             <End Role="shop" EntitySet="shop" />
             <End Role="shop_oper_log" EntitySet="shop_oper_log" />
-          </AssociationSet>
-          <AssociationSet Name="sys_oper_log_ibfk_1" Association="Self.sys_oper_log_ibfk_1">
-            <End Role="member" EntitySet="member" />
-            <End Role="sys_oper_log" EntitySet="sys_oper_log" />
-          </AssociationSet>
-          <AssociationSet Name="table_member_ibfk_1" Association="Self.table_member_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="table_member" EntitySet="table_member" />
-          </AssociationSet>
-          <AssociationSet Name="table_member_ibfk_2" Association="Self.table_member_ibfk_2">
-            <End Role="member" EntitySet="member" />
-            <End Role="table_member" EntitySet="table_member" />
-          </AssociationSet>
-          <AssociationSet Name="table_pos_ibfk_1" Association="Self.table_pos_ibfk_1">
-            <End Role="shop" EntitySet="shop" />
-            <End Role="table_pos" EntitySet="table_pos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -4515,6 +4328,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="songmoney" Type="Decimal" />
           <Property Name="yiling" Type="Int32" />
           <Property Name="isdian" Type="Boolean" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_mem_coupons">
           <Key>
@@ -4792,6 +4606,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="addtime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="shopkey" Type="Int32" />
           <Property Name="shopuserid" Type="Int32" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_sign_meals">
           <Key>
@@ -4805,6 +4620,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="money" Type="Decimal" />
           <Property Name="shopuserid" Type="Int32" />
           <Property Name="shopkey" Type="Int32" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_sys_consts">
           <Key>
@@ -5043,18 +4859,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="lng" Type="Decimal" Nullable="false" />
           <Property Name="role" Type="Int32" />
           <Property Name="agentid" Type="Int32" />
-          <NavigationProperty Name="cf_member" Relationship="Self.FK_Reference_43" FromRole="member" ToRole="cf_member" />
-          <NavigationProperty Name="item_comment" Relationship="Self.FK_Reference_7" FromRole="member" ToRole="item_comment" />
-          <NavigationProperty Name="item_recomment" Relationship="Self.FK_Reference_13" FromRole="member" ToRole="item_recomment" />
-          <NavigationProperty Name="shop" Relationship="Self.FK_Reference_1" FromRole="member" ToRole="shop" />
-          <NavigationProperty Name="member_role" Relationship="Self.FK_Reference_10" FromRole="member" ToRole="member_role" />
-          <NavigationProperty Name="redpacket_record" Relationship="Self.FK_Reference_15" FromRole="member" ToRole="redpacket_record" />
-          <NavigationProperty Name="member_notice" Relationship="Self.FK_Reference_18" FromRole="member" ToRole="member_notice" />
-          <NavigationProperty Name="table_member" Relationship="Self.FK_Reference_31" FromRole="member" ToRole="table_member" />
-          <NavigationProperty Name="print_main" Relationship="Self.FK_Reference_32" FromRole="member" ToRole="print_main" />
-          <NavigationProperty Name="shop_oper_log" Relationship="Self.FK_Reference_37" FromRole="member" ToRole="shop_oper_log" />
-          <NavigationProperty Name="pay_bill" Relationship="Self.FK_Reference_48" FromRole="member" ToRole="pay_bill" />
-          <NavigationProperty Name="sys_oper_log" Relationship="Self.FK_Reference_sys_log_memberkey" FromRole="member" ToRole="sys_oper_log" />
           <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="member_notice">
@@ -5075,7 +4879,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="memberrolekey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rolekey" Type="Int32" />
           <Property Name="memberkey" Type="Int32" />
-          <NavigationProperty Name="member" Relationship="Self.FK_Reference_10" FromRole="member_role" ToRole="member" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
@@ -6339,7 +6142,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySet Name="dd_printerqueue" EntityType="diandianModel.dd_printerqueue" />
           <EntitySet Name="dd_shop_account" EntityType="diandianModel.dd_shop_account" />
           <EntitySet Name="v_dd_pocket_users" EntityType="diandianModel.v_dd_pocket_users" />
-          <EntitySet Name="dd_meal_tips" EntityType="diandianModel.dd_meal_tips" />
           <EntitySet Name="dd_card_userecord" EntityType="diandianModel.dd_card_userecord" />
           <EntitySet Name="dd_shop_windows" EntityType="diandianModel.dd_shop_windows" />
           <EntitySet Name="dd_table_floor" EntityType="diandianModel.dd_table_floor" />
@@ -6411,6 +6213,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <FunctionImport Name="ClearMemberSyncFlag" />
           <FunctionImport Name="ClearSysRoleSyncFlag" />
           <FunctionImport Name="ClearTablePosSyncFlag" />
+          <EntitySet Name="dd_meal_tips" EntityType="diandianModel.dd_meal_tips" />
         </EntityContainer>
         <EntityType Name="v_cfdetailitem">
           <Key>
@@ -6847,19 +6650,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="cardid" Type="Int32" />
           <Property Name="createdate" Type="DateTime" />
         </EntityType>
-        <EntityType Name="dd_meal_tips">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="feiyong" Type="Decimal" />
-          <Property Name="addtime" Type="DateTime" />
-          <Property Name="state" Type="Boolean" />
-          <Property Name="paytime" Type="DateTime" />
-          <Property Name="shopkey" Type="Int32" />
-          <Property Name="orderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="dd_card_userecord">
           <Key>
             <PropertyRef Name="recordid" />
@@ -6893,6 +6683,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="porder" Type="Int32" />
           <Property Name="isyicaiyidan" Type="Boolean" />
           <Property Name="isprintexcep" Type="Boolean" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="dd_table_floor">
           <Key>
@@ -7564,6 +7355,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="lasttime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="state" Type="Int32" />
           <Property Name="shopkey" Type="Int32" />
+          <Property Name="syncFlag" Type="Int32" />
         </EntityType>
         <EntityType Name="v_cfmembermeal">
           <Key>
@@ -7747,6 +7539,19 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <Property Name="state" Type="SByte" />
           <Property Name="syncFlag" Type="Int32" />
           <Property Name="genrename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="dd_meal_tips">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="cfmealkey" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="feiyong" Type="Decimal" />
+          <Property Name="addtime" Type="DateTime" />
+          <Property Name="state" Type="Boolean" />
+          <Property Name="paytime" Type="DateTime" />
+          <Property Name="shopkey" Type="Int32" />
+          <Property Name="orderno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -8147,6 +7952,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_mem_card">
             <EntityTypeMapping TypeName="diandianModel.dd_mem_card">
               <MappingFragment StoreEntitySet="dd_mem_card">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="cardid" ColumnName="cardid" />
                 <ScalarProperty Name="cardno" ColumnName="cardno" />
                 <ScalarProperty Name="userid" ColumnName="userid" />
@@ -8459,6 +8265,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_sign_accounts">
             <EntityTypeMapping TypeName="diandianModel.dd_sign_accounts">
               <MappingFragment StoreEntitySet="dd_sign_accounts">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="signid" ColumnName="signid" />
                 <ScalarProperty Name="clearmoney" ColumnName="clearmoney" />
@@ -8471,6 +8278,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_sign_meals">
             <EntityTypeMapping TypeName="diandianModel.dd_sign_meals">
               <MappingFragment StoreEntitySet="dd_sign_meals">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
                 <ScalarProperty Name="signid" ColumnName="signid" />
@@ -9824,20 +9632,6 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dd_meal_tips">
-            <EntityTypeMapping TypeName="diandianModel.dd_meal_tips">
-              <MappingFragment StoreEntitySet="dd_meal_tips">
-                <ScalarProperty Name="orderno" ColumnName="orderno" />
-                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
-                <ScalarProperty Name="paytime" ColumnName="paytime" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="addtime" ColumnName="addtime" />
-                <ScalarProperty Name="feiyong" ColumnName="feiyong" />
-                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dd_card_userecord">
             <EntityTypeMapping TypeName="diandianModel.dd_card_userecord">
               <MappingFragment StoreEntitySet="dd_card_userecord">
@@ -9859,6 +9653,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_shop_windows">
             <EntityTypeMapping TypeName="diandianModel.dd_shop_windows">
               <MappingFragment StoreEntitySet="dd_shop_windows">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="isprintexcep" ColumnName="isprintexcep" />
                 <ScalarProperty Name="isyicaiyidan" ColumnName="isyicaiyidan" />
                 <ScalarProperty Name="porder" ColumnName="porder" />
@@ -10530,6 +10325,7 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <EntitySetMapping Name="dd_shop_signusers">
             <EntityTypeMapping TypeName="diandianModel.dd_shop_signusers">
               <MappingFragment StoreEntitySet="dd_shop_signusers">
+                <ScalarProperty Name="syncFlag" ColumnName="syncFlag" />
                 <ScalarProperty Name="shopkey" ColumnName="shopkey" />
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="lasttime" ColumnName="lasttime" />
@@ -10705,6 +10501,20 @@ FROM `v_storagelossorspill_crude` AS `v_storagelossorspill_crude`</DefiningQuery
           <FunctionImportMapping FunctionImportName="ClearMemberSyncFlag" FunctionName="diandianModel.Store.ClearMemberSyncFlag" />
           <FunctionImportMapping FunctionImportName="ClearSysRoleSyncFlag" FunctionName="diandianModel.Store.ClearSysRoleSyncFlag" />
           <FunctionImportMapping FunctionImportName="ClearTablePosSyncFlag" FunctionName="diandianModel.Store.ClearTablePosSyncFlag" />
+          <EntitySetMapping Name="dd_meal_tips">
+            <EntityTypeMapping TypeName="diandianModel.dd_meal_tips">
+              <MappingFragment StoreEntitySet="dd_meal_tips">
+                <ScalarProperty Name="orderno" ColumnName="orderno" />
+                <ScalarProperty Name="shopkey" ColumnName="shopkey" />
+                <ScalarProperty Name="paytime" ColumnName="paytime" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="feiyong" ColumnName="feiyong" />
+                <ScalarProperty Name="cfmealkey" ColumnName="cfmealkey" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
