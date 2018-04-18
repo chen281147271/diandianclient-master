@@ -26,6 +26,16 @@ namespace DianDianClient.Biz
             public int guigeid { get; set; }
             public int itemnum { get; set; }
         }
+
+        public class itemTuijian
+        {
+            public int itemkey { get; set; }
+            public int guigeid { get; set; }
+            public string name { get; set; }
+            public string thumb { get; set; }
+            public decimal price { get; set; }
+            public int num { get; set; }
+        }
         //菜品列表
         public List<v_category_items> GetFoodList(int itemCategoryKey,int itemIsDel=-1)
         {
@@ -545,7 +555,22 @@ namespace DianDianClient.Biz
             }
         }
 
-        public void SaveTuijian(int tjkey, string items, int afternum, string liyou)
+        public List<dd_tuijian_link> QueryTuijianLinkList(int tuijianid)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+
+                return db.dd_tuijian_link.Where(p => p.tuijianid == tuijianid).ToList();
+            }
+            catch (Exception e)
+            {
+                log.Error("QueryTuijianLinkList error. msg=" + e.Message);
+                throw;
+            }
+        }
+
+        public void SaveTuijian(int tjkey, string items, int afternum, string liyou, List<itemTuijian>tuijianList)
         {
             try
             {
@@ -564,6 +589,49 @@ namespace DianDianClient.Biz
                     stateEntity.SetModifiedProperty("afternum");
                     stateEntity.SetModifiedProperty("items");
                     stateEntity.SetModifiedProperty("liyou");
+                    db.SaveChanges();
+
+                    List<int> keepList = new List<int>();
+                    foreach(var tuijian in tuijianList)
+                    {
+                        var tjLink = db.dd_tuijian_link.Where(p => p.itemkey == tuijian.itemkey && p.guigeid == tuijian.guigeid && p.tuijianid == tjbean.tjid).FirstOrDefault();
+                        if(tjLink == null)
+                        {
+                            tjLink = new dd_tuijian_link();
+                            tjLink.guigeid = tuijian.guigeid;
+                            tjLink.itemkey = tuijian.itemkey;
+                            tjLink.name = tuijian.name;
+                            tjLink.num = tuijian.num;
+                            tjLink.price = tuijian.price;
+                            tjLink.thumb = tuijian.thumb;
+                            tjLink.tuijianid = tjbean.tjid;
+                            db.dd_tuijian_link.Add(tjLink);
+                        }
+                        else
+                        {
+                            tjLink.name = tuijian.name;
+                            tjLink.num = tuijian.num;
+                            tjLink.price = tuijian.price;
+                            tjLink.thumb = tuijian.thumb;
+                            db.dd_tuijian_link.Attach(tjLink);
+                            var stateEntity2 = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(tjLink);
+                            stateEntity.SetModifiedProperty("name");
+                            stateEntity.SetModifiedProperty("num");
+                            stateEntity.SetModifiedProperty("price");
+                            stateEntity.SetModifiedProperty("thumb");
+                            db.SaveChanges();
+                            keepList.Add(tjLink.sid);
+                        }
+                    }
+                    var delList = db.dd_tuijian_link.Where(p => !keepList.Contains(p.sid)).ToList();
+                    foreach(var delid in delList)
+                    {
+                        var delbean = db.dd_tuijian_link.Find(delid);
+                        db.dd_tuijian_link.Attach(delbean);
+                        db.dd_tuijian_link.Remove(delbean);
+                        db.SaveChanges();
+                    }
+                    
                 }
                 else
                 {
@@ -578,8 +646,23 @@ namespace DianDianClient.Biz
                     tjbean.operater = BizLoginController.userid;
 
                     db.dd_tuijian.Add(tjbean);
+                    db.SaveChanges();
+
+                    foreach(var tuijian in tuijianList)
+                    {
+                        dd_tuijian_link tdl = new dd_tuijian_link();
+                        tdl.guigeid = tuijian.guigeid;
+                        tdl.itemkey = tuijian.itemkey;
+                        tdl.name = tuijian.name;
+                        tdl.num = tuijian.num;
+                        tdl.price = tuijian.price;
+                        tdl.thumb = tuijian.thumb;
+                        tdl.tuijianid = tjbean.tjid;
+                        db.dd_tuijian_link.Add(tdl);
+                    }
+                    db.SaveChanges();
                 }
-                db.SaveChanges();
+                
             }
             catch (Exception e)
             {
@@ -591,6 +674,16 @@ namespace DianDianClient.Biz
         public void DeleteTuijian(int tjkey)
         {
             DianDianEntities db = new DianDianEntities();
+
+            var delList = db.dd_tuijian_link.Where(p => p.sid == tjkey).ToList();
+            foreach (var delid in delList)
+            {
+                var delbean = db.dd_tuijian_link.Find(delid);
+                db.dd_tuijian_link.Attach(delbean);
+                db.dd_tuijian_link.Remove(delbean);
+                db.SaveChanges();
+            }
+
             dd_tuijian tj = new dd_tuijian();
             tj.tjid = tjkey;
 
