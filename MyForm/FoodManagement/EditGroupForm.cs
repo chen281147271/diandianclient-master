@@ -12,16 +12,25 @@ namespace DianDianClient.MyForm.FoodManagement
 {
     public partial class EditGroupForm : DevExpress.XtraEditors.XtraForm
     {
-        public string GroupID;
-        public EditGroupForm(string GroupID)
+        int GroupID;
+        public EditGroupForm(int GroupID,int itemCategoryCode)
         {
-            this.GroupID = GroupID;
+            this.GroupID =GroupID;
             InitializeComponent();
-            IniData();
+            MyControl.FoodManagement.EditGroupControl editGroup = new MyControl.FoodManagement.EditGroupControl(this.GroupID, itemCategoryCode);
+            editGroup.Dock = DockStyle.Fill;
+            editGroup.MyEvent += CloseEvent;
+            this.Controls.Add(editGroup);
+            //IniData();
         }
-        private void IniData()
+        private void CloseEvent()
         {
-            editGroupControl1.gridView1.SetRowCellValue(editGroupControl1.rowHandle_GroupNo, "Value", GroupID);
+            this.Close();
         }
+        //private void IniData()
+        //{
+        //    var a=BIZFood.GetCategoryDetail(GroupID);
+        //    editGroupControl1.gridView1.SetRowCellValue(editGroupControl1.rowHandle_GroupNo, "Value", GroupID);
+        //}
     }
 }

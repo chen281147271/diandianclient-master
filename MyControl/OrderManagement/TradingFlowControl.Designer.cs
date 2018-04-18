@@ -35,6 +35,7 @@
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition4 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition5 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
@@ -58,7 +59,10 @@
             this.createDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.billNo = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.state = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.payway = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.type = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.money = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.realPay = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
@@ -81,9 +85,6 @@
             this.Com_PayWay = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Com_Type = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Com_State = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.payway = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.type = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.realPay = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
@@ -136,6 +137,24 @@
             this.state.Visible = true;
             this.state.VisibleIndex = 6;
             // 
+            // payway
+            // 
+            this.payway.Caption = "收款方式";
+            this.payway.FieldName = "payway";
+            this.payway.Name = "payway";
+            this.payway.OptionsColumn.ShowCaption = true;
+            this.payway.Visible = true;
+            this.payway.VisibleIndex = 5;
+            // 
+            // type
+            // 
+            this.type.Caption = "订单类型";
+            this.type.FieldName = "type";
+            this.type.Name = "type";
+            this.type.OptionsColumn.ShowCaption = true;
+            this.type.Visible = true;
+            this.type.VisibleIndex = 3;
+            // 
             // money
             // 
             this.money.Caption = "订单金额";
@@ -144,6 +163,14 @@
             this.money.OptionsColumn.ShowCaption = true;
             this.money.Visible = true;
             this.money.VisibleIndex = 7;
+            // 
+            // realPay
+            // 
+            this.realPay.Caption = "实付金额";
+            this.realPay.FieldName = "realPay";
+            this.realPay.Name = "realPay";
+            this.realPay.Visible = true;
+            this.realPay.VisibleIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -243,6 +270,7 @@
             this.tileView1.TileColumns.Add(tableColumnDefinition2);
             this.tileView1.TileColumns.Add(tableColumnDefinition3);
             this.tileView1.TileColumns.Add(tableColumnDefinition4);
+            this.tileView1.TileColumns.Add(tableColumnDefinition5);
             this.tileView1.TileRows.Add(tableRowDefinition1);
             this.tileView1.TileRows.Add(tableRowDefinition2);
             this.tileView1.TileRows.Add(tableRowDefinition3);
@@ -554,32 +582,6 @@
             this.Com_State.Size = new System.Drawing.Size(112, 34);
             this.Com_State.TabIndex = 13;
             this.Com_State.SelectedIndexChanged += new System.EventHandler(this.Com_State_SelectedIndexChanged);
-            // 
-            // payway
-            // 
-            this.payway.Caption = "收款方式";
-            this.payway.FieldName = "payway";
-            this.payway.Name = "payway";
-            this.payway.OptionsColumn.ShowCaption = true;
-            this.payway.Visible = true;
-            this.payway.VisibleIndex = 5;
-            // 
-            // type
-            // 
-            this.type.Caption = "订单类型";
-            this.type.FieldName = "type";
-            this.type.Name = "type";
-            this.type.OptionsColumn.ShowCaption = true;
-            this.type.Visible = true;
-            this.type.VisibleIndex = 3;
-            // 
-            // realPay
-            // 
-            this.realPay.Caption = "实付金额";
-            this.realPay.FieldName = "realPay";
-            this.realPay.Name = "realPay";
-            this.realPay.Visible = true;
-            this.realPay.VisibleIndex = 4;
             // 
             // TradingFlowControl
             // 

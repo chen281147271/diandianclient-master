@@ -27,7 +27,7 @@ namespace DianDianClient.Biz
             public int itemnum { get; set; }
         }
         //菜品列表
-        public List<v_category_items> GetFoodList(int itemCategoryKey)
+        public List<v_category_items> GetFoodList(int itemCategoryKey,int itemIsDel=-1)
         {
             try
             {
@@ -35,7 +35,11 @@ namespace DianDianClient.Biz
                 var foodList = db.v_category_items.Where(p => p.shopkey == Properties.Settings.Default.shopkey);
                 if (itemCategoryKey != 0)
                 {
-                    foodList = foodList.Where(p => p.itemcategorykey == itemCategoryKey && p.itemIsDel == 0);
+                    foodList = foodList.Where(p => p.itemcategorykey == itemCategoryKey);
+                }
+                if (itemIsDel != -1)
+                {
+                    foodList = foodList.Where(p => p.itemIsDel == itemIsDel);
                 }
                 return foodList.ToList();
             }
@@ -134,7 +138,6 @@ namespace DianDianClient.Biz
                 throw;
             }
         }
-
         //删除分类
         public void DelItemCategory(int itemCategoryKey)
         {
@@ -179,7 +182,8 @@ namespace DianDianClient.Biz
         //22. 添加更新菜品接口
         public void SaveItem(int itemkey, string name, string code, double discountPrice, double agioprice,
             int itemType, string imgs, int minnum, int isStandard, int isSet, int isPrint,
-            sbyte selebyunit, string unit, sbyte ispayagio, sbyte ismust, string introduce, List<ItemCrudeInfo> crudeList, List<ItemTCInfo>tcList)
+            sbyte selebyunit, string unit, sbyte ispayagio, sbyte ismust, string introduce,
+            List<ItemCrudeInfo> crudeList, List<ItemTCInfo>tcList)
         {
             try
             {
@@ -507,11 +511,15 @@ namespace DianDianClient.Biz
             {
                 DianDianEntities db = new DianDianEntities();
                 item ic = new item();
-                ic.itemkey = itemkey;
-
-                db.item.Attach(ic);
-                db.item.Remove(ic);
-                db.SaveChanges();
+                ic = db.item.Find(itemkey);
+                if (ic != null)
+                {
+                    ic.isDel = 1;
+                    db.item.Attach(ic);
+                    var stateEntity = ((IObjectContextAdapter)db).ObjectContext.ObjectStateManager.GetObjectStateEntry(ic);
+                    stateEntity.SetModifiedProperty("isDel");
+                    db.SaveChanges();
+                }
             }
             catch (Exception e)
             {
@@ -533,6 +541,62 @@ namespace DianDianClient.Biz
         public void DeleteTuijian()
         {
 
+        }
+        public void TaoCanFood(int itemkey)
+        {
+            try
+            {
+                DianDianEntities db = new DianDianEntities();
+                MyModels.selected_category_items.list.Clear();
+                var a = db.item_set.Where(p => p.itemkey == itemkey);
+                if (a.Count() > 0)
+                {
+                    foreach (var b in a)
+                    {
+                        insert_selected_category_items_list(b.itemnum.Value, b.tcItemKey.Value, b.guigeid.Value);
+                    }
+                }
+                else
+                {
+                    var c = db.item_set.Where(p => p.tcItemKey == itemkey);
+                    foreach(var b in c)
+                    {
+                        insert_selected_category_items_list(b.itemnum.Value, b.itemkey.Value, b.guigeid.Value);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error("TaoCanFoodID error. msg=" + e.Message);
+                throw;
+            }
+        }
+        private void insert_selected_category_items_list(int itemnum, int itemkey,int guigeid)
+        {
+            System.Drawing.Bitmap bm = Properties.Resources._1;
+            MyModels.selected_category_items._selected_category_items _Selected_Category_Items = new MyModels.selected_category_items._selected_category_items();
+            var c = GetFoodList(0, 0).Where(p => p.itemkey == itemkey).FirstOrDefault();
+            _Selected_Category_Items.itemcategorykey = c.itemcategorykey.Value;
+            _Selected_Category_Items.itemImgs = bm;
+            _Selected_Category_Items.itemKey = c.itemkey.Value;
+            _Selected_Category_Items.itemName = c.itemName;
+            _Selected_Category_Items.num = itemnum;
+            _Selected_Category_Items.sprice = Convert.ToDecimal(c.price);
+            _Selected_Category_Items.standardkey = guigeid;
+            var d = QueryStandards(c.itemkey.Value).Find(p => p.standardkey == guigeid);
+            string standardname = (d==null)?"":d.standardname;
+            _Selected_Category_Items.standardname = standardname;
+            MyModels.selected_category_items.list.Add(_Selected_Category_Items);
+        }
+        public int FindMax_itemCategoryCode()
+        {
+            DianDianEntities db = new DianDianEntities();
+            return (Convert.ToInt32(db.item_category.Where(p => p.shopkey == Properties.Settings.Default.shopkey).Max(p => p.itemCategoryCode)) + 1);
+        }
+        public int FindMax_itemCode()
+        {
+            DianDianEntities db = new DianDianEntities();
+            return (Convert.ToInt32(db.item.Where(p => p.shopkey == Properties.Settings.Default.shopkey).Max(p => p.itemCode)) + 1);
         }
     }
 }

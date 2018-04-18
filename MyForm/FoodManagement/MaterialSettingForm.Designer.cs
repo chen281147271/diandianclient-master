@@ -28,34 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialSetting1 = new DianDianClient.MyControl.FoodManagement.MaterialSetting();
             this.SuspendLayout();
-            // 
-            // materialSetting1
-            // 
-            this.materialSetting1.BackColor = System.Drawing.Color.White;
-            this.materialSetting1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialSetting1.Location = new System.Drawing.Point(0, 0);
-            this.materialSetting1.Name = "materialSetting1";
-            this.materialSetting1.Size = new System.Drawing.Size(858, 603);
-            this.materialSetting1.TabIndex = 0;
             // 
             // MaterialSettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 603);
-            this.Controls.Add(this.materialSetting1);
+            this.ClientSize = new System.Drawing.Size(1001, 703);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MaterialSettingForm";
             this.Text = "Form4";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MyControl.FoodManagement.MaterialSetting materialSetting1;
     }
 }

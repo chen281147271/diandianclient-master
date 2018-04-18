@@ -38,6 +38,7 @@
             this.MaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaterialNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.crudeid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
@@ -100,7 +101,8 @@
             this.IsCheck,
             this.MaterialName,
             this.MaterialType,
-            this.MaterialNumber});
+            this.MaterialNumber,
+            this.crudeid});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -118,6 +120,7 @@
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            this.repositoryItemCheckEdit1.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit1_CheckedChanged);
             // 
             // MaterialName
             // 
@@ -150,6 +153,12 @@
             this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // crudeid
+            // 
+            this.crudeid.Caption = "crudeid";
+            this.crudeid.FieldName = "crudeid";
+            this.crudeid.Name = "crudeid";
             // 
             // tableLayoutPanel1
             // 
@@ -199,6 +208,7 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(144, 20);
             this.textEdit1.TabIndex = 1;
+            this.textEdit1.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
             // 
             // labelControl1
             // 
@@ -225,6 +235,7 @@
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(144, 20);
             this.textEdit2.TabIndex = 5;
+            this.textEdit2.EditValueChanged += new System.EventHandler(this.textEdit2_EditValueChanged);
             // 
             // simpleButton1
             // 
@@ -273,6 +284,7 @@
             this.btn_cancel.Size = new System.Drawing.Size(91, 37);
             this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "取消";
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // MaterialSetting
             // 
@@ -317,6 +329,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevExpress.XtraEditors.SimpleButton btn_submit;
+        private DevExpress.XtraGrid.Columns.GridColumn crudeid;
         private DevExpress.XtraEditors.SimpleButton btn_cancel;
     }
 }

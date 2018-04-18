@@ -18,8 +18,16 @@ namespace DianDianClient.MyControl.FoodManagement
         public int pageSize = 10;
         public int allcount = 0;
         DataTable dt;
-        public MaterialSetting()
+        public List<Models.v_item_crude> list_itemcrude;
+        Biz.BizStorage BizStorage = new Biz.BizStorage();
+        List<Models.v_crude_genre> list;
+        public delegate void MyDelegate();
+        public event MyDelegate MyEvent;
+        public delegate void _MyDelegate();
+        public event _MyDelegate _MyEvent;
+        public MaterialSetting(List<Models.v_item_crude> list_itemcrude)
         {
+            this.list_itemcrude = list_itemcrude;
             InitializeComponent();
             IniData();
         }
@@ -32,12 +40,30 @@ namespace DianDianClient.MyControl.FoodManagement
             dt.Columns.Add("MaterialName", typeof(String));
             dt.Columns.Add("MaterialType", typeof(String));
             dt.Columns.Add("MaterialNumber", typeof(int));
-            for (int i = 0; i < 200; i++)
+            dt.Columns.Add("crudeid", typeof(int));
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    string strprice = "¥" + i + new Random().Next(1, 10);
+            //    string strNumber = "菜名" + i;
+            //    int MaterialNumber = i;
+            //    dt.Rows.Add(new object[] { false, strNumber, strprice, MaterialNumber });
+            //}
+            list = BizStorage.QueryCrude("", 0, "", "", 0);
+            foreach(var a in list)
             {
-                string strprice = "¥" + i + new Random().Next(1, 10);
-                string strNumber = "菜名" + i;
-                int MaterialNumber = i;
-                dt.Rows.Add(new object[] { false, strNumber, strprice, MaterialNumber });
+                Models.v_item_crude v_Item_Crude = null;
+                if (list_itemcrude != null)
+                {
+                    v_Item_Crude = list_itemcrude.Where(o => o.crudeid.Value == a.crudeid).FirstOrDefault();
+                }
+                bool IsCheck = false;
+                int MaterialNumber = 0;
+                if (v_Item_Crude != null)
+                {
+                    IsCheck = true;
+                    MaterialNumber = v_Item_Crude.num.Value;
+                }
+                dt.Rows.Add(new object[] { IsCheck, a.crudename, a.genrename, MaterialNumber,a.crudeid });
             }
             gridView1.RowHeight = 70;
             gridView1.OptionsSelection.MultiSelect = true;
@@ -104,7 +130,8 @@ namespace DianDianClient.MyControl.FoodManagement
                         MaterialName = tb.Field<string>("MaterialName"),
                         MaterialType = tb.Field<string>("MaterialType"),
                         IsCheck = tb.Field<Boolean>("IsCheck"),
-                        MaterialNumber = tb.Field<int>("MaterialNumber")
+                        MaterialNumber = tb.Field<int>("MaterialNumber"),
+                        crudeid = tb.Field<int>("crudeid")
                     };
             if (singlePage)
             {
@@ -145,19 +172,79 @@ namespace DianDianClient.MyControl.FoodManagement
         private void button1_Click(object sender, EventArgs e)
         {
             string value = "";
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {   //   获取选中行的check的值         
-                value = gridView1.GetDataRow(i)["IsCheck"].ToString();
+            //for (int i = 0; i < gridView1.RowCount; i++)
+            //{   //   获取选中行的check的值         
+            //    value = gridView1.GetDataRow(i)["IsCheck"].ToString();
+            //    if (value == "True")
+            //    {               
+            //        strSelected += gridView1.GetRowCellValue(i, "MaterialName");
+            //        strSelected += ",";
+
+            //        int crudeid=Convert.ToInt32( gridView1.GetRowCellValue(i, "crudeid"));
+            //        int num= Convert.ToInt32(gridView1.GetRowCellValue(i, "MaterialNumber"));
+            //        // List<Models.v_item_crude> list_itemcrude
+            //        this.list_itemcrude.Clear();
+            //    }
+            //    if (strSelected.Length > 0)
+            //    {
+            //        strSelected = strSelected.Substring(0, strSelected.Length - 1);
+            //    }
+            //}
+            if (this.list_itemcrude != null)
+            {
+                this.list_itemcrude.Clear();
+            }
+            else
+            {
+                this.list_itemcrude = new List<Models.v_item_crude>();
+            }
+            foreach (DataRow dr in dt.Rows)
+            {
+                value = dr["IsCheck"].ToString();
                 if (value == "True")
-                {                
-                    strSelected += gridView1.GetRowCellValue(i, "MaterialName");
+                {
+                    strSelected += dr["MaterialName"].ToString();
+                    strSelected += ",";
+
+                    int crudeid = Convert.ToInt32(dr["crudeid"]);
+                    int num = Convert.ToInt32(dr["MaterialNumber"]);
+                    Models.v_item_crude v_Item_Crude = new Models.v_item_crude();
+                    v_Item_Crude.crudeid = crudeid;
+                    v_Item_Crude.num = num;
+                    this.list_itemcrude.Add(v_Item_Crude);
                 }
             }
-            MessageBox.Show(strSelected);
+            if (strSelected.Length > 0)
+            {
+                strSelected = strSelected.Substring(0, strSelected.Length - 1);
+            }
+            MyEvent();
         }
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            this.curPage = 1;
+            RefreshGridList();
+        }
+
+        private void textEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            this.curPage = 1;
+            RefreshGridList();
+        }
+        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            int crudeid = Convert.ToInt32(this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "crudeid"));
+            bool IsCheck = Convert.ToBoolean(this.gridView1.GetRowCellValue(this.gridView1.FocusedRowHandle, "IsCheck"));
+            var a=dt.AsEnumerable().Where(o => o.Field<int>("crudeid") == crudeid).FirstOrDefault();
+            a.SetField("IsCheck", !IsCheck);
+        }
+
+
         #endregion
 
-
-
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this._MyEvent();
+        }
     }
 }

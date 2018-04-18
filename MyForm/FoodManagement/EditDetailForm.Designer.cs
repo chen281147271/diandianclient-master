@@ -27,28 +27,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.editDetail1 = new DianDianClient.MyControl.FoodManagement.EditDetail();
             this.SuspendLayout();
-            // 
-            // editDetail1
-            // 
-            this.editDetail1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editDetail1.Location = new System.Drawing.Point(0, 0);
-            this.editDetail1.Name = "editDetail1";
-            this.editDetail1.Size = new System.Drawing.Size(872, 604);
-            this.editDetail1.TabIndex = 0;
             // 
             // EditDetailForm
             // 
             this.ClientSize = new System.Drawing.Size(872, 604);
-            this.Controls.Add(this.editDetail1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditDetailForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MyControl.FoodManagement.EditDetail editDetail1;
     }
 }

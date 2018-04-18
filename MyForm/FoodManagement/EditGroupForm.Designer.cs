@@ -28,29 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.editGroupControl1 = new DianDianClient.MyControl.FoodManagement.EditGroupControl();
             this.SuspendLayout();
-            // 
-            // editGroupControl1
-            // 
-            this.editGroupControl1.BackColor = System.Drawing.SystemColors.Control;
-            this.editGroupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editGroupControl1.Location = new System.Drawing.Point(0, 0);
-            this.editGroupControl1.Name = "editGroupControl1";
-            this.editGroupControl1.Size = new System.Drawing.Size(814, 590);
-            this.editGroupControl1.TabIndex = 0;
             // 
             // EditGroupForm
             // 
             this.ClientSize = new System.Drawing.Size(814, 590);
-            this.Controls.Add(this.editGroupControl1);
             this.Name = "EditGroupForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MyControl.FoodManagement.EditGroupControl editGroupControl1;
     }
 }

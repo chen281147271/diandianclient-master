@@ -12,11 +12,16 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Data.Filtering;
+using DevExpress.Utils;
+
 namespace DianDianClient.MyControl.FoodManagement
 {
     public partial class EditMenu : UserControl
     {
         Biz.BIZFoodController bIZFoodController = new Biz.BIZFoodController();
+        List<Models.v_category_items> list;
+        List<Models.item_category> list_itemcategory;
+        List<CriteriaOperator> criteriaOperator = new List<CriteriaOperator>();
         public EditMenu()
         {
             InitializeComponent();
@@ -46,6 +51,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 TileViewItemElement yearBuiltValue = new TileViewItemElement();
                 TileViewItemElement price = new TileViewItemElement();
                 TileViewItemElement image = new TileViewItemElement();
+                TileViewItemElement state = new TileViewItemElement();
                 tileView1.TileTemplate.Add(leftPanel);
                 tileView1.TileTemplate.Add(splitLine);
                 tileView1.TileTemplate.Add(addressCaption);
@@ -54,6 +60,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 tileView1.TileTemplate.Add(yearBuiltValue);
                 tileView1.TileTemplate.Add(price);
                 tileView1.TileTemplate.Add(image);
+                tileView1.TileTemplate.Add(state);
                 //
                 leftPanel.StretchVertical = true;
                 leftPanel.Width = 122;
@@ -86,7 +93,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 yearBuiltValue.AnchorIndent = 2;
                 yearBuiltValue.Appearance.Normal.FontStyleDelta = FontStyle.Bold;
                 yearBuiltValue.Appearance.Normal.Font = new Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                //
+                
                 price.Column = tileView1.Columns["FoodPrice"];
                 price.TextAlignment = TileItemContentAlignment.BottomLeft;
                 price.Appearance.Normal.Font = new Font("Segoe UI Semilight", 25.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,6 +103,9 @@ namespace DianDianClient.MyControl.FoodManagement
                 image.ImageAlignment = TileItemContentAlignment.MiddleRight;
                 image.ImageScaleMode = TileItemImageScaleMode.ZoomOutside;
                 image.ImageLocation = new Point(10, 10);
+                //
+                state.Column = tileView1.Columns["State"];
+                state.TextVisible = false;
                 //
                 tileView1.ColumnSet.GroupColumn = tileView1.Columns["FoodGroupName"];
                 tileView1.OptionsTiles.Orientation = Orientation.Vertical;
@@ -144,46 +154,62 @@ namespace DianDianClient.MyControl.FoodManagement
         {
             try
             {
-                //var a=bIZFoodController.GetFoodList();
-
-
-
-                   // Demo 数据 字段名请不要改变
-                Bitmap bm = Properties.Resources._1;
-                DataTable dt = new DataTable("Menudetail");
-                dt.Columns.Add("FoodName", typeof(String));
-                dt.Columns.Add("FoodImage", typeof(Bitmap));
-                dt.Columns.Add("FoodPrice", typeof(String));
-                dt.Columns.Add("FoodGroupName", typeof(String));
-                dt.Columns.Add("FoodID", typeof(Int32));
-                dt.Columns.Add("FoodGroupID", typeof(Int32));
-                //  int iID = 0;
-                for (int i = 0; i < 20; i++)
-                {
-                    string str = i + "号菜";
-                    string strprice = "¥" + i + new Random().Next(1, 10);
-                    string strNumber = "菜名" + i * 2 + new Random().Next(1, 10);
-                    string State = "蔬菜";
-                    dt.Rows.Add(new object[] { strNumber, bm, strprice, State, i,1 });
-                }
-                for (int i = 20; i < 40; i++)
-                {
-                    string str = i + "号菜";
-                    string strprice = "¥" + i + new Random().Next(1, 10);
-                    string strNumber = "菜名" + new Random().Next(1, 1);
-                    string State = "荤菜";
-                    dt.Rows.Add(new object[] { strNumber, bm, strprice, State, i,2 });
-                }
-                DataTable temptb = dt;
-                gridControl1.DataSource = temptb.DefaultView;
-                dt.Rows.Add(new object[] { null, null, null, "全部", 1,0 });
-                var q = from p in temptb.AsEnumerable()
-                        group p by  new {t1= p.Field<int>("FoodGroupID"), t2 = p.Field<string>("FoodGroupName") } into g
-                        select new { FoodGroupID =g.Key.t1, FoodGroupName = g.Key.t2 };
-                       
-                gridControl2.DataSource = q.ToList().OrderBy(p=>p.FoodGroupID);
+                RefreshList();
             }
             catch { }
+        }
+        private void RefreshList()
+        {
+            list = bIZFoodController.GetFoodList(0,0);
+            list_itemcategory = bIZFoodController.GetFoodFL();
+
+
+
+            // Demo 数据 字段名请不要改变
+            Bitmap bm = Properties.Resources._1;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FoodName", typeof(String));
+            dt.Columns.Add("FoodImage", typeof(Bitmap));
+            dt.Columns.Add("FoodPrice", typeof(String));
+            dt.Columns.Add("FoodGroupName", typeof(String));
+            dt.Columns.Add("FoodID", typeof(Int32));
+            dt.Columns.Add("FoodGroupID", typeof(Int32));
+            dt.Columns.Add("State", typeof(Int32));
+
+            DataTable _dt = new DataTable();
+            _dt.Columns.Add("FoodGroupName", typeof(String));
+            _dt.Columns.Add("FoodGroupID", typeof(Int32));
+
+            foreach (var a in list)
+            {
+                string temp = a.itemName;
+                if (temp == null)
+                    temp = "";
+                try
+                {
+                    if (System.Text.Encoding.Default.GetBytes(temp).Length > 10)
+                    {
+                        a.itemName = temp.Substring(0, 5) + "\r\n" + temp.Substring(5);
+
+                    }
+                }
+                catch
+                {
+                    temp = "";
+                }
+                dt.Rows.Add(new object[] { a.itemName, bm, a.price, a.categoryName, a.itemkey, a.itemcategorykey,a.state });
+            }
+            _dt.Rows.Add("全部", 0);
+            foreach (var a in list_itemcategory)
+            {
+                _dt.Rows.Add(new object[] { a.name, a.itemcategorykey });
+            }
+
+            gridControl1.DataSource = dt;
+            //var q = from p in dt.AsEnumerable()
+            //        group p by  new {t1= p.Field<int>("FoodGroupID"), t2 = p.Field<string>("FoodGroupName") } into g
+            //        select new { FoodGroupID =g.Key.t1, FoodGroupName = g.Key.t2 };
+            gridControl2.DataSource = _dt;
         }
         #endregion
 
@@ -193,7 +219,7 @@ namespace DianDianClient.MyControl.FoodManagement
             string FoodID = e.Item.Tag.ToString();
             if (e.Item.Name == "contextButton1")
             {
-               if( XtraMessageBox.Show(FoodID += "下架","提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information)==DialogResult.Yes)
+               if( XtraMessageBox.Show(FoodID + "下架","提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information)==DialogResult.Yes)
                 {
                     ContextBtnOffShelf_Click(FoodID);
                 }
@@ -215,10 +241,20 @@ namespace DianDianClient.MyControl.FoodManagement
         /// <param name="e"></param>
         private void tileView1_ContextButtonCustomize(object sender, TileViewContextButtonCustomizeEventArgs e)
         {
-          //  if (e.Item.Name == "contextButton1")
-          //  {
-                ((DevExpress.Utils.ContextButton)e.Item).Tag = tileView1.GetRowCellDisplayText(e.RowHandle, "FoodID");
-          //  }
+            int FoodID= Convert.ToInt32(tileView1.GetRowCellDisplayText(e.RowHandle, "FoodID"));
+            ((DevExpress.Utils.ContextButton)e.Item).Tag = FoodID;
+            int? state = list.Where(o => o.itemkey.Equals(FoodID)).FirstOrDefault().state;
+              if (e.Item.Name == "contextButton1")
+              {
+                if (state != 1)
+                {
+                    e.Item.ImageOptions.Image= global::DianDianClient.Properties.Resources.shangjia;
+                }
+                else
+                {
+                    e.Item.ImageOptions.Image = global::DianDianClient.Properties.Resources.offshelf;
+                }
+              }
         }
 
 
@@ -254,7 +290,8 @@ namespace DianDianClient.MyControl.FoodManagement
         /// <param name="FoodId">菜品ID</param>
         private void ContextBtnOffShelf_Click(string FoodId)
         {
-            XtraMessageBox.Show(FoodId+"下架");
+            bIZFoodController.ChangeState(Convert.ToInt32(FoodId), 0);
+            RefreshList();
         }
         /// <summary>
         /// 删除按钮
@@ -262,7 +299,8 @@ namespace DianDianClient.MyControl.FoodManagement
         /// <param name="FoodId">菜品ID</param>
         private void ContextBtnDelete_Click(string FoodId)
         {
-            XtraMessageBox.Show(FoodId + "删除");
+            bIZFoodController.DelItem(Convert.ToInt32(FoodId));
+            RefreshList();
         }
         /// <summary>
         /// 编辑按钮
@@ -270,7 +308,7 @@ namespace DianDianClient.MyControl.FoodManagement
         /// <param name="FoodId">菜品ID</param>
         private void ContextBtnEdit_Click(string FoodId)
         {
-            MyForm.FoodManagement.EditDetailForm editDetailForm = new MyForm.FoodManagement.EditDetailForm(FoodId);
+            MyForm.FoodManagement.EditDetailForm editDetailForm = new MyForm.FoodManagement.EditDetailForm(Convert.ToInt32(FoodId),list);
             editDetailForm.StartPosition = FormStartPosition.CenterScreen;
             int yHeight = SystemInformation.PrimaryMonitorSize.Height;
             editDetailForm.Height = yHeight;
@@ -294,9 +332,10 @@ namespace DianDianClient.MyControl.FoodManagement
         /// </summary>
         private void ContextBtnLeftEdit_Click(string GroupID)
         {
-            MyForm.FoodManagement.EditGroupForm editGroupForm = new MyForm.FoodManagement.EditGroupForm(GroupID);
+            MyForm.FoodManagement.EditGroupForm editGroupForm = new MyForm.FoodManagement.EditGroupForm(Convert.ToInt32(GroupID),-1);
             editGroupForm.StartPosition = FormStartPosition.CenterScreen;
             editGroupForm.ShowDialog();
+            RefreshList();
         }
         /// <summary>
         /// 左侧排序按钮
@@ -307,5 +346,71 @@ namespace DianDianClient.MyControl.FoodManagement
             MessageBox.Show(GroupID += "排序");
         }
         #endregion
+
+        private void Txt_FoodName_EditValueChanged(object sender, EventArgs e)
+        {
+            Changed();
+        }
+        private void Changed()
+        {
+            this.tileView1.ClearColumnsFilter();
+            criteriaOperator.Clear();
+            Txt_FoodNameEditValueChanged();
+            radioGroup1SelectedIndexChanged(radioGroup1.SelectedIndex);
+            this.tileView1.ActiveFilterCriteria = GroupOperator.And(criteriaOperator);
+
+        }
+        private void Txt_FoodNameEditValueChanged()
+        {
+            if (Txt_FoodName.Text.Length > 0)
+            {
+                CriteriaOperator CriteriaOperator = new BinaryOperator("FoodName", "%" + Txt_FoodName.Text + "%", BinaryOperatorType.Like);
+                criteriaOperator.Add(CriteriaOperator);
+            }
+            else
+            {
+                this.tileView1.ClearColumnsFilter();
+            }
+        }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Changed();
+        }
+        private void radioGroup1SelectedIndexChanged(int SelectedIndex)
+        {
+            switch (SelectedIndex)
+            {
+                case 0:
+                    this.tileView1.ClearColumnsFilter();
+                    break;
+                case 1:
+                    CriteriaOperator CriteriaOperator = new BinaryOperator("State", 1, BinaryOperatorType.Equal);
+                    criteriaOperator.Add(CriteriaOperator);
+                    break;
+                case 2:
+                    CriteriaOperator _CriteriaOperator = new BinaryOperator("State", 1, BinaryOperatorType.NotEqual);
+                    criteriaOperator.Add(_CriteriaOperator);
+                    break;
+            }
+        }
+
+        private void btn_addclass_Click(object sender, EventArgs e)
+        {
+           int itemCategoryCode = bIZFoodController.FindMax_itemCategoryCode();
+           MyForm.FoodManagement.EditGroupForm editGroupForm = new MyForm.FoodManagement.EditGroupForm(-1, itemCategoryCode);
+           editGroupForm.StartPosition = FormStartPosition.CenterScreen;
+           editGroupForm.ShowDialog();
+           RefreshList();
+        }
+
+        private void btn_addfood_Click(object sender, EventArgs e)
+        {
+            MyForm.FoodManagement.EditDetailForm editDetailForm = new MyForm.FoodManagement.EditDetailForm(-1, list);
+            editDetailForm.StartPosition = FormStartPosition.CenterScreen;
+            int yHeight = SystemInformation.PrimaryMonitorSize.Height;
+            editDetailForm.Height = yHeight;
+            editDetailForm.ShowDialog();
+        }
     }
 }

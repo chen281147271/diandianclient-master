@@ -202,6 +202,26 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
+    <Compile Include="MyForm\FoodManagement\EidtTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FoodManagement\EidtTypeForm.Designer.cs">
+      <DependentUpon>EidtTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FoodManagement\StandardsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FoodManagement\StandardsForm.Designer.cs">
+      <DependentUpon>StandardsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FoodManagement\TaoCanFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FoodManagement\TaoCanFoodForm.Designer.cs">
+      <DependentUpon>TaoCanFoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyModels\EidtType.cs" />
+    <Compile Include="MyModels\selected_category_items.cs" />
     <Compile Include="Utils\io_api.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -1659,6 +1679,15 @@
     <EmbeddedResource Include="MyForm\BusinessDetails\printForm.resx">
       <DependentUpon>printForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FoodManagement\EidtTypeForm.resx">
+      <DependentUpon>EidtTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FoodManagement\StandardsForm.resx">
+      <DependentUpon>StandardsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FoodManagement\TaoCanFoodForm.resx">
+      <DependentUpon>TaoCanFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\More\cantingSetUp\EditkouweiForm.resx">
       <DependentUpon>EditkouweiForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1862,6 +1891,11 @@
     <None Include="Resources\printtest.png" />
     <None Include="Resources\stopshiyong.png" />
     <None Include="Resources\isdefault.png" />
+    <None Include="Resources\shangjia.png" />
+    <None Include="Resources\empty.png" />
+    <None Include="Resources\add_32x32.png" />
+    <None Include="Resources\remove_32x32.png" />
+    <None Include="Resources\remove_32x321.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />
