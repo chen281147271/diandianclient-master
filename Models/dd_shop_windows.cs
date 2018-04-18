@@ -26,5 +26,6 @@ namespace DianDianClient.Models
         public Nullable<int> porder { get; set; }
         public Nullable<bool> isyicaiyidan { get; set; }
         public Nullable<bool> isprintexcep { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

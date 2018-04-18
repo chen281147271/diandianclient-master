@@ -14,7 +14,7 @@ namespace DianDianClient.Models
     
     public partial class dd_meal_tips
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string cfmealkey { get; set; }
         public Nullable<decimal> feiyong { get; set; }
         public Nullable<System.DateTime> addtime { get; set; }

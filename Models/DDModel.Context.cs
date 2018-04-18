@@ -146,7 +146,6 @@ namespace DianDianClient.Models
         public virtual DbSet<dd_printerqueue> dd_printerqueue { get; set; }
         public virtual DbSet<dd_shop_account> dd_shop_account { get; set; }
         public virtual DbSet<v_dd_pocket_users> v_dd_pocket_users { get; set; }
-        public virtual DbSet<dd_meal_tips> dd_meal_tips { get; set; }
         public virtual DbSet<dd_card_userecord> dd_card_userecord { get; set; }
         public virtual DbSet<dd_shop_windows> dd_shop_windows { get; set; }
         public virtual DbSet<dd_table_floor> dd_table_floor { get; set; }
@@ -186,6 +185,7 @@ namespace DianDianClient.Models
         public virtual DbSet<item> item { get; set; }
         public virtual DbSet<item_category> item_category { get; set; }
         public virtual DbSet<v_crude_genre> v_crude_genre { get; set; }
+        public virtual DbSet<dd_meal_tips> dd_meal_tips { get; set; }
     
         public virtual int ClearItemSyncFlag()
         {

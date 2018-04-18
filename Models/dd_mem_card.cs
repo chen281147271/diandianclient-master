@@ -34,5 +34,6 @@ namespace DianDianClient.Models
         public Nullable<decimal> songmoney { get; set; }
         public Nullable<int> yiling { get; set; }
         public Nullable<bool> isdian { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

@@ -22,5 +22,6 @@ namespace DianDianClient.Models
         public Nullable<decimal> money { get; set; }
         public Nullable<int> shopuserid { get; set; }
         public Nullable<int> shopkey { get; set; }
+        public Nullable<int> syncFlag { get; set; }
     }
 }

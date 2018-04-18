@@ -17,7 +17,5 @@ namespace DianDianClient.Models
         public int memberrolekey { get; set; }
         public Nullable<int> rolekey { get; set; }
         public Nullable<int> memberkey { get; set; }
-    
-        public virtual member member { get; set; }
     }
 }
