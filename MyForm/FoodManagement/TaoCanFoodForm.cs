@@ -30,7 +30,15 @@ namespace DianDianClient.MyForm.FoodManagement
             foreach(var a in MyModels.selected_category_items.list)
             {
                 MyModels.selected_category_items._selected_category_items _Selected_Category_Items = new MyModels.selected_category_items._selected_category_items();
-                _Selected_Category_Items = a;
+                _Selected_Category_Items.itemcategorykey = a.itemcategorykey;
+                _Selected_Category_Items.itemImgs = a.itemImgs;
+                _Selected_Category_Items.itemKey = a.itemKey;
+                _Selected_Category_Items.itemName = a.itemName;
+                _Selected_Category_Items.num = a.num;
+                _Selected_Category_Items.sprice= a.sprice;
+                _Selected_Category_Items.standardkey = a.standardkey;
+                _Selected_Category_Items.standardname = a.standardname;
+                _Selected_Category_Items.bitmap = Utils.utils.GetBitmap(a.itemImgs);
                 this._list.Add(_Selected_Category_Items);
             }
             InitializeComponent();
@@ -332,7 +340,6 @@ namespace DianDianClient.MyForm.FoodManagement
 
 
             // Demo 数据 字段名请不要改变
-            Bitmap bm = Properties.Resources._1;
             DataTable dt = new DataTable();
             dt.Columns.Add("FoodName", typeof(String));
             dt.Columns.Add("FoodImage", typeof(Bitmap));
@@ -370,7 +377,7 @@ namespace DianDianClient.MyForm.FoodManagement
                 {
                     temp = "";
                 }
-                dt.Rows.Add(new object[] { a.itemName, bm, a.price, a.categoryName, a.itemkey, a.itemcategorykey, (a.isStandard==1)?"是":"否" });
+                dt.Rows.Add(new object[] { a.itemName, Utils.utils.GetBitmap(a.itemImgs), a.price, a.categoryName, a.itemkey, a.itemcategorykey, (a.isStandard==1)?"是":"否" });
             }
 
             // _dt.Rows.Add("全部", 0);
@@ -456,7 +463,7 @@ namespace DianDianClient.MyForm.FoodManagement
             {
                 var a = list.Where(o => o.itemkey == itemkey).FirstOrDefault();
 
-                insertlist(itemkey, 0,Convert.ToDecimal(a.price), "", null,a.itemcategorykey.Value);
+                insertlist(itemkey, 0,Convert.ToDecimal(a.price), "", a.itemImgs,a.itemcategorykey.Value);
             }
 
         }
@@ -473,14 +480,13 @@ namespace DianDianClient.MyForm.FoodManagement
             }
             
         }
-        private void insertlist(int itemKey,int standardkey,decimal sprice,string standardname,Bitmap bitmap,int itemcategorykey)
+        private void insertlist(int itemKey,int standardkey,decimal sprice,string standardname,string itemImgs, int itemcategorykey)
         {
             if (_list.Find(o => o.itemKey == itemKey && o.standardkey == standardkey) == null)
             {
-                Bitmap bm = Properties.Resources._1;
                 MyModels.selected_category_items._selected_category_items selected_Category_Items = new MyModels.selected_category_items._selected_category_items();
                 //selected_Category_Items.itemImgs = list.Find(o => o.itemkey == itemKey).itemImgs;
-                selected_Category_Items.itemImgs = bm;
+                selected_Category_Items.itemImgs = itemImgs;
                 selected_Category_Items.itemKey = itemKey;
                 selected_Category_Items.itemName = list.Find(o => o.itemkey == itemKey).itemName + "(" + standardname + ")";
                 selected_Category_Items.num = 1;

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Repository;
 using System.Drawing;
+using System.IO;
 
 namespace DianDianClient.Utils
 {
@@ -139,6 +140,30 @@ namespace DianDianClient.Utils
         public static int Count(string str, string constr)
         {
             return System.Text.RegularExpressions.Regex.Matches(str, constr).Count;
+        }
+        public static Bitmap GetBitmap(string itemImgs)
+        {
+            string CurrentDirectory = System.Environment.CurrentDirectory;
+            string path = CurrentDirectory + "\\FoodImages\\" + itemImgs;
+            System.Drawing.Bitmap imgPhoto = null;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    System.Drawing.Image img = System.Drawing.Image.FromFile(path);
+                    imgPhoto = new System.Drawing.Bitmap(img);
+                    img.Dispose();
+                }
+                else
+                {
+                    imgPhoto = Properties.Resources.empty;
+                }
+                return imgPhoto;
+            }
+            catch
+            {
+                return imgPhoto;
+            }
         }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMenu));
-            DevExpress.Utils.ContextButton contextButton1 = new DevExpress.Utils.ContextButton();
-            DevExpress.Utils.ContextButton contextButton2 = new DevExpress.Utils.ContextButton();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.ContextButton contextButton3 = new DevExpress.Utils.ContextButton();
+            DevExpress.Utils.ContextButton contextButton4 = new DevExpress.Utils.ContextButton();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.FoodGroup = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
@@ -43,11 +43,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.Txt_FoodName = new DevExpress.XtraEditors.TextEdit();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_tuijian = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -59,6 +57,8 @@
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.tileView2 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Txt_FoodName = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,16 +68,15 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_FoodName.Properties)).BeginInit();
             this.navigationPage2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_FoodName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // FoodGroup
@@ -91,10 +90,10 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(80, 3);
+            this.gridControl1.Location = new System.Drawing.Point(114, 3);
             this.gridControl1.MainView = this.tileView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(559, 612);
+            this.gridControl1.Size = new System.Drawing.Size(812, 612);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -131,7 +130,7 @@
             this.navigationPane1.Controls.Add(this.navigationPage2);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Right;
             this.navigationPane1.ItemOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.navigationPane1.Location = new System.Drawing.Point(646, 3);
+            this.navigationPane1.Location = new System.Drawing.Point(933, 3);
             this.navigationPane1.Name = "navigationPane1";
             this.navigationPane1.PageProperties.ShowExpandButton = false;
             this.navigationPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
@@ -139,7 +138,8 @@
             this.navigationPage2});
             this.navigationPane1.RegularSize = new System.Drawing.Size(331, 612);
             this.navigationPane1.SelectedPage = this.navigationPage1;
-            this.navigationPane1.Size = new System.Drawing.Size(331, 612);
+            this.navigationPane1.Size = new System.Drawing.Size(44, 612);
+            this.navigationPane1.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Collapsed;
             this.navigationPane1.TabIndex = 5;
             this.navigationPane1.Text = "操作";
             // 
@@ -156,7 +156,6 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -197,60 +196,42 @@
             this.radioGroup1.TabIndex = 3;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textEdit1);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(263, 56);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "根据菜名";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit1.Location = new System.Drawing.Point(3, 22);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(257, 26);
-            this.textEdit1.TabIndex = 0;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.Txt_FoodName);
-            this.groupBox6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox6.Location = new System.Drawing.Point(3, 535);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1, 14);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "根据菜名";
-            // 
-            // Txt_FoodName
-            // 
-            this.Txt_FoodName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Txt_FoodName.Location = new System.Drawing.Point(3, 22);
-            this.Txt_FoodName.Name = "Txt_FoodName";
-            this.Txt_FoodName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_FoodName.Properties.Appearance.Options.UseFont = true;
-            this.Txt_FoodName.Size = new System.Drawing.Size(0, 26);
-            this.Txt_FoodName.TabIndex = 0;
-            this.Txt_FoodName.EditValueChanged += new System.EventHandler(this.Txt_FoodName_EditValueChanged);
-            // 
             // navigationPage2
             // 
             this.navigationPage2.Caption = "操作";
+            this.navigationPage2.Controls.Add(this.groupBox7);
             this.navigationPage2.Controls.Add(this.groupBox5);
             this.navigationPage2.Controls.Add(this.groupBox4);
             this.navigationPage2.Controls.Add(this.groupBox3);
             this.navigationPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("navigationPage2.ImageOptions.Image")));
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(269, 552);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.simpleButton1);
+            this.groupBox7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox7.Location = new System.Drawing.Point(6, 411);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(263, 74);
+            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "刷新";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(0, 25);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(266, 47);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "刷新";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // groupBox5
             // 
@@ -276,6 +257,7 @@
             this.btn_tuijian.Size = new System.Drawing.Size(266, 47);
             this.btn_tuijian.TabIndex = 0;
             this.btn_tuijian.Text = "推荐设置";
+            this.btn_tuijian.Click += new System.EventHandler(this.btn_tuijian_Click);
             // 
             // groupBox4
             // 
@@ -363,7 +345,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.tileView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(71, 612);
+            this.gridControl2.Size = new System.Drawing.Size(105, 612);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView2});
@@ -376,17 +358,17 @@
             this.FoodGroup,
             this.tileViewColumn1});
             this.tileView2.ContextButtonOptions.BottomPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            contextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
-            contextButton1.Id = new System.Guid("2cec6bfd-cc59-44fb-8436-00919669c25e");
-            contextButton1.ImageOptions.Image = global::DianDianClient.Properties.Resources.itemedit;
-            contextButton1.Name = "contextButton1";
-            contextButton2.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
-            contextButton2.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            contextButton2.Id = new System.Guid("7e109b8f-e6e3-4905-acf8-c0baa2a400d9");
-            contextButton2.ImageOptions.Image = global::DianDianClient.Properties.Resources.sort;
-            contextButton2.Name = "contextButton2";
-            this.tileView2.ContextButtons.Add(contextButton1);
-            this.tileView2.ContextButtons.Add(contextButton2);
+            contextButton3.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
+            contextButton3.Id = new System.Guid("2cec6bfd-cc59-44fb-8436-00919669c25e");
+            contextButton3.ImageOptions.Image = global::DianDianClient.Properties.Resources.itemedit;
+            contextButton3.Name = "contextButton1";
+            contextButton4.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
+            contextButton4.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            contextButton4.Id = new System.Guid("7e109b8f-e6e3-4905-acf8-c0baa2a400d9");
+            contextButton4.ImageOptions.Image = global::DianDianClient.Properties.Resources.sort;
+            contextButton4.Name = "contextButton2";
+            this.tileView2.ContextButtons.Add(contextButton3);
+            this.tileView2.ContextButtons.Add(contextButton4);
             this.tileView2.GridControl = this.gridControl2;
             this.tileView2.Name = "tileView2";
             this.tileView2.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -397,16 +379,16 @@
             this.tileView2.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView2.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView2.OptionsTiles.RowCount = 0;
-            tableColumnDefinition1.Length.Value = 161D;
-            this.tileView2.TileColumns.Add(tableColumnDefinition1);
-            tableRowDefinition1.Length.Value = 26D;
-            this.tileView2.TileRows.Add(tableRowDefinition1);
-            tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement1.Column = this.FoodGroup;
-            tileViewItemElement1.Text = "FoodGroup";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileView2.TileTemplate.Add(tileViewItemElement1);
+            tableColumnDefinition2.Length.Value = 161D;
+            this.tileView2.TileColumns.Add(tableColumnDefinition2);
+            tableRowDefinition2.Length.Value = 26D;
+            this.tileView2.TileRows.Add(tableRowDefinition2);
+            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement2.Column = this.FoodGroup;
+            tileViewItemElement2.Text = "FoodGroup";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileView2.TileTemplate.Add(tileViewItemElement2);
             this.tileView2.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView2_ItemClick);
             this.tileView2.ContextButtonClick += new DevExpress.Utils.ContextItemClickEventHandler(this.tileView2_ContextButtonClick);
             this.tileView2.ContextButtonCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewContextButtonCustomizeEventHandler(this.tileView2_ContextButtonCustomize);
@@ -416,6 +398,30 @@
             this.tileViewColumn1.Caption = "tileViewColumn1";
             this.tileViewColumn1.FieldName = "FoodGroupID";
             this.tileViewColumn1.Name = "tileViewColumn1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.Txt_FoodName);
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(263, 56);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "根据菜名";
+            // 
+            // Txt_FoodName
+            // 
+            this.Txt_FoodName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Txt_FoodName.Location = new System.Drawing.Point(3, 22);
+            this.Txt_FoodName.Name = "Txt_FoodName";
+            this.Txt_FoodName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_FoodName.Properties.Appearance.Options.UseFont = true;
+            this.Txt_FoodName.Size = new System.Drawing.Size(257, 26);
+            this.Txt_FoodName.TabIndex = 1;
+            this.Txt_FoodName.EditValueChanged += new System.EventHandler(this.Txt_FoodName_EditValueChanged);
             // 
             // EditMenu
             // 
@@ -433,16 +439,15 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_FoodName.Properties)).EndInit();
             this.navigationPage2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_FoodName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,8 +465,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
         private System.Windows.Forms.GroupBox groupBox5;
         private DevExpress.XtraEditors.SimpleButton btn_tuijian;
@@ -471,8 +475,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.SimpleButton btn_addclass;
         private DevExpress.XtraEditors.SimpleButton btn_addfood;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit Txt_FoodName;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
     }
 }

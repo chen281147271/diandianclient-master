@@ -63,6 +63,7 @@ namespace DianDianClient.MyForm.FoodManagement
         {
            // var a = list.Where(o => o.itemkey.Equals(FoodID)).FirstOrDefault();
             SetRowCellValue(v_Category_Items);
+            MyModels.selected_category_items.list.Clear();
             if (v_Category_Items.isSet == 1)
             {
                 BIZFood.TaoCanFood(FoodID.Value);
@@ -146,7 +147,7 @@ namespace DianDianClient.MyForm.FoodManagement
             editDetail1.gridView1.SetRowCellValue(rowHandl("商品价格:"), "Value", a.price);
             editDetail1.gridView1.SetRowCellValue(rowHandl("商品单位:"), "Value", a.unit);
             editDetail1.gridView1.SetRowCellValue(rowHandl("商家推荐:"), "Value", a.instructions);
-            editDetail1.gridView1.SetRowCellValue(rowHandl("菜品图片:"), "Value", GetBitmap(a.itemImgs));
+            editDetail1.gridView1.SetRowCellValue(rowHandl("菜品图片:"), "Value",Utils.utils.GetBitmap(a.itemImgs));
            // editDetail1.gridView1.SetRowCellValue(rowHandl("是否为必选菜:"), "Value", (a.ismust == 1) ? true : false);
             editDetail1.gridView1.SetRowCellValue(rowHandl("是否是套餐:"), "Value", (a.isSet == 1) ? true : false);
             if (a.isSet == 1)
@@ -176,30 +177,6 @@ namespace DianDianClient.MyForm.FoodManagement
             if (a.selebyunit == 1)
             {
                 editDetail1.chengzhong_yes();
-            }
-        }
-        private Bitmap GetBitmap(string itemImgs)
-        {
-            string CurrentDirectory = System.Environment.CurrentDirectory;
-            string path = CurrentDirectory + "\\FoodImages\\" + itemImgs + ".png";
-            System.Drawing.Bitmap imgPhoto = null;
-            try
-            {
-                if (File.Exists(path))
-                {
-                    System.Drawing.Image img = System.Drawing.Image.FromFile(path);
-                    imgPhoto = new System.Drawing.Bitmap(img);
-                    img.Dispose();
-                }
-                else
-                {
-                    imgPhoto = Properties.Resources.empty;
-                }
-                return imgPhoto;
-            }
-            catch
-            {
-                return imgPhoto;
             }
         }
     }

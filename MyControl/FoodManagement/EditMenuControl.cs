@@ -13,6 +13,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Data.Filtering;
 using DevExpress.Utils;
+using System.IO;
 
 namespace DianDianClient.MyControl.FoodManagement
 {
@@ -160,13 +161,13 @@ namespace DianDianClient.MyControl.FoodManagement
         }
         private void RefreshList()
         {
+            this.radioGroup1.SelectedIndex = 0;
             list = bIZFoodController.GetFoodList(0,0);
             list_itemcategory = bIZFoodController.GetFoodFL();
 
 
 
             // Demo 数据 字段名请不要改变
-            Bitmap bm = Properties.Resources._1;
             DataTable dt = new DataTable();
             dt.Columns.Add("FoodName", typeof(String));
             dt.Columns.Add("FoodImage", typeof(Bitmap));
@@ -197,7 +198,8 @@ namespace DianDianClient.MyControl.FoodManagement
                 {
                     temp = "";
                 }
-                dt.Rows.Add(new object[] { a.itemName, bm, a.price, a.categoryName, a.itemkey, a.itemcategorykey,a.state });
+                
+                dt.Rows.Add(new object[] { a.itemName, Utils.utils.GetBitmap(a.itemImgs), a.price, a.categoryName, a.itemkey, a.itemcategorykey,a.state });
             }
             _dt.Rows.Add("全部", 0);
             foreach (var a in list_itemcategory)
@@ -411,6 +413,18 @@ namespace DianDianClient.MyControl.FoodManagement
             int yHeight = SystemInformation.PrimaryMonitorSize.Height;
             editDetailForm.Height = yHeight;
             editDetailForm.ShowDialog();
+        }
+
+        private void btn_tuijian_Click(object sender, EventArgs e)
+        {
+            MyForm.FoodManagement.TuiJianForm tuiJian = new MyForm.FoodManagement.TuiJianForm();
+            tuiJian.StartPosition = FormStartPosition.CenterScreen;
+            tuiJian.ShowDialog();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            RefreshList();
         }
     }
 }

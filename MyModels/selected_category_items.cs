@@ -17,8 +17,9 @@ namespace DianDianClient.MyModels
             public int standardkey { get; set; }
             public string standardname { get; set; } 
             public string itemName { get; set; }
-            public Bitmap itemImgs { get; set; }
+            public string itemImgs { get; set; }
             public int itemcategorykey { get; set; }
+            public Bitmap bitmap { get; set; }
 
         }
         public static Temp temp = new Temp();

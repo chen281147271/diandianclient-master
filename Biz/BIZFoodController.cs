@@ -88,6 +88,8 @@ namespace DianDianClient.Biz
                 ic.orderNo = orderNo;
                 ic.enable = enable;
                 ic.syncFlag = 1;
+                ic.isDel = 0;
+                ic.shopkey = Properties.Settings.Default.shopkey;
 
                 db.item_category.Add(ic);
                 db.SaveChanges();
@@ -345,7 +347,14 @@ namespace DianDianClient.Biz
             try
             {
                 DianDianEntities db = new DianDianEntities();
-                return db.item_standard.Where(p => p.itemKey == itemkey).ToList();
+                if (itemkey != -1)
+                {
+                    return db.item_standard.Where(p => p.itemKey == itemkey).ToList();
+                }
+                else
+                {
+                    return db.item_standard.ToList();
+                }
             }
             catch (Exception e)
             {
@@ -626,7 +635,7 @@ namespace DianDianClient.Biz
                     var delList = db.dd_tuijian_link.Where(p => !keepList.Contains(p.sid)).ToList();
                     foreach(var delid in delList)
                     {
-                        var delbean = db.dd_tuijian_link.Find(delid);
+                        var delbean = db.dd_tuijian_link.Find(delid.sid);
                         db.dd_tuijian_link.Attach(delbean);
                         db.dd_tuijian_link.Remove(delbean);
                         db.SaveChanges();
@@ -722,11 +731,10 @@ namespace DianDianClient.Biz
         }
         private void insert_selected_category_items_list(int itemnum, int itemkey,int guigeid)
         {
-            System.Drawing.Bitmap bm = Properties.Resources._1;
             MyModels.selected_category_items._selected_category_items _Selected_Category_Items = new MyModels.selected_category_items._selected_category_items();
             var c = GetFoodList(0, 0).Where(p => p.itemkey == itemkey).FirstOrDefault();
             _Selected_Category_Items.itemcategorykey = c.itemcategorykey.Value;
-            _Selected_Category_Items.itemImgs = bm;
+            _Selected_Category_Items.itemImgs = c.itemImgs;
             _Selected_Category_Items.itemKey = c.itemkey.Value;
             _Selected_Category_Items.itemName = c.itemName;
             _Selected_Category_Items.num = itemnum;
