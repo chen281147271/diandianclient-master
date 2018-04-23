@@ -13,18 +13,19 @@ namespace DianDianClient.Biz
         log4net.ILog log = log4net.LogManager.GetLogger("BizBusinessAnalysis");
         //private DianDianEntities db = new DianDianEntities();
 
-        public class StatisticBean{
+        public class StatisticBean {
             public string name { get; set; }
             public int cnt { get; set; }
             public decimal sum { get; set; }
+            public string itemname {get;set;}
         }
 
         public class StatisticViewResult
         {
-            public int usernum { get; set; }
+            public int? usernum { get; set; }
             public string type { get; set; }
-            public int itemnum { get; set; }
-            public int itemkey { get; set; }
+            public int? itemnum { get; set; }
+            public int? itemkey { get; set; }
             public string itemname { get; set; }
         }
 
@@ -40,6 +41,8 @@ namespace DianDianClient.Biz
             public decimal summoney { get; set; }
             public int month { get; set; }
             public int type { get; set; }
+            public string name { get; set; }
+            public int day { get; set; }
         }
 
         public class StatisticGlobalBean
@@ -65,15 +68,15 @@ namespace DianDianClient.Biz
 
         public class StatisticItemBean
         {
-            public decimal amount { get; set; }
-            public decimal price { get; set; }
-            public int excepnum { get; set; }
-            public int sellnum { get; set; }
-            public decimal weight { get; set; }
+            public decimal? amount { get; set; }
+            public decimal? price { get; set; }
+            public int? excepnum { get; set; }
+            public int? sellnum { get; set; }
+            public decimal? weight { get; set; }
             public string name { get; set; }
             public int itemkey { get; set; }
             public string unit { get; set; }
-            public int guigeid { get; set; }
+            public int? guigeid { get; set; }
             public string guigename { get; set; }
             public DateTime createdate { get; set; }
             public string caegoryname { get; set; }
@@ -333,8 +336,9 @@ namespace DianDianClient.Biz
                     StatisticBean bean1 = new StatisticBean();
                     if (!flag.Equals(result.type))
                     {
-                        bean1.cnt = result.usernum;
-                        bean1.sum = result.itemnum;
+                        bean1.cnt = (result.usernum==null)?0: result.usernum.Value;
+                        bean1.sum = (result.itemnum==null)?0: result.itemnum.Value;
+                        bean1.itemname = result.itemname;
                         if ("1".Equals(result.type))
                         {
                             bean1.name = "新顾客";
@@ -358,7 +362,7 @@ namespace DianDianClient.Biz
             }
         }
 
-        public List<StatisticMonthResult> getStatisticLineInfo(int year)
+        public List<StatisticMonthResult> getStatisticLineInfo(int year,int month)
         {
             try
             {
@@ -366,13 +370,13 @@ namespace DianDianClient.Biz
                 List<StatisticMonthResult> statisticList = new List<StatisticMonthResult>();
                 int shopkey = Properties.Settings.Default.shopkey;
 
-                string sql = "select sum(a.summoney) as summoney,month(a.createdate) month,a.type from ( "
+                string sql = "select sum(a.summoney) as summoney,month(a.createdate) month,DAY(a.createdate) DAY,a.type from ( "
                 + "	select sum(mn.realpay) as summoney,"
                 + "	  `mr`.`memberkey`  AS `userid`,"
                 + "	  `ml`.`shopkey`    AS `shopkey`,"
                 + "	  `ml`.`createDate` AS `createdate`,"
                 + "	  (case "
-                + "		when ((count(1) = 1) and isnull(`d`.`userid`)) then 1"
+                + "		when ((count(1) = 1) and isnull(`d`.`userid`)) then 1 "
                 + "		when ((count(1) > 1) and isnull(`d`.`userid`)) then 2 "
                 + "		when (`d`.`userid` is not null) then 3 "
                 + "	   end) AS `type`"
@@ -382,14 +386,48 @@ namespace DianDianClient.Biz
                 + "	    left join `dd_mem_card` `d`"
                 + "	      on ((`d`.`userid` = `mr`.`memberkey`)AND UNIX_TIMESTAMP(ml.createDate)>=d.addtime))"
                 + "	    left join cf_main mn on mn.cfmealkey=ml.cfmealkey "
-                + "	where mn.realpay IS NOT NULL and year(a.createdate) = " + year + " and a.shopkey = " + shopkey
+                + "	where mn.realpay IS NOT NULL and year(ml.createdate) = " + year + " and ml.shopkey = " + shopkey
                   + "	group by mr.memberkey,d.addtime  "
-                + ")a "                
-                + "group by a.type, month(a.createdate) "
-                + "order by a.type, month(a.createdate) ";
+                + ")a ";
+                if (month > 0) {
+                    sql += " group by a.type, DAY(a.createdate) ";
+                }
+                else
+                {
+                    sql += " group by a.type, month(a.createdate) ";
+                }
+                sql += "order by a.type, month(a.createdate) ";
 
-                statisticList = db.Database.SqlQuery<StatisticMonthResult>(sql).ToList();
+                //statisticList = db.Database.SqlQuery<StatisticMonthResult>(sql).ToList();
 
+                //return statisticList;
+                var resultList = db.Database.SqlQuery<StatisticMonthResult>(sql);
+                string flag = "0";
+                foreach (var result in resultList)
+                {
+                    StatisticMonthResult bean1 = new StatisticMonthResult();
+                    if (!flag.Equals(result.type))
+                    {
+                        bean1.month = result.month;
+                        bean1.name = result.name;
+                        bean1.summoney = result.summoney;
+                        bean1.type = result.type;
+                        bean1.day = result.day;
+                        if (1.Equals(result.type))
+                        {
+                            bean1.name = "新顾客";
+                        }
+                        else if (2.Equals(result.type))
+                        {
+                            bean1.name = "老顾客";
+                        }
+                        else if (3.Equals(result.type))
+                        {
+                            bean1.name = "会员";
+                        }
+                        statisticList.Add(bean1);
+                    }
+                }
                 return statisticList;
             }
             catch(Exception e)
@@ -409,11 +447,11 @@ namespace DianDianClient.Biz
                 string datesql = "";
                 if (sdate != null)
                 {
-                    datesql += " and a.createdate >= '" + sdate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
+                    datesql += " and mn.createdate >= '" + sdate.Value.ToString("yyyy-MM-dd") + " 00:00:00' ";
                 }
                 if (edate != null)
                 {
-                    datesql += " and a.createdate <= '" + edate.Value.ToString("yyyy-MM-dd") + " 23:59:59' ";
+                    datesql += " and mn.createdate <= '" + edate.Value.ToString("yyyy-MM-dd") + " 23:59:59' ";
                 }
                 int daynum = 0;
                 var sir = db.shop_income_record.Where(p => p.shopkey == shopkey).OrderBy(p => p.createDate).FirstOrDefault();
@@ -426,7 +464,8 @@ namespace DianDianClient.Biz
                 if (daynum != 0)
                 {
                     string sql = "select sum(a.peopleNum) peopleNum from( select peopleNum,shopkey from cf_main mn  where state = 2 " + datesql + " group by cfmainkey)a WHERE a.shopkey=" + shopkey;
-                    peopleNum = db.Database.SqlQuery<int>(sql).FirstOrDefault();
+                    var temp = db.Database.SqlQuery<int?>(sql).FirstOrDefault();
+                    peopleNum = (temp == null)?0: temp.Value;
                     bean.avgdaypeople = peopleNum / daynum;
                 }
 
@@ -471,9 +510,10 @@ namespace DianDianClient.Biz
 
                 string sql2 = "select sum(b.hours) / Sum(b.cnt) as period from ( "
                 + "select TIMESTAMPDIFF(HOUR, min(a.createdate),'" + edate.Value.ToString("yyyy-MM-dd") + "') hours,count(a.memberkey) cnt,a.memberkey from( "
-                + "   SELECT m.createdate,m.memberkey FROM cf_member m LEFT JOIN cf_meal ml ON m.cfmealkey=ml.cfmealkey WHERE ml.isComplete=1 AND shopkey=" + shopkey + datesql + " GROUP BY m.cfmealkey ORDER BY m.memberkey,m.createdate "
+                + "   SELECT mn.createdate,mn.memberkey FROM cf_member mn LEFT JOIN cf_meal ml ON mn.cfmealkey=ml.cfmealkey WHERE ml.isComplete=1 AND shopkey=" + shopkey + datesql + " GROUP BY mn.cfmealkey ORDER BY mn.memberkey,mn.createdate "
                 + " )a  group by a.memberkey) b";
-                bean.periodnum = db.Database.SqlQuery<double>(sql2).FirstOrDefault();
+                var temp1 = db.Database.SqlQuery<double?>(sql2).FirstOrDefault();
+                bean.periodnum = (temp1==null)?0: temp1.Value;
 
                 return bean;
             }

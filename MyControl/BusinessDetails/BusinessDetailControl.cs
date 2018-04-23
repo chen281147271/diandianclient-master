@@ -48,7 +48,7 @@ namespace DianDianClient.MyControl.BusinessDetails
         //}
         private void IniDate()
         {
-           // dateEdit1.Text = "2017 - 02 - 27";
+            dateEdit1.Text = "2017 - 02 - 27";
             dateEdit1.Text = DateTime.Now.ToString("yyyy-MM-dd");
             dateEdit2.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
