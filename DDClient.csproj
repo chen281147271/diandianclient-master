@@ -74,6 +74,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CoreAudioApi">
+      <HintPath>DevExpress 17.2\CoreAudioApi.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>DevExpress 17.2\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
@@ -202,6 +205,12 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
+    <Compile Include="MyControl\TopBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\TopBarControl.Designer.cs">
+      <DependentUpon>TopBarControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\FoodManagement\EdittuijianForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1679,6 +1688,9 @@
     <EmbeddedResource Include="MyControl\TableSettlement\TuiCaiGridControl.resx">
       <DependentUpon>TuiCaiGridControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\TopBarControl.resx">
+      <DependentUpon>TopBarControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\ActivityManagement\ActivityManageDeatilForm.resx">
       <DependentUpon>ActivityManageDeatilForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1914,6 +1926,14 @@
     <None Include="Resources\add_32x32.png" />
     <None Include="Resources\remove_32x32.png" />
     <None Include="Resources\remove_32x321.png" />
+    <None Include="Resources\max.png" />
+    <None Include="Resources\min.png" />
+    <None Include="Resources\more.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\pw.png" />
+    <None Include="Resources\quit.png" />
+    <None Include="Resources\voice.png" />
+    <None Include="Resources\voice_close.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

@@ -150,7 +150,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(918, 573);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1195, 573);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel4
@@ -160,9 +160,9 @@
             this.flowLayoutPanel4.Controls.Add(this.label6);
             this.flowLayoutPanel4.Controls.Add(this._edate);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(645, 294);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(839, 294);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(270, 34);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(353, 34);
             this.flowLayoutPanel4.TabIndex = 10;
             // 
             // label5
@@ -170,7 +170,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Location = new System.Drawing.Point(3, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 21);
             this.label5.TabIndex = 2;
@@ -180,7 +180,7 @@
             // 
             this._sdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._sdate.EditValue = null;
-            this._sdate.Location = new System.Drawing.Point(3, 24);
+            this._sdate.Location = new System.Drawing.Point(99, 3);
             this._sdate.Name = "_sdate";
             this._sdate.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._sdate.Properties.Appearance.Options.UseFont = true;
@@ -203,7 +203,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(190, 27);
+            this.label6.Location = new System.Drawing.Point(286, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 21);
             this.label6.TabIndex = 3;
@@ -213,7 +213,7 @@
             // 
             this._edate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._edate.EditValue = null;
-            this._edate.Location = new System.Drawing.Point(3, 58);
+            this._edate.Location = new System.Drawing.Point(3, 37);
             this._edate.Name = "_edate";
             this._edate.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._edate.Properties.Appearance.Options.UseFont = true;
@@ -254,7 +254,7 @@
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
         series2};
-            this.chartControl1.Size = new System.Drawing.Size(269, 235);
+            this.chartControl1.Size = new System.Drawing.Size(352, 235);
             this.chartControl1.TabIndex = 1;
             this.chartControl1.MouseLeave += new System.EventHandler(this.chartControl1_MouseLeave);
             this.chartControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartControl1_MouseMove);
@@ -272,7 +272,7 @@
             this.chartControl2.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
             this.chartControl2.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
             this.chartControl2.Legend.Name = "Default Legend";
-            this.chartControl2.Location = new System.Drawing.Point(278, 53);
+            this.chartControl2.Location = new System.Drawing.Point(361, 53);
             this.chartControl2.Name = "chartControl2";
             this.chartControl2.RuntimeHitTesting = true;
             series3.Name = "Series 1";
@@ -285,7 +285,7 @@
         series3,
         series4,
         series5};
-            this.chartControl2.Size = new System.Drawing.Size(361, 235);
+            this.chartControl2.Size = new System.Drawing.Size(472, 235);
             this.chartControl2.TabIndex = 2;
             // 
             // chartControl3
@@ -297,14 +297,14 @@
             this.chartControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl3.Legend.Name = "Default Legend";
             this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl3.Location = new System.Drawing.Point(645, 53);
+            this.chartControl3.Location = new System.Drawing.Point(839, 53);
             this.chartControl3.Name = "chartControl3";
             this.chartControl3.RuntimeHitTesting = true;
             series6.Name = "Series 1";
             series6.View = radarLineSeriesView1;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series6};
-            this.chartControl3.Size = new System.Drawing.Size(270, 235);
+            this.chartControl3.Size = new System.Drawing.Size(353, 235);
             this.chartControl3.TabIndex = 3;
             this.chartControl3.MouseLeave += new System.EventHandler(this.chartControl3_MouseLeave);
             this.chartControl3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartControl3_MouseMove);
@@ -318,7 +318,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 294);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(269, 34);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(352, 34);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // label1
@@ -326,7 +326,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 2;
@@ -336,7 +336,7 @@
             // 
             this.s_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.s_date.EditValue = null;
-            this.s_date.Location = new System.Drawing.Point(3, 24);
+            this.s_date.Location = new System.Drawing.Point(99, 3);
             this.s_date.Name = "s_date";
             this.s_date.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.s_date.Properties.Appearance.Options.UseFont = true;
@@ -350,7 +350,7 @@
             this.s_date.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.s_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.s_date.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.s_date.Size = new System.Drawing.Size(181, 28);
+            this.s_date.Size = new System.Drawing.Size(110, 28);
             this.s_date.TabIndex = 0;
             this.s_date.EditValueChanged += new System.EventHandler(this.sdate_EditValueChanged);
             // 
@@ -359,7 +359,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(190, 27);
+            this.label2.Location = new System.Drawing.Point(215, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 21);
             this.label2.TabIndex = 3;
@@ -369,7 +369,7 @@
             // 
             this.e_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.e_date.EditValue = null;
-            this.e_date.Location = new System.Drawing.Point(3, 58);
+            this.e_date.Location = new System.Drawing.Point(238, 3);
             this.e_date.Name = "e_date";
             this.e_date.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.e_date.Properties.Appearance.Options.UseFont = true;
@@ -383,7 +383,7 @@
             this.e_date.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.e_date.Properties.Mask.EditMask = "yyyy-MM-dd";
             this.e_date.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.e_date.Size = new System.Drawing.Size(181, 28);
+            this.e_date.Size = new System.Drawing.Size(110, 28);
             this.e_date.TabIndex = 4;
             this.e_date.EditValueChanged += new System.EventHandler(this.edate_EditValueChanged);
             // 
@@ -391,7 +391,7 @@
             // 
             this.dateEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateEdit3.EditValue = null;
-            this.dateEdit3.Location = new System.Drawing.Point(278, 294);
+            this.dateEdit3.Location = new System.Drawing.Point(361, 294);
             this.dateEdit3.Name = "dateEdit3";
             this.dateEdit3.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.dateEdit3.Properties.Appearance.Options.UseFont = true;
@@ -401,7 +401,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit3.Properties.Mask.EditMask = "y";
             this.dateEdit3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dateEdit3.Size = new System.Drawing.Size(361, 28);
+            this.dateEdit3.Size = new System.Drawing.Size(472, 28);
             this.dateEdit3.TabIndex = 5;
             this.dateEdit3.EditValueChanged += new System.EventHandler(this.dateEdit3_EditValueChanged);
             // 
@@ -418,7 +418,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(269, 44);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(352, 44);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // Lbl_char1
@@ -428,7 +428,7 @@
             this.Lbl_char1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Lbl_char1.Location = new System.Drawing.Point(3, 0);
             this.Lbl_char1.Name = "Lbl_char1";
-            this.Lbl_char1.Size = new System.Drawing.Size(110, 44);
+            this.Lbl_char1.Size = new System.Drawing.Size(158, 44);
             this.Lbl_char1.TabIndex = 1;
             this.Lbl_char1.Text = "用户使用情况分析图";
             // 
@@ -438,9 +438,9 @@
             this.flowLayoutPanel2.Controls.Add(this.simpleButton2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(137, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(179, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(129, 38);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(170, 38);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // simpleButton1
@@ -453,7 +453,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton1.Location = new System.Drawing.Point(89, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(130, 3);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(37, 38);
             this.simpleButton1.TabIndex = 9;
@@ -469,7 +469,7 @@
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton2.Location = new System.Drawing.Point(46, 3);
+            this.simpleButton2.Location = new System.Drawing.Point(87, 3);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(37, 38);
             this.simpleButton2.TabIndex = 10;
@@ -484,12 +484,12 @@
             this.tableLayoutPanel3.Controls.Add(this.Lbl_chart2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel3, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(278, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(361, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(361, 44);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(472, 44);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // Lbl_chart2
@@ -497,9 +497,9 @@
             this.Lbl_chart2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lbl_chart2.AutoSize = true;
             this.Lbl_chart2.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Lbl_chart2.Location = new System.Drawing.Point(3, 0);
+            this.Lbl_chart2.Location = new System.Drawing.Point(3, 6);
             this.Lbl_chart2.Name = "Lbl_chart2";
-            this.Lbl_chart2.Size = new System.Drawing.Size(158, 44);
+            this.Lbl_chart2.Size = new System.Drawing.Size(182, 31);
             this.Lbl_chart2.TabIndex = 1;
             this.Lbl_chart2.Text = "收入情况分析图";
             // 
@@ -509,9 +509,9 @@
             this.flowLayoutPanel3.Controls.Add(this.btn_year);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(183, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(239, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(175, 38);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(230, 38);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // btn_month
@@ -524,7 +524,7 @@
             this.btn_month.Appearance.Options.UseFont = true;
             this.btn_month.Appearance.Options.UseForeColor = true;
             this.btn_month.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_month.Location = new System.Drawing.Point(135, 3);
+            this.btn_month.Location = new System.Drawing.Point(190, 3);
             this.btn_month.Name = "btn_month";
             this.btn_month.Size = new System.Drawing.Size(37, 38);
             this.btn_month.TabIndex = 9;
@@ -541,7 +541,7 @@
             this.btn_year.Appearance.Options.UseFont = true;
             this.btn_year.Appearance.Options.UseForeColor = true;
             this.btn_year.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_year.Location = new System.Drawing.Point(92, 3);
+            this.btn_year.Location = new System.Drawing.Point(147, 3);
             this.btn_year.Name = "btn_year";
             this.btn_year.Size = new System.Drawing.Size(37, 38);
             this.btn_year.TabIndex = 10;
@@ -553,7 +553,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(645, 9);
+            this.label3.Location = new System.Drawing.Point(839, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 31);
             this.label3.TabIndex = 8;
@@ -576,7 +576,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(912, 236);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1189, 236);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
             // gridControl1
@@ -587,7 +587,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 42);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(906, 151);
+            this.gridControl1.Size = new System.Drawing.Size(1183, 151);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -675,7 +675,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(395, 9);
+            this.label4.Location = new System.Drawing.Point(533, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 21);
             this.label4.TabIndex = 0;
@@ -686,7 +686,7 @@
             this.mgncPager1.Dock = System.Windows.Forms.DockStyle.Top;
             this.mgncPager1.Location = new System.Drawing.Point(3, 199);
             this.mgncPager1.Name = "mgncPager1";
-            this.mgncPager1.Size = new System.Drawing.Size(906, 31);
+            this.mgncPager1.Size = new System.Drawing.Size(1183, 31);
             this.mgncPager1.TabIndex = 4;
             // 
             // BusinessAnalysisControl
@@ -696,7 +696,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "BusinessAnalysisControl";
-            this.Size = new System.Drawing.Size(918, 573);
+            this.Size = new System.Drawing.Size(1195, 573);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);

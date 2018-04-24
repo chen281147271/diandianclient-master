@@ -11,7 +11,6 @@ using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DianDianClient.Biz;
 using DianDianClient.Models;
-
 namespace DianDianClient
 {
     public partial class MainForm : OfficeForm
@@ -61,7 +60,28 @@ namespace DianDianClient
             MyEvent.More.MoreEvent.EndShowWaitEvent += MyEndShowWaitEvent;
             Utils.utils.MessageBoxTipsFormListEvent += ShowMessageBoxTipsFormListEvent;
             TipFormThread.Start();
-          //  testtipThread.Start();
+            //  testtipThread.Start();
+            //加载顶部bar
+            MyControl.TopBarControl topBar = new MyControl.TopBarControl();
+            topBar.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.Controls.Add(topBar, 0, 0);
+            topBar.MyEvent += TopBarEvent;
+
+        }
+        private void TopBarEvent(int op)//1最小化 2最大化 3退出
+        {
+            switch(op)
+            {
+                case 1:
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case 2:
+                    this.WindowState = (this.WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
+                    break;
+                case 3:
+                    //this.WindowState = FormWindowState.Minimized;
+                    break;
+            }
         }
         private void ShowMessageBoxTipsFormListEvent()
         {

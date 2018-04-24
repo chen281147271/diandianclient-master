@@ -271,15 +271,23 @@ namespace DianDianClient.MyControl.FoodManagement
         private string SaveImage()
         {
             Bitmap bitmap = null;
-            Type type = this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value").GetType();
-            if (type.Name == "Bitmap")
+            var temp = this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value");
+            if (temp != null)
             {
-                bitmap = (Bitmap)this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value");
-                return"";
+                Type type = this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value").GetType();
+                if (type.Name == "Bitmap")
+                {
+                    bitmap = (Bitmap)this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value");
+                    return "";
+                }
+                else if (type.Name == "Byte[]")
+                {
+                    bitmap = new Bitmap(BytesToImage((byte[])this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value")));
+                }
             }
-            else if (type.Name == "Byte[]")
+            else
             {
-                bitmap = new Bitmap(BytesToImage((byte[])this.gridView1.GetRowCellValue(rowHandl("菜品图片:"), "Value")));
+                return "";
             }
 
             System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1)); // 当地时区
