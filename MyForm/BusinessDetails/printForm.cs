@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.BusinessDetails
 {
-    public partial class printForm : Form
+    public partial class printForm : DevExpress.XtraEditors.XtraForm
     {
         public printForm()
         {

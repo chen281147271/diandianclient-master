@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.ActivityManagement
 {
-    public partial class ActivityManageDeatilForm : Form
+    public partial class ActivityManageDeatilForm : DevExpress.XtraEditors.XtraForm
     {
         public ActivityManageDeatilForm(Models.dd_coupons list)
         {

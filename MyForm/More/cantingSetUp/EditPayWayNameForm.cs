@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.cantingSetUp
 {
-    public partial class EditPayWayNameForm : Form
+    public partial class EditPayWayNameForm : DevExpress.XtraEditors.XtraForm
     {
         Biz.BizSPInfoController BizSPInfo = new Biz.BizSPInfoController();
         int id;

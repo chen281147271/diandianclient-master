@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.dangkouManage
 {
-    public partial class EditdangkouForm : Form
+    public partial class EditdangkouForm : DevExpress.XtraEditors.XtraForm
     {
         public EditdangkouForm(Models.dd_shop_windows shopwindows, int OpType)
         {

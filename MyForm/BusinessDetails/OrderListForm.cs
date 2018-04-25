@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.BusinessDetails
 {
-    public partial class OrderListForm : Form
+    public partial class OrderListForm : DevExpress.XtraEditors.XtraForm
     {
         public OrderListForm()
         {

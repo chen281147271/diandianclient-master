@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.StaffManage
 {
-    public partial class PWForm : Form
+    public partial class PWForm : DevExpress.XtraEditors.XtraForm
     {
         public PWForm(int code)
         {

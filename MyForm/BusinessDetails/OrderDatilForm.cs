@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.BusinessDetails
 {
-    public partial class OrderDatilForm : Form
+    public partial class OrderDatilForm : DevExpress.XtraEditors.XtraForm
     {
         public OrderDatilForm(object data)
         {

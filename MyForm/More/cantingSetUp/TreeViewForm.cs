@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.cantingSetUp
 {
-    public partial class TreeViewForm : Form
+    public partial class TreeViewForm : DevExpress.XtraEditors.XtraForm
     {
         public string strSelected;
         public int dqcode;

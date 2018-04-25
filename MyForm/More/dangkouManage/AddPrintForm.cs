@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.dangkouManage
 {
-    public partial class AddPrintForm : Form
+    public partial class AddPrintForm : DevExpress.XtraEditors.XtraForm
     {
         public AddPrintForm()
         {

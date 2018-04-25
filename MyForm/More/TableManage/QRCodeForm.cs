@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.TableManage
 {
-    public partial class QRCodeForm : Form
+    public partial class QRCodeForm : DevExpress.XtraEditors.XtraForm
     {
         public QRCodeForm(int tableposkey,int QRCode)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
@@ -42,6 +43,8 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
@@ -53,9 +56,11 @@
             this.tileNavItem_voice = new DevExpress.XtraBars.Navigation.TileNavItem();
             this.tileNavItem_pw = new DevExpress.XtraBars.Navigation.TileNavItem();
             this.tileNavItem_print = new DevExpress.XtraBars.Navigation.TileNavItem();
+            this.tileNavItem_style = new DevExpress.XtraBars.Navigation.TileNavItem();
             this.navbtn_min = new DevExpress.XtraBars.Navigation.NavButton();
             this.navbtn_max = new DevExpress.XtraBars.Navigation.NavButton();
             this.navbtn_quit = new DevExpress.XtraBars.Navigation.NavButton();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +86,9 @@
             this.tileNavPane1.Size = new System.Drawing.Size(1140, 40);
             this.tileNavPane1.TabIndex = 1;
             this.tileNavPane1.Text = "tileNavPane1";
+            this.tileNavPane1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tileNavPane1_MouseDown);
+            this.tileNavPane1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tileNavPane1_MouseMove);
+            this.tileNavPane1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tileNavPane1_MouseUp);
             // 
             // tileNavCategory3
             // 
@@ -90,7 +98,8 @@
             this.tileNavCategory3.Items.AddRange(new DevExpress.XtraBars.Navigation.TileNavItem[] {
             this.tileNavItem_voice,
             this.tileNavItem_pw,
-            this.tileNavItem_print});
+            this.tileNavItem_print,
+            this.tileNavItem_style});
             this.tileNavCategory3.Name = "tileNavCategory3";
             this.tileNavCategory3.OwnerCollection = null;
             toolTipTitleItem4.Text = "更多\r\n";
@@ -138,6 +147,7 @@
             this.tileNavItem_pw.Tile.Elements.Add(tileItemElement3);
             this.tileNavItem_pw.Tile.Elements.Add(tileItemElement4);
             this.tileNavItem_pw.Tile.Name = "tileBarItem2";
+            this.tileNavItem_pw.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.tileNavItem_pw_ElementClick);
             // 
             // tileNavItem_print
             // 
@@ -158,6 +168,23 @@
             this.tileNavItem_print.Tile.Elements.Add(tileItemElement6);
             this.tileNavItem_print.Tile.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileNavItem_print.Tile.Name = "tileBarItem1";
+            this.tileNavItem_print.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.tileNavItem_print_ElementClick);
+            // 
+            // tileNavItem_style
+            // 
+            this.tileNavItem_style.Caption = "";
+            this.tileNavItem_style.Name = "tileNavItem_style";
+            this.tileNavItem_style.OwnerCollection = this.tileNavCategory3.Items;
+            // 
+            // 
+            // 
+            this.tileNavItem_style.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement7.Image = global::DianDianClient.Properties.Resources.style;
+            tileItemElement7.Text = "";
+            tileItemElement8.Text = "风格设置";
+            this.tileNavItem_style.Tile.Elements.Add(tileItemElement7);
+            this.tileNavItem_style.Tile.Elements.Add(tileItemElement8);
+            this.tileNavItem_style.Tile.Name = "tileBarItem1";
             // 
             // navbtn_min
             // 
@@ -192,6 +219,10 @@
             this.navbtn_quit.SuperTip = superToolTip7;
             this.navbtn_quit.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navbtn_quit_ElementClick);
             // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Visual Studio 2013 Light";
+            // 
             // TopBarControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -215,5 +246,7 @@
         private DevExpress.XtraBars.Navigation.NavButton navbtn_min;
         private DevExpress.XtraBars.Navigation.NavButton navbtn_max;
         private DevExpress.XtraBars.Navigation.NavButton navbtn_quit;
+        private DevExpress.XtraBars.Navigation.TileNavItem tileNavItem_style;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

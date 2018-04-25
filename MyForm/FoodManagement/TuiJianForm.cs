@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.FoodManagement
 {
-    public partial class TuiJianForm : Form
+    public partial class TuiJianForm : DevExpress.XtraEditors.XtraForm
     {
         Biz.BIZFoodController BIZFood = new Biz.BIZFoodController();
         List<Models.dd_tuijian> list = new List<Models.dd_tuijian>();

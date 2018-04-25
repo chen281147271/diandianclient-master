@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.StaffManage
 {
-    public partial class ZhiWeiEidtForm : Form
+    public partial class ZhiWeiEidtForm : DevExpress.XtraEditors.XtraForm
     {
         public ZhiWeiEidtForm(int sysroleid, string rolename, int OpType)
         {

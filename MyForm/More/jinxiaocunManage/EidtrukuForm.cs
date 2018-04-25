@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.jinxiaocunManage
 {
-    public partial class EidtrukuForm : Form
+    public partial class EidtrukuForm : DevExpress.XtraEditors.XtraForm
     {
         public EidtrukuForm(Models.v_depotin_crude depotinCrude, int type)
         {

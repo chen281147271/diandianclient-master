@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.FoodManagement
 {
-    public partial class StandardsForm : Form
+    public partial class StandardsForm : DevExpress.XtraEditors.XtraForm
     {
         List<Models.item_standard> list;
         List<Temp> listtemp = new List<Temp>();

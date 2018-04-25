@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.MemberManagement
 {
-    public partial class AddDetaileForm : Form
+    public partial class AddDetaileForm : DevExpress.XtraEditors.XtraForm
     {
         public AddDetaileForm()
         {

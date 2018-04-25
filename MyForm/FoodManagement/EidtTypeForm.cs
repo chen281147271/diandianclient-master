@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.FoodManagement
 {
-    public partial class EidtTypeForm : Form
+    public partial class EidtTypeForm : DevExpress.XtraEditors.XtraForm
     {
        // List<Models.item_standard> list_itemstandard;
         Biz.BIZFoodController BIZFood = new Biz.BIZFoodController();

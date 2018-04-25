@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.TableManage
 {
-    public partial class QuYuEditForm : Form
+    public partial class QuYuEditForm : DevExpress.XtraEditors.XtraForm
     {
         public QuYuEditForm(string QuYuName, string QuYuNo, string tfuwu, int floorid, int OpType)
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.TableSettlement
 {
-    public partial class PayBillForm : Form
+    public partial class PayBillForm : DevExpress.XtraEditors.XtraForm
     {
         public PayBillForm()
         {

@@ -113,6 +113,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap cpgl {
+            get {
+                object obj = ResourceManager.GetObject("cpgl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap dangkou {
             get {
                 object obj = ResourceManager.GetObject("dangkou", resourceCulture);
@@ -166,6 +176,36 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap finish {
             get {
                 object obj = ResourceManager.GetObject("finish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap gdxx {
+            get {
+                object obj = ResourceManager.GetObject("gdxx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap hdgl {
+            get {
+                object obj = ResourceManager.GetObject("hdgl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap hygl {
+            get {
+                object obj = ResourceManager.GetObject("hygl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap offshelf {
             get {
                 object obj = ResourceManager.GetObject("offshelf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap order {
+            get {
+                object obj = ResourceManager.GetObject("order", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,6 +443,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap style {
+            get {
+                object obj = ResourceManager.GetObject("style", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap tablemanage {
             get {
                 object obj = ResourceManager.GetObject("tablemanage", resourceCulture);
@@ -446,6 +506,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap yuangong {
             get {
                 object obj = ResourceManager.GetObject("yuangong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap yyxq {
+            get {
+                object obj = ResourceManager.GetObject("yyxq", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +636,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap zhuotiebg3 {
             get {
                 object obj = ResourceManager.GetObject("zhuotiebg3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zwjs {
+            get {
+                object obj = ResourceManager.GetObject("zwjs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

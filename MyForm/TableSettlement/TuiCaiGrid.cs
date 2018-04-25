@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.TableSettlement
 {
-    public partial class TuiCaiGrid : Form
+    public partial class TuiCaiGrid : DevExpress.XtraEditors.XtraForm
     {
         DataTable MenuTable;//菜单
         string TableNo;//桌号

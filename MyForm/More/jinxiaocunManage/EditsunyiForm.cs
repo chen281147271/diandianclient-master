@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.jinxiaocunManage
 {
-    public partial class EditsunyiForm : Form
+    public partial class EditsunyiForm : DevExpress.XtraEditors.XtraForm
     {
         public EditsunyiForm()
         {

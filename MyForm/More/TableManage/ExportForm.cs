@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.TableManage
 {
-    public partial class ExportForm : Form
+    public partial class ExportForm : DevExpress.XtraEditors.XtraForm
     {
         public ExportForm(DataTable dt)
         {

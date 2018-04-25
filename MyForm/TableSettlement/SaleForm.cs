@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.TableSettlement
 {
-    public partial class SaleForm : Form
+    public partial class SaleForm : DevExpress.XtraEditors.XtraForm
     {
         public SaleForm(decimal price, string FoodName)
         {

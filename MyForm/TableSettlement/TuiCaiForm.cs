@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.TableSettlement
 {
-    public partial class TuiCai : Form
+    public partial class TuiCai : DevExpress.XtraEditors.XtraForm
     {
         public TuiCai(string strNumber)
         {

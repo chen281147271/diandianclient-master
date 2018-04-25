@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.cantingSetUp
 {
-    public partial class EditkouweiForm : Form
+    public partial class EditkouweiForm : DevExpress.XtraEditors.XtraForm
     {
         public EditkouweiForm()
         {

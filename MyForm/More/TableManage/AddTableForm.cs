@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.TableManage
 {
-    public partial class AddTableForm : Form
+    public partial class AddTableForm : DevExpress.XtraEditors.XtraForm
     {
         public AddTableForm(List<Models.dd_table_floor> list)
         {

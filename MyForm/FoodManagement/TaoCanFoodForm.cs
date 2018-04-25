@@ -14,7 +14,7 @@ using DevExpress.Data.Filtering;
 using DevExpress.Utils;
 namespace DianDianClient.MyForm.FoodManagement
 {
-    public partial class TaoCanFoodForm : Form
+    public partial class TaoCanFoodForm : DevExpress.XtraEditors.XtraForm
     {
         Biz.BIZFoodController bIZFoodController = new Biz.BIZFoodController();
         Biz.BIZFoodController BIZFood = new Biz.BIZFoodController();

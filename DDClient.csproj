@@ -241,6 +241,12 @@
     <Compile Include="MyForm\FoodManagement\TuiJianForm.Designer.cs">
       <DependentUpon>TuiJianForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\StarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\StarForm.Designer.cs">
+      <DependentUpon>StarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyModels\EidtType.cs" />
     <Compile Include="MyModels\selected_category_items.cs" />
     <Compile Include="Utils\io_api.cs" />
@@ -1796,6 +1802,9 @@
     <EmbeddedResource Include="MyForm\More\TableManage\QuYuEditForm.resx">
       <DependentUpon>QuYuEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\StarForm.resx">
+      <DependentUpon>StarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\TableSettlement\PayBillForm.resx">
       <DependentUpon>PayBillForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1934,6 +1943,14 @@
     <None Include="Resources\quit.png" />
     <None Include="Resources\voice.png" />
     <None Include="Resources\voice_close.png" />
+    <None Include="Resources\cpgl.png" />
+    <None Include="Resources\gdxx.png" />
+    <None Include="Resources\hygl.png" />
+    <None Include="Resources\order.png" />
+    <None Include="Resources\yyxq.png" />
+    <None Include="Resources\zwjs.png" />
+    <None Include="Resources\style.png" />
+    <None Include="Resources\hdgl.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

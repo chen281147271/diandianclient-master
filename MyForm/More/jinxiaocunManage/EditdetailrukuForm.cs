@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DianDianClient.MyForm.More.jinxiaocunManage
 {
-    public partial class EditdetailrukuForm : Form
+    public partial class EditdetailrukuForm : DevExpress.XtraEditors.XtraForm
     {
         public EditdetailrukuForm(int depotinid)
         {
