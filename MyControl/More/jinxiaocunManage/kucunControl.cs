@@ -12,7 +12,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
     public partial class kucunControl : UserControl
     {
         Biz.BizStorage BizStorage = new Biz.BizStorage();
-        List<Models.v_stock_crude> list;
+        List<Models.v_stock_crude> list = new List<Models.v_stock_crude>();
         bool isfirst = true;
         public int curPage = 1;
         public int pageSize = 10;
@@ -36,6 +36,12 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             this.gridControl1.DataSource = (list).Take(10);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
+
+            for(int i=0;i< this.gridView1.Columns.Count-1;i++)
+            {
+                this.gridView1.Columns[i].OptionsColumn.AllowEdit = false;
+            }
+            //gridView1.OptionsBehavior.Editable = false;
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {

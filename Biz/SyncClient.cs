@@ -15,7 +15,7 @@ namespace DianDianClient.Biz
     {
         static log4net.ILog log = log4net.LogManager.GetLogger("SyncClient");
         //private DianDianEntities db = new DianDianEntities();
-        static public String token = "1507700568237";
+       // static public String token = "1507700568237";
         static public bool needSyncCC = false;
         static public bool needSyncYL = false;
         static public bool needSyncFL = false;
@@ -106,7 +106,7 @@ namespace DianDianClient.Biz
                         List<remote_request> requestList = db.remote_request.Where(p => p.deal_flag == 0).OrderBy(p => p.create_time).ToList();
                         foreach (remote_request reqInfo in requestList)
                         {
-                            client.EndPoint = reqInfo.request_url + "?" + reqInfo.request_param + "&token=" + token;
+                            client.EndPoint = reqInfo.request_url + "?" + reqInfo.request_param + "&token=" + MyModels.userinfo.user.token;
                             if (reqInfo.request_type.Equals("POST", StringComparison.OrdinalIgnoreCase))
                             {
                                 client.Method = HttpVerb.POST;
@@ -210,7 +210,7 @@ namespace DianDianClient.Biz
                     itemRequest.itemBeanList.Add(itemBean);
                 }
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
 
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -246,7 +246,7 @@ namespace DianDianClient.Biz
                 request.tableList = db.table_pos.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
                 request.floorList = db.dd_table_floor.Where(p => p.shopkey == Properties.Settings.Default.shopkey).ToList();
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);
@@ -281,7 +281,7 @@ namespace DianDianClient.Biz
                 request.crudeList = db.storage_crude.Where(p => p.shopkey == shopkey).DefaultIfEmpty().ToList();
                 request.stockList = db.storage_stock.Where(p => p.shopkey == shopkey).DefaultIfEmpty().ToList();
                 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);
@@ -316,7 +316,7 @@ namespace DianDianClient.Biz
                 request.roleList = db.sys_role.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
                 
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);
@@ -353,7 +353,7 @@ namespace DianDianClient.Biz
                 request.signMealsList = db.dd_sign_meals.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
                 request.memCard = db.dd_mem_card.Where(p => p.shopkey == shopkey && p.syncFlag == 1).ToList();
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);
@@ -387,7 +387,7 @@ namespace DianDianClient.Biz
 
                 request = db.dd_coupons.Where(p => p.shopid == shopkey && p.syncFlag == 1).ToList();                
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);
@@ -421,7 +421,7 @@ namespace DianDianClient.Biz
 
                 request = db.dd_shop_windows.Where(p => p.shopid == shopkey && p.syncFlag == 1).ToList();
 
-                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + token;
+                client.EndPoint = SysConstant.BASE_URI + SysConstant.SYNC_ITEM_URL + MyModels.userinfo.user.token;
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 client.PostData = JsonConvert.SerializeObject(request, settings);

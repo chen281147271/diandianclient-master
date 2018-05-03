@@ -19,7 +19,7 @@ namespace DianDianClient.MyControl.More.TableManage
         List<Models.table_pos> list_pos;
         List<Models.dd_table_floor> list_floor;
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         RepositoryItem _disabledItem;
         RepositoryItemCheckEdit CheckItem = new RepositoryItemCheckEdit();
@@ -34,11 +34,14 @@ namespace DianDianClient.MyControl.More.TableManage
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = this.translate(list_pos).Take(10);
+            this.gridControl1.DataSource = this.translate(list_pos).Take(pageSize);
 
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-
+            for (int i = 0; i < this.gridView1.Columns.Count - 5; i++)
+            {
+                this.gridView1.Columns[i].OptionsColumn.AllowEdit = false;
+            }
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

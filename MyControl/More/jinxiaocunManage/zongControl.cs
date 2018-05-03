@@ -13,9 +13,9 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
     {
         Biz.BizStorage BizStorage = new Biz.BizStorage();
         Biz.BizStorage.QueryDepotOutResult queryDepotOut;
-        List<Models.v_depotout_crude> list;
+        List<Models.v_depotout_crude> list = new List<Models.v_depotout_crude>();
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         bool isfirst = true;
         List<Models.storage_genre> list_storagegenre;
@@ -42,9 +42,10 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = (list).Take(10);
+            this.gridControl1.DataSource = (list).Take(pageSize);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
+            gridView1.OptionsBehavior.Editable = false;
             txt_sumjinjia.Text = queryDepotOut.buymoney.ToString();
             txt_sumshoujia.Text = queryDepotOut.salemoney.ToString();
             txt_sumlirun.Text = (queryDepotOut.salemoney - queryDepotOut.buymoney).ToString();

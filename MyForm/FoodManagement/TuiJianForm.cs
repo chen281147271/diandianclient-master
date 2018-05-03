@@ -14,7 +14,7 @@ namespace DianDianClient.MyForm.FoodManagement
         Biz.BIZFoodController BIZFood = new Biz.BIZFoodController();
         List<Models.dd_tuijian> list = new List<Models.dd_tuijian>();
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         public TuiJianForm()
         {
@@ -26,11 +26,14 @@ namespace DianDianClient.MyForm.FoodManagement
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = (list).Take(10);
+            this.gridControl1.DataSource = (list).Take(pageSize);
 
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-
+            for (int i = 0; i < this.gridView1.Columns.Count - 1; i++)
+            {
+                this.gridView1.Columns[i].OptionsColumn.AllowEdit = false;
+            }
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

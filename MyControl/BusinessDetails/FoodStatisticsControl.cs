@@ -15,7 +15,7 @@ namespace DianDianClient.MyControl.BusinessDetails
         Biz.BizBusinessAnalysis BizBusiness = new Biz.BizBusinessAnalysis();
         List<Biz.BizBusinessAnalysis.StatisticItemBean> list;
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         bool isfirst = true;
         public FoodStatisticsControl()
@@ -34,9 +34,10 @@ namespace DianDianClient.MyControl.BusinessDetails
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = (list).Take(10);
+            this.gridControl1.DataSource = (list).Take(pageSize);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
+            gridView1.OptionsBehavior.Editable = false;
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {

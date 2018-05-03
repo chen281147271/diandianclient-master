@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions customHeaderButtonImageOptions1 = new DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DianDianClient.MyForm.WaitForm1), true, true);
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.nav_order = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -138,11 +140,14 @@
             // 
             this.nav_more.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_more.Caption = "更多选项";
+            this.nav_more.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("返回", true, customHeaderButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject1, null, -1)});
             this.nav_more.ImageOptions.Image = global::DianDianClient.Properties.Resources.gdxx;
             this.nav_more.Name = "nav_more";
             this.nav_more.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_more.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_more.Size = new System.Drawing.Size(1196, 745);
+            this.nav_more.Size = new System.Drawing.Size(1196, 737);
+            this.nav_more.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_more_CustomButtonClick);
             // 
             // nav_activity
             // 

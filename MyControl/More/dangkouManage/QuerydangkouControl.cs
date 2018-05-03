@@ -23,7 +23,10 @@ namespace DianDianClient.MyControl.More.dangkouManage
         {
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-
+            for (int i = 0; i < this.gridView1.Columns.Count - 5; i++)
+            {
+                this.gridView1.Columns[i].OptionsColumn.AllowEdit = false;
+            }
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

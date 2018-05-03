@@ -21,18 +21,7 @@ namespace DianDianClient.MyForm
         public LoginForm()
         {
             InitializeComponent();
-            SetGifBackground("");
-            IniTopBar();
-            txt_no.Text = Properties.Settings.Default.shopkey.ToString();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.WindowState = FormWindowState.Maximized;
-            if (cfa.AppSettings.Settings["PW"].Value != "")
-            {
-                txt_pw.Text = cfa.AppSettings.Settings["PW"].Value;
-                txt_uid.Text= cfa.AppSettings.Settings["UID"].Value;
-                this.checkEdit1.Checked = true;
-            }
-            first = false;
+            ini();
         }
         #region 背景GIF
         [DllImport("user32", EntryPoint = "HideCaret")]
@@ -132,6 +121,26 @@ namespace DianDianClient.MyForm
 
         }
         #endregion
+        #region 登入逻辑
+        private void ini()
+        {
+            SetGifBackground("");
+            IniTopBar();
+            iniDate();
+        }
+        private void iniDate()
+        {
+            txt_no.Text =BizLogin.FindShopName(Convert.ToInt32(Properties.Settings.Default.shopkey.ToString()));
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Maximized;
+            if (cfa.AppSettings.Settings["PW"].Value != "")
+            {
+                txt_pw.Text = cfa.AppSettings.Settings["PW"].Value;
+                txt_uid.Text = cfa.AppSettings.Settings["UID"].Value;
+                this.checkEdit1.Checked = true;
+            }
+            first = false;
+        }
         private void btn_submit_Click(object sender, EventArgs e)
         {
             int result= 0;
@@ -143,13 +152,13 @@ namespace DianDianClient.MyForm
                 }
                 else
                 {
-                    result = BizLogin.LocalLogin(txt_uid.Text, Utils.Md5Helper.Encrypt(txt_pw.Text));
+                    result = BizLogin.LocalLogin(txt_uid.Text, MD5_substring(Utils.Md5Helper.Encrypt(txt_pw.Text)));
                 }
                 if (result == 0)
                 {
                     if (checkEdit1.Checked)
                     {
-                        cfa.AppSettings.Settings["PW"].Value =(changed)?Utils.Md5Helper.Encrypt(txt_pw.Text): txt_pw.Text;
+                        cfa.AppSettings.Settings["PW"].Value =(changed)? MD5_substring(Utils.Md5Helper.Encrypt(txt_pw.Text)): txt_pw.Text;
                         cfa.AppSettings.Settings["UID"].Value = txt_uid.Text;
                         cfa.Save(ConfigurationSaveMode.Modified);
                         ConfigurationManager.RefreshSection("appSettings");
@@ -179,5 +188,19 @@ namespace DianDianClient.MyForm
                 changed = true;
             }
         }
+        private string MD5_substring(string str)
+        {
+            if (str.Length > 16)
+            {
+                str = str.Substring(8);
+                str = str.Substring(0, str.Length - 8);
+                return str.ToLower();
+            }
+            else
+            {
+                return "";
+            }
+        }
+        #endregion
     }
 }

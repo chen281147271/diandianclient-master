@@ -39,6 +39,7 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
             this.gridControl1.DataSource = (list).Take(10);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
+            gridView1.OptionsBehavior.Editable = false;
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {

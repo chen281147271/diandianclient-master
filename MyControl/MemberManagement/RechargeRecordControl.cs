@@ -14,7 +14,7 @@ namespace DianDianClient.MyControl.MemberManagement
         Biz.BizMemberCard memberCard = new Biz.BizMemberCard();
         List<Models.v_card_record_shop> list; 
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         int itype=0;
         string cardid;
@@ -55,11 +55,11 @@ namespace DianDianClient.MyControl.MemberManagement
         {
             radioGroup1.SelectedIndex = (itype == 0) ? 1 : 2;
 
-            this.gridControl1.DataSource = this.translate(list).Take(10);
+            this.gridControl1.DataSource = this.translate(list).Take(pageSize);
 
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-
+            gridView1.OptionsBehavior.Editable = false;
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

@@ -12,9 +12,9 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
     public partial class detailrukuControl : UserControl
     {
         Biz.BizStorage bizStorage = new Biz.BizStorage();
-        List<Models.v_depotin_crude> list;
+        List<Models.v_depotin_crude> list = new List<Models.v_depotin_crude>();
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         int depotinid = 0;
         public detailrukuControl( int depotinid)
@@ -26,10 +26,10 @@ namespace DianDianClient.MyControl.More.jinxiaocunManage
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = (list).Take(10);
+            this.gridControl1.DataSource = (list).Take(pageSize);
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
-
+            gridView1.OptionsBehavior.Editable = false;
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {
                 gc.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));

@@ -73,7 +73,10 @@ namespace DianDianClient.MyForm
                     this.WindowState = (this.WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
                     break;
                 case 3:
-                    this.Close();
+                    //this.Close();
+                    MyForm.JiaoBan.QuitForm quit = new JiaoBan.QuitForm();
+                    quit.StartPosition = FormStartPosition.CenterScreen;
+                    quit.ShowDialog();
                     break;
                 case 4:
                     navigationPane1.SelectedPage = nav_more;
@@ -267,6 +270,11 @@ namespace DianDianClient.MyForm
             {
                 this.navigationPane1.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded;
             }
+
+        }
+        private void nav_more_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_more();
         }
         #endregion
         #region 打开子选项卡

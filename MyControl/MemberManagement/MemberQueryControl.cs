@@ -18,7 +18,7 @@ namespace DianDianClient.MyControl.MemberManagement
         DateTime e_time = DateTime.Now;
         List<Models.dd_mem_card> list;
         public int curPage = 1;
-        public int pageSize = 10;
+        public int pageSize = 8;
         public int allcount = 0;
         public MemberQueryControl()
         {
@@ -88,10 +88,14 @@ namespace DianDianClient.MyControl.MemberManagement
         }
         private void iniData()
         {
-            this.gridControl1.DataSource = this.translate(list).Take(10);
+            this.gridControl1.DataSource = this.translate(list).Take(pageSize);
 
             this.gridView1.RowHeight = 50;
             this.gridView1.ColumnPanelRowHeight = 50;
+            for (int i = 0; i < this.gridView1.Columns.Count - 2; i++)
+            {
+                this.gridView1.Columns[i].OptionsColumn.AllowEdit = false;
+            }
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn gc in this.gridView1.Columns)
             {

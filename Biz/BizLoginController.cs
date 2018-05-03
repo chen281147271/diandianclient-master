@@ -28,7 +28,7 @@ namespace DianDianClient.Biz
                 LoginResponseBean loginResponse = JsonConvert.DeserializeObject<LoginResponseBean>(resultJson);
                 if (loginResponse.code == 100)
                 {
-                    SyncClient.token = loginResponse.token;
+                    MyModels.userinfo.user.token = loginResponse.token;
                     log.Info("remote login success.");
                 }
                 else
@@ -54,15 +54,15 @@ namespace DianDianClient.Biz
                 && t.shopkey == Properties.Settings.Default.shopkey && t.enable == 1).ToList();
             if(rsl.Count > 0)
             {
-                int userid = rsl.First().memberkey;
-                dd_user user = db.dd_user.Where(p => p.userid == userid).FirstOrDefault();
+                int shopkey = rsl.First().shopkey.Value;
+                dd_user user = db.dd_user.Where(p => p.shopid == shopkey).FirstOrDefault();
                 if (user == null)
                 {
                     //本地登录逻辑
                     user = new dd_user();
                     user.userid = rsl.First().memberkey;
                     user.username = rsl.First().name;
-
+                    user.shopid = shopkey;
                     db.dd_user.Add(user);
                 }
                 else
@@ -77,9 +77,19 @@ namespace DianDianClient.Biz
                 }
 
                 db.SaveChanges();
+
+                MyModels.userinfo.user.uid= rsl.First().memberkey;
+                MyModels.userinfo.user.uname = rsl.First().name;
+                MyModels.userinfo.user.token = "1507700568237";
+
                 return 0;
             }
             return -1;
+        }
+        public string FindShopName(int shopkey)
+        {
+            DianDianEntities db = new DianDianEntities();
+           return db.shop.FirstOrDefault(p => p.shopkey == shopkey).name;
         }
 
     }

@@ -57,7 +57,7 @@ namespace DianDianClient.Biz
                 while (true)
                 {
                     Thread.Sleep(6000);
-                    if (SyncClient.token.Equals(""))
+                    if (MyModels.userinfo.user.token.Equals(""))
                     {
                         log.Warn("have not remote login");
                         continue;
@@ -66,7 +66,7 @@ namespace DianDianClient.Biz
                     requestParam += "&edate=" + DateTime.Now.ToString("yyyy-MM-dd");
                     requestParam += "&p=1";
                     requestParam += "&isConfirm=0";
-                    requestParam += "&token=" + SyncClient.token;
+                    requestParam += "&token=" + MyModels.userinfo.user.token;
                     //requestParam += "&type=0";
                     client.EndPoint = GetBillRequestUrl + "?" + requestParam;
 

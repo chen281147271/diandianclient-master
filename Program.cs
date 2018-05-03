@@ -12,8 +12,6 @@ namespace DianDianClient
         [STAThread]
         static void Main()
         {
-
-           // DevExpress.UserSkins.OfficeSkins.Register();
             DevExpress.UserSkins.BonusSkins.Register();
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
@@ -22,7 +20,6 @@ namespace DianDianClient
             log4net.Config.XmlConfigurator.Configure();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new MyForm.LoginForm());
             MyForm.LoginForm login = new MyForm.LoginForm();
             login.WindowState = FormWindowState.Maximized;
             login.ShowDialog();

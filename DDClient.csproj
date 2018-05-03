@@ -206,6 +206,18 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
+    <Compile Include="MyForm\JiaoBan\jiaobanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\JiaoBan\jiaobanForm.Designer.cs">
+      <DependentUpon>jiaobanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\JiaoBan\QuitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\JiaoBan\QuitForm.Designer.cs">
+      <DependentUpon>QuitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +271,7 @@
     </Compile>
     <Compile Include="MyModels\EidtType.cs" />
     <Compile Include="MyModels\selected_category_items.cs" />
+    <Compile Include="MyModels\userinfo.cs" />
     <Compile Include="Utils\io_api.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -1472,6 +1485,12 @@
     <Compile Include="Utils\SysConstant.cs" />
     <Compile Include="Utils\USB.cs" />
     <Compile Include="Utils\UsbPrinterResolver.cs" />
+    <EmbeddedResource Include="MyForm\JiaoBan\jiaobanForm.resx">
+      <DependentUpon>jiaobanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\JiaoBan\QuitForm.resx">
+      <DependentUpon>QuitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
