@@ -161,6 +161,7 @@
       <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
@@ -205,6 +206,15 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
+    <Compile Include="MyForm\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\PanelEnhanced.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyControl\TopBarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1462,6 +1472,9 @@
     <Compile Include="Utils\SysConstant.cs" />
     <Compile Include="Utils\USB.cs" />
     <Compile Include="Utils\UsbPrinterResolver.cs" />
+    <EmbeddedResource Include="MyForm\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -1951,6 +1964,12 @@
     <None Include="Resources\zwjs.png" />
     <None Include="Resources\style.png" />
     <None Include="Resources\hdgl.png" />
+    <None Include="Resources\login.gif" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\Log in.png" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\lock.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

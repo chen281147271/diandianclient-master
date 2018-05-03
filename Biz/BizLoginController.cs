@@ -46,16 +46,17 @@ namespace DianDianClient.Biz
         }
 
         //本地登录
-        public int LocalLogin(int shopcode, String username, String password)
+        public int LocalLogin( String username, String password)
         {
             DianDianEntities db = new DianDianEntities();
             string result = "";
             List<member> rsl = db.member.Where(t => t.loginName.Equals(username) && t.pwd.Equals(password) 
-                && t.shopkey == shopcode && t.enable == 1).ToList();
+                && t.shopkey == Properties.Settings.Default.shopkey && t.enable == 1).ToList();
             if(rsl.Count > 0)
             {
-                dd_user user = db.dd_user.Where(p => p.userid == rsl.First().memberkey).FirstOrDefault();
-                if(user == null)
+                int userid = rsl.First().memberkey;
+                dd_user user = db.dd_user.Where(p => p.userid == userid).FirstOrDefault();
+                if (user == null)
                 {
                     //本地登录逻辑
                     user = new dd_user();

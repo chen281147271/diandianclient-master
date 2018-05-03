@@ -22,7 +22,18 @@ namespace DianDianClient
             log4net.Config.XmlConfigurator.Configure();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MyForm.StarForm());
+            // Application.Run(new MyForm.LoginForm());
+            MyForm.LoginForm login = new MyForm.LoginForm();
+            login.WindowState = FormWindowState.Maximized;
+            login.ShowDialog();
+            if (login.DialogResult == DialogResult.OK)
+            {
+                Application.Run(new MyForm.StarForm());
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

@@ -260,6 +260,14 @@ namespace DianDianClient.MyForm
             tip.StartPosition = FormStartPosition.CenterScreen;
             tip.ShowDialog();
         }
+        //禁止缩放
+        private void navigationPane1_StateChanged(object sender, DevExpress.XtraBars.Navigation.StateChangedEventArgs e)
+        {
+            if (e.State == DevExpress.XtraBars.Navigation.NavigationPaneState.Collapsed)
+            {
+                this.navigationPane1.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded;
+            }
+        }
         #endregion
         #region 打开子选项卡
         private void navigationPane1_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
