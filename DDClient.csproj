@@ -1989,6 +1989,13 @@
     <None Include="Resources\no.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\lock.png" />
+    <None Include="Resources\reset_32x32.png" />
+    <None Include="Resources\refresh_32x32.png" />
+    <None Include="Resources\refresh_32x321.png" />
+    <None Include="Resources\refresh_32x322.png" />
+    <None Include="Resources\refresh_32x323.png" />
+    <None Include="Resources\refresh_32x324.png" />
+    <None Include="Resources\refresh_32x325.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

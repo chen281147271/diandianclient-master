@@ -513,6 +513,7 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.btn_submit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 618);

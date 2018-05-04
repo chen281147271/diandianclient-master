@@ -67,6 +67,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.mgncPager1, 0, 2);
@@ -88,18 +89,18 @@
             // mgncPager1
             // 
             this.mgncPager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mgncPager1.Location = new System.Drawing.Point(3, 484);
+            this.mgncPager1.Location = new System.Drawing.Point(4, 482);
             this.mgncPager1.Name = "mgncPager1";
-            this.mgncPager1.Size = new System.Drawing.Size(1083, 34);
+            this.mgncPager1.Size = new System.Drawing.Size(1081, 34);
             this.mgncPager1.TabIndex = 6;
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 51);
+            this.gridControl1.Location = new System.Drawing.Point(4, 53);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1083, 427);
+            this.gridControl1.Size = new System.Drawing.Size(1081, 422);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -177,9 +178,9 @@
             this.flowLayoutPanel1.Controls.Add(this.label11);
             this.flowLayoutPanel1.Controls.Add(this.label12);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1083, 42);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1081, 42);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label7
@@ -377,12 +378,12 @@
             this.tableLayoutPanel2.Controls.Add(this.simpleButton1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_close, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 524);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 523);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1083, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1081, 34);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // simpleButton1
@@ -395,7 +396,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton1.Location = new System.Drawing.Point(648, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(647, 3);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(327, 28);
             this.simpleButton1.TabIndex = 27;
@@ -412,7 +413,7 @@
             this.btn_close.Appearance.Options.UseFont = true;
             this.btn_close.Appearance.Options.UseForeColor = true;
             this.btn_close.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btn_close.Location = new System.Drawing.Point(107, 3);
+            this.btn_close.Location = new System.Drawing.Point(106, 3);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(327, 28);
             this.btn_close.TabIndex = 26;

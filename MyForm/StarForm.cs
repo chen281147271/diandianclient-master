@@ -22,7 +22,6 @@ namespace DianDianClient.MyForm
         bool ActivityManagement = false;
         bool OrderManagement = false;
         bool MemberManagement = false;
-        bool More = false;
 
         public StarForm()
         {
@@ -285,72 +284,92 @@ namespace DianDianClient.MyForm
                 case "订单管理":
                     if (!OrderManagement)
                     {
-                        splashScreenManager1.ShowWaitForm();
-                        splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-                        splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-                        MyControl.OrderManagement.OrderManageControl orderManage = new MyControl.OrderManagement.OrderManageControl();
-                        orderManage.Dock = DockStyle.Fill;
-                        this.nav_order.Controls.Add(orderManage);
-                        OrderManagement = true;
-                        splashScreenManager1.CloseWaitForm();
+                        open_OrderManagement();
                     }
                     break;
                 case "营业详情":
                     if (!BusinessDetails)
                     {
-                        splashScreenManager1.ShowWaitForm();
-                        splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-                        splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-                        MyControl.BusinessDetails.BusinessDetailsControl businessDetailsControl1 = new MyControl.BusinessDetails.BusinessDetailsControl();
-                        businessDetailsControl1.Dock = DockStyle.Fill;
-                        this.nav_yingye.Controls.Add(businessDetailsControl1);
-                        BusinessDetails = true;
-                        splashScreenManager1.CloseWaitForm();
+                        open_BusinessDetails();
                     }
                     break;
                 case "会员管理":
                     if (!MemberManagement)
                     {
-                        splashScreenManager1.ShowWaitForm();
-                        splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-                        splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-                        MyControl.MemberManagement.MemberManageControl memberManage = new MyControl.MemberManagement.MemberManageControl();
-                        memberManage.Dock = DockStyle.Fill;
-                        this.nav_vip.Controls.Add(memberManage);
-                        MemberManagement = true;
-                        splashScreenManager1.CloseWaitForm();
+                        open_MemberManagement();
                     }
                     break;
                 case "菜品管理":
                     if (!FoodManagement)
                     {
-                        splashScreenManager1.ShowWaitForm();
-                        splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-                        splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-                        MyControl.FoodManagement.EditMenu editMenu1 = new MyControl.FoodManagement.EditMenu();
-                        editMenu1.Dock = DockStyle.Fill;
-                        this.nav_food.Controls.Add(editMenu1);
-                        FoodManagement = true;
-                        splashScreenManager1.CloseWaitForm();
+                        open_FoodManagement();
                     }
                     break;
                 case "活动管理":
                     if (!ActivityManagement)
                     {
-                        splashScreenManager1.ShowWaitForm();
-                        splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-                        splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-                        MyControl.ActivityManagement.ActivityManageControl activityManage = new MyControl.ActivityManagement.ActivityManageControl();
-                        activityManage.Dock = DockStyle.Fill;
-                        this.nav_activity.Controls.Add(activityManage);
-                        ActivityManagement = true;
-                        splashScreenManager1.CloseWaitForm();
+                        open_ActivityManagement();
                     }
                     break;
                 case "更多选项":
                     open_more();
                     break;
             }
+        }
+        private void open_ActivityManagement()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
+            MyControl.ActivityManagement.ActivityManageControl activityManage = new MyControl.ActivityManagement.ActivityManageControl();
+            activityManage.Dock = DockStyle.Fill;
+            this.nav_activity.Controls.Add(activityManage);
+            ActivityManagement = true;
+            splashScreenManager1.CloseWaitForm();
+        }
+        private void open_FoodManagement()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
+            MyControl.FoodManagement.EditMenu editMenu1 = new MyControl.FoodManagement.EditMenu();
+            editMenu1.Dock = DockStyle.Fill;
+            this.nav_food.Controls.Add(editMenu1);
+            FoodManagement = true;
+            splashScreenManager1.CloseWaitForm();
+        }
+        private void open_MemberManagement()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
+            MyControl.MemberManagement.MemberManageControl memberManage = new MyControl.MemberManagement.MemberManageControl();
+            memberManage.Dock = DockStyle.Fill;
+            this.nav_vip.Controls.Add(memberManage);
+            MemberManagement = true;
+            splashScreenManager1.CloseWaitForm();
+        }
+        private void open_BusinessDetails()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
+            MyControl.BusinessDetails.BusinessDetailsControl businessDetailsControl1 = new MyControl.BusinessDetails.BusinessDetailsControl();
+            businessDetailsControl1.Dock = DockStyle.Fill;
+            this.nav_yingye.Controls.Add(businessDetailsControl1);
+            BusinessDetails = true;
+            splashScreenManager1.CloseWaitForm();
+        }
+        private void open_OrderManagement()
+        {
+            splashScreenManager1.ShowWaitForm();
+            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
+            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
+            MyControl.OrderManagement.OrderManageControl orderManage = new MyControl.OrderManagement.OrderManageControl();
+            orderManage.Dock = DockStyle.Fill;
+            this.nav_order.Controls.Add(orderManage);
+            OrderManagement = true;
+            splashScreenManager1.CloseWaitForm();
         }
         private void open_more()
         {
@@ -361,10 +380,37 @@ namespace DianDianClient.MyForm
             MyControl.More.MoreControl moreControl = new MyControl.More.MoreControl();
             moreControl.Dock = DockStyle.Fill;
             this.nav_more.Controls.Add(moreControl);
-            More = true;
             splashScreenManager1.CloseWaitForm();
         }
+        private void nav_order_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_OrderManagement();
+        }
 
+        private void nav_table_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            OpenDefaultTable();
+        }
+
+        private void nav_yingye_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_BusinessDetails();
+        }
+
+        private void nav_vip_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_MemberManagement();
+        }
+
+        private void nav_food_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_FoodManagement();
+        }
+
+        private void nav_activity_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            open_ActivityManagement();
+        }
         #endregion
     }
 }
