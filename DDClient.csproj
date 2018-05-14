@@ -206,6 +206,18 @@
     <Compile Include="Biz\BizSPInfoController.cs" />
     <Compile Include="Biz\BizStorage.cs" />
     <Compile Include="Biz\SyncClient.cs" />
+    <Compile Include="MyControl\PaiDui\PaiDuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\PaiDui\PaiDuiControl.Designer.cs" >
+<DependentUpon>PaiDuiControl.cs</DependentUpon>
+</Compile>
+    <Compile Include="MyControl\PaiDui\PaiDuiListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\PaiDui\PaiDuiListControl.Designer.cs" >
+<DependentUpon>PaiDuiListControl.cs</DependentUpon>
+</Compile >
     <Compile Include="MyForm\JiaoBan\jiaobanForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1485,6 +1497,12 @@
     <Compile Include="Utils\SysConstant.cs" />
     <Compile Include="Utils\USB.cs" />
     <Compile Include="Utils\UsbPrinterResolver.cs" />
+    <EmbeddedResource Include="MyControl\PaiDui\PaiDuiControl.resx" >
+<DependentUpon>PaiDuiControl.cs</DependentUpon>
+</EmbeddedResource>
+    <EmbeddedResource Include="MyControl\PaiDui\PaiDuiListControl.resx">
+<DependentUpon>PaiDuiListControl.cs</DependentUpon>
+</EmbeddedResource>
     <EmbeddedResource Include="MyForm\JiaoBan\jiaobanForm.resx">
       <DependentUpon>jiaobanForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1991,6 +2009,10 @@
     <None Include="Resources\lock.png" />
     <None Include="Resources\reset_32x32.png" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\_line.png" />
+    <None Include="Resources\line.png" />
+    <None Include="Resources\paidui.png" />
+    <None Include="Resources\close.png" />
     <Content Include="Utils\POSDLL.dll" />
     <None Include="Resources\wait.png" />
     <None Include="Resources\tuicai.png" />

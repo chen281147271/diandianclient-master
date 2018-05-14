@@ -43,6 +43,8 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions customHeaderButtonImageOptions7 = new DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions customHeaderButtonImageOptions8 = new DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DianDianClient.MyForm.WaitForm1), true, true);
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.nav_order = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -54,6 +56,7 @@
             this.nav_activity = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.nav_paidui = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -72,6 +75,7 @@
             this.navigationPane1.Controls.Add(this.nav_food);
             this.navigationPane1.Controls.Add(this.nav_more);
             this.navigationPane1.Controls.Add(this.nav_activity);
+            this.navigationPane1.Controls.Add(this.nav_paidui);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationPane1.Location = new System.Drawing.Point(0, 0);
             this.navigationPane1.Margin = new System.Windows.Forms.Padding(0);
@@ -83,6 +87,7 @@
             this.nav_order,
             this.nav_table,
             this.nav_yingye,
+            this.nav_paidui,
             this.nav_vip,
             this.nav_food,
             this.nav_activity,
@@ -108,7 +113,7 @@
             this.nav_order.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_order.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_order.Properties.ShowMode = DevExpress.XtraBars.Navigation.ItemShowMode.Image;
-            this.nav_order.Size = new System.Drawing.Size(1196, 719);
+            this.nav_order.Size = new System.Drawing.Size(1196, 735);
             this.nav_order.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_order_CustomButtonClick);
             // 
             // nav_table
@@ -123,7 +128,7 @@
             this.nav_table.Name = "nav_table";
             this.nav_table.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_table.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_table.Size = new System.Drawing.Size(1196, 719);
+            this.nav_table.Size = new System.Drawing.Size(1275, 776);
             this.nav_table.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_table_CustomButtonClick);
             // 
             // nav_yingye
@@ -137,7 +142,7 @@
             this.nav_yingye.Name = "nav_yingye";
             this.nav_yingye.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_yingye.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_yingye.Size = new System.Drawing.Size(1196, 719);
+            this.nav_yingye.Size = new System.Drawing.Size(1275, 776);
             this.nav_yingye.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_yingye_CustomButtonClick);
             // 
             // nav_vip
@@ -151,7 +156,7 @@
             this.nav_vip.Name = "nav_vip";
             this.nav_vip.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_vip.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_vip.Size = new System.Drawing.Size(1196, 719);
+            this.nav_vip.Size = new System.Drawing.Size(1196, 735);
             this.nav_vip.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_vip_CustomButtonClick);
             // 
             // nav_food
@@ -165,7 +170,7 @@
             this.nav_food.Name = "nav_food";
             this.nav_food.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_food.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_food.Size = new System.Drawing.Size(1196, 719);
+            this.nav_food.Size = new System.Drawing.Size(1275, 776);
             this.nav_food.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_food_CustomButtonClick);
             // 
             // nav_more
@@ -179,7 +184,7 @@
             this.nav_more.Name = "nav_more";
             this.nav_more.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_more.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_more.Size = new System.Drawing.Size(1196, 719);
+            this.nav_more.Size = new System.Drawing.Size(1275, 776);
             this.nav_more.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_more_CustomButtonClick);
             // 
             // nav_activity
@@ -193,7 +198,7 @@
             this.nav_activity.Name = "nav_activity";
             this.nav_activity.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_activity.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_activity.Size = new System.Drawing.Size(1196, 719);
+            this.nav_activity.Size = new System.Drawing.Size(1275, 776);
             this.nav_activity.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_activity_CustomButtonClick);
             // 
             // tableLayoutPanel1
@@ -210,6 +215,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 776);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // nav_paidui
+            // 
+            this.nav_paidui.Caption = "排队叫号";
+            customHeaderButtonImageOptions8.Image = global::DianDianClient.Properties.Resources.refresh;
+            this.nav_paidui.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject8, null, -1)});
+            this.nav_paidui.ImageOptions.Image = global::DianDianClient.Properties.Resources.paidui;
+            this.nav_paidui.Name = "nav_paidui";
+            this.nav_paidui.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_paidui.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_paidui.Size = new System.Drawing.Size(1180, 719);
+            this.nav_paidui.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_paidui_CustomButtonClick);
             // 
             // StarForm
             // 
@@ -242,5 +260,6 @@
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraBars.Navigation.NavigationPage nav_activity;
+        private DevExpress.XtraBars.Navigation.NavigationPage nav_paidui;
     }
 }
