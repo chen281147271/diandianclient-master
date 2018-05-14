@@ -73,6 +73,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _line {
+            get {
+                object obj = ResourceManager.GetObject("_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap _lock {
             get {
                 object obj = ResourceManager.GetObject("_lock", resourceCulture);
@@ -106,6 +116,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap canting {
             get {
                 object obj = ResourceManager.GetObject("canting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,6 +283,16 @@ namespace DianDianClient.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap line {
+            get {
+                object obj = ResourceManager.GetObject("line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Log_in {
             get {
                 object obj = ResourceManager.GetObject("Log_in", resourceCulture);
@@ -356,6 +386,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap order {
             get {
                 object obj = ResourceManager.GetObject("order", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap pdjh {
+            get {
+                object obj = ResourceManager.GetObject("pdjh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +506,16 @@ namespace DianDianClient.Properties {
         internal static System.Drawing.Bitmap refresh_32x325 {
             get {
                 object obj = ResourceManager.GetObject("refresh_32x325", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_32x326 {
+            get {
+                object obj = ResourceManager.GetObject("refresh_32x326", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

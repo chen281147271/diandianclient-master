@@ -43,15 +43,18 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions customHeaderButtonImageOptions7 = new DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions customHeaderButtonImageOptions8 = new DevExpress.XtraBars.Docking.CustomHeaderButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DianDianClient.MyForm.WaitForm1), true, true);
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.nav_order = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_table = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.nav_yingye = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_vip = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.nav_yingye = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_food = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_more = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_activity = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.nav_paidui = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
@@ -67,11 +70,12 @@
             // 
             this.navigationPane1.Controls.Add(this.nav_order);
             this.navigationPane1.Controls.Add(this.nav_table);
-            this.navigationPane1.Controls.Add(this.nav_yingye);
             this.navigationPane1.Controls.Add(this.nav_vip);
+            this.navigationPane1.Controls.Add(this.nav_yingye);
             this.navigationPane1.Controls.Add(this.nav_food);
             this.navigationPane1.Controls.Add(this.nav_more);
             this.navigationPane1.Controls.Add(this.nav_activity);
+            this.navigationPane1.Controls.Add(this.nav_paidui);
             this.navigationPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationPane1.Location = new System.Drawing.Point(0, 0);
             this.navigationPane1.Margin = new System.Windows.Forms.Padding(0);
@@ -84,6 +88,7 @@
             this.nav_table,
             this.nav_yingye,
             this.nav_vip,
+            this.nav_paidui,
             this.nav_food,
             this.nav_activity,
             this.nav_more});
@@ -123,36 +128,36 @@
             this.nav_table.Name = "nav_table";
             this.nav_table.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_table.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_table.Size = new System.Drawing.Size(1196, 719);
+            this.nav_table.Size = new System.Drawing.Size(1275, 776);
             this.nav_table.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_table_CustomButtonClick);
-            // 
-            // nav_yingye
-            // 
-            this.nav_yingye.BackgroundPadding = new System.Windows.Forms.Padding(0);
-            this.nav_yingye.Caption = "营业详情";
-            customHeaderButtonImageOptions3.Image = global::DianDianClient.Properties.Resources.refresh_32x322;
-            this.nav_yingye.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
-            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject3, null, -1)});
-            this.nav_yingye.ImageOptions.Image = global::DianDianClient.Properties.Resources.yyxq;
-            this.nav_yingye.Name = "nav_yingye";
-            this.nav_yingye.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_yingye.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_yingye.Size = new System.Drawing.Size(1196, 719);
-            this.nav_yingye.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_yingye_CustomButtonClick);
             // 
             // nav_vip
             // 
             this.nav_vip.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_vip.Caption = "会员管理";
-            customHeaderButtonImageOptions4.Image = global::DianDianClient.Properties.Resources.refresh_32x323;
+            customHeaderButtonImageOptions3.Image = global::DianDianClient.Properties.Resources.refresh_32x323;
             this.nav_vip.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
-            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject4, null, -1)});
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject3, null, -1)});
             this.nav_vip.ImageOptions.Image = global::DianDianClient.Properties.Resources.hygl;
             this.nav_vip.Name = "nav_vip";
             this.nav_vip.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_vip.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_vip.Size = new System.Drawing.Size(1196, 719);
+            this.nav_vip.Size = new System.Drawing.Size(1275, 776);
             this.nav_vip.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_vip_CustomButtonClick);
+            // 
+            // nav_yingye
+            // 
+            this.nav_yingye.BackgroundPadding = new System.Windows.Forms.Padding(0);
+            this.nav_yingye.Caption = "营业详情";
+            customHeaderButtonImageOptions4.Image = global::DianDianClient.Properties.Resources.refresh_32x322;
+            this.nav_yingye.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject4, null, -1)});
+            this.nav_yingye.ImageOptions.Image = global::DianDianClient.Properties.Resources.yyxq;
+            this.nav_yingye.Name = "nav_yingye";
+            this.nav_yingye.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_yingye.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_yingye.Size = new System.Drawing.Size(1275, 776);
+            this.nav_yingye.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_yingye_CustomButtonClick);
             // 
             // nav_food
             // 
@@ -165,7 +170,7 @@
             this.nav_food.Name = "nav_food";
             this.nav_food.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_food.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_food.Size = new System.Drawing.Size(1196, 719);
+            this.nav_food.Size = new System.Drawing.Size(1275, 776);
             this.nav_food.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_food_CustomButtonClick);
             // 
             // nav_more
@@ -179,7 +184,7 @@
             this.nav_more.Name = "nav_more";
             this.nav_more.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_more.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_more.Size = new System.Drawing.Size(1196, 719);
+            this.nav_more.Size = new System.Drawing.Size(1275, 776);
             this.nav_more.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_more_CustomButtonClick);
             // 
             // nav_activity
@@ -193,8 +198,20 @@
             this.nav_activity.Name = "nav_activity";
             this.nav_activity.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_activity.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_activity.Size = new System.Drawing.Size(1196, 719);
+            this.nav_activity.Size = new System.Drawing.Size(1275, 776);
             this.nav_activity.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_activity_CustomButtonClick);
+            // 
+            // nav_paidui
+            // 
+            this.nav_paidui.BackgroundPadding = new System.Windows.Forms.Padding(0);
+            this.nav_paidui.Caption = "排队叫号";
+            customHeaderButtonImageOptions8.Image = global::DianDianClient.Properties.Resources.refresh_32x326;
+            this.nav_paidui.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "返回", -1, true, null, true, false, true, serializableAppearanceObject8, null, -1)});
+            this.nav_paidui.ImageOptions.Image = global::DianDianClient.Properties.Resources.pdjh;
+            this.nav_paidui.Name = "nav_paidui";
+            this.nav_paidui.Size = new System.Drawing.Size(1196, 719);
+            this.nav_paidui.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_paidui_CustomButtonClick);
             // 
             // tableLayoutPanel1
             // 
@@ -242,5 +259,6 @@
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraBars.Navigation.NavigationPage nav_activity;
+        private DevExpress.XtraBars.Navigation.NavigationPage nav_paidui;
     }
 }
