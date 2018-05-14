@@ -100,7 +100,7 @@
             // 
             this.nav_order.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_order.Caption = "订单管理";
-            customHeaderButtonImageOptions1.Image = global::DianDianClient.Properties.Resources.refresh_32x32;
+            customHeaderButtonImageOptions1.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_order.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject1, null, -1)});
             this.nav_order.ImageOptions.Image = global::DianDianClient.Properties.Resources.order;
@@ -115,7 +115,7 @@
             // 
             this.nav_table.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_table.Caption = "桌位结算";
-            customHeaderButtonImageOptions2.Image = global::DianDianClient.Properties.Resources.refresh_32x321;
+            customHeaderButtonImageOptions2.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_table.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject2, null, -1)});
             this.nav_table.ImageOptions.Image = global::DianDianClient.Properties.Resources.zwjs;
@@ -130,7 +130,7 @@
             // 
             this.nav_yingye.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_yingye.Caption = "营业详情";
-            customHeaderButtonImageOptions3.Image = global::DianDianClient.Properties.Resources.refresh_32x322;
+            customHeaderButtonImageOptions3.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_yingye.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject3, null, -1)});
             this.nav_yingye.ImageOptions.Image = global::DianDianClient.Properties.Resources.yyxq;
@@ -144,7 +144,7 @@
             // 
             this.nav_vip.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_vip.Caption = "会员管理";
-            customHeaderButtonImageOptions4.Image = global::DianDianClient.Properties.Resources.refresh_32x323;
+            customHeaderButtonImageOptions4.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_vip.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject4, null, -1)});
             this.nav_vip.ImageOptions.Image = global::DianDianClient.Properties.Resources.hygl;
@@ -158,7 +158,7 @@
             // 
             this.nav_food.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_food.Caption = "菜品管理";
-            customHeaderButtonImageOptions5.Image = global::DianDianClient.Properties.Resources.refresh_32x324;
+            customHeaderButtonImageOptions5.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_food.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject5, null, -1)});
             this.nav_food.ImageOptions.Image = global::DianDianClient.Properties.Resources.cpgl;
@@ -186,7 +186,7 @@
             // 
             this.nav_activity.BackgroundPadding = new System.Windows.Forms.Padding(0);
             this.nav_activity.Caption = "活动管理";
-            customHeaderButtonImageOptions7.Image = global::DianDianClient.Properties.Resources.refresh_32x325;
+            customHeaderButtonImageOptions7.Image = global::DianDianClient.Properties.Resources.refresh;
             this.nav_activity.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject7, null, -1)});
             this.nav_activity.ImageOptions.Image = global::DianDianClient.Properties.Resources.hdgl;
