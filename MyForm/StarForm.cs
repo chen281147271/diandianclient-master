@@ -22,7 +22,6 @@ namespace DianDianClient.MyForm
         bool ActivityManagement = false;
         bool OrderManagement = false;
         bool MemberManagement = false;
-        bool paidui = false;
 
         public StarForm()
         {
@@ -300,12 +299,6 @@ namespace DianDianClient.MyForm
                         open_MemberManagement();
                     }
                     break;
-                case "排队叫号":
-                    if (!paidui)
-                    {
-                        open_paidui();
-                    }
-                    break;
                 case "菜品管理":
                     if (!FoodManagement)
                     {
@@ -322,17 +315,6 @@ namespace DianDianClient.MyForm
                     open_more();
                     break;
             }
-        }
-        private void open_paidui()
-        {
-            splashScreenManager1.ShowWaitForm();
-            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-            splashScreenManager1.SetWaitFormDescription("正在初始化.....");     // 信息
-            MyControl.PaiDui.PaiDuiControl paiDui = new MyControl.PaiDui.PaiDuiControl();
-            paiDui.Dock = DockStyle.Fill;
-            this.nav_paidui.Controls.Add(paiDui);
-            paidui = true;
-            splashScreenManager1.CloseWaitForm();
         }
         private void open_ActivityManagement()
         {
@@ -428,10 +410,6 @@ namespace DianDianClient.MyForm
         private void nav_activity_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
             open_ActivityManagement();
-        }
-        private void nav_paidui_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
-        {
-            open_paidui();
         }
         #endregion
     }
