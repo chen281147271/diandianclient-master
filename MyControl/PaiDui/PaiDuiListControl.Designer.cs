@@ -323,7 +323,7 @@
             this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.str,
             this.id});
-            this.tileView1.ContextButtonOptions.FarPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(180)))), ((int)(((byte)(116)))));
+            this.tileView1.ContextButtonOptions.FarPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
             contextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Right;
             contextButton1.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Center;
             contextButton1.Id = new System.Guid("403ef3b2-72e1-4896-9536-67e587756f49");
@@ -356,6 +356,7 @@
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView1.OptionsTiles.RowCount = 0;
+            this.tileView1.OptionsView.BackgroundColorMode = DevExpress.XtraGrid.Views.Tile.BackgroundColorMode.Skin;
             tableColumnDefinition1.Length.Value = 173D;
             this.tileView1.TileColumns.Add(tableColumnDefinition1);
             this.tileView1.TileRows.Add(tableRowDefinition1);

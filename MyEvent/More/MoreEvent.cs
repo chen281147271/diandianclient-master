@@ -10,7 +10,7 @@ namespace DianDianClient.MyEvent.More
         public delegate void MyDelegate(int ControlId);
         public static event MyDelegate ReplaceEvent;
 
-        public delegate void ShowWaitDelegate();
+        public delegate void ShowWaitDelegate(string Caption , string Description);
         public static event ShowWaitDelegate ShowWaitEvent;
 
         public delegate void EndShowWaitDelegate();
@@ -20,9 +20,9 @@ namespace DianDianClient.MyEvent.More
         {
             ReplaceEvent(ControlId);
         }
-        public static void ShowWait()
+        public static void ShowWait(string Caption = "请稍后,正在加载中", string Description = "正在初始化.....")
         {
-            ShowWaitEvent();
+            ShowWaitEvent(Caption, Description);
         }
         public static void EndShowWait()
         {

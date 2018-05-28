@@ -93,7 +93,7 @@ namespace DianDianClient
             tip.StartPosition = FormStartPosition.CenterScreen;
             tip.ShowDialog();
         }
-        private void MyShowWaitEvent()
+        private void MyShowWaitEvent(string Caption , string Description)
         {
             splashScreenManager1.ShowWaitForm();
             splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题

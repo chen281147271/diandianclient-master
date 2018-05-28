@@ -69,7 +69,7 @@
             this.tileControl1.Groups.Add(this.tileGroup1);
             this.tileControl1.Groups.Add(this.tileGroup2);
             this.tileControl1.Location = new System.Drawing.Point(3, 103);
-            this.tileControl1.MaxId = 6;
+            this.tileControl1.MaxId = 7;
             this.tileControl1.Name = "tileControl1";
             this.tileControl1.Size = new System.Drawing.Size(1026, 296);
             this.tileControl1.TabIndex = 0;
@@ -97,7 +97,7 @@
             tileItemElement1.Text = "";
             this.tileItem1.Elements.Add(tileItemElement1);
             this.tileItem1.Id = 0;
-            this.tileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
+            this.tileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem1.Name = "tileItem1";
             // 
             // tileItem2
@@ -107,7 +107,7 @@
             tileItemElement2.Text = "";
             this.tileItem2.Elements.Add(tileItemElement2);
             this.tileItem2.Id = 1;
-            this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
+            this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem2.Name = "tileItem2";
             // 
             // tileItem3
@@ -117,7 +117,7 @@
             tileItemElement3.Text = "";
             this.tileItem3.Elements.Add(tileItemElement3);
             this.tileItem3.Id = 2;
-            this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
+            this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem3.Name = "tileItem3";
             // 
             // tileItem4
@@ -127,7 +127,7 @@
             tileItemElement4.Text = "";
             this.tileItem4.Elements.Add(tileItemElement4);
             this.tileItem4.Id = 3;
-            this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
+            this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem4.Name = "tileItem4";
             // 
             // tileItem5

@@ -16,21 +16,29 @@ namespace DianDianClient.MyControl.TableSettlement
         public decimal Saleprice = 0;//优惠金额
         public decimal ServiceCharge = 0;//服务金额
         int ichange = 0;//买单修改的项目金额
+        MyControl.TableSettlement.PayBillControl payBill;
         public TableSettlement()
         {
             InitializeComponent();
             Inipanel();
             initoolstrip();
             Inipanelex();
-            tableLayoutPanel1.GetType().GetProperty("DoubleBuffered",
+            //this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            //this.SetStyle(ControlStyles.DoubleBuffer, true);
+            //this.SetStyle(ControlStyles.UserPaint, true);
+            this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered",
 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel1,
 true, null);
 
             MyEvent.TableSettlement.PayBillEvent.PayEvent += PayEvent;
             MyEvent.TableSettlement.PayBillEvent.CloseEvent += CloseEvent;
+            payBill = new PayBillControl();
+            payBill.Dock = DockStyle.Fill;
+            //this.tableLayoutPanel1.Controls.Add(payBill, 0, 1);
+            //this.payBill.Visible = false;
         }
-        protected
-override CreateParams CreateParams
+
+        protected override CreateParams CreateParams
         {
             get
             {
@@ -39,6 +47,15 @@ override CreateParams CreateParams
                 return cp;
             }
         }
+        //protected override CreateParams CreateParams
+        //{
+        //    get
+        //    {
+        //        var parms = base.CreateParams;
+        //        parms.Style &= ~0x02000000; // Turn off WS_CLIPCHILDREN   
+        //        return parms;
+        //    }
+        //}
         private void Inipanel()
         {
             DataTable dt = new DataTable("Student");
@@ -57,8 +74,13 @@ override CreateParams CreateParams
             //  itemContainer1.TitleText = "桌位";
             itemContainer1.TitleVisible = false;
             //  metroTilePanel1.BackgroundStyle.BackgroundImage = Properties.Resources._2;
-            tableLayoutPanel1.BackgroundImage = Properties.Resources._1;
-            tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
+            // panel1.BackgroundImage = Properties.Resources._1;
+            // panel1.BackgroundImageLayout = ImageLayout.Stretch;
+             Bitmap bmp = new Bitmap(Properties.Resources._1);
+            this.panelEnhanced1.BackgroundImage = bmp;
+            //this.BackgroundImage = bmp;
+            this.panelEnhanced1.BackgroundImageLayout = ImageLayout.Stretch;
+            this.tableLayoutPanel1.BackColor = Color.FromArgb(50, 0, 0, 0);
         }
         private void ItemContainerBinding(ItemContainer ic, DataTable dtt, string TableName, string TableID,String TableState)
         {
@@ -337,9 +359,21 @@ override CreateParams CreateParams
         }
         private void CloseEvent()
         {
-            this.tableLayoutPanel1.Controls.Add(metroTilePanel1,0,1);
-            this.tableLayoutPanel1.Controls.Add(toolStrip2,0,2);
+            this.tableLayoutPanel1.SuspendLayout();
+            this.SuspendLayout();
+
+            this.tableLayoutPanel1.Controls.Add(metroTilePanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(toolStrip2, 0, 2);
+
+            // this.metroTilePanel1.Visible = true;
+            // this.toolStrip2.Visible = true;
             this.tableLayoutPanel1.Controls.RemoveAt(2);
+            // this.tableLayoutPanel1.Controls.RemoveAt(4);
+           // this.payBill.Visible = false;
+
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.ResumeLayout(false);
         }
         private void toolStripItem2_Click(object sender, EventArgs e)
         {
@@ -350,12 +384,22 @@ override CreateParams CreateParams
                     //MyForm.TableSettlement.PayBillForm payBillForm = new MyForm.TableSettlement.PayBillForm();
                     //payBillForm.StartPosition = FormStartPosition.CenterScreen;
                     //payBillForm.ShowDialog();
-                    MyControl.TableSettlement.PayBillControl payBill = new PayBillControl();
-                    payBill.Dock = DockStyle.Fill;
+                    //MyControl.TableSettlement.PayBillControl payBill = new PayBillControl();
+
+                    this.tableLayoutPanel1.SuspendLayout();
+                    this.SuspendLayout();
+
                     this.tableLayoutPanel1.Controls.Remove(metroTilePanel1);
                     this.tableLayoutPanel1.Controls.Remove(toolStrip2);
+                    //this.metroTilePanel1.Visible = false;
+                   // this.toolStrip2.Visible = false;
                     this.tableLayoutPanel1.Controls.Add(payBill, 0, 1);
-                    
+                    //this.payBill.Visible = true;
+
+                    this.tableLayoutPanel1.ResumeLayout(false);
+                    this.tableLayoutPanel1.PerformLayout();
+                    this.ResumeLayout(false);
+
 
                     break;
                 case "退菜":
@@ -421,12 +465,12 @@ override CreateParams CreateParams
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
         }
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == 0x0014) // 禁掉清除背景消息
-                return;
-            base.WndProc(ref m);
-        }
+        //protected override void WndProc(ref Message m)
+        //{
+        //    if (m.Msg == 0x0014) // 禁掉清除背景消息
+        //        return;
+        //    base.WndProc(ref m);
+        //}
 
         private void tableLayoutPanel1_SizeChanged(object sender, EventArgs e)
         {

@@ -18,6 +18,7 @@ namespace DianDianClient.MyForm
         Biz.BizLoginController BizLogin = new Biz.BizLoginController();
         bool first = true;
         bool changed = false;
+        Timer giftimer;
         public LoginForm()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace DianDianClient.MyForm
             Image gif = Properties.Resources.login;
             System.Drawing.Imaging.FrameDimension fd = new System.Drawing.Imaging.FrameDimension(gif.FrameDimensionsList[0]);
             int count = gif.GetFrameCount(fd);    //获取帧数(gif图片可能包含多帧，其它格式图片一般仅一帧)
-            Timer giftimer = new Timer();
+            giftimer = new Timer();
             giftimer.Interval = 10;
             int i = 0;
             Image bgImg = null;
@@ -172,6 +173,7 @@ namespace DianDianClient.MyForm
                         this.checkEdit1.Checked = false;
                     }
                     this.DialogResult = DialogResult.OK;    //返回一个登录成功的对话框状态
+                    giftimer.Stop();
                     this.Close();    //关闭登录窗口
                 }
                 else

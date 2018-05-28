@@ -23,6 +23,7 @@ namespace DianDianClient.MyControl.FoodManagement
         List<Models.v_category_items> list;
         List<Models.item_category> list_itemcategory;
         List<CriteriaOperator> criteriaOperator = new List<CriteriaOperator>();
+        int iflag = 0; //0全部 1上架 2估清
         public EditMenu()
         {
             InitializeComponent();
@@ -40,11 +41,12 @@ namespace DianDianClient.MyControl.FoodManagement
                 tileView1.OptionsTiles.Padding = new Padding(20);
                 tileView1.OptionsTiles.ItemPadding = new Padding(10);
                 tileView1.OptionsTiles.IndentBetweenItems = 20;
-                tileView1.OptionsTiles.ItemSize = new Size(340, 190);
+                tileView1.OptionsTiles.ItemSize = new Size(240, 150);
                 tileView1.Appearance.ItemNormal.ForeColor = Color.White;
                 tileView1.Appearance.ItemNormal.BorderColor = Color.Transparent;
-                //Setup tiles template
-                TileViewItemElement leftPanel = new TileViewItemElement();
+                tileView1.Appearance.ItemNormal.BackColor = Color.Transparent;
+               //Setup tiles template
+               TileViewItemElement leftPanel = new TileViewItemElement();
                 TileViewItemElement splitLine = new TileViewItemElement();
                 TileViewItemElement addressCaption = new TileViewItemElement();
                 TileViewItemElement addressValue = new TileViewItemElement();
@@ -100,7 +102,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 price.Appearance.Normal.Font = new Font("Segoe UI Semilight", 25.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 //
                 image.Column = tileView1.Columns["FoodImage"];
-                image.ImageSize = new Size(280, 220);
+                image.ImageSize = new Size(180, 180);
                 image.ImageAlignment = TileItemContentAlignment.MiddleRight;
                 image.ImageScaleMode = TileItemImageScaleMode.ZoomOutside;
                 image.ImageLocation = new Point(10, 10);
@@ -114,7 +116,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 DevExpress.Utils.ContextButton contextButton1 = new DevExpress.Utils.ContextButton();
                 DevExpress.Utils.ContextButton contextButton2 = new DevExpress.Utils.ContextButton();
                 DevExpress.Utils.ContextButton contextButton3 = new DevExpress.Utils.ContextButton();
-                this.tileView1.ContextButtonOptions.BottomPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+                this.tileView1.ContextButtonOptions.BottomPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
                 this.tileView1.ContextButtonOptions.BottomPanelPadding = new System.Windows.Forms.Padding(10);
                 //
             //    contextButton1.Caption = "下架";
@@ -123,6 +125,7 @@ namespace DianDianClient.MyControl.FoodManagement
                 contextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
                 contextButton1.Id = new System.Guid("5679cac7-1f0e-4f93-a9d4-cd3f82547937");
                 contextButton1.Name = "contextButton1";
+
             //    contextButton2.Caption = "contextButton2";
                 //
                 contextButton2.ImageOptions.Image = global::DianDianClient.Properties.Resources.delete;
@@ -351,14 +354,16 @@ namespace DianDianClient.MyControl.FoodManagement
 
         private void Txt_FoodName_EditValueChanged(object sender, EventArgs e)
         {
-            Changed();
+            Changed(iflag);
         }
-        private void Changed()
+        private void Changed(int i=0)
         {
+            iflag = i;
             this.tileView1.ClearColumnsFilter();
             criteriaOperator.Clear();
             Txt_FoodNameEditValueChanged();
-            radioGroup1SelectedIndexChanged(radioGroup1.SelectedIndex);
+            //  radioGroup1SelectedIndexChanged(radioGroup1.SelectedIndex);
+            radioGroup1SelectedIndexChanged(i);
             this.tileView1.ActiveFilterCriteria = GroupOperator.And(criteriaOperator);
 
         }
@@ -425,6 +430,21 @@ namespace DianDianClient.MyControl.FoodManagement
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        private void btn_shangjia_Click(object sender, EventArgs e)
+        {
+            Changed(1);
+        }
+
+        private void btn_guqing_Click(object sender, EventArgs e)
+        {
+            Changed(2);
+        }
+
+        private void btn_all_Click(object sender, EventArgs e)
+        {
+            Changed(0);
         }
     }
 }

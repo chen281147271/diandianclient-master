@@ -52,6 +52,7 @@
             this.progressPanel1.Size = new System.Drawing.Size(246, 35);
             this.progressPanel1.TabIndex = 0;
             this.progressPanel1.Text = "progressPanel1";
+            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Ring;
             // 
             // tableLayoutPanel1
             // 

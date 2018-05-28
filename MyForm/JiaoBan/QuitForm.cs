@@ -11,6 +11,7 @@ namespace DianDianClient.MyForm.JiaoBan
 {
     public partial class QuitForm : DevExpress.XtraEditors.XtraForm
     {
+        MyForm.JiaoBan.jiaobanForm jiaoban = new jiaobanForm();
         public QuitForm()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace DianDianClient.MyForm.JiaoBan
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            MyForm.JiaoBan.jiaobanForm jiaoban = new jiaobanForm();
+           // MyForm.JiaoBan.jiaobanForm jiaoban = new jiaobanForm();
             jiaoban.StartPosition = FormStartPosition.CenterScreen;
             jiaoban.ShowDialog();
         }

@@ -301,14 +301,14 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxEdit1);
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.s_time);
             this.flowLayoutPanel1.Controls.Add(this.e_time);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(179, 6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 37);
             this.flowLayoutPanel1.TabIndex = 3;
@@ -318,7 +318,8 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(25, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 28);
             this.label1.TabIndex = 0;
@@ -327,7 +328,8 @@
             // comboBoxEdit1
             // 
             this.comboBoxEdit1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxEdit1.Location = new System.Drawing.Point(68, 3);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(84, 0);
+            this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
             this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
@@ -347,7 +349,8 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 15.75F);
-            this.label2.Location = new System.Drawing.Point(210, 6);
+            this.label2.Location = new System.Drawing.Point(220, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 28);
             this.label2.TabIndex = 2;
@@ -357,7 +360,8 @@
             // 
             this.s_time.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.s_time.EditValue = null;
-            this.s_time.Location = new System.Drawing.Point(275, 3);
+            this.s_time.Location = new System.Drawing.Point(279, 0);
+            this.s_time.Margin = new System.Windows.Forms.Padding(0);
             this.s_time.Name = "s_time";
             this.s_time.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
             this.s_time.Properties.Appearance.Options.UseFont = true;
@@ -373,7 +377,8 @@
             // 
             this.e_time.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.e_time.EditValue = null;
-            this.e_time.Location = new System.Drawing.Point(448, 3);
+            this.e_time.Location = new System.Drawing.Point(452, 0);
+            this.e_time.Margin = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.e_time.Name = "e_time";
             this.e_time.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F);
             this.e_time.Properties.Appearance.Options.UseFont = true;

@@ -54,9 +54,9 @@
             this.nav_food = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_more = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.nav_activity = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.nav_paidui = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.nav_paidui = new DevExpress.XtraBars.Navigation.NavigationPage();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
             this.navigationPane1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -128,7 +128,7 @@
             this.nav_table.Name = "nav_table";
             this.nav_table.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.nav_table.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_table.Size = new System.Drawing.Size(1275, 776);
+            this.nav_table.Size = new System.Drawing.Size(1196, 735);
             this.nav_table.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_table_CustomButtonClick);
             // 
             // nav_yingye
@@ -201,6 +201,20 @@
             this.nav_activity.Size = new System.Drawing.Size(1275, 776);
             this.nav_activity.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_activity_CustomButtonClick);
             // 
+            // nav_paidui
+            // 
+            this.nav_paidui.BackgroundPadding = new System.Windows.Forms.Padding(0);
+            this.nav_paidui.Caption = "排队叫号";
+            customHeaderButtonImageOptions8.Image = global::DianDianClient.Properties.Resources.refresh;
+            this.nav_paidui.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject8, null, -1)});
+            this.nav_paidui.ImageOptions.Image = global::DianDianClient.Properties.Resources.paidui;
+            this.nav_paidui.Name = "nav_paidui";
+            this.nav_paidui.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_paidui.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
+            this.nav_paidui.Size = new System.Drawing.Size(1196, 735);
+            this.nav_paidui.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_paidui_CustomButtonClick);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -215,19 +229,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 776);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // nav_paidui
-            // 
-            this.nav_paidui.Caption = "排队叫号";
-            customHeaderButtonImageOptions8.Image = global::DianDianClient.Properties.Resources.refresh;
-            this.nav_paidui.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
-            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", false, customHeaderButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "从数据库重新拉取数据", -1, true, null, true, false, true, serializableAppearanceObject8, null, -1)});
-            this.nav_paidui.ImageOptions.Image = global::DianDianClient.Properties.Resources.paidui;
-            this.nav_paidui.Name = "nav_paidui";
-            this.nav_paidui.Properties.ShowCollapseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_paidui.Properties.ShowExpandButton = DevExpress.Utils.DefaultBoolean.False;
-            this.nav_paidui.Size = new System.Drawing.Size(1180, 719);
-            this.nav_paidui.CustomButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.nav_paidui_CustomButtonClick);
             // 
             // StarForm
             // 

@@ -378,6 +378,9 @@
             // 
             this.radioGroup1.Location = new System.Drawing.Point(119, 3);
             this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup1.Properties.Columns = 2;
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "统计"),
@@ -401,6 +404,9 @@
             // 
             this.radioGroup2.Location = new System.Drawing.Point(420, 3);
             this.radioGroup2.Name = "radioGroup2";
+            this.radioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup2.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup2.Properties.Columns = 2;
             this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "按菜品"),
@@ -424,6 +430,9 @@
             // 
             this.radioGroup3.Location = new System.Drawing.Point(689, 3);
             this.radioGroup3.Name = "radioGroup3";
+            this.radioGroup3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup3.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup3.Properties.Columns = 2;
             this.radioGroup3.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "订单数"),

@@ -86,8 +86,10 @@ namespace DianDianClient.MyControl
 
         private void Style_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
+            Utils.utils._ShowWait("请稍后,主题正在应用","大约需要10秒");
             DevExpress.XtraBars.Navigation.TileNavSubItem tileNavSubItem = (sender) as DevExpress.XtraBars.Navigation.TileNavSubItem;
             defaultLookAndFeel1.LookAndFeel.SkinName = tileNavSubItem.Caption;
+            Utils.utils._EndShowWait();
         }
 
         private void tileNavPane1_MouseDown(object sender, MouseEventArgs e)

@@ -24,6 +24,7 @@ namespace DianDianClient.MyForm
         bool MemberManagement = false;
         bool PaiDui = false;
 
+        MyForm.JiaoBan.QuitForm quit = new JiaoBan.QuitForm();
         public StarForm()
         {
             InitializeComponent();
@@ -74,7 +75,7 @@ namespace DianDianClient.MyForm
                     break;
                 case 3:
                     //this.Close();
-                    MyForm.JiaoBan.QuitForm quit = new JiaoBan.QuitForm();
+                   // MyForm.JiaoBan.QuitForm quit = new JiaoBan.QuitForm();
                     quit.StartPosition = FormStartPosition.CenterScreen;
                     quit.ShowDialog();
                     break;
@@ -138,6 +139,8 @@ namespace DianDianClient.MyForm
             MyEvent.More.MoreEvent.ReplaceEvent += MyReplaceEvent;
             MyEvent.More.MoreEvent.ShowWaitEvent += MyShowWaitEvent;
             MyEvent.More.MoreEvent.EndShowWaitEvent += MyEndShowWaitEvent;
+            Utils.utils.ShowWaitEvent += MyShowWaitEvent;
+            Utils.utils.EndShowWaitEvent += MyEndShowWaitEvent;
             Utils.utils.MessageBoxTipsFormListEvent += ShowMessageBoxTipsFormListEvent;
             TipFormThread.Start();
         }
@@ -243,11 +246,11 @@ namespace DianDianClient.MyForm
             }
             splashScreenManager1.CloseWaitForm();
         }
-        private void MyShowWaitEvent()
+        private void MyShowWaitEvent(string Caption,string Description)
         {
             splashScreenManager1.ShowWaitForm();
-            splashScreenManager1.SetWaitFormCaption("请稍后,正在加载中");     // 标题
-            splashScreenManager1.SetWaitFormDescription("正在初始化.....");　　　　　// 信息
+            splashScreenManager1.SetWaitFormCaption(Caption);     // 标题
+            splashScreenManager1.SetWaitFormDescription(Description);　　　　　// 信息
         }
         private void MyEndShowWaitEvent()
         {

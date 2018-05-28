@@ -147,8 +147,10 @@
             this.btn_qualityproblem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_qualityproblem.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.btn_qualityproblem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_qualityproblem.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_qualityproblem.Appearance.Options.UseBackColor = true;
             this.btn_qualityproblem.Appearance.Options.UseFont = true;
+            this.btn_qualityproblem.Appearance.Options.UseForeColor = true;
             this.btn_qualityproblem.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_qualityproblem.Location = new System.Drawing.Point(193, 96);
             this.btn_qualityproblem.Name = "btn_qualityproblem";
@@ -162,8 +164,10 @@
             this.btn_ordererror.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ordererror.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.btn_ordererror.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ordererror.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_ordererror.Appearance.Options.UseBackColor = true;
             this.btn_ordererror.Appearance.Options.UseFont = true;
+            this.btn_ordererror.Appearance.Options.UseForeColor = true;
             this.btn_ordererror.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_ordererror.Location = new System.Drawing.Point(320, 96);
             this.btn_ordererror.Name = "btn_ordererror";
@@ -177,8 +181,10 @@
             this.btn_material.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_material.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.btn_material.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_material.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_material.Appearance.Options.UseBackColor = true;
             this.btn_material.Appearance.Options.UseFont = true;
+            this.btn_material.Appearance.Options.UseForeColor = true;
             this.btn_material.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_material.Location = new System.Drawing.Point(447, 96);
             this.btn_material.Name = "btn_material";
@@ -192,8 +198,10 @@
             this.btn_submit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_submit.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(147)))), ((int)(((byte)(47)))));
             this.btn_submit.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_submit.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_submit.Appearance.Options.UseBackColor = true;
             this.btn_submit.Appearance.Options.UseFont = true;
+            this.btn_submit.Appearance.Options.UseForeColor = true;
             this.btn_submit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tableLayoutPanel1.SetColumnSpan(this.btn_submit, 2);
             this.btn_submit.Location = new System.Drawing.Point(195, 264);

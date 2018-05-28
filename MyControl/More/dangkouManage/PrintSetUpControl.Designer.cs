@@ -53,10 +53,10 @@
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.isdefault = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.status = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.id = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_save = new DevExpress.XtraEditors.SimpleButton();
-            this.id = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
@@ -172,7 +172,7 @@
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView1.OptionsTiles.IndentBetweenItems = 0;
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(414, 220);
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(414, 110);
             this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
@@ -225,6 +225,12 @@
             this.status.FieldName = "status";
             this.status.Name = "status";
             // 
+            // id
+            // 
+            this.id.Caption = "id";
+            this.id.FieldName = "id";
+            this.id.Name = "id";
+            // 
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
@@ -260,12 +266,6 @@
             this.btn_save.TabIndex = 28;
             this.btn_save.Text = "新增";
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // id
-            // 
-            this.id.Caption = "id";
-            this.id.FieldName = "id";
-            this.id.Name = "id";
             // 
             // PrintSetUpControl
             // 

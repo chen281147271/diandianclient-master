@@ -158,7 +158,7 @@
             this.State,
             this.Price,
             this.Number});
-            this.tileView1.ContextButtonOptions.BottomPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tileView1.ContextButtonOptions.BottomPanelColor = System.Drawing.Color.White;
             contextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Bottom;
             contextButton1.Id = new System.Guid("0ae3c74b-ccd5-4a1f-a501-7356a0e6f203");
             contextButton1.ImageOptions.Image = global::DianDianClient.Properties.Resources.tuicai;

@@ -32,7 +32,21 @@ namespace DianDianClient.Utils
         public delegate void MessageBoxTipsFormList();
         public static event MessageBoxTipsFormList MessageBoxTipsFormListEvent;
 
+        public delegate void ShowWait(string Caption, string Description);
+        public static event ShowWait ShowWaitEvent;
 
+        public delegate void EndShowWait();
+        public static event EndShowWait EndShowWaitEvent;
+
+        //等待
+        public static void _ShowWait(string Caption = "请稍后,正在加载中", string Description = "正在初始化.....")
+        {
+            ShowWaitEvent(Caption, Description);
+        }
+        public static void _EndShowWait()
+        {
+            EndShowWaitEvent();
+        }
         //右下角提示框
         public static void ShowTip(string title, string msg, int FormDelayTime=5000)
         {

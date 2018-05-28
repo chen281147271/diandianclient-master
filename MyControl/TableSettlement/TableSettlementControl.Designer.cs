@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelEnhanced1 = new DianDianClient.MyControl.PanelEnhanced();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.metroTilePanel1 = new DevComponents.DotNetBar.Metro.MetroTilePanel();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.selectedDetails1 = new DianDianClient.MyControl.TableSettlement.SelectedDetails();
+            this.panelEnhanced1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelEnhanced1
+            // 
+            this.panelEnhanced1.Controls.Add(this.tableLayoutPanel1);
+            this.panelEnhanced1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEnhanced1.Location = new System.Drawing.Point(0, 0);
+            this.panelEnhanced1.Name = "panelEnhanced1";
+            this.panelEnhanced1.Size = new System.Drawing.Size(895, 566);
+            this.panelEnhanced1.TabIndex = 3;
             // 
             // tableLayoutPanel1
             // 
@@ -136,10 +147,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.panelEnhanced1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TableSettlement";
             this.Size = new System.Drawing.Size(895, 566);
+            this.panelEnhanced1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -154,5 +166,6 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         public MyControl.TableSettlement.SelectedDetails selectedDetails1;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private PanelEnhanced panelEnhanced1;
     }
 }

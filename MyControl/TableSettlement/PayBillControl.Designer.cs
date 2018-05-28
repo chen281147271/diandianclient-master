@@ -64,11 +64,11 @@
             this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton20 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.Btn_back = new DevExpress.XtraEditors.SimpleButton();
             this.Btn_CheckOut = new DevExpress.XtraEditors.SimpleButton();
             this.Btn_yuda = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.Btn_back = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -85,15 +85,14 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(858, 548);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -112,7 +111,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(852, 350);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(852, 295);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -135,7 +134,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(846, 119);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(846, 91);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // simpleButton7
@@ -146,9 +145,9 @@
             this.simpleButton7.Appearance.Options.UseBackColor = true;
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton7.Location = new System.Drawing.Point(3, 62);
+            this.simpleButton7.Location = new System.Drawing.Point(3, 48);
             this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(163, 54);
+            this.simpleButton7.Size = new System.Drawing.Size(163, 40);
             this.simpleButton7.TabIndex = 11;
             this.simpleButton7.Tag = "免单";
             this.simpleButton7.Text = "免单";
@@ -163,7 +162,7 @@
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton1.Location = new System.Drawing.Point(3, 3);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(163, 53);
+            this.simpleButton1.Size = new System.Drawing.Size(163, 39);
             this.simpleButton1.TabIndex = 6;
             this.simpleButton1.Tag = "优惠";
             this.simpleButton1.Text = "优惠";
@@ -178,7 +177,7 @@
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton2.Location = new System.Drawing.Point(172, 3);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(163, 53);
+            this.simpleButton2.Size = new System.Drawing.Size(163, 39);
             this.simpleButton2.TabIndex = 7;
             this.simpleButton2.Tag = "退菜";
             this.simpleButton2.Text = "退菜";
@@ -193,7 +192,7 @@
             this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton3.Location = new System.Drawing.Point(341, 3);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(163, 53);
+            this.simpleButton3.Size = new System.Drawing.Size(163, 39);
             this.simpleButton3.TabIndex = 8;
             this.simpleButton3.Tag = "服务费";
             this.simpleButton3.Text = "服务费";
@@ -208,7 +207,7 @@
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton4.Location = new System.Drawing.Point(510, 3);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(163, 53);
+            this.simpleButton4.Size = new System.Drawing.Size(163, 39);
             this.simpleButton4.TabIndex = 9;
             this.simpleButton4.Tag = "签单";
             this.simpleButton4.Text = "签单";
@@ -223,7 +222,7 @@
             this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton5.Location = new System.Drawing.Point(679, 3);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(164, 53);
+            this.simpleButton5.Size = new System.Drawing.Size(164, 39);
             this.simpleButton5.TabIndex = 10;
             this.simpleButton5.Tag = "会员";
             this.simpleButton5.Text = "会员";
@@ -232,9 +231,9 @@
             // 
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 846F));
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 128);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 100);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(846, 119);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(846, 91);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -247,12 +246,12 @@
             this.tableLayoutPanel5.Controls.Add(this.label4, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 253);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 197);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(846, 94);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(846, 95);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label5
@@ -260,6 +259,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(760, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 21);
@@ -280,6 +280,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 21);
@@ -291,6 +292,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(760, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 21);
@@ -304,7 +306,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 50);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(501, 41);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(501, 42);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label2
@@ -312,6 +314,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 27);
@@ -362,237 +365,237 @@
             this.tableLayoutPanel6.Controls.Add(this.simpleButton20, 3, 2);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 4, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 359);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 304);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 4;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(852, 186);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(852, 241);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // simpleButton24
             // 
-            this.simpleButton24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton24.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton24.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton24.Appearance.Options.UseBackColor = true;
             this.simpleButton24.Appearance.Options.UseFont = true;
             this.simpleButton24.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton24.Location = new System.Drawing.Point(3, 141);
+            this.simpleButton24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton24.Location = new System.Drawing.Point(3, 183);
             this.simpleButton24.Name = "simpleButton24";
-            this.simpleButton24.Size = new System.Drawing.Size(164, 42);
+            this.simpleButton24.Size = new System.Drawing.Size(164, 55);
             this.simpleButton24.TabIndex = 22;
             this.simpleButton24.Text = "00";
             // 
             // simpleButton23
             // 
-            this.simpleButton23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton23.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton23.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton23.Appearance.Options.UseBackColor = true;
             this.simpleButton23.Appearance.Options.UseFont = true;
             this.simpleButton23.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton23.Location = new System.Drawing.Point(343, 141);
+            this.simpleButton23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton23.Location = new System.Drawing.Point(343, 183);
             this.simpleButton23.Name = "simpleButton23";
-            this.simpleButton23.Size = new System.Drawing.Size(164, 42);
+            this.simpleButton23.Size = new System.Drawing.Size(164, 55);
             this.simpleButton23.TabIndex = 21;
             this.simpleButton23.Text = "0";
             // 
             // simpleButton22
             // 
-            this.simpleButton22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton22.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton22.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton22.Appearance.Options.UseBackColor = true;
             this.simpleButton22.Appearance.Options.UseFont = true;
             this.simpleButton22.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton22.Location = new System.Drawing.Point(173, 141);
+            this.simpleButton22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton22.Location = new System.Drawing.Point(173, 183);
             this.simpleButton22.Name = "simpleButton22";
-            this.simpleButton22.Size = new System.Drawing.Size(164, 42);
+            this.simpleButton22.Size = new System.Drawing.Size(164, 55);
             this.simpleButton22.TabIndex = 20;
             this.simpleButton22.Text = "100";
             // 
             // simpleButton21
             // 
-            this.simpleButton21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton21.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton21.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton21.Appearance.Options.UseBackColor = true;
             this.simpleButton21.Appearance.Options.UseFont = true;
             this.simpleButton21.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton21.Location = new System.Drawing.Point(513, 141);
+            this.simpleButton21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton21.Location = new System.Drawing.Point(513, 183);
             this.simpleButton21.Name = "simpleButton21";
-            this.simpleButton21.Size = new System.Drawing.Size(164, 42);
+            this.simpleButton21.Size = new System.Drawing.Size(164, 55);
             this.simpleButton21.TabIndex = 19;
             this.simpleButton21.Text = ".";
             // 
             // simpleButton9
             // 
-            this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton9.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton9.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton9.Appearance.Options.UseBackColor = true;
             this.simpleButton9.Appearance.Options.UseFont = true;
             this.simpleButton9.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton9.Location = new System.Drawing.Point(3, 3);
             this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton9.Size = new System.Drawing.Size(164, 54);
             this.simpleButton9.TabIndex = 7;
             this.simpleButton9.Text = "1";
             // 
             // simpleButton10
             // 
-            this.simpleButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton10.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton10.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton10.Appearance.Options.UseBackColor = true;
             this.simpleButton10.Appearance.Options.UseFont = true;
             this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton10.Location = new System.Drawing.Point(173, 3);
             this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton10.Size = new System.Drawing.Size(164, 54);
             this.simpleButton10.TabIndex = 8;
             this.simpleButton10.Text = "2";
             // 
             // simpleButton11
             // 
-            this.simpleButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton11.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton11.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton11.Appearance.Options.UseBackColor = true;
             this.simpleButton11.Appearance.Options.UseFont = true;
             this.simpleButton11.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton11.Location = new System.Drawing.Point(343, 3);
             this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton11.Size = new System.Drawing.Size(164, 54);
             this.simpleButton11.TabIndex = 9;
             this.simpleButton11.Text = "3";
             // 
             // simpleButton12
             // 
-            this.simpleButton12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton12.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton12.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton12.Appearance.Options.UseBackColor = true;
             this.simpleButton12.Appearance.Options.UseFont = true;
             this.simpleButton12.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton12.Location = new System.Drawing.Point(513, 3);
             this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton12.Size = new System.Drawing.Size(164, 54);
             this.simpleButton12.TabIndex = 10;
             this.simpleButton12.Text = "10";
             // 
             // simpleButton13
             // 
-            this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton13.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton13.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton13.Appearance.Options.UseBackColor = true;
             this.simpleButton13.Appearance.Options.UseFont = true;
             this.simpleButton13.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton13.Location = new System.Drawing.Point(3, 49);
+            this.simpleButton13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton13.Location = new System.Drawing.Point(3, 63);
             this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton13.Size = new System.Drawing.Size(164, 54);
             this.simpleButton13.TabIndex = 11;
             this.simpleButton13.Text = "4";
             // 
             // simpleButton14
             // 
-            this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton14.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton14.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton14.Appearance.Options.UseBackColor = true;
             this.simpleButton14.Appearance.Options.UseFont = true;
             this.simpleButton14.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton14.Location = new System.Drawing.Point(173, 49);
+            this.simpleButton14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton14.Location = new System.Drawing.Point(173, 63);
             this.simpleButton14.Name = "simpleButton14";
-            this.simpleButton14.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton14.Size = new System.Drawing.Size(164, 54);
             this.simpleButton14.TabIndex = 12;
             this.simpleButton14.Text = "5";
             // 
             // simpleButton15
             // 
-            this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton15.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton15.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton15.Appearance.Options.UseBackColor = true;
             this.simpleButton15.Appearance.Options.UseFont = true;
             this.simpleButton15.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton15.Location = new System.Drawing.Point(343, 49);
+            this.simpleButton15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton15.Location = new System.Drawing.Point(343, 63);
             this.simpleButton15.Name = "simpleButton15";
-            this.simpleButton15.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton15.Size = new System.Drawing.Size(164, 54);
             this.simpleButton15.TabIndex = 13;
             this.simpleButton15.Text = "6";
             // 
             // simpleButton16
             // 
-            this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton16.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton16.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton16.Appearance.Options.UseBackColor = true;
             this.simpleButton16.Appearance.Options.UseFont = true;
             this.simpleButton16.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton16.Location = new System.Drawing.Point(513, 49);
+            this.simpleButton16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton16.Location = new System.Drawing.Point(513, 63);
             this.simpleButton16.Name = "simpleButton16";
-            this.simpleButton16.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton16.Size = new System.Drawing.Size(164, 54);
             this.simpleButton16.TabIndex = 14;
             this.simpleButton16.Text = "20";
             // 
             // simpleButton17
             // 
-            this.simpleButton17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton17.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton17.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton17.Appearance.Options.UseBackColor = true;
             this.simpleButton17.Appearance.Options.UseFont = true;
             this.simpleButton17.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton17.Location = new System.Drawing.Point(3, 95);
+            this.simpleButton17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton17.Location = new System.Drawing.Point(3, 123);
             this.simpleButton17.Name = "simpleButton17";
-            this.simpleButton17.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton17.Size = new System.Drawing.Size(164, 54);
             this.simpleButton17.TabIndex = 15;
             this.simpleButton17.Text = "7";
             // 
             // simpleButton18
             // 
-            this.simpleButton18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton18.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton18.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton18.Appearance.Options.UseBackColor = true;
             this.simpleButton18.Appearance.Options.UseFont = true;
             this.simpleButton18.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton18.Location = new System.Drawing.Point(173, 95);
+            this.simpleButton18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton18.Location = new System.Drawing.Point(173, 123);
             this.simpleButton18.Name = "simpleButton18";
-            this.simpleButton18.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton18.Size = new System.Drawing.Size(164, 54);
             this.simpleButton18.TabIndex = 16;
             this.simpleButton18.Text = "8";
             // 
             // simpleButton19
             // 
-            this.simpleButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton19.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton19.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton19.Appearance.Options.UseBackColor = true;
             this.simpleButton19.Appearance.Options.UseFont = true;
             this.simpleButton19.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton19.Location = new System.Drawing.Point(343, 95);
+            this.simpleButton19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton19.Location = new System.Drawing.Point(343, 123);
             this.simpleButton19.Name = "simpleButton19";
-            this.simpleButton19.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton19.Size = new System.Drawing.Size(164, 54);
             this.simpleButton19.TabIndex = 17;
             this.simpleButton19.Text = "9";
             // 
             // simpleButton20
             // 
-            this.simpleButton20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton20.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton20.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton20.Appearance.Options.UseBackColor = true;
             this.simpleButton20.Appearance.Options.UseFont = true;
             this.simpleButton20.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simpleButton20.Location = new System.Drawing.Point(513, 95);
+            this.simpleButton20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton20.Location = new System.Drawing.Point(513, 123);
             this.simpleButton20.Name = "simpleButton20";
-            this.simpleButton20.Size = new System.Drawing.Size(164, 40);
+            this.simpleButton20.Size = new System.Drawing.Size(164, 54);
             this.simpleButton20.TabIndex = 18;
             this.simpleButton20.Text = "50";
             // 
@@ -611,21 +614,40 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(166, 180);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(166, 235);
             this.tableLayoutPanel7.TabIndex = 23;
+            // 
+            // Btn_back
+            // 
+            this.Btn_back.Appearance.BackColor = System.Drawing.Color.Salmon;
+            this.Btn_back.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_back.Appearance.ForeColor = System.Drawing.Color.White;
+            this.Btn_back.Appearance.Options.UseBackColor = true;
+            this.Btn_back.Appearance.Options.UseFont = true;
+            this.Btn_back.Appearance.Options.UseForeColor = true;
+            this.Btn_back.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.Btn_back.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_back.Location = new System.Drawing.Point(3, 178);
+            this.Btn_back.Name = "Btn_back";
+            this.Btn_back.Size = new System.Drawing.Size(160, 54);
+            this.Btn_back.TabIndex = 14;
+            this.Btn_back.Text = "返回";
+            this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
             // Btn_CheckOut
             // 
             this.Btn_CheckOut.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(28)))));
             this.Btn_CheckOut.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(101)))), ((int)(((byte)(28)))));
             this.Btn_CheckOut.Appearance.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_CheckOut.Appearance.ForeColor = System.Drawing.Color.White;
             this.Btn_CheckOut.Appearance.Options.UseBackColor = true;
             this.Btn_CheckOut.Appearance.Options.UseFont = true;
+            this.Btn_CheckOut.Appearance.Options.UseForeColor = true;
             this.Btn_CheckOut.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Btn_CheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_CheckOut.Location = new System.Drawing.Point(3, 57);
+            this.Btn_CheckOut.Location = new System.Drawing.Point(3, 73);
             this.Btn_CheckOut.Name = "Btn_CheckOut";
-            this.Btn_CheckOut.Size = new System.Drawing.Size(160, 75);
+            this.Btn_CheckOut.Size = new System.Drawing.Size(160, 99);
             this.Btn_CheckOut.TabIndex = 13;
             this.Btn_CheckOut.Text = "结账";
             // 
@@ -634,13 +656,15 @@
             this.Btn_yuda.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(142)))), ((int)(((byte)(136)))));
             this.Btn_yuda.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(142)))), ((int)(((byte)(136)))));
             this.Btn_yuda.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_yuda.Appearance.ForeColor = System.Drawing.Color.White;
             this.Btn_yuda.Appearance.Options.UseBackColor = true;
             this.Btn_yuda.Appearance.Options.UseFont = true;
+            this.Btn_yuda.Appearance.Options.UseForeColor = true;
             this.Btn_yuda.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Btn_yuda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_yuda.Location = new System.Drawing.Point(3, 3);
             this.Btn_yuda.Name = "Btn_yuda";
-            this.Btn_yuda.Size = new System.Drawing.Size(160, 48);
+            this.Btn_yuda.Size = new System.Drawing.Size(160, 64);
             this.Btn_yuda.TabIndex = 12;
             this.Btn_yuda.Text = "预打";
             // 
@@ -671,21 +695,6 @@
             this.simpleButton8.Size = new System.Drawing.Size(146, 53);
             this.simpleButton8.TabIndex = 12;
             this.simpleButton8.Text = "90%";
-            // 
-            // Btn_back
-            // 
-            this.Btn_back.Appearance.BackColor = System.Drawing.Color.Salmon;
-            this.Btn_back.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_back.Appearance.Options.UseBackColor = true;
-            this.Btn_back.Appearance.Options.UseFont = true;
-            this.Btn_back.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.Btn_back.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_back.Location = new System.Drawing.Point(3, 138);
-            this.Btn_back.Name = "Btn_back";
-            this.Btn_back.Size = new System.Drawing.Size(160, 39);
-            this.Btn_back.TabIndex = 14;
-            this.Btn_back.Text = "返回";
-            this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
             // PayBillControl
             // 
